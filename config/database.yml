@@ -12,14 +12,15 @@
 default: &default
   adapter: mysql2
   encoding: utf8
+  collation: utf8_swedish_ci
   pool: 5
-  username: root
-  password:
+  username: ruby
+  password: rails
   socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
-  database: folio_development
+  database: folio_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -49,6 +50,4 @@ test:
 #
 production:
   <<: *default
-  database: folio_production
-  username: folio
-  password: <%= ENV['FOLIO_DATABASE_PASSWORD'] %>
+  database: folio
