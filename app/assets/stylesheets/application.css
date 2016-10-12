@@ -10,6 +10,17 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+ * Bootstrap and FontAwesome from gems
+ *= require bootstrap-sass
+ *= require font-awesome-sass
+ *
+ * Vendor fonts
+ *= require open-sans
+ *= require pe-icon-7-stroke/pe-icon-7-stroke
+ *= require pe-icon-7-stroke/helper
+ *
+ * Vendor CSS
+ *= require animate.min
+ *= require metisMenu.min
+ *= require homer/style
  */

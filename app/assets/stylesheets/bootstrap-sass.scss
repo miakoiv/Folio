@@ -1,0 +1,11 @@
+/*
+ * Imports Bootstrap files from the gem.
+ *
+ * Redefine any Bootstrap variables here before the @import directives.
+ *
+ * $navbar-default-bg: #312312;
+ * $light-orange: #ff8c00;
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
