@@ -20,7 +20,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'haml'
 gem 'haml-rails'
 
-# User interface gems required by the HOMER theme.
+# User interface gems required by the HOMER theme
 gem 'bootstrap-sass', '3.3.6'
 gem 'font-awesome-sass', '~> 4.6.2'
 
@@ -34,6 +34,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+# User authentication
+gem 'devise'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
