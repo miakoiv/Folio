@@ -1,0 +1,28 @@
+.color-line
+#logo.light-version
+  %span Folio
+%nav{role: 'navigation'}
+  .header-link.hide-menu
+    %i.fa.fa-bars
+  .small-logo
+    %span.text-primary Folio
+  %form.navbar-form-custom{role: 'search'}
+    .form-group
+      %input.form-control{type: 'text', placeholder: 'Etsi mitä tahansa'}
+  .mobile-menu
+    %button.navbar-toggle.mobile-menu-toggle{type: 'button',
+      data: {toggle: 'collapse', target: '#mobile-collapse'}}
+      %i.fa.fa-chevron-down
+    #mobile-collapse.mobile-navbar.collapse
+      %ul.nav.navbar-nav
+        %li
+          %a{href: 'login'} Kirjaudu sisään
+        %li
+          %a{href: 'logout'} Kirjaudu ulos
+        %li
+          %a{href: 'profile'} Oma profiili
+  .navbar-right
+    %ul.nav.navbar-nav.no-borders
+      %li
+        %a{href: 'logout'}
+          %i.pe-7s-upload.pe-rotate-90
