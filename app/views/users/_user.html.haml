@@ -1,0 +1,16 @@
+.hpanel.hblue.contact-panel
+  .panel-body
+    = profile_image(user)
+    %h3= user.last_name
+    .text-muted.font-bold.m-b-xs
+      = user.first_names
+  .panel-footer.contact-footer
+    .row
+      .col-md-6.border-right
+        .contact-stat
+          %span Käyntejä:
+          %strong 1
+      .col-md-6
+        .contact-stat
+          %span Viimeisin:
+          %strong 12.10.2016

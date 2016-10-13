@@ -1,0 +1,19 @@
+- content_for :header do
+  %h2 Käyttäjätilit
+  %small= @user.full_name
+- content_for :breadcrumb do
+  %li= link_to 'Käyttäjätilit', users_path
+  %li.active= @user.full_name
+
+.content
+  .row
+    .col-lg-3.col-md-4.col-sm-5
+      = render @user
+    .col-lg-9.col-md-8.col-sm-7
+      .hpanel
+        .panel-heading.hbuilt
+          .pull-right
+            = link_to icon('pencil', 'Muokkaa'), [:edit, @user], class: 'btn btn-xs btn-primary'
+          Käyttäjän tiedot
+        .panel-body
+          = render partial: 'form', locals: {disabled: true}

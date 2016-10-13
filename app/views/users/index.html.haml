@@ -1,0 +1,15 @@
+- content_for :header do
+  %h2 Käyttäjätilit
+  %small Lohjan toimisto
+- content_for :breadcrumb do
+  %li.active Käyttäjätilit
+
+.content
+  .row
+    .col-lg-3.col-md-4.col-sm-6
+      = link_to new_user_path do
+        = render partial: 'users/new'
+    - @users.each do |user|
+      .col-lg-3.col-md-4.col-sm-6
+        = link_to user do
+          = render user

@@ -1,0 +1,19 @@
+- content_for :header do
+  %h2 Käyttäjätilit
+  %small Uuden käyttäjätilin perustaminen
+- content_for :breadcrumb do
+  %li= link_to 'Käyttäjätilit', users_path
+  %li.active Uusi käyttäjätili
+
+.content
+  .row
+    .col-lg-3.col-md-4.col-sm-5
+      = render 'users/new'
+    .col-lg-9.col-md-8.col-sm-7
+      .hpanel
+        .panel-heading.hbuilt
+          .pull-right
+            = link_to icon('close', 'Kumoa'), users_path, class: 'btn btn-xs btn-default'
+          Käyttäjän tiedot
+        .panel-body
+          = render partial: 'form', locals: {disabled: false}

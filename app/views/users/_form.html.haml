@@ -1,0 +1,12 @@
+= bootstrap_form_for @user do |f|
+  %fieldset{disabled: disabled}
+    = f.email_field :email, required: true
+    = f.text_field :last_name, required: true
+    = f.text_field :first_names, required: true
+    = f.date_field :activates_at,
+        data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd'}
+    = f.date_field :expires_at,
+        data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd'}
+  - unless disabled
+    .form-group.actions
+      = f.submit class: 'btn btn-primary'
