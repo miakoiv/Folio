@@ -24,6 +24,10 @@ gem 'haml-rails'
 gem 'bootstrap-sass', '3.3.6'
 gem 'font-awesome-sass', '~> 4.6.2'
 
+# Extensions to Bootstrap
+gem 'bootstrap_form'
+gem 'bootstrap-datepicker-rails'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

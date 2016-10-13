@@ -13,6 +13,8 @@
  * Bootstrap and FontAwesome from gems
  *= require bootstrap-sass
  *= require font-awesome-sass
+ *= require rails_bootstrap_forms
+ *= require bootstrap-datepicker3
  *
  * Vendor fonts
  *= require open-sans
