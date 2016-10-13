@@ -1,11 +1,21 @@
 /*
  * Imports Bootstrap files from the gem.
  *
- * Redefine any Bootstrap variables here before the @import directives.
- *
- * $navbar-default-bg: #312312;
- * $light-orange: #ff8c00;
+ * Redefine any Bootstrap variables here before the @import directives,
+ * and override styles after the directives.
  */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+// Prevent scrollbar flashing
+body {
+  overflow-y: scroll;
+}
+
+// Make disabled form controls transparent like static controls
+.form-control[disabled], fieldset[disabled] .form-control {
+  background-color: transparent;
+  border-color: transparent !important;
+  cursor: default;
+}

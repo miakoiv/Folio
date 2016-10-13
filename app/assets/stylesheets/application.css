@@ -24,5 +24,7 @@
  * Vendor CSS
  *= require animate.min
  *= require metisMenu.min
- *= require homer/style
+ *
+ * HOMER theme
+ *= require homer-sass
  */

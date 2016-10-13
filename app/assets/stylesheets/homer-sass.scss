@@ -1,0 +1,10 @@
+/*
+ * Imports the vendor version of HOMER
+ * and applies custom overrides.
+ */
+
+@import 'homer/style';
+
+.normalheader h2 {
+  @extend .font-light, .m-b-xs;
+}
