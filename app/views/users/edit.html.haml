@@ -1,9 +1,6 @@
 - content_for :header do
   %h2 Käyttäjätilit
-  %small
-    Käyttäjän
-    = @user.full_name
-    tietojen muokkaus
+  %small= @user.full_name
 - content_for :breadcrumb do
   %li= link_to 'Käyttäjätilit', users_path
   %li.active= @user.full_name
