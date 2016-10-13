@@ -7,7 +7,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
-  %body.fixed-navbar.fixed-sidebar
+  %body.fixed-navbar.fixed-sidebar.fixed-footer
 
     #header
       = render partial: 'shared/header'
@@ -19,6 +19,8 @@
           = render partial: 'shared/menu'
 
     #wrapper
+      - if content_for?(:header) || content_for?(:breadcrumb)
+        = render partial: 'shared/small_header'
       = yield
 
       = render partial: 'shared/footer'
