@@ -10,9 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- * Bootstrap and FontAwesome from gems
- *= require bootstrap-sass
- *= require font-awesome-sass
+ * Stylesheets from gems
  *= require rails_bootstrap_forms
  *= require bootstrap-datepicker3
  *
@@ -25,6 +23,6 @@
  *= require animate.min
  *= require metisMenu.min
  *
- * HOMER theme
- *= require homer-sass
+ * Bootstrap with HOMER theme
+ *= require bootstrap-homer-sass
  */

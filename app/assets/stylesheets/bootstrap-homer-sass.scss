@@ -1,5 +1,5 @@
 /*
- * Imports Bootstrap files from the gem.
+ * Imports Bootstrap and decorates it with the HOMER theme.
  *
  * Redefine any Bootstrap variables here before the @import directives,
  * and override styles after the directives.
@@ -7,6 +7,9 @@
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import 'homer/style';
 
 // Prevent scrollbar flashing
 body {
@@ -22,14 +25,24 @@ body {
 
 // Decorate required form control labels
 label.required:after {
-  display: inline-block;
+  @extend .fa;
   margin-left: 0.5em;
   content: '\f06a';
-  font: normal normal normal 14px/1 'FontAwesome';
   color: $brand-primary;
 }
 
 // No decoration when the fieldset is disabled
 fieldset[disabled] label.required:after {
   display: none;
+}
+
+// Small header H2 defaults
+.normalheader h2 {
+  @extend .font-light, .m-b-xs;
+}
+
+// Devise styling
+.devise-actions {
+  @extend .m-t-md;
+  a { @extend .btn, .btn-default, .btn-sm, .btn-block; }
 }
