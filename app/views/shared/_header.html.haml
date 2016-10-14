@@ -15,14 +15,18 @@
       %i.fa.fa-chevron-down
     #mobile-collapse.mobile-navbar.collapse
       %ul.nav.navbar-nav
-        %li
-          %a{href: 'login'} Kirjaudu sisään
-        %li
-          %a{href: 'logout'} Kirjaudu ulos
-        %li
-          %a{href: 'profile'} Oma profiili
+        - if user_signed_in?
+          %li
+            = link_to destroy_user_session_path, method: :delete do
+              %i.fa.fa-fw.fa-sign-out
+              Kirjaudu ulos
+          %li
+            = link_to current_user do
+              %i.fa.fa-fw.fa-user
+              Oma profiili
   .navbar-right
     %ul.nav.navbar-nav.no-borders
-      %li
-        %a{href: 'logout'}
-          %i.pe-7s-upload.pe-rotate-90
+      - if user_signed_in?
+        %li
+          = link_to destroy_user_session_path, method: :delete do
+            %i.pe-7s-upload.pe-rotate-90

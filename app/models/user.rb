@@ -1,7 +1,11 @@
 class User < ApplicationRecord
 
-  validates :email, :last_name, :first_names,
-    presence: true
+  # Include default devise modules. Others available are:
+  # :registerable, :confirmable, and :omniauthable
+  devise :database_authenticatable, :lockable, :recoverable,
+         :rememberable, :trackable, :timeoutable, :validatable
+
+  validates :last_name, :first_names, presence: true
 
   def full_name
     return last_name if first_names.empty?

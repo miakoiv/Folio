@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %meta{content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type'}
+    %title Folio
+    %meta{name: 'turbolinks-cache-control', content: 'no-cache'}
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body.blank
+    .color-line
+    .login-container
+      .row
+        .col-md-12
+          = yield
+      .row
+        .col-md-12.text-center
+          %small
+            LeasIT Oy
+            %i.fa.fa-copyright
+            2016
