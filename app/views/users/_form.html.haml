@@ -1,4 +1,5 @@
-= bootstrap_form_for @user, html: {novalidate: true} do |f|
+= bootstrap_form_for @user, remote: true,
+    html: {novalidate: true, data: {behavior: 'turbolinks'}} do |f|
   %fieldset{disabled: disabled}
     = f.email_field :email, required: true
     = f.text_field :last_name, required: true
