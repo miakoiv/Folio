@@ -27,6 +27,7 @@ gem 'font-awesome-sass', '~> 4.6.2'
 # Extensions to Bootstrap
 gem 'bootstrap_form'
 gem 'bootstrap-datepicker-rails'
+gem 'unobtrusive_flash'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
