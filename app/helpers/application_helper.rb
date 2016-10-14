@@ -6,4 +6,11 @@ module ApplicationHelper
     tag :meta, name: 'turbolinks-cache-control',
       content: @turbolinks_cache_control || 'cache'
   end
+
+  # Controllers may set @disable_editing to have forms render with
+  # disabled controls. This helper should be used in views since
+  # the instance variable may be nil.
+  def editing_disabled?
+    @disable_editing
+  end
 end

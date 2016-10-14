@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    disable_editing!
   end
 
   # GET /users/new
@@ -31,10 +32,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
-        format.html {
-          render partial: 'form', locals: {disabled: false},
-            status: :unprocessable_entity
-        }
+        format.html { render partial: 'form', status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -48,10 +46,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
-        format.html {
-          render partial: 'form', locals: {disabled: false},
-            status: :unprocessable_entity
-        }
+        format.html { render partial: 'form', status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

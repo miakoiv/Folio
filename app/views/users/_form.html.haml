@@ -1,6 +1,6 @@
 = bootstrap_form_for @user, remote: true,
     html: {novalidate: true, data: {behavior: 'turbolinks'}} do |f|
-  %fieldset{disabled: disabled}
+  %fieldset{disabled: editing_disabled?}
     = f.email_field :email, required: true
     = f.text_field :last_name, required: true
     = f.text_field :first_names, required: true
@@ -11,6 +11,6 @@
         data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd'}
     = f.date_field :expires_at,
         data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd'}
-  - unless disabled
+  - unless editing_disabled?
     .form-group.actions
       = f.submit class: 'btn btn-primary'
