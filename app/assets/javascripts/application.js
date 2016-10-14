@@ -17,10 +17,12 @@
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.fi.js
+//= require unobtrusive_flash
 //
 // Vendor scripts
 //= require jquery.slimscroll.min
 //= require metisMenu.min
+//= require toastr.min
 //= require homer
 //
 //= require_tree .

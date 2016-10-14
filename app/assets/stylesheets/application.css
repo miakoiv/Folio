@@ -22,6 +22,7 @@
  * Vendor CSS
  *= require animate.min
  *= require metisMenu.min
+ *= require toastr.min
  *
  * Bootstrap with HOMER theme
  *= require bootstrap-homer-sass
