@@ -18,4 +18,11 @@ module ApplicationHelper
   def title(klass, options = {})
     klass.model_name.human(options).capitalize
   end
+
+  # Generates an options array for locale select tags.
+  def locale_options
+    I18n.available_locales.map do |l|
+      [I18n.with_locale(l) { t('i18n.language.name') }, l]
+    end
+  end
 end

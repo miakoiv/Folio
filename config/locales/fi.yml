@@ -1,5 +1,8 @@
 ---
 fi:
+  i18n:
+    language:
+      name: suomi
   activerecord:
     errors:
       messages:

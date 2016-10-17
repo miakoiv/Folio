@@ -13,6 +13,7 @@ en:
         expires_at: Expiration date
         first_names: First names
         last_name: Last name
+        locale: Language
         password: Password
         password_confirmation: Password confirmation
         remember_me: Remember me

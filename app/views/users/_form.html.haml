@@ -4,6 +4,7 @@
     = f.email_field :email, required: true
     = f.text_field :last_name, required: true
     = f.text_field :first_names, required: true
+    = f.select :locale, locale_options
     - if @user.new_record?
       = f.password_field :password, required: true
       = f.password_field :password_confirmation

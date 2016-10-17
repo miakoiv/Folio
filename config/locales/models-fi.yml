@@ -13,6 +13,7 @@ fi:
         expires_at: Vanhenemispäivä
         first_names: Etunimet
         last_name: Sukunimi
+        locale: Kieli
         password: Salasana
         password_confirmation: Salasanan vahvistus
         remember_me: Muista minut
