@@ -1,6 +1,6 @@
 .text-center.m-b-md
   %h3 Folio
-  %small Kirjaudu sisään
+  %small= t('.sign_in')
 .hpanel
   .panel-body
     = bootstrap_form_for resource, as: resource_name,
@@ -10,5 +10,5 @@
       - if devise_mapping.rememberable?
         = f.check_box :remember_me
       .actions
-        = f.submit 'Kirjaudu', class: 'btn btn-success btn-block'
+        = f.submit t('.sign_in'), class: 'btn btn-success btn-block'
       = render "devise/shared/links"

@@ -1,11 +1,11 @@
 .text-center.m-b-md
   %h3 Folio
-  %small Unohditko salasanasi?
+  %small= t('.forgot_your_password')
 .hpanel
   .panel-body
     = bootstrap_form_for resource, as: resource_name,
         url: password_path(resource_name) do |f|
       = f.email_field :email, autofocus: true
       .actions
-        = f.submit "Send me reset password instructions", class: 'btn btn-success btn-block'
+        = f.submit t('.send_me_reset_password_instructions'), class: 'btn btn-success btn-block'
       = render "devise/shared/links"
