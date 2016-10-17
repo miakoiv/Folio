@@ -13,4 +13,9 @@ module ApplicationHelper
   def editing_disabled?
     @disable_editing
   end
+
+  # Helper to generate titles for pages and menu entries
+  def title(klass, options = {})
+    klass.model_name.human(options).capitalize
+  end
 end
