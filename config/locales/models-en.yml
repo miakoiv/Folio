@@ -1,0 +1,21 @@
+en:
+  activerecord:
+    models:
+      user:
+        one: user account
+        other: user accounts
+    attributes:
+      user:
+        activates_at: Activation date
+        current_password: Current password
+        current_sign_in_at: Latest visit
+        email: E-mail address
+        expires_at: Expiration date
+        first_names: First names
+        last_name: Last name
+        password: Password
+        password_confirmation: Password confirmation
+        remember_me: Remember me
+        reset_password_token: Reset password token
+        sign_in_count: Visits
+        unlock_token: Unlock token

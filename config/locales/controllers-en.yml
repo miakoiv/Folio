@@ -1,0 +1,8 @@
+en:
+  users:
+    create:
+      notice: "User account %{user} created."
+    update:
+      notice: "User account %{user} updated."
+    destroy:
+      notice: "User account %{user} deleted."

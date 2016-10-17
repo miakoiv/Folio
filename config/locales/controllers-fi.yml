@@ -1,0 +1,8 @@
+fi:
+  users:
+    create:
+      notice: "Käyttäjätili %{user} luotu."
+    update:
+      notice: "Käyttäjätili %{user} päivitetty."
+    destroy:
+      notice: "Käyttäjätili %{user} poistettu."

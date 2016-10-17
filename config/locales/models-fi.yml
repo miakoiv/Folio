@@ -1,0 +1,21 @@
+fi:
+  activerecord:
+    models:
+      user:
+        one: käyttäjätili
+        other: käyttäjätilit
+    attributes:
+      user:
+        activates_at: Aktivointipäivä
+        current_password: Nykyinen salasana
+        current_sign_in_at: Viimeisin
+        email: Sähköpostiosoite
+        expires_at: Vanhenemispäivä
+        first_names: Etunimet
+        last_name: Sukunimi
+        password: Salasana
+        password_confirmation: Salasanan vahvistus
+        remember_me: Muista minut
+        reset_password_token: Salasanan nollausavain
+        sign_in_count: Käyntejä
+        unlock_token: Lukituksen avain
