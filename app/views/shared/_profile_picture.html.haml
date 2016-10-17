@@ -12,8 +12,8 @@
         %li
           = link_to destroy_user_session_path, method: :delete do
             %i.fa.fa-fw.fa-sign-out
-            Kirjaudu ulos
+            = t('devise.shared.links.sign_out')
         %li
           = link_to current_user do
             %i.fa.fa-fw.fa-user
-            Oma profiili
+            = t('users.links.my_profile')

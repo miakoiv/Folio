@@ -8,7 +8,7 @@
     %span.text-primary Folio
   %form.navbar-form-custom{role: 'search'}
     .form-group
-      %input.form-control{type: 'text', placeholder: 'Etsi mitä tahansa'}
+      %input.form-control{type: 'text', placeholder: t('.quick_search')}
   .mobile-menu
     %button.navbar-toggle.mobile-menu-toggle{type: 'button',
       data: {toggle: 'collapse', target: '#mobile-collapse'}}
@@ -19,11 +19,11 @@
           %li
             = link_to destroy_user_session_path, method: :delete do
               %i.fa.fa-fw.fa-sign-out
-              Kirjaudu ulos
+              = t('devise.shared.links.sign_out')
           %li
             = link_to current_user do
               %i.fa.fa-fw.fa-user
-              Oma profiili
+              = t('users.links.my_profile')
   .navbar-right
     %ul.nav.navbar-nav.no-borders
       - if user_signed_in?

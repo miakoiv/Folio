@@ -1,19 +1,23 @@
 - content_for :header do
-  %h2 Käyttäjätilit
-  %small Uuden käyttäjätilin perustaminen
+  %h2= title(User, count: 2)
+  %small
+    = t('users.new.last_name')
+    = t('users.new.first_names')
 - content_for :breadcrumb do
-  %li= link_to 'Käyttäjätilit', users_path
-  %li.active Uusi käyttäjätili
+  %li= link_to title(User, count: 2), users_path
+  %li.active
+    = t('users.new.last_name')
+    = t('users.new.first_names')
 
 .content
   .row
-    .col-lg-3.col-md-4.col-sm-5
+    .col-lg-4.col-md-6
       = render 'users/new'
-    .col-lg-9.col-md-8.col-sm-7
+    .col-lg-4.col-md-6
       .hpanel
         .panel-heading.hbuilt
           .pull-right
-            = link_to icon('close', 'Kumoa'), users_path, class: 'btn btn-xs btn-default'
-          Käyttäjän tiedot
+            = link_to icon('close', t('actions.cancel')), users_path, class: 'btn btn-xs btn-default'
+          = t('users.panel.header')
         .panel-body
           = render partial: 'form'

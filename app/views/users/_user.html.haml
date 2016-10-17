@@ -8,9 +8,13 @@
     .row
       .col-md-6.border-right
         .contact-stat
-          %span Käyntejä:
+          %span= User.human_attribute_name(:sign_in_count)
           %strong= user.sign_in_count
       .col-md-6
         .contact-stat
-          %span Viimeisin:
-          %strong= l(user.current_sign_in_at, format: :short)
+          %span= User.human_attribute_name(:current_sign_in_at)
+          %strong
+            - if user.current_sign_in_at.present?
+              = l(user.current_sign_in_at, format: :short)
+            - else
+              –
