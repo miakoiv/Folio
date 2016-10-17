@@ -4,7 +4,9 @@
     = f.email_field :email, required: true
     = f.text_field :last_name, required: true
     = f.text_field :first_names, required: true
-    = f.select :locale, locale_options
+    = f.select :locale, locale_options, {},
+        disabled: editing_disabled?, class: 'select2',
+        data: {'minimum-results-for-search' => 'Infinity'}
     - if @user.new_record?
       = f.password_field :password, required: true
       = f.password_field :password_confirmation

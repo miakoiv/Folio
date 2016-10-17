@@ -17,6 +17,9 @@
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.fi.js
+//= require select2
+//= require select2_locale_en
+//= require select2_locale_fi
 //= require unobtrusive_flash
 //
 // Vendor scripts
