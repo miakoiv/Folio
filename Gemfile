@@ -20,9 +20,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'haml'
 gem 'haml-rails'
 
-# RecordTagHelper is now a gem
-gem 'record_tag_helper', '~> 1.0'
-
 # User interface gems required by the HOMER theme
 gem 'bootstrap-sass', '3.3.6'
 gem 'font-awesome-sass', '~> 4.6.2'
