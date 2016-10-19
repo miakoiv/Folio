@@ -3,10 +3,9 @@
   %head
     %meta{content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type'}
     %title Folio
-    %meta{name: 'turbolinks-cache-control', content: 'no-cache'}
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
 
   %body.blank
     .color-line
@@ -17,6 +16,7 @@
       .row
         .col-md-12.text-center
           %small
-            LeasIT Oy
-            %i.fa.fa-copyright
-            2016
+            = t('shared.footer.copyright_html')
+
+    #toast-container.toast-top-center
+      %span

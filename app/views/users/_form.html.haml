@@ -1,12 +1,12 @@
-= bootstrap_form_for @user, remote: true,
-    html: {novalidate: true, data: {behavior: 'turbolinks'}} do |f|
+= bootstrap_form_for @user,
+    html: {novalidate: true} do |f|
   %fieldset{disabled: editing_disabled?}
     = f.email_field :email, required: true
     = f.text_field :last_name, required: true
     = f.text_field :first_names, required: true
-    = f.select :locale, locale_options, {},
-        disabled: editing_disabled?, class: 'select2',
-        data: {'minimum-results-for-search' => 'Infinity'}
+    = f.select :locale, locale_options, {}, disabled: editing_disabled?,
+        data: {provide: 'select2', theme: 'bootstrap',
+          'minimum-results-for-search': 'Infinity'}
     - if @user.new_record?
       = f.password_field :password, required: true
       = f.password_field :password_confirmation

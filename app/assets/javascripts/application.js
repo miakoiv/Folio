@@ -13,7 +13,6 @@
 // Scripts from gems
 //= require jquery2
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.fi.js

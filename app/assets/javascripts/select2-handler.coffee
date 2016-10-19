@@ -1,5 +1,8 @@
-$(document).on 'turbolinks:load', ->
-  $('select.select2').each ->
-    options = $(this).data()
-    options['theme'] = 'bootstrap'
-    $(this).select2 options
+@bindSelect2 = ->
+  $(document)
+    .find('[data-provide="select2"]')
+    .not('.select2-hidden-accessible')
+    .select2()
+
+$ ->
+  bindSelect2()

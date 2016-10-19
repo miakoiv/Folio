@@ -32,7 +32,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: t('.notice', user: @user) }
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { render partial: 'form', status: :unprocessable_entity }
+        format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: t('.notice', user: @user) }
         format.json { render :show, status: :ok, location: @user }
       else
-        format.html { render partial: 'form', status: :unprocessable_entity }
+        format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

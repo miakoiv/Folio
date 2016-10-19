@@ -1,12 +1,5 @@
 module ApplicationHelper
 
-  # Include this helper in the layout to control Turbolinks caching behavior.
-  # See app/controllers/concerns/turbolinks_cache_control.rb
-  def turbolinks_cache_control_meta_tag
-    tag :meta, name: 'turbolinks-cache-control',
-      content: @turbolinks_cache_control || 'cache'
-  end
-
   # Controllers may set @disable_editing to have forms render with
   # disabled controls. This helper should be used in views since
   # the instance variable may be nil.

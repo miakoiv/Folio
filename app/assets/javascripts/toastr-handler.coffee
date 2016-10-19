@@ -1,16 +1,18 @@
 window.toastr.options =
   debug: false
   newestOnTop: false
-  positionClass: 'toast-top-center'
   closeButton: true
   toastClass: 'animated fadeInDown'
 
-@toastrTypes =
+window.UnobtrusiveFlash.mapping =
   notice: 'info'
   alert: 'warning'
   error: 'danger'
 
+UnobtrusiveFlash.showFlashMessage = (message, type) ->
+  toastr[UnobtrusiveFlash.mapping[type]](message)
+
 @toastrHandler = (e, params) ->
-  toastr[@toastrTypes[params.type]](params.message)
+  UnobtrusiveFlash.showFlashMessage params.message, params.type
 
 $(window).on 'rails:flash', @toastrHandler
