@@ -1,6 +1,4 @@
-%li.active
-  = link_to people_path do
-    %span.nav-label= title(Person, count: 2)
-%li
-  = link_to users_path do
-    %span.nav-label= title(User, count: 2)
+= active_link_to people_path, wrap_tag: :li do
+  %span.nav-label= title(Person, count: 2)
+= active_link_to users_path, wrap_tag: :li do
+  %span.nav-label= title(User, count: 2)
