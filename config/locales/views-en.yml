@@ -8,6 +8,17 @@ en:
     footer:
       copyright_html: LeasIT Oy <i class="fa fa-copyright"></i> 2016
       slogan_html: Made with love <i class="fa fa-heart"></i> in Finland.
+  people:
+    panel:
+      header: Personal information
+    filter:
+      header: Filter people
+      help: Apply filters below to limit the selection shown
+    search:
+      placeholder: Search people
+    new:
+      last_name: New
+      first_names: person
   users:
     links:
       my_profile: My profile

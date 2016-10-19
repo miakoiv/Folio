@@ -1,10 +1,29 @@
 en:
   activerecord:
     models:
+      person:
+        one: person
+        other: people
       user:
         one: user account
         other: user accounts
     attributes:
+      person:
+        accommodation: Accommodation
+        address: Address
+        date_of_birth: Date of birth
+        email: E-mail address
+        first_names: First names
+        gender: Gender
+        identification: Identification
+        information: Information
+        language: Language
+        last_name: Last name
+        municipality: Municipality
+        nationality: Nationality
+        phone: Phone number
+        referrals: Referrals
+        restrictions: Restrictions
       user:
         activates_at: Activation date
         current_password: Current password

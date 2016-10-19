@@ -1,0 +1,13 @@
+.hpanel.hblue.contact-panel
+  .panel-body
+    .pull-right.text-right
+      .btn-group
+        - if person.phone.present?
+          = tel_to icon('phone'), person.phone, class: 'btn btn-default'
+        - if person.email.present?
+          = mail_to icon('envelope'), person.email, class: 'btn btn-default'
+    = image_tag '//gravatar.com/avatar/' + Digest::MD5.hexdigest(person.email),
+        class: 'img-circle m-b m-t-md'
+    %h3= person.last_name
+    .text-muted.font-bold.m-b-xs
+      = person.first_names

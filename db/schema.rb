@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017073918) do
+ActiveRecord::Schema.define(version: 20161017105523) do
+
+  create_table "people", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.string   "identification",               null: false
+    t.date     "date_of_birth"
+    t.string   "last_name"
+    t.string   "first_names"
+    t.string   "gender",         limit: 1
+    t.string   "email"
+    t.string   "phone"
+    t.string   "address"
+    t.string   "municipality"
+    t.string   "language",       limit: 2
+    t.string   "nationality",    limit: 2
+    t.string   "accommodation"
+    t.text     "restrictions",   limit: 65535
+    t.text     "referrals",      limit: 65535
+    t.text     "information",    limit: 65535
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.string   "email",                  default: "", null: false

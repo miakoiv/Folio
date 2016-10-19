@@ -1,0 +1,23 @@
+- content_for :header do
+  %h2= title(Person, count: 2)
+  %small
+    = t('people.new.last_name')
+    = t('people.new.first_names')
+- content_for :breadcrumb do
+  %li= link_to title(Person, count: 2), people_path
+  %li.active
+    = t('people.new.last_name')
+    = t('people.new.first_names')
+
+.content
+  .row
+    .col-md-3
+      = render 'people/new'
+    .col-md-9
+      .hpanel
+        .panel-heading.hbuilt
+          .pull-right
+            = link_to icon('close', t('actions.cancel')), people_path, class: 'btn btn-xs btn-default'
+          = t('people.panel.header')
+        .panel-body
+          = render partial: 'form'

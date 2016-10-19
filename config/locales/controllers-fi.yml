@@ -1,4 +1,11 @@
 fi:
+  people:
+    create:
+      notice: "Henkilö %{person} luotu."
+    update:
+      notice: "Henkilö %{person} päivitetty."
+    destroy:
+      notice: "Henkilö %{person} poistettu."
   users:
     create:
       notice: "Käyttäjätili %{user} luotu."

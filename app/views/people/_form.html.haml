@@ -1,0 +1,54 @@
+= bootstrap_form_for @person,
+    html: {novalidate: true} do |f|
+  %fieldset{disabled: editing_disabled?}
+    .row
+      .col-md-4
+        = f.text_field :identification
+      .col-md-4
+        = f.date_field :date_of_birth,
+            data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd'}
+      .col-md-4
+        = f.form_group :gender do
+          %label.control-label= Person.human_attribute_name(:gender)
+          .btn-group{data: {toggle: 'buttons'}}
+            - gender_options.each do |label, value|
+              %label.btn.btn-default{class: value == @person.gender ? 'active' : ''}
+                = f.radio_button_without_bootstrap :gender, value
+                = label
+    .row
+      .col-md-6
+        = f.text_field :last_name
+      .col-md-6
+        = f.text_field :first_names
+    .row
+      .col-md-12
+        = f.text_field :address
+    .row
+      .col-md-6
+        = f.text_field :municipality
+      .col-md-6
+        = f.text_field :accommodation
+    .row
+      .col-md-6
+        = f.telephone_field :phone
+      .col-md-6
+        = f.email_field :email
+    .row
+      .col-md-6
+        = f.select :language, language_options, {}, disabled: editing_disabled?,
+            data: {provide: 'select2', theme: 'bootstrap',
+              'minimum-results-for-search': 'Infinity'}
+      .col-md-6
+        = f.text_field :nationality
+    .row
+      .col-md-12
+        = f.text_area :restrictions
+    .row
+      .col-md-12
+        = f.text_area :referrals
+    .row
+      .col-md-12
+        = f.text_area :information
+    - unless editing_disabled?
+      .form-group.actions
+        = f.submit class: 'btn btn-primary'

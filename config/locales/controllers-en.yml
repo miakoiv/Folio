@@ -1,4 +1,11 @@
 en:
+  people:
+    create:
+      notice: "Person %{person} created."
+    update:
+      notice: "Person %{person} updated."
+    destroy:
+      notice: "Person %{person} deleted."
   users:
     create:
       notice: "User account %{user} created."

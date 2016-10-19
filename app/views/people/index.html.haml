@@ -1,0 +1,19 @@
+- content_for :header do
+  %h2= title(Person, count: 2)
+  %small
+- content_for :breadcrumb do
+  %li.active= title(Person, count: 2)
+
+.content
+  .row
+    .col-md-3
+      = link_to new_person_path, class: 'm-b' do
+        = render partial: 'new'
+      = render partial: 'filter'
+    .col-md-9
+      .row
+        .col-lg-12
+          = render partial: 'search'
+      .row
+        .col-lg-12
+          = render partial: 'item', collection: @people, as: :person

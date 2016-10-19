@@ -1,0 +1,19 @@
+- content_for :header do
+  %h2= title(Person, count: 2)
+  %small= @person
+- content_for :breadcrumb do
+  %li= link_to title(Person, count: 2), people_path
+  %li.active= @person
+
+.content
+  .row
+    .col-md-3
+      = render @person
+    .col-md-9
+      .hpanel
+        .panel-heading.hbuilt
+          .pull-right
+            = link_to icon('close', t('actions.cancel')), @person, class: 'btn btn-xs btn-default'
+          = t('people.panel.header')
+        .panel-body
+          = render partial: 'form'

@@ -1,10 +1,29 @@
 fi:
   activerecord:
     models:
+      person:
+        one: henkilö
+        other: henkilöt
       user:
         one: käyttäjätili
         other: käyttäjätilit
     attributes:
+      person:
+        accommodation: Asumismuoto
+        address: Osoite
+        date_of_birth: Syntymäaika
+        email: Sähköpostiosoite
+        first_names: Etunimet
+        gender: Sukupuoli
+        identification: Henkilötunnus
+        information: Lisätietoja
+        language: Kieli
+        last_name: Sukunimi
+        municipality: Kotikunta
+        nationality: Kansallisuus
+        phone: Puhelinnumero
+        referrals: Aiemmat tahot
+        restrictions: Rajoitukset
       user:
         activates_at: Aktivointipäivä
         current_password: Nykyinen salasana
