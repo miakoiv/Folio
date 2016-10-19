@@ -1,5 +1,7 @@
 /* Toastr custom styles*/
 #toast-container {
+  position: absolute;
+  top: 0;
 }
 
 #toast-container.toast-bottom-center > div, #toast-container.toast-top-center > div {
