@@ -26,4 +26,8 @@ class User < ApplicationRecord
     return last_name if first_names.empty?
     [last_name, first_names].join ', '
   end
+
+  def to_s
+    full_name
+  end
 end
