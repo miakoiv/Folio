@@ -12,6 +12,16 @@ module ApplicationHelper
     klass.model_name.human(options).capitalize
   end
 
+  # Generates a telephone link
+  def tel_to(text, number, options = {})
+    link_to text, "tel:#{number.split.join '-'}", options
+  end
+
+  # Generates a mailto link
+  def mail_to(text, email, options = {})
+    link_to text, "mailto:#{email}", options
+  end
+
   # Generates an options array for locale select tags.
   def locale_options
     I18n.available_locales.map do |l|
