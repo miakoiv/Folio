@@ -7,7 +7,12 @@ class Postcode < ApplicationRecord
     where('code LIKE :term OR town LIKE :term', term: "#{term}%")
   }
 
+  # Naming by locale, if available.
+  def name
+    try("name_#{I18n.locale}") || name_fi
+  end
+
   def to_s
-    "#{code} #{town}"
+    "#{code} #{name}"
   end
 end
