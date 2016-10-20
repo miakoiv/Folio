@@ -43,6 +43,10 @@ gem 'jbuilder', '~> 2.5'
 # User authentication
 gem 'devise'
 
+# Gems to import records from zip files
+gem 'rubyzip'
+gem 'activerecord-import'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
