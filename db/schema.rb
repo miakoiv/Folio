@@ -10,32 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161020062606) do
+ActiveRecord::Schema.define(version: 20161020100842) do
+
+  create_table "municipalities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.string "name_fi", null: false
+    t.string "name_sv", null: false
+  end
 
   create_table "people", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.string   "identification",               null: false
+    t.string   "identification",                null: false
     t.date     "date_of_birth"
     t.string   "last_name"
     t.string   "first_names"
-    t.string   "gender",         limit: 1
+    t.string   "gender",          limit: 1
     t.string   "email"
     t.string   "phone"
     t.string   "address"
-    t.string   "municipality"
-    t.string   "language",       limit: 2
-    t.string   "nationality",    limit: 2
+    t.integer  "postcode_id"
+    t.integer  "municipality_id"
+    t.string   "language",        limit: 2
+    t.string   "nationality",     limit: 2
     t.string   "accommodation"
-    t.text     "restrictions",   limit: 65535
-    t.text     "referrals",      limit: 65535
-    t.text     "information",    limit: 65535
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.text     "restrictions",    limit: 65535
+    t.text     "referrals",       limit: 65535
+    t.text     "information",     limit: 65535
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["municipality_id"], name: "index_people_on_municipality_id", using: :btree
+    t.index ["postcode_id"], name: "index_people_on_postcode_id", using: :btree
   end
 
   create_table "postcodes", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.string "code", limit: 5, null: false
-    t.string "town",           null: false
+    t.string  "code",            limit: 5, null: false
+    t.string  "name_fi",                   null: false
+    t.string  "name_sv",                   null: false
+    t.integer "municipality_id",           null: false
     t.index ["code"], name: "index_postcodes_on_code", using: :btree
+    t.index ["municipality_id"], name: "index_postcodes_on_municipality_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|

@@ -9,7 +9,8 @@ class CreatePeople < ActiveRecord::Migration[5.0]
       t.string :email
       t.string :phone
       t.string :address
-      t.string :municipality
+      t.belongs_to :postcode
+      t.belongs_to :municipality
       t.string :language, limit: 2
       t.string :nationality, limit: 2
       t.string :accommodation

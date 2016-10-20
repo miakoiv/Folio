@@ -1,5 +1,8 @@
 class Person < ApplicationRecord
 
+  belongs_to :postcode, optional: true
+  belongs_to :municipality, optional: true
+
   validates :identification, presence: true
   validates :last_name, :first_names, presence: true
 
