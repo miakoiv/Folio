@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20161020100842) do
     t.string   "email"
     t.string   "phone"
     t.string   "address"
-    t.integer  "postcode_id"
+    t.string   "postcode_id",     limit: 5
     t.integer  "municipality_id"
     t.string   "language",        limit: 2
     t.string   "nationality",     limit: 2
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20161020100842) do
     t.text     "information",     limit: 65535
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.index ["identification"], name: "index_people_on_identification", using: :btree
+    t.index ["last_name"], name: "index_people_on_last_name", using: :btree
     t.index ["municipality_id"], name: "index_people_on_municipality_id", using: :btree
     t.index ["postcode_id"], name: "index_people_on_postcode_id", using: :btree
   end
