@@ -72,7 +72,7 @@ class PeopleController < ApplicationController
     def person_params
       params.require(:person).permit(
         :identification, :date_of_birth, :last_name, :first_names,
-        :gender, :email, :phone, :address, :municipality,
+        :gender, :email, :phone, :address, :postcode_id, :municipality_id,
         :language, :nationality, :accommodation,
         :restrictions, :referrals, :information
       )

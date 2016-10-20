@@ -10,7 +10,7 @@ fi:
     attributes:
       person:
         accommodation: Asumismuoto
-        address: Osoite
+        address: Lähiosoite
         date_of_birth: Syntymäaika
         email: Sähköpostiosoite
         first_names: Etunimet
@@ -19,9 +19,10 @@ fi:
         information: Lisätietoja
         language: Kieli
         last_name: Sukunimi
-        municipality: Kotikunta
+        municipality_id: Kotikunta
         nationality: Kansallisuus
         phone: Puhelinnumero
+        postcode_id: Postiosoite
         referrals: Aiemmat tahot
         restrictions: Rajoitukset
       user:
