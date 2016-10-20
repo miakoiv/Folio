@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   root to: 'people#index'
 
-  resources :users
+  resources :municipalities, only: :index
   resources :people
+  resources :users
+
 end
