@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    @user = User.new(locale: I18n.default_locale)
   end
 
   # GET /users/1/edit
