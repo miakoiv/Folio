@@ -12,6 +12,20 @@ module ApplicationHelper
     klass.model_name.human(options).capitalize
   end
 
+  # Generates options from a single container object to populate select
+  # widgets that use Ajax queries having no other options defined.
+  def options_from_current(container, value_method = :id, text_method = :name)
+    return [] if container.nil?
+    [
+      [value_for_collection(container, text_method),
+        value_for_collection(container, value_method)]
+    ]
+  end
+
+  def blank_option
+    "\u00a0"
+  end
+
   # Generates a telephone link
   def tel_to(text, number, options = {})
     link_to text, "tel:#{number.split.join '-'}", options
