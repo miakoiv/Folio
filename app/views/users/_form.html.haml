@@ -4,15 +4,16 @@
     = f.email_field :email, required: true
     = f.text_field :last_name, required: true
     = f.text_field :first_names, required: true
-    = f.select :locale, locale_options, {}, disabled: editing_disabled?,
-        data: {provide: 'select2', theme: 'bootstrap',
+    = f.select :locale, locale_options, {},
+        disabled: editing_disabled?,
+        data: {provide: 'select2', language: I18n.locale,
           'minimum-results-for-search': 'Infinity'}
     - if @user.new_record?
       = f.password_field :password, required: true
       = f.password_field :password_confirmation
-    = f.date_field :activates_at,
+    = f.date_field :activates_at, autocomplete: 'off',
         data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd'}
-    = f.date_field :expires_at,
+    = f.date_field :expires_at, autocomplete: 'off',
         data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd'}
   - unless editing_disabled?
     .form-group.actions
