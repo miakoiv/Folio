@@ -5,7 +5,7 @@
       .col-md-4
         = f.text_field :identification
       .col-md-4
-        = f.date_field :date_of_birth,
+        = f.date_field :date_of_birth, autocomplete: 'off',
             data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd'}
       .col-md-4
         = f.form_group :gender do
@@ -21,11 +21,23 @@
       .col-md-6
         = f.text_field :first_names
     .row
-      .col-md-12
+      .col-md-6
         = f.text_field :address
+      .col-md-6
+        = f.select :postcode_id,
+            options_from_current(@person.postcode, :id, :text),
+            {include_blank: blank_option},
+            disabled: editing_disabled?,
+            data: {provide: 'select2', language: I18n.locale,
+              'ajax--url': postcodes_path, 'ajax--delay': 500}
     .row
       .col-md-6
-        = f.text_field :municipality
+        = f.select :municipality_id,
+            options_from_current(@person.municipality),
+            {include_blank: blank_option},
+            disabled: editing_disabled?,
+            data: {provide: 'select2', language: I18n.locale,
+              'ajax--url': municipalities_path, 'ajax--delay': 500}
       .col-md-6
         = f.text_field :accommodation
     .row
@@ -35,8 +47,9 @@
         = f.email_field :email
     .row
       .col-md-6
-        = f.select :language, language_options, {}, disabled: editing_disabled?,
-            data: {provide: 'select2', theme: 'bootstrap',
+        = f.select :language, language_options, {},
+            disabled: editing_disabled?,
+            data: {provide: 'select2', language: I18n.locale,
               'minimum-results-for-search': 'Infinity'}
       .col-md-6
         = f.text_field :nationality

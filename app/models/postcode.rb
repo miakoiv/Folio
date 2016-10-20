@@ -3,8 +3,8 @@ class Postcode < ApplicationRecord
 
   belongs_to :municipality
 
-  scope :lookup, -> (term) {
-    where('code LIKE :term OR town LIKE :term', term: "#{term}%")
+  scope :query, -> (q) {
+    where 'code LIKE :q OR name_fi LIKE :q OR name_sv LIKE :q', q: "#{q}%"
   }
 
   # Naming by locale, if available.
@@ -12,7 +12,12 @@ class Postcode < ApplicationRecord
     try("name_#{I18n.locale}") || name_fi
   end
 
-  def to_s
+  # Text method for JSON responses to select2
+  def text
     "#{code} #{name}"
+  end
+
+  def to_s
+    text
   end
 end

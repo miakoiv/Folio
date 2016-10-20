@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root to: 'people#index'
 
   resources :municipalities, only: :index
+  resources :postcodes, only: :index
   resources :people
   resources :users
 
