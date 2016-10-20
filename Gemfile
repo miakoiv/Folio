@@ -47,6 +47,8 @@ gem 'devise'
 gem 'rubyzip'
 gem 'activerecord-import'
 
+gem 'httparty'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
