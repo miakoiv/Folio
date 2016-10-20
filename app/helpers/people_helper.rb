@@ -2,7 +2,7 @@ module PeopleHelper
 
   # Generates options for languages people may have
   def language_options
-    [['suomi', :fi], ['svenska', :se], ['English', :en]]
+    [['suomi', :fi], ['svenska', :sv], ['English', :en]]
   end
 
   def gender_options
