@@ -5,6 +5,11 @@ class PeopleController < ApplicationController
   # GET /people.json
   def index
     @people = Person.page params[:page]
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /people/1

@@ -16,8 +16,8 @@
           = render partial: 'search'
       .row
         .col-lg-12
-          = render partial: 'item', collection: @people, as: :person
-      .row
-        .col-lg-12
-          .pull-right
-            = paginate @people
+          .infinite-scroll
+            .infinite-content
+              = render partial: 'item', collection: @people, as: :person
+            .infinite-pagination
+              = link_to_next_page @people, '', remote: true
