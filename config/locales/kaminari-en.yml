@@ -1,0 +1,17 @@
+en:
+  views:
+    pagination:
+      first: <i class="fa fa-fast-backward"></i>
+      last: <i class="fa fa-fast-forward"></i>
+      previous: <i class="fa fa-backward"></i>
+      next: <i class="fa fa-forward"></i>
+      truncate: …
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No records found"
+          one: "Showing one record"
+          other: "Showing %{count} records"
+      more_pages:
+        display_entries: "Showing records %{first}–%{last} of %{total}"

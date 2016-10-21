@@ -1,5 +1,7 @@
 class Person < ApplicationRecord
 
+  paginates_per 20
+
   belongs_to :postcode, optional: true
   belongs_to :municipality, optional: true
 

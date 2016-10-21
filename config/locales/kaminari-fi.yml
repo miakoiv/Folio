@@ -1,0 +1,17 @@
+fi:
+  views:
+    pagination:
+      first: <i class="fa fa-fast-backward"></i>
+      last: <i class="fa fa-fast-forward"></i>
+      previous: <i class="fa fa-backward"></i>
+      next: <i class="fa fa-forward"></i>
+      truncate: …
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Ei tietueita"
+          one: "Näytetään yksi tietue"
+          other: "Näytetään %{count} tietuetta"
+      more_pages:
+        display_entries: "Näytetään %{first}–%{last}, yhteensä %{total}"
