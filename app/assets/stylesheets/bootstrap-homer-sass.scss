@@ -12,9 +12,18 @@
 @import 'homer/style';
 
 // More room for the footer on small screens
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .content {
     padding-bottom: 50px;
+  }
+}
+
+// A sticky column stays at a position where it would be without
+// .normalheader present, which is header height + .content top padding
+@media (min-width: 768px) {
+  .col-sticky {
+    position: sticky;
+    top: 87px; // 62+25
   }
 }
 

@@ -11,11 +11,10 @@ en:
   people:
     panel:
       header: Personal information
-    filter:
-      header: Filter people
-      help: Apply filters below to limit the selection shown
     search:
-      placeholder: Search people
+      header: Search people
+      help: Apply additional filters below
+      placeholder: Last name or identification
     new:
       last_name: New
       first_names: person

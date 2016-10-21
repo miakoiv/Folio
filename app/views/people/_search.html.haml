@@ -1,8 +1,9 @@
-= form_for @search, url: people_path, method: :get, enforce_utf8: false do |f|
-  .hpanel
-    .panel-body
-      .input-group
+.hpanel
+  .panel-body
+    %h4= t('.header')
+    = bootstrap_form_for @search, url: people_path, method: :get, enforce_utf8: false do |f|
+      %fieldset
         = f.search_field :keyword, class: 'form-control',
-            placeholder: t('.placeholder')
-        .input-group-btn
-          %button.btn.btn-default= icon('search')
+            placeholder: t('.placeholder'),
+            skip_label: true
+      %small= t('.help')

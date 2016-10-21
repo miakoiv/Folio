@@ -6,14 +6,11 @@
 
 .content
   .row
-    .col-md-3
+    .col-md-3.col-sticky
       = link_to new_person_path, class: 'm-b' do
         = render partial: 'new'
-      = render partial: 'filter'
+      = render partial: 'search'
     .col-md-9
-      .row
-        .col-lg-12
-          = render partial: 'search'
       .row
         .col-lg-12
           .infinite-scroll
