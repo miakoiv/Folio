@@ -10,8 +10,10 @@ people = HTTParty
   .get('https://randomuser.me/api?results=250&nat=fi&exc=login,registered')
   .parsed_response['results']
 
+postcodes = Postcode.all
+
 people.each do |person|
-  postcode = Postcode.order('RAND()').first
+  postcode = postcodes.sample
 
   Person.create(
     identification: person['id']['value'],
