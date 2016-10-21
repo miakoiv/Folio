@@ -20,13 +20,16 @@ gem 'coffee-rails', '~> 4.2'
 gem 'haml'
 gem 'haml-rails'
 
+# Robust date manipulation library
+gem 'momentjs-rails'
+
 # User interface gems required by the HOMER theme
 gem 'bootstrap-sass', '3.3.6'
 gem 'font-awesome-sass', '~> 4.6.2'
 
 # Extensions to Bootstrap
 gem 'bootstrap_form'
-gem 'bootstrap-datepicker-rails'
+gem 'bootstrap3-datetimepicker-rails'
 gem 'active_link_to'
 gem 'select2-rails'
 gem 'unobtrusive_flash'
