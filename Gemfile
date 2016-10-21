@@ -31,6 +31,10 @@ gem 'active_link_to'
 gem 'select2-rails'
 gem 'unobtrusive_flash'
 
+# Pagination, infinite scrolling
+gem 'kaminari'
+gem 'jquery-infinite-pages'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -47,6 +51,7 @@ gem 'devise'
 gem 'rubyzip'
 gem 'activerecord-import'
 
+# HTTP abstraction for seeding the database
 gem 'httparty'
 
 # Use Capistrano for deployment
