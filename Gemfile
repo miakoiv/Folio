@@ -31,9 +31,10 @@ gem 'active_link_to'
 gem 'select2-rails'
 gem 'unobtrusive_flash'
 
-# Pagination, infinite scrolling
+# Pagination, infinite scrolling, and low magic search
 gem 'kaminari'
 gem 'jquery-infinite-pages'
+gem 'searchlight'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
