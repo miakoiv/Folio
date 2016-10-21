@@ -101,3 +101,13 @@ fieldset[disabled] label.required:after {
     display: none;
   }
 }
+
+.infinite-pagination {
+  @extend .progress, .full, .progress-striped, .m-t;
+
+  a {
+    display: block;
+    width: 100%;
+    @extend .progress-bar, .progress-bar-info;
+  }
+}
