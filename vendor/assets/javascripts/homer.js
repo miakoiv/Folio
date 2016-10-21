@@ -2,10 +2,9 @@
  * HOMER - Responsive Admin Theme
  * version 1.9
  *
- * Adapted for Turbolinks by Sami Rosenblad.
  */
 
-$(document).on('turbolinks:load', function () {
+$(document).ready(function () {
 
     // Add special class to minimalize page elements when screen is less than 768px
     setBodySmall();
