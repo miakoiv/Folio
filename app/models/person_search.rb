@@ -14,7 +14,11 @@ class PersonSearch < Searchlight::Search
     }, keyword: "#{keyword}%")
   end
 
-  def search_municipality_id
-    query.where(postcodes: {municipality_id: municipality_id})
+  def search_municipalities
+    query.where(municipality_id: municipalities)
+  end
+
+  def search_year_of_birth
+    query.where('YEAR(date_of_birth) = ?', year_of_birth)
   end
 end

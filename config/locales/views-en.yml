@@ -14,7 +14,10 @@ en:
     search:
       header: Search people
       help: Apply additional filters below
-      placeholder: Last name or identification
+      keyword: Last name or identification
+      municipalities: Municipality
+      year_of_birth: Year of birth
+      submit: Search
     new:
       last_name: New
       first_names: person

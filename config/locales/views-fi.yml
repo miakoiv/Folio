@@ -14,7 +14,10 @@ fi:
     search:
       header: Henkilöhaku
       help: Valitse lisää hakuehtoja alta
-      placeholder: Sukunimi tai tunnus
+      keyword: Sukunimi tai tunnus
+      municipalities: Kotikunta
+      year_of_birth: Syntymävuosi
+      submit: Hae
     new:
       last_name: Uusi
       first_names: henkilö

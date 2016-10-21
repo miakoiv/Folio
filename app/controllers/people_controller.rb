@@ -72,7 +72,7 @@ class PeopleController < ApplicationController
   protected
     def search_params
       params.fetch(:person_search) {{}}.permit(
-        :keyword
+        :keyword, {municipalities: []}, :year_of_birth
       )
     end
 
