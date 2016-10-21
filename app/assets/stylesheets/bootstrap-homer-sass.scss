@@ -11,9 +11,16 @@
 @import 'font-awesome';
 @import 'homer/style';
 
-// Prevent scrollbar flashing
-body {
-  overflow-y: scroll;
+// More room for the footer on small screens
+@media (max-width: 768px) {
+  .content {
+    padding-bottom: 50px;
+  }
+}
+
+// Small header H2 defaults
+.normalheader h2 {
+  @extend .font-light, .m-b-xs;
 }
 
 // Better layout for button groups
@@ -68,11 +75,6 @@ label.required:after {
 // No decoration when the fieldset is disabled
 fieldset[disabled] label.required:after {
   display: none;
-}
-
-// Small header H2 defaults
-.normalheader h2 {
-  @extend .font-light, .m-b-xs;
 }
 
 // Devise styling
