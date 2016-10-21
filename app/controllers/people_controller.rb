@@ -4,7 +4,9 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.page params[:page]
+    @person_search_params = search_params
+    @search = PersonSearch.new(@person_search_params)
+    @people = @search.results.page(params[:page])
 
     respond_to do |format|
       format.html
@@ -66,6 +68,13 @@ class PeopleController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  protected
+    def search_params
+      params.fetch(:person_search) {{}}.permit(
+        :keyword
+      )
+    end
 
   private
     # Use callbacks to share common setup or constraints between actions.

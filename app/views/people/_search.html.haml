@@ -1,6 +1,8 @@
-.hpanel
-  .panel-body
-    .input-group
-      %input.form-control{placeholder: t('.placeholder')}
-      .input-group-btn
-        %button.btn.btn-default= icon('search')
+= form_for @search, url: people_path, method: :get, enforce_utf8: false do |f|
+  .hpanel
+    .panel-body
+      .input-group
+        = f.search_field :keyword, class: 'form-control',
+            placeholder: t('.placeholder')
+        .input-group-btn
+          %button.btn.btn-default= icon('search')

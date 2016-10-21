@@ -3,4 +3,4 @@ $("#{j render partial: 'item', collection: @people, as: :person}").appendTo($('.
 - if @people.last_page?
   $('.infinite-pagination > a').remove();
 - else
-  $('.infinite-pagination').html("#{j link_to_next_page @people, '', remote: true}");
+  $('.infinite-pagination').html("#{j link_to_next_page @people, '', remote: true, params: {person_search: @person_search_params.to_h}}");

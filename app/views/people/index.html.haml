@@ -20,4 +20,5 @@
             .infinite-content
               = render partial: 'item', collection: @people, as: :person
             .infinite-pagination
-              = link_to_next_page @people, '', remote: true
+              = link_to_next_page @people, '', remote: true,
+                  params: {person_search: @person_search_params.to_h}
