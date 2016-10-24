@@ -14,6 +14,8 @@
               label: t('.municipalities')},
             multiple: true, data: {provide: 'select2'}
         = f.text_field :year_of_birth, autocomplete: 'off',
-            label: t('.year_of_birth')
+            label: t('.year_of_birth'), data: {provide: 'datepicker',
+              'date-format': 'yyyy', 'date-language': I18n.locale,
+              'date-min-view-mode': 'years'}
       .form-group.actions
         = f.submit t('.submit'), class: 'btn btn-block btn-success'

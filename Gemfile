@@ -29,7 +29,7 @@ gem 'font-awesome-sass', '~> 4.6.2'
 
 # Extensions to Bootstrap
 gem 'bootstrap_form'
-gem 'bootstrap3-datetimepicker-rails'
+gem 'bootstrap-datepicker-rails'
 gem 'active_link_to'
 gem 'select2-rails'
 gem 'unobtrusive_flash'

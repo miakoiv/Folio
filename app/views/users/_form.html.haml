@@ -11,10 +11,12 @@
     - if @user.new_record?
       = f.password_field :password, required: true
       = f.password_field :password_confirmation
-    = f.date_field :activates_at, autocomplete: 'off',
-        data: {provide: 'datetimepicker', 'date-locale': I18n.locale}
-    = f.date_field :expires_at, autocomplete: 'off',
-        data: {provide: 'datetimepicker', 'date-locale': I18n.locale}
+    = f.text_field :activates_at, autocomplete: 'off',
+        data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd',
+          'date-language': I18n.locale}
+    = f.text_field :expires_at, autocomplete: 'off',
+        data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd',
+          'date-language': I18n.locale}
   - unless editing_disabled?
     .form-group.actions
       = f.submit class: 'btn btn-primary'

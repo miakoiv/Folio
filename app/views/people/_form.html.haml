@@ -6,7 +6,8 @@
         = f.text_field :identification
       .col-md-4
         = f.text_field :date_of_birth, autocomplete: 'off',
-            data: {provide: 'datetimepicker', 'date-locale': I18n.locale}
+            data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd',
+              'date-language': I18n.locale}
       .col-md-4
         = f.form_group :gender do
           %label.control-label= Person.human_attribute_name(:gender)
