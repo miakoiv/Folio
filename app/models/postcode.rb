@@ -1,16 +1,18 @@
 class Postcode < ApplicationRecord
   self.primary_key = :code
 
+  include Translatable
+
   belongs_to :municipality
 
-  scope :query, -> (q) {
-    where 'code LIKE :q OR name_fi LIKE :q OR name_sv LIKE :q', q: "#{q}%"
-  }
+  default_scope { unscope(:order).order(:code, localized_name_method) }
 
-  # Naming by locale, if available.
-  def name
-    try("name_#{I18n.locale}") || name_fi
-  end
+  scope :query, -> (q) {
+    where(
+      arel_table[:code].matches("#{q}%")
+      .or(arel_table[localized_name_method].matches("#{q}%"))
+    )
+  }
 
   # Text method for JSON responses to select2
   def text
@@ -18,6 +20,6 @@ class Postcode < ApplicationRecord
   end
 
   def to_s
-    text
+    name
   end
 end
