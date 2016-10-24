@@ -2,6 +2,8 @@ class Municipality < ApplicationRecord
 
   has_many :postcodes
 
+  default_scope { order(:name_fi) }
+
   scope :query, -> (q) {
     where('name_fi LIKE :q OR name_sv LIKE :q', q: "#{q}%")
   }
