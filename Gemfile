@@ -16,12 +16,12 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# Automatic eager loading
+gem 'goldiloader'
+
 # Use Haml for views and generators
 gem 'haml'
 gem 'haml-rails'
-
-# Robust date manipulation library
-gem 'momentjs-rails'
 
 # User interface gems required by the HOMER theme
 gem 'bootstrap-sass', '3.3.6'

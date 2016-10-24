@@ -76,6 +76,9 @@ GEM
       sass (>= 3.2)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    goldiloader (0.0.10)
+      activerecord (>= 3.2, < 5.1)
+      activesupport (>= 3.2, < 5.1)
     haml (4.0.7)
       tilt
     haml-rails (0.9.0)
@@ -119,8 +122,6 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.9.1)
-    momentjs-rails (2.15.1)
-      railties (>= 3.1)
     multi_json (1.12.1)
     multi_xml (0.5.5)
     mysql2 (0.4.5)
@@ -219,6 +220,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   font-awesome-sass (~> 4.6.2)
+  goldiloader
   haml
   haml-rails
   httparty
@@ -227,7 +229,6 @@ DEPENDENCIES
   jquery-rails
   kaminari
   listen (~> 3.0.5)
-  momentjs-rails
   mysql2 (>= 0.3.18, < 0.5)
   rails (~> 5.0.0, >= 5.0.0.1)
   rubyzip
