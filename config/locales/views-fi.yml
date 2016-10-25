@@ -4,6 +4,8 @@ fi:
     edit: Muokkaa
   dropzone:
     default_message: Pudota tiedostoja tähän tai klikkaa
+  education_level:
+    none: "[Ei tietoa]"
   shared:
     header:
       quick_search: Etsi mitä tahansa

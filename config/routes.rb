@@ -5,8 +5,11 @@ Rails.application.routes.draw do
 
   root to: 'people#index'
 
+  resources :patronages
+
   resources :municipalities, only: :index
   resources :postcodes, only: :index
+
   resources :people do
     resources :images, shallow: true
   end

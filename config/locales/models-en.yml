@@ -1,6 +1,9 @@
 en:
   activerecord:
     models:
+      education_level:
+        one: educational background
+        other: educational backgrounds
       image:
         one: image
         other: images
@@ -17,18 +20,18 @@ en:
         accommodation: Accommodation
         address: Street address
         date_of_birth: Date of birth
+        education_info: Specify
+        education_level_id: Educational background
         email: E-mail address
         first_names: First names
         gender: Gender
         identification: Identification
-        information: Information
         language: Language
         last_name: Last name
         municipality_id: Municipality
         nationality: Nationality
         phone: Phone number
         postcode_id: Postal address
-        referrals: Referrals
         restrictions: Restrictions
       user:
         activates_at: Activation date

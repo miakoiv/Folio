@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161024114224) do
+ActiveRecord::Schema.define(version: 20161025115603) do
+
+  create_table "education_levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.string  "name_fi",                    null: false
+    t.boolean "needs_info", default: false, null: false
+  end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.string   "imageable_type",                null: false
@@ -26,25 +31,40 @@ ActiveRecord::Schema.define(version: 20161024114224) do
     t.string "name_sv", null: false
   end
 
+  create_table "patronages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.integer  "unit_id",                                 null: false
+    t.integer  "person_id",                               null: false
+    t.integer  "status",                      default: 0, null: false
+    t.integer  "referrer_id",                             null: false
+    t.string   "referrer_info"
+    t.text     "notes",         limit: 65535
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.index ["person_id"], name: "index_patronages_on_person_id", using: :btree
+    t.index ["referrer_id"], name: "index_patronages_on_referrer_id", using: :btree
+    t.index ["unit_id"], name: "index_patronages_on_unit_id", using: :btree
+  end
+
   create_table "people", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.string   "identification",                null: false
+    t.string   "identification",                   null: false
     t.date     "date_of_birth"
     t.string   "last_name"
     t.string   "first_names"
-    t.string   "gender",          limit: 1
+    t.string   "gender",             limit: 1
     t.string   "email"
     t.string   "phone"
     t.string   "address"
-    t.string   "postcode_id",     limit: 5
+    t.string   "postcode_id",        limit: 5
     t.integer  "municipality_id"
-    t.string   "language",        limit: 2
-    t.string   "nationality",     limit: 2
+    t.string   "language",           limit: 2
+    t.string   "nationality",        limit: 2
+    t.integer  "education_level_id"
+    t.string   "education_info"
     t.string   "accommodation"
-    t.text     "restrictions",    limit: 65535
-    t.text     "referrals",       limit: 65535
-    t.text     "information",     limit: 65535
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.text     "restrictions",       limit: 65535
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.index ["education_level_id"], name: "index_people_on_education_level_id", using: :btree
     t.index ["identification"], name: "index_people_on_identification", using: :btree
     t.index ["last_name"], name: "index_people_on_last_name", using: :btree
     t.index ["municipality_id"], name: "index_people_on_municipality_id", using: :btree

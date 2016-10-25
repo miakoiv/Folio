@@ -1,6 +1,9 @@
 fi:
   activerecord:
     models:
+      education_level:
+        one: koulutustausta
+        other: koulutustaustat
       image:
         one: kuva
         other: kuvat
@@ -17,18 +20,18 @@ fi:
         accommodation: Asumismuoto
         address: Lähiosoite
         date_of_birth: Syntymäaika
+        education_info: Mikä
+        education_level_id: Koulutustausta
         email: Sähköpostiosoite
         first_names: Etunimet
         gender: Sukupuoli
         identification: Henkilötunnus
-        information: Lisätietoja
         language: Kieli
         last_name: Sukunimi
         municipality_id: Kotikunta
         nationality: Kansallisuus
         phone: Puhelinnumero
         postcode_id: Postiosoite
-        referrals: Aiemmat tahot
         restrictions: Rajoitukset
       user:
         activates_at: Aktivointipäivä
