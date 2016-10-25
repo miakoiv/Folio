@@ -1,5 +1,5 @@
 class Image < ApplicationRecord
-  include AttachmentUploader[:attachment]
+  include ImageUploader[:attachment]
 
   belongs_to :imageable, polymorphic: true
 end
