@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   resources :municipalities, only: :index
   resources :postcodes, only: :index
-  resources :people
-  resources :users
-
+  resources :people do
+    resources :images, shallow: true
+  end
+  resources :users do
+    resources :images, shallow: true
+  end
 end
