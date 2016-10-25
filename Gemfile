@@ -25,7 +25,7 @@ gem 'haml-rails'
 
 # User interface gems required by the HOMER theme
 gem 'bootstrap-sass', '3.3.6'
-gem 'font-awesome-sass', '~> 4.6.2'
+gem 'font-awesome-sass', '~> 4.7'
 
 # Extensions to Bootstrap
 gem 'bootstrap_form'
