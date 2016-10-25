@@ -39,6 +39,10 @@ gem 'kaminari'
 gem 'jquery-infinite-pages'
 gem 'searchlight'
 
+# Image uploads
+gem 'shrine'
+gem 'dropzonejs-rails'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
