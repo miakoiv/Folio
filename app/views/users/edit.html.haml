@@ -15,7 +15,7 @@
           .pull-right
             = link_to icon('close', t('actions.cancel')), @user,
                 class: 'btn btn-xs btn-default'
-          = t('users.panel.header')
+          = icon('id-card', t('users.panel.header'))
         .panel-body
           = render partial: 'form'
     .col-md-3

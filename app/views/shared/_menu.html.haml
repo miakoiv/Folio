@@ -1,4 +1,4 @@
 = active_link_to people_path, wrap_tag: :li do
-  %span.nav-label= title(Person, count: 2)
+  %span.nav-label= icon('address-book', title(Person, count: 2))
 = active_link_to users_path, wrap_tag: :li do
-  %span.nav-label= title(User, count: 2)
+  %span.nav-label= icon('user-circle', title(User, count: 2))

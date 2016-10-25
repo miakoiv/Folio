@@ -13,8 +13,9 @@
       .hpanel
         .panel-heading.hbuilt
           .pull-right
-            = link_to icon('close', t('actions.cancel')), @person, class: 'btn btn-xs btn-default'
-          = t('people.panel.header')
+            = link_to icon('close', t('actions.cancel')), @person,
+                class: 'btn btn-xs btn-default'
+          = icon('id-card', t('people.panel.header'))
         .panel-body
           = render partial: 'form'
     .col-md-3

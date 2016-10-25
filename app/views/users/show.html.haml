@@ -15,7 +15,7 @@
           .pull-right
             = link_to icon('pencil', t('actions.edit')), [:edit, @user],
                 class: 'btn btn-xs btn-primary'
-          = t('users.panel.header')
+          = icon('id-card', t('users.panel.header'))
         .panel-body
           = render partial: 'form'
     .col-md-3
