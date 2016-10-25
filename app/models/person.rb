@@ -1,5 +1,7 @@
 class Person < ApplicationRecord
 
+  include Imageable
+
   paginates_per 20
 
   belongs_to :postcode, optional: true
