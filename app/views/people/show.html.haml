@@ -9,7 +9,7 @@
   .row
     .col-md-3
       = render @person
-    .col-md-9
+    .col-md-6
       .hpanel
         .panel-heading.hbuilt
           .pull-right
@@ -17,3 +17,17 @@
           = t('people.panel.header')
         .panel-body
           = render partial: 'form'
+    .col-md-3
+      .hpanel
+        %ul.nav.nav-tabs
+          %li.active
+            %a{href: '#images', data: {toggle: 'tab'}}
+              = icon('image')
+          %li
+            %a{href: '#documents', data: {toggle: 'tab'}}
+              = icon('paperclip')
+        .tab-content
+          #images.tab-pane.active
+            .panel-body
+              = render partial: 'images/list', object: @person, as: :imageable
+          #documents.tab-pane

@@ -3,8 +3,7 @@
     .panel-body.social-board
       .media.social-profile.clearfix
         .media-left
-          = image_tag '//gravatar.com/avatar/' + Digest::MD5.hexdigest(person.email),
-              class: 'img-circle'
+          = profile_image(person, class: 'img-circle')
         .media-body
           .pull-right.text-right
             %small.stat-label= person.identification

@@ -7,13 +7,30 @@
 
 .content
   .row
-    .col-lg-4.col-md-6
+    .col-md-3
       = render @user
-    .col-lg-4.col-md-6
+    .col-md-6
       .hpanel
         .panel-heading.hbuilt
           .pull-right
-            = link_to icon('close', t('actions.cancel')), @user, class: 'btn btn-xs btn-default'
+            = link_to icon('close', t('actions.cancel')), @user,
+                class: 'btn btn-xs btn-default'
           = t('users.panel.header')
         .panel-body
           = render partial: 'form'
+    .col-md-3
+      .hpanel
+        %ul.nav.nav-tabs
+          %li.active
+            %a{href: '#images', data: {toggle: 'tab'}}
+              = icon('image')
+          %li
+            %a{href: '#documents', data: {toggle: 'tab'}}
+              = icon('paperclip')
+        .tab-content
+          #images.tab-pane.active
+            .panel-body
+              = render partial: 'images/list', object: @user, as: :imageable
+            .panel-footer
+              = render partial: 'images/new', object: @user, as: :imageable
+          #documents.tab-pane
