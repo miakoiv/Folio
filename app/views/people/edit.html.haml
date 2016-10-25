@@ -20,12 +20,8 @@
     .col-md-3
       .hpanel
         %ul.nav.nav-tabs
-          %li.active
-            %a{href: '#images', data: {toggle: 'tab'}}
-              = icon('image')
-          %li
-            %a{href: '#documents', data: {toggle: 'tab'}}
-              = icon('paperclip')
+          = nav_tab :images, icon('image'), class: 'active'
+          = nav_tab :documents, icon('paperclip')
         .tab-content
           #images.tab-pane.active
             .panel-body

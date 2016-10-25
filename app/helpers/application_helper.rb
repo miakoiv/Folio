@@ -26,6 +26,12 @@ module ApplicationHelper
     "\u00a0"
   end
 
+  def nav_tab(id, text, options = {})
+    content_tag :li, options do
+      link_to text, "##{id}", data: {toggle: 'tab'}
+    end
+  end
+
   # Generates a telephone link
   def tel_to(text, number, options = {})
     link_to text, "tel:#{number.split.join '-'}", options
