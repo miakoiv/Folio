@@ -21,6 +21,7 @@
         = f.text_field :last_name
       .col-md-6
         = f.text_field :first_names
+    .hr-line-dashed
     .row
       .col-md-6
         = f.text_field :address
@@ -46,6 +47,7 @@
         = f.telephone_field :phone
       .col-md-6
         = f.email_field :email
+    .hr-line-dashed
     .row
       .col-md-6
         = f.select :language, language_options, {},
@@ -56,13 +58,25 @@
         = f.text_field :nationality
     .row
       .col-md-12
+        = f.select :education_level_id, education_level_options,
+            {include_blank: true}, disabled: editing_disabled?,
+            data: {provide: 'select2', language: I18n.locale,
+              'allow-clear': true, placeholder: t('education_level.none'),
+              'minimum-results-for-search': 'Infinity'}
+        .education-info.collapse{class: @person.education_level.try(:needs_info?) ? 'in' : ''}
+          = f.text_field :education_info, skip_label: true,
+              placeholder: Person.human_attribute_name(:education_info)
+    .row
+      .col-md-12
         = f.text_area :restrictions
-    .row
-      .col-md-12
-        = f.text_area :referrals
-    .row
-      .col-md-12
-        = f.text_area :information
     - unless editing_disabled?
       .form-group.actions
         = f.submit class: 'btn btn-primary'
+
+:coffee
+  needs_info = #{EducationLevel.where(needs_info: true).pluck(:id).map(&:to_s)}
+  $('#person_education_level_id').on 'change', (e) ->
+    if e.currentTarget.value in needs_info
+      $('.education-info').collapse 'show'
+    else
+      $('.education-info').collapse 'hide'

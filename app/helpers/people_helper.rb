@@ -12,4 +12,8 @@ module PeopleHelper
       [icon('genderless'), '']
     ]
   end
+
+  def education_level_options
+    EducationLevel.all.map { |e| [e.to_s, e.id] }
+  end
 end

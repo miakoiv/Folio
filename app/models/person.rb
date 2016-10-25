@@ -4,8 +4,11 @@ class Person < ApplicationRecord
 
   paginates_per 20
 
+  has_many :patronages
+
   belongs_to :postcode, optional: true
   belongs_to :municipality, optional: true
+  belongs_to :education_level, optional: true
 
   default_scope { order(:last_name, :first_names) }
 
