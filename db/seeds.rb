@@ -6,27 +6,28 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-people = HTTParty
+records = HTTParty
   .get('https://randomuser.me/api?results=250&nat=fi&exc=login,registered')
   .parsed_response['results']
 
 postcodes = Postcode.all
 
-people.each do |person|
+records.each do |r|
   postcode = postcodes.sample
 
-  Person.create(
-    identification: person['id']['value'],
-    date_of_birth: person['dob'],
-    gender: person['gender'].first,
-    last_name: person['name']['last'].capitalize,
-    first_names: person['name']['first'].capitalize,
-    address: person['location']['street'].titleize,
+  person = Person.create(
+    identification: r['id']['value'],
+    date_of_birth: r['dob'],
+    gender: r['gender'].first,
+    last_name: r['name']['last'].capitalize,
+    first_names: r['name']['first'].capitalize,
+    address: r['location']['street'].titleize,
     postcode: postcode,
     municipality: postcode.municipality,
-    email: person['email'],
-    phone: person['cell'],
+    email: r['email'],
+    phone: r['cell'],
     language: 'fi',
-    nationality: person['nat']
+    nationality: r['nat']
   )
+  person.images.create attachment_remote_url: r['picture']['large']
 end
