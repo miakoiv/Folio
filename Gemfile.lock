@@ -98,6 +98,7 @@ GEM
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
+    image_processing (0.4.1)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -123,6 +124,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mini_magick (4.5.1)
     mini_portile2 (2.1.0)
     minitest (5.9.1)
     multi_json (1.12.1)
@@ -230,11 +232,13 @@ DEPENDENCIES
   haml
   haml-rails
   httparty
+  image_processing
   jbuilder (~> 2.5)
   jquery-infinite-pages
   jquery-rails
   kaminari
   listen (~> 3.0.5)
+  mini_magick (>= 4.3.5)
   mysql2 (>= 0.3.18, < 0.5)
   rails (~> 5.0.0, >= 5.0.0.1)
   rubyzip
