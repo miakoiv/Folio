@@ -32,6 +32,16 @@
   @extend .font-light, .m-b-xs;
 }
 
+// Neat grid rows with flexboxen
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+
+  > div {
+    flex: 0 0 auto;
+  }
+}
+
 // Better layout for button groups
 .btn-group {
   @extend .clearfix;
