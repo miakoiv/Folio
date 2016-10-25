@@ -1,4 +1,11 @@
 en:
+  images:
+    create:
+      notice: "Image %{image} created."
+    update:
+      notice: "Image %{image} updated."
+    destroy:
+      notice: "Image %{image} deleted."
   people:
     create:
       notice: "Person %{person} created."

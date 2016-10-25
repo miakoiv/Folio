@@ -2,6 +2,8 @@ fi:
   actions:
     cancel: Kumoa
     edit: Muokkaa
+  dropzone:
+    default_message: Pudota tiedostoja tähän tai klikkaa
   shared:
     header:
       quick_search: Etsi mitä tahansa

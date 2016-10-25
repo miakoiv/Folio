@@ -1,0 +1,17 @@
+= form_for [imageable, imageable.images.new],
+    authenticity_token: true, enforce_utf8: false,
+    html: {class: 'dropzone'} do |f|
+  .fallback
+    %fieldset
+      = f.file_field :attachment
+      = f.submit class: 'btn btn-primary'
+
+:coffee
+  Dropzone.options.newImage =
+    dictDefaultMessage: "#{I18n.t('dropzone.default_message')}"
+    paramName: 'image[attachment]'
+    init: ->
+      @on 'success', (file, image) ->
+        $.get image['image_path']
+      @on 'complete', (file) ->
+        this.removeFile(file)

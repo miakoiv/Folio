@@ -1,6 +1,9 @@
 fi:
   activerecord:
     models:
+      image:
+        one: kuva
+        other: kuvat
       person:
         one: henkilö
         other: henkilöt
@@ -8,6 +11,8 @@ fi:
         one: käyttäjätili
         other: käyttäjätilit
     attributes:
+      image:
+        attachment: Kuvatiedosto
       person:
         accommodation: Asumismuoto
         address: Lähiosoite

@@ -1,4 +1,11 @@
 fi:
+  images:
+    create:
+      notice: "Kuva %{image} luotu."
+    update:
+      notice: "Kuva %{image} päivitetty."
+    destroy:
+      notice: "Kuva %{image} poistettu."
   people:
     create:
       notice: "Henkilö %{person} luotu."

@@ -1,6 +1,9 @@
 en:
   activerecord:
     models:
+      image:
+        one: image
+        other: images
       person:
         one: person
         other: people
@@ -8,6 +11,8 @@ en:
         one: user account
         other: user accounts
     attributes:
+      image:
+        attachment: Image file
       person:
         accommodation: Accommodation
         address: Street address

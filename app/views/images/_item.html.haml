@@ -1,0 +1,10 @@
+.media{id: dom_id(image)}
+  .media-left
+    = image_tag image.attachment_url, class: 'img-responsive',
+        style: 'max-width: 80px; height: auto;'
+  .media-body
+    - unless editing_disabled?
+      .pull-right
+        = link_to icon('trash'), image, method: :delete, remote: true,
+            class: 'btn btn-sm btn-danger'
+    = image.attachment.metadata['filename'].truncate(16)
