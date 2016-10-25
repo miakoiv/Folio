@@ -4,7 +4,7 @@ class PersonSearch < Searchlight::Search
   include Searchlight::Adapters::ActionView
 
   def base_query
-    Person.includes(postcode: :municipality)
+    Person.includes(:images, postcode: :municipality)
   end
 
   def search_keyword
