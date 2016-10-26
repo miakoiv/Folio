@@ -20,6 +20,14 @@ class Person < ApplicationRecord
     Municipality.find(ids)
   end
 
+  def current_liaison
+    liaisons.first
+  end
+
+  def status
+    current_liaison.try(:status)
+  end
+
   def full_name
     return last_name if first_names.empty?
     [last_name, first_names].join ', '

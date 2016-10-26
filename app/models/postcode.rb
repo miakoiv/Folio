@@ -5,7 +5,7 @@ class Postcode < ApplicationRecord
 
   belongs_to :municipality
 
-  default_scope { unscope(:order).order(:code, localized_name_method) }
+  default_scope { reorder(:code, localized_name_method) }
 
   scope :query, -> (q) {
     where(
