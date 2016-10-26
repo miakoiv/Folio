@@ -25,7 +25,7 @@ EducationLevel.create([
   {id: 16, name_fi: 'Lähtömaassa suoritettu tutkinto', needs_info: true},
 ])
 
-Referrers.create([
+Referrer.create([
   {id:  1, name_fi: 'Perusopetus'},
   {id:  2, name_fi: 'Toisen asteen opetus'},
   {id:  3, name_fi: 'Lukio'},
