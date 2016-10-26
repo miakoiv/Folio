@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
+  before_action :set_liaisons, only: [:show, :edit]
 
   # GET /people
   # GET /people.json
@@ -80,6 +81,10 @@ class PeopleController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_person
       @person = Person.find(params[:id])
+    end
+
+    def set_liaisons
+      @liaisons = @person.liaisons.at(current_unit)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
