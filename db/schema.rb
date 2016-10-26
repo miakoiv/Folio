@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025115603) do
+ActiveRecord::Schema.define(version: 20161026063115) do
 
   create_table "education_levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.string  "name_fi",                    null: false
@@ -26,23 +26,23 @@ ActiveRecord::Schema.define(version: 20161025115603) do
     t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
   end
 
-  create_table "municipalities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.string "name_fi", null: false
-    t.string "name_sv", null: false
-  end
-
-  create_table "patronages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+  create_table "liaisons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "unit_id",                                 null: false
     t.integer  "person_id",                               null: false
     t.integer  "status",                      default: 0, null: false
-    t.integer  "referrer_id",                             null: false
+    t.integer  "referrer_id"
     t.string   "referrer_info"
     t.text     "notes",         limit: 65535
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
-    t.index ["person_id"], name: "index_patronages_on_person_id", using: :btree
-    t.index ["referrer_id"], name: "index_patronages_on_referrer_id", using: :btree
-    t.index ["unit_id"], name: "index_patronages_on_unit_id", using: :btree
+    t.index ["person_id"], name: "index_liaisons_on_person_id", using: :btree
+    t.index ["referrer_id"], name: "index_liaisons_on_referrer_id", using: :btree
+    t.index ["unit_id"], name: "index_liaisons_on_unit_id", using: :btree
+  end
+
+  create_table "municipalities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.string "name_fi", null: false
+    t.string "name_sv", null: false
   end
 
   create_table "people", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
@@ -78,6 +78,11 @@ ActiveRecord::Schema.define(version: 20161025115603) do
     t.integer "municipality_id",           null: false
     t.index ["code"], name: "index_postcodes_on_code", using: :btree
     t.index ["municipality_id"], name: "index_postcodes_on_municipality_id", using: :btree
+  end
+
+  create_table "referrers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.string  "name_fi",                    null: false
+    t.boolean "needs_info", default: false, null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|

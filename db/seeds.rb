@@ -24,3 +24,25 @@ EducationLevel.create([
   {id: 15, name_fi: 'Muu tutkinto', needs_info: true},
   {id: 16, name_fi: 'Lähtömaassa suoritettu tutkinto', needs_info: true},
 ])
+
+Referrers.create([
+  {id:  1, name_fi: 'Perusopetus'},
+  {id:  2, name_fi: 'Toisen asteen opetus'},
+  {id:  3, name_fi: 'Lukio'},
+  {id:  4, name_fi: 'Nuorisotyö (alueellinen ja ehkäisevä)'},
+  {id:  5, name_fi: 'Koulu- ja opiskeluterveyden huolto'},
+  {id:  6, name_fi: 'Perhekeskus'},
+  {id:  7, name_fi: 'Nuorisokeskus'},
+  {id:  8, name_fi: 'Lapsiperheiden sosiaalipalvelut'},
+  {id:  9, name_fi: 'Terveydenhuollon peruspalvelut'},
+  {id: 10, name_fi: 'Sosiaali- ja erityispalvelut'},
+  {id: 11, name_fi: 'Huoltajat / sukulaiset'},
+  {id: 12, name_fi: 'Kaverit'},
+  {id: 13, name_fi: 'Sidosryhmät'},
+  {id: 14, name_fi: 'Itsenäisesti'},
+  {id: 15, name_fi: 'Kela'},
+  {id: 16, name_fi: 'Työ- ja elinkeinotoimisto'},
+  {id: 17, name_fi: 'HUS'},
+  {id: 18, name_fi: 'Puolustusvoimat / siviilipalvelus'},
+  {id: 19, name_fi: 'Muuta kautta', needs_info: true},
+])
