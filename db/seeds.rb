@@ -48,3 +48,12 @@ Referrer.create([
   {id: 18, name_fi: 'Puolustusvoimat / siviilipalvelus'},
   {id: 19, name_fi: 'Muuta kautta', needs_info: true},
 ])
+
+Status.create([
+  {id: 0, name_fi: 'ei aloitettu', appearance: 'default'},
+  {id: 1, name_fi: 'aktiivinen', appearance: 'green'},
+  {id: 2, name_fi: 'satunnainen', appearance: 'blue'},
+  {id: 3, name_fi: 'ei tavoiteta', appearance: 'yellow'},
+  {id: 4, name_fi: 'kadonnut', appearance: 'red'},
+  {id: 5, name_fi: 'päättynyt', appearance: 'red-deep'},
+])

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026082643) do
+ActiveRecord::Schema.define(version: 20161026094050) do
 
   create_table "education_levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.string  "name_fi",                    null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20161026082643) do
   create_table "liaisons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "unit_id",                                 null: false
     t.integer  "person_id",                               null: false
-    t.integer  "status",                      default: 0, null: false
+    t.integer  "status_id",                   default: 0, null: false
     t.integer  "referrer_id"
     t.string   "referrer_info"
     t.text     "notes",         limit: 65535
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20161026082643) do
     t.datetime "updated_at",                              null: false
     t.index ["person_id"], name: "index_liaisons_on_person_id", using: :btree
     t.index ["referrer_id"], name: "index_liaisons_on_referrer_id", using: :btree
+    t.index ["status_id"], name: "index_liaisons_on_status_id", using: :btree
     t.index ["unit_id"], name: "index_liaisons_on_unit_id", using: :btree
   end
 
@@ -83,6 +84,11 @@ ActiveRecord::Schema.define(version: 20161026082643) do
   create_table "referrers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.string  "name_fi",                    null: false
     t.boolean "needs_info", default: false, null: false
+  end
+
+  create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.string "name_fi",    null: false
+    t.string "appearance", null: false
   end
 
   create_table "units", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
