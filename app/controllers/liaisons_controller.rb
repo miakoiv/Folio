@@ -1,0 +1,2 @@
+class LiaisonsController < ApplicationController
+end

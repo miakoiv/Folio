@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PatronagesControllerTest < ActionDispatch::IntegrationTest
+class LiaisonTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
