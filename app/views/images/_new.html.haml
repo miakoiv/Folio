@@ -5,10 +5,12 @@
     %fieldset
       = f.file_field :attachment
       = f.submit class: 'btn btn-primary'
+  .dz-message
+    %i.pe-7s-upload.pe-4x
+    %p.small= t('dropzone.default_message')
 
 :coffee
   Dropzone.options.newImage =
-    dictDefaultMessage: "#{I18n.t('dropzone.default_message')}"
     paramName: 'image[attachment]'
     init: ->
       @on 'success', (file, image) ->

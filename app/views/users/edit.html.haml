@@ -27,6 +27,6 @@
           #images.tab-pane.active
             .panel-body
               = render partial: 'images/list', object: @user, as: :imageable
-            .panel-footer
+              .hr-line-dashed
               = render partial: 'images/new', object: @user, as: :imageable
           #documents.tab-pane
