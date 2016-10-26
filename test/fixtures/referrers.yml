@@ -1,0 +1,77 @@
+---
+referrer_1:
+  id: 1
+  name_fi: Perusopetus
+
+referrer_2:
+  id: 2
+  name_fi: Toisen asteen opetus
+
+referrer_3:
+  id: 3
+  name_fi: Lukio
+
+referrer_4:
+  id: 4
+  name_fi: Nuorisotyö (alueellinen ja ehkäisevä)
+
+referrer_5:
+  id: 5
+  name_fi: Koulu- ja opiskeluterveyden huolto
+
+referrer_6:
+  id: 6
+  name_fi: Perhekeskus
+
+referrer_7:
+  id: 7
+  name_fi: Nuorisokeskus
+
+referrer_8:
+  id: 8
+  name_fi: Lapsiperheiden sosiaalipalvelut
+
+referrer_9:
+  id: 9
+  name_fi: Terveydenhuollon peruspalvelut
+
+referrer_10:
+  id: 10
+  name_fi: Sosiaali- ja erityispalvelut
+
+referrer_11:
+  id: 11
+  name_fi: Huoltajat / sukulaiset
+
+referrer_12:
+  id: 12
+  name_fi: Kaverit
+
+referrer_13:
+  id: 13
+  name_fi: Sidosryhmät
+
+referrer_14:
+  id: 14
+  name_fi: Itsenäisesti
+
+referrer_15:
+  id: 15
+  name_fi: Kela
+
+referrer_16:
+  id: 16
+  name_fi: Työ- ja elinkeinotoimisto
+
+referrer_17:
+  id: 17
+  name_fi: HUS
+
+referrer_18:
+  id: 18
+  name_fi: Puolustusvoimat / siviilipalvelus
+
+referrer_19:
+  id: 19
+  name_fi: Muuta kautta
+  needs_info: true

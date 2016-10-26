@@ -1,0 +1,30 @@
+---
+status_0:
+  id: 0
+  name_fi: ei aloitettu
+  appearance: default
+
+status_1:
+  id: 1
+  name_fi: aktiivinen
+  appearance: green
+
+status_2:
+  id: 2
+  name_fi: satunnainen
+  appearance: blue
+
+status_3:
+  id: 3
+  name_fi: ei tavoiteta
+  appearance: yellow
+
+status_4:
+  id: 4
+  name_fi: kadonnut
+  appearance: red
+
+status5:
+  id: 5
+  name_fi: päättynyt
+  appearance: red-deep

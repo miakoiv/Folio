@@ -1,0 +1,66 @@
+---
+education_level_1:
+  id: 1
+  name_fi: Peruskoulussa
+
+education_level_2:
+  id: 2
+  name_fi: Peruskoulu keskeytynyt
+
+education_level_3:
+  id: 3
+  name_fi: Peruskoulu suoritettu
+
+education_level_4:
+  id: 4
+  name_fi: Lukiossa
+
+education_level_5:
+  id: 5
+  name_fi: Lukio keskeytynyt
+
+education_level_6:
+  id: 6
+  name_fi: Lukio suoritettu
+
+education_level_7:
+  id: 7
+  name_fi: Ylioppilas
+
+education_level_8:
+  id: 8
+  name_fi: Suorittamassa ammatillista perustutkintoa
+
+education_level_9:
+  id: 9
+  name_fi: Keskeytynyt ammatillinen perustutkinto
+
+education_level_10:
+  id: 10
+  name_fi: Ammatillinen perustutkinto suoritettu
+
+education_level_11:
+  id: 11
+  name_fi: Keskeytynyt alempi korkeakoulututkinto
+
+education_level_12:
+  id: 12
+  name_fi: Alempi korkeakoulututkinto suoritettu
+
+education_level_13:
+  id: 13
+  name_fi: Keskeytynyt ylempi korkeakoulututkinto
+
+education_level_14:
+  id: 14
+  name_fi: Ylempi korkeakoulututkinto
+
+education_level_15:
+  id: 15
+  name_fi: Muu tutkinto
+  needs_info: true
+
+education_level_16:
+  id: 16
+  name_fi: Lähtömaassa suoritettu tutkinto
+  needs_info: true
