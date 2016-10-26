@@ -4,7 +4,7 @@ class Person < ApplicationRecord
 
   paginates_per 20
 
-  has_many :patronages
+  has_many :liaisons, dependent: :destroy
 
   belongs_to :postcode, optional: true
   belongs_to :municipality, optional: true
