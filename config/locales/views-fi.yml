@@ -26,6 +26,8 @@ fi:
   events:
     panel:
       header: Tapahtumat
+    new:
+      title: Uusi tapahtuma
   images:
     panel:
       header: Kuvat

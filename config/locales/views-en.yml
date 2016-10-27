@@ -26,6 +26,8 @@ en:
   events:
     panel:
       header: Events
+    new:
+      title: New event
   images:
     panel:
       header: Photos
