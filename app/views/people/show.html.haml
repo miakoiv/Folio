@@ -9,9 +9,7 @@
   .row
     .col-md-3
       = render @person
-      = link_to [:new, @person, :liaison] do
-        = render partial: 'liaisons/new'
-      = render partial: 'liaisons/item', collection: @liaisons, as: :liaison
+      = render partial: 'images'
     .col-md-6
       .hpanel
         .panel-heading.hbuilt
@@ -22,4 +20,6 @@
         .panel-body
           = render partial: 'form'
     .col-md-3
-      = render partial: 'images'
+      = link_to [:new, @person, :liaison] do
+        = render partial: 'liaisons/new'
+      = render partial: 'liaisons/item', collection: @liaisons, as: :liaison

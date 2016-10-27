@@ -9,6 +9,7 @@
   .row
     .col-md-3
       = render @person
+      = render partial: 'images'
     .col-md-6
       .hpanel.editing-panel
         .panel-heading.hbuilt
@@ -18,5 +19,3 @@
           = icon('id-card', t('people.panel.header'))
         .panel-body
           = render partial: 'form'
-    .col-md-3
-      = render partial: 'images'
