@@ -11,8 +11,7 @@
       = render @person
       = link_to [:new, @person, :liaison] do
         = render partial: 'liaisons/new'
-      = render partial: 'liaison', collection: @liaisons,
-          locals: {active: nil}
+      = render partial: 'liaisons/item', collection: @liaisons, as: :liaison
     .col-md-6
       .hpanel
         .panel-heading.hbuilt
