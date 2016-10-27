@@ -1,0 +1,7 @@
+#calendar
+
+:coffee
+  $ ->
+    $('#calendar').fullCalendar
+      navLinks: true
+      events: '#{url_for([container, :events])}'

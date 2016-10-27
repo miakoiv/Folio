@@ -24,5 +24,4 @@
         .panel-heading.hbuilt
           = icon('calendar', t('events.panel.header'))
         .panel-body
-          = render partial: 'events/row', collection: @liaison.events,
-              as: :event, layout: 'events/table'
+          = render partial: 'events/calendar', object: @liaison, as: :container
