@@ -28,16 +28,14 @@
       .col-md-6
         = f.select :postcode_id,
             options_from_current(@person.postcode, :id, :text),
-            {include_blank: blank_option},
-            disabled: editing_disabled?,
+            {include_blank: true}, disabled: editing_disabled?,
             data: {provide: 'select2', language: I18n.locale,
               'ajax--url': postcodes_path, 'ajax--delay': 500}
     .row
       .col-md-6
         = f.select :municipality_id,
             options_from_current(@person.municipality),
-            {include_blank: blank_option},
-            disabled: editing_disabled?,
+            {include_blank: true}, disabled: editing_disabled?,
             data: {provide: 'select2', language: I18n.locale,
               'ajax--url': municipalities_path, 'ajax--delay': 500}
       .col-md-6

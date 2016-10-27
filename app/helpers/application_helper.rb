@@ -22,10 +22,7 @@ module ApplicationHelper
     ]
   end
 
-  def blank_option
-    "\u00a0"
-  end
-
+  # Generates a nav tab list item pointing to tab id.
   def nav_tab(id, text, options = {})
     content_tag :li, options do
       link_to text, "##{id}", data: {toggle: 'tab'}

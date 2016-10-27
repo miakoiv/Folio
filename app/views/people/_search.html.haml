@@ -10,9 +10,8 @@
       %fieldset
         = f.select :municipalities,
             Person.assigned_municipalities.map { |m| [m.to_s, m.id] },
-            {include_blank: blank_option, include_hidden: false,
-              label: t('.municipalities')},
-            multiple: true, data: {provide: 'select2'}
+            {include_hidden: false, label: t('.municipalities')},
+            multiple: true, data: {provide: 'select2', 'allow-clear': true}
         = f.text_field :year_of_birth, autocomplete: 'off',
             label: t('.year_of_birth'), data: {provide: 'datepicker',
               'date-format': 'yyyy', 'date-language': I18n.locale,
