@@ -31,6 +31,8 @@
   @extend .font-light, .m-b-xs;
 }
 
+.label { display: inline-block; }
+
 // Neat grid rows with flexboxen
 .grid {
   display: flex;
@@ -129,6 +131,12 @@ fieldset[disabled] label.required:after {
   .select2-selection__arrow {
     display: none;
   }
+}
+
+// Select2 options rendered like labels
+.select2 .label {
+  display: inline-block;
+  font-size: 100%;
 }
 
 // Infinite pagination gets a nifty scroll bar for loading indicator
