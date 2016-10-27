@@ -23,6 +23,7 @@
  *= require pe-icon-7-stroke/helper
  *
  * Vendor CSS
+ *= require fullcalendar.min
  *= require animate.min
  *= require metisMenu.min
  *= require toastr.min
