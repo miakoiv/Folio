@@ -1,6 +1,7 @@
 ---
 fi:
   i18n:
+    culture: fi-FI
     language:
       name: suomi
   activerecord:

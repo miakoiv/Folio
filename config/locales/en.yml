@@ -1,6 +1,7 @@
 ---
 en:
   i18n:
+    culture: en-US
     language:
       name: English
   activerecord:
