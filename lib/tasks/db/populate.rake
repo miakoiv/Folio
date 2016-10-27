@@ -1,14 +1,18 @@
 namespace :db do
-  desc 'Populate the people table with randomly generated data'
+  desc 'Populate the database with random people and liaisons'
   task populate: :environment do
 
     records = HTTParty
-      .get('https://randomuser.me/api?results=250&nat=fi&exc=login,registered')
+      .get('https://randomuser.me/api?results=100&nat=fi&exc=login')
       .parsed_response['results']
 
+    unit = Unit.first
     postcodes = Postcode.all
+    statuses = Status.all
+    referrers = Referrer.all
 
     records.each do |r|
+      creation = Date.parse(r['registered'])
       postcode = postcodes.sample
 
       person = Person.create(
@@ -23,9 +27,19 @@ namespace :db do
         email: r['email'],
         phone: r['cell'],
         language: 'fi',
-        nationality: r['nat']
+        nationality: r['nat'],
+        created_at: creation,
+        updated_at: creation
       )
       person.images.create attachment_remote_url: r['picture']['large']
+
+      rand(3).times do |n|
+        person.liaisons.at(unit).create(
+          created_at: creation + rand(1500).days,
+          status: statuses.sample,
+          referrer: referrers.sample
+        )
+      end
     end
   end
 end
