@@ -9,4 +9,9 @@ class Liaison < ApplicationRecord
 
   # Scope for restricting liaisons to a single unit.
   scope :at, -> (unit) { where(unit: unit) }
+
+
+  def to_s
+    "#{created_at.to_date} / #{person}"
+  end
 end
