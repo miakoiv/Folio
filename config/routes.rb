@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root to: 'people#index'
+  root to: 'dashboard#index'
 
   resources :municipalities, only: :index
   resources :postcodes, only: :index

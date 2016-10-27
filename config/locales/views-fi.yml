@@ -10,7 +10,8 @@ fi:
     footer:
       copyright_html: LeasIT Oy <i class="fa fa-copyright"></i> 2016
       slogan_html: Tehty suurella sydämellä <i class="fa fa-heart"></i> Suomessa.
-
+    menu:
+      dashboard: Ohjaamo
   education_level:
     none: "[Ei tietoa]"
   liaisons:
