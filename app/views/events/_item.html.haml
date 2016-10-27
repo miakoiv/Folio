@@ -1,0 +1,11 @@
+.hpanel.filter-item{id: dom_id(event)}
+  = link_to [:edit, event], remote: true do
+    .panel-body
+      %span.label.pull-right{class: "label-default"}
+        = event.event_type_id
+      %h4
+        = event.title
+      %small
+        = l(event.starts_at, format: :short)
+        = icon('clock-o')
+        = event.ends_at.present? ? l(event.ends_at, format: :short) : nil

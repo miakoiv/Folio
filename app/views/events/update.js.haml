@@ -1,0 +1,3 @@
+$("##{dom_id @event}").replaceWith("#{j render partial: 'events/item', object: @event, as: :event}");
+$('#calendar').fullCalendar('refetchEvents');
+$('#modal').modal('hide');

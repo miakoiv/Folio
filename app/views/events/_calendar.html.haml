@@ -3,5 +3,26 @@
 :coffee
   $ ->
     $('#calendar').fullCalendar
-      navLinks: true
       events: '#{url_for([container, :events])}'
+      startParam: 'since_date'
+      endParam: 'until_date'
+      header:
+        left: 'prev,next today'
+        center: 'title'
+        right: 'month,agendaWeek'
+      navLinks: true
+      weekNumbers: true
+      businessHours:
+        start: '08:00'
+        end: '20:00'
+        dow: [1,2,3,4,5]
+      editable: false
+      eventClick: (calEvent, jsEvent, view) ->
+        jsEvent.preventDefault()
+        $.get calEvent.edit_url
+        false
+      dayClick: (date, jsEvent, view) ->
+        $.get '#{url_for([:new, container, :event])}',
+          event:
+            starts_at: date.format()
+            ends_at: date.format()
