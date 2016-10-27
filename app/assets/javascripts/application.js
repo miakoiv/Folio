@@ -11,6 +11,8 @@
 // about supported directives.
 //
 // Scripts from gems
+//= require moment
+//= require moment/fi.js
 //= require jquery2
 //= require jquery_ujs
 //= require jquery.infinite-pages
@@ -26,6 +28,8 @@
 //= require unobtrusive_flash
 //
 // Vendor scripts
+//= require fullcalendar/fullcalendar.min
+//= require fullcalendar/locale/fi
 //= require jquery.slimscroll.min
 //= require metisMenu.min
 //= require toastr.min

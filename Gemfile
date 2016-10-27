@@ -65,6 +65,9 @@ gem 'activerecord-import'
 # HTTP abstraction for seeding the database
 gem 'httparty'
 
+# Date library for FullCalendar
+gem 'momentjs-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
