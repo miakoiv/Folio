@@ -6,7 +6,8 @@ class EventsController < ApplicationController
   # GET /liaisons/2/events
   # GET /liaisons/2/events.json
   def index
-    @events = @liaison.events
+    @search = EventSearch.new(params)
+    @events = @search.results
   end
 
   # GET /events/1
@@ -16,7 +17,7 @@ class EventsController < ApplicationController
 
   # GET /liaisons/2/events/new
   def new
-    @event = @liaison.events.for(current_user).build
+    @event = @liaison.events.for(current_user).build(event_params)
   end
 
   # GET /events/1/edit
@@ -31,9 +32,11 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: t('.notice', event: @event) }
+        format.js
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
+        format.js { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -45,9 +48,11 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: t('.notice', event: @event) }
+        format.js
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
+        format.js { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -77,7 +82,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(
+      params.fetch(:event) {{}}.permit(
         :event_type_id, :starts_at, :ends_at, :all_day, :title, :description
       )
     end
