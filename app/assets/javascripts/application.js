@@ -21,6 +21,8 @@
 //= require select2
 //= require select2_locale_en
 //= require select2_locale_fi
+//= require summernote
+//= require summernote/locales
 //= require unobtrusive_flash
 //
 // Vendor scripts

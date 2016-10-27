@@ -9,6 +9,7 @@
 @import 'bootstrap';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import 'summernote';
 @import 'homer/style';
 
 // More room for the footer
@@ -58,7 +59,7 @@
 .editing-panel > .panel-body { background-color: $color-bright; }
 
 // Better layout for button groups
-.btn-group {
+.form-group > .btn-group {
   @extend .clearfix;
   display: block;
 }
@@ -140,6 +141,11 @@ fieldset[disabled] label.required:after {
 .select2 .label {
   display: inline-block;
   font-size: 100%;
+}
+
+// Summernote styling
+.note-editor.note-frame {
+  border-color: #e4e5e7;
 }
 
 // Infinite pagination gets a nifty scroll bar for loading indicator

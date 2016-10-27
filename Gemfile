@@ -32,6 +32,7 @@ gem 'bootstrap_form'
 gem 'bootstrap-datepicker-rails'
 gem 'active_link_to'
 gem 'select2-rails'
+gem 'summernote-rails'
 gem 'unobtrusive_flash'
 
 # Pagination, infinite scrolling, and low magic search
