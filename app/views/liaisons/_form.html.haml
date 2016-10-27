@@ -3,18 +3,18 @@
   %fieldset{disabled: editing_disabled?}
     .row
       .col-md-12
-        = f.select :status_id, status_options, {},
-            disabled: editing_disabled?,
+        = f.select :status_id, status_options,
+            {}, disabled: editing_disabled?,
             data: {provide: 'select2', language: I18n.locale,
               'minimum-results-for-search': 'Infinity'}
     .row
       .col-md-12
-        = f.select :referrer_id, referrer_options, {include_blank: true},
-            disabled: editing_disabled?,
+        = f.select :referrer_id, referrer_options,
+            {include_blank: true}, disabled: editing_disabled?,
             data: {provide: 'select2', language: I18n.locale,
               'allow-clear': true, placeholder: t('referrer.none'),
               'minimum-results-for-search': 'Infinity'}
-        .referrer-info.collapse{class: @liaison.referrer.try(:needs_info?) ? 'in' : ''}
+        .referrer-info{collapsible(@liaison.referrer, :needs_info?)}
           = f.text_field :referrer_info, skip_label: true, wrapper_class: 'm-t-n',
               placeholder: Liaison.human_attribute_name(:referrer_info)
     - unless editing_disabled?

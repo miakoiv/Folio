@@ -61,7 +61,7 @@
             data: {provide: 'select2', language: I18n.locale,
               'allow-clear': true, placeholder: t('education_level.none'),
               'minimum-results-for-search': 'Infinity'}
-        .education-info.collapse{class: @person.education_level.try(:needs_info?) ? 'in' : ''}
+        .education-info{collapsible(@person.education_level, :needs_info?)}
           = f.text_field :education_info, skip_label: true, wrapper_class: 'm-t-n',
               placeholder: Person.human_attribute_name(:education_info)
     .row

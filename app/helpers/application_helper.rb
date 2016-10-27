@@ -29,6 +29,13 @@ module ApplicationHelper
     end
   end
 
+  # Generates a Haml-compliant hash for a collapsible element
+  # that is initially shown if object#method returns true.
+  def collapsible(object, method)
+    collapse_in = object.try(method) ? 'collapse in' : 'collapse'
+    {class: collapse_in}
+  end
+
   # Generates a telephone link
   def tel_to(text, number, options = {})
     link_to text, "tel:#{number.split.join '-'}", options
