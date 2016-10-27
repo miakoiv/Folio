@@ -12,7 +12,6 @@
 //
 // Scripts from gems
 //= require moment
-//= require moment/fi.js
 //= require jquery2
 //= require jquery_ujs
 //= require jquery.infinite-pages
