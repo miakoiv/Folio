@@ -2,11 +2,29 @@
     html: {novalidate: true} do |f|
   %fieldset{disabled: editing_disabled?}
     .row
-      .col-md-6
+      .col-md-12
         = f.select :status_id, status_options, {},
             disabled: editing_disabled?,
             data: {provide: 'select2', language: I18n.locale,
               'minimum-results-for-search': 'Infinity'}
+    .row
+      .col-md-12
+        = f.select :referrer_id, referrer_options, {include_blank: true},
+            disabled: editing_disabled?,
+            data: {provide: 'select2', language: I18n.locale,
+              'allow-clear': true, placeholder: t('referrer.none'),
+              'minimum-results-for-search': 'Infinity'}
+        .referrer-info.collapse{class: @liaison.referrer.try(:needs_info?) ? 'in' : ''}
+          = f.text_field :referrer_info, skip_label: true, wrapper_class: 'm-t-n',
+              placeholder: Liaison.human_attribute_name(:referrer_info)
     - unless editing_disabled?
       .form-group.actions
         = f.submit class: 'btn btn-primary'
+
+:coffee
+  needs_info = #{Referrer.where(needs_info: true).pluck(:id).map(&:to_s)}
+  $('#liaison_referrer_id').on 'change', (e) ->
+    if e.currentTarget.value in needs_info
+      $('.referrer-info').collapse 'show'
+    else
+      $('.referrer-info').collapse 'hide'
