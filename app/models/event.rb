@@ -8,6 +8,8 @@ class Event < ApplicationRecord
   scope :for, -> (user) { where(user: user) }
 
 
+  validates :title, presence: true
+
   def to_s
     title
   end
