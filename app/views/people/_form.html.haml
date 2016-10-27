@@ -72,9 +72,9 @@
         = f.submit class: 'btn btn-primary'
 
 :coffee
-  needs_info = #{EducationLevel.where(needs_info: true).pluck(:id).map(&:to_s)}
+  needs_info = #{EducationLevel.needs_info.pluck(:id)}
   $('#person_education_level_id').on 'change', (e) ->
-    if e.currentTarget.value in needs_info
+    if +e.currentTarget.value in needs_info
       $('.education-info').collapse 'show'
     else
       $('.education-info').collapse 'hide'
