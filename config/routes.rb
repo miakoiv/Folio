@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   resources :postcodes, only: :index
 
   resources :people do
-    resources :liaisons
     resources :images, shallow: true
+    resources :liaisons, shallow: true, except: :index
   end
   resources :users do
     resources :images, shallow: true
