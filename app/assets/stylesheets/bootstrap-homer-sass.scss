@@ -54,6 +54,9 @@
 .label-red { background-color: $color-red; }
 .label-red-deep { background-color: $color-red-deep; }
 
+// Panel in editing mode to make forms stand out
+.editing-panel > .panel-body { background-color: $color-bright; }
+
 // Better layout for button groups
 .btn-group {
   @extend .clearfix;
