@@ -1,0 +1,29 @@
+- content_for :header do
+  %h2= @person
+  %small= @liaison
+- content_for :breadcrumb do
+  %li= link_to title(Person, count: 2), people_path
+  %li= link_to @person, @person
+  %li.active= @liaison
+
+.content
+  .row
+    .col-md-3
+      = render @person
+    .col-md-6
+      .hpanel
+        .panel-heading.hbuilt
+          .pull-right
+            = link_to icon('close', t('actions.cancel')), @liaison,
+                class: 'btn btn-xs btn-default'
+          = icon('book', t('liaisons.panel.header'))
+        .panel-body
+          = render partial: 'form'
+
+    .col-md-3
+      .hpanel
+        %ul.nav.nav-tabs
+          = nav_tab :documents, icon('envelope-open-o'),  class: 'active'
+        .tab-content
+          #documents.tab-pane.active
+            .panel-body

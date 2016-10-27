@@ -1,0 +1,12 @@
+= bootstrap_form_for @liaison,
+    html: {novalidate: true} do |f|
+  %fieldset{disabled: editing_disabled?}
+    .row
+      .col-md-6
+        = f.select :status_id, status_options, {},
+            disabled: editing_disabled?,
+            data: {provide: 'select2', language: I18n.locale,
+              'minimum-results-for-search': 'Infinity'}
+    - unless editing_disabled?
+      .form-group.actions
+        = f.submit class: 'btn btn-primary'

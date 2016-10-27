@@ -6,7 +6,6 @@ class LiaisonsController < ApplicationController
   # GET /liaisons/1
   # GET /liaisons/1.json
   def show
-    @person = @liaison.person
     disable_editing!
   end
 
@@ -17,7 +16,6 @@ class LiaisonsController < ApplicationController
 
   # GET /liaisons/1/edit
   def edit
-    @person = @liaison.person
   end
 
   # POST /people/2/liaisons
