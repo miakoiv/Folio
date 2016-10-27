@@ -4,6 +4,13 @@ en:
     edit: Edit
   dropzone:
     default_message: Drop files here or click
+  shared:
+    header:
+      quick_search: Search anything
+    footer:
+      copyright_html: LeasIT Oy <i class="fa fa-copyright"></i> 2016
+      slogan_html: Made with love <i class="fa fa-heart"></i> in Finland.
+
   education_level:
     none: "[No information provided]"
   liaisons:
@@ -11,12 +18,6 @@ en:
       header: Customer information
     new:
       title: New customer
-  shared:
-    header:
-      quick_search: Search anything
-    footer:
-      copyright_html: LeasIT Oy <i class="fa fa-copyright"></i> 2016
-      slogan_html: Made with love <i class="fa fa-heart"></i> in Finland.
   people:
     panel:
       header: Personal information
@@ -30,6 +31,8 @@ en:
     new:
       last_name: New
       first_names: person
+  referrer:
+    none: "[No referral]"
   users:
     links:
       my_profile: My profile

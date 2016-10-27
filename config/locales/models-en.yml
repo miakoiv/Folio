@@ -22,12 +22,13 @@ en:
       liaison:
         status_id: Customer status
         referrer_id: Referred by
+        referrer_info: Specify referral…
         notes: Notes
       person:
         accommodation: Accommodation
         address: Street address
         date_of_birth: Date of birth
-        education_info: Specify
+        education_info: Specify education…
         education_level_id: Educational background
         email: E-mail address
         first_names: First names
