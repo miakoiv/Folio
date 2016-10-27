@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   include Imageable
 
+  has_many :events
+
   scope :active, -> { where %q{
     (users.activates_at IS NULL OR users.activates_at >= :today) AND
     (users.expires_at IS NULL OR users.expires_at > :today)

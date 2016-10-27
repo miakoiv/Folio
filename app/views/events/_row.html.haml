@@ -1,0 +1,6 @@
+%tr
+  %td= event.event_type_id
+  %td= event.user
+  %td= l(event.starts_at, format: :short)
+  %td= event.ends_at.present? ? l(event.ends_at, format: :short) : nil
+  %td= event.title

@@ -1,0 +1,8 @@
+.hpanel
+  .panel-heading.hbuilt
+    = icon('film', t('images.panel.header'))
+  .panel-body
+    = render partial: 'images/list', object: @person, as: :imageable
+    - unless editing_disabled?
+      .hr-line-dashed
+      = render partial: 'images/new', object: @person, as: :imageable

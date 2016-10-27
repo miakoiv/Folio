@@ -4,6 +4,9 @@ en:
       education_level:
         one: educational background
         other: educational backgrounds
+      event:
+        one: event
+        other: events
       image:
         one: image
         other: images
@@ -17,6 +20,15 @@ en:
         one: user account
         other: user accounts
     attributes:
+      event:
+        event_type_id: Event type
+        user_id: Owner
+        liaison_id: Customer
+        starts_at: Starts
+        ends_at: Ends
+        all_day: All day
+        title: Title
+        description: Description
       image:
         attachment: Image file
       liaison:

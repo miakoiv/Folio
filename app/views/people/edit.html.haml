@@ -19,14 +19,4 @@
         .panel-body
           = render partial: 'form'
     .col-md-3
-      .hpanel
-        %ul.nav.nav-tabs
-          = nav_tab :images, icon('film'), class: 'active'
-          = nav_tab :documents, icon('envelope-open-o')
-        .tab-content
-          #images.tab-pane.active
-            .panel-body
-              = render partial: 'images/list', object: @person, as: :imageable
-              .hr-line-dashed
-              = render partial: 'images/new', object: @person, as: :imageable
-          #documents.tab-pane
+      = render partial: 'images'

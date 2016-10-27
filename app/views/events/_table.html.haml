@@ -1,0 +1,11 @@
+.table-responsive
+  %table.table.table-striped.table-hover
+    %thead
+      %tr
+        %th
+        %th= Event.human_attribute_name(:user_id)
+        %th= Event.human_attribute_name(:starts_at)
+        %th= Event.human_attribute_name(:ends_at)
+        %th= Event.human_attribute_name(:title)
+    %tbody
+      = yield

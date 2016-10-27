@@ -4,6 +4,7 @@ class Liaison < ApplicationRecord
   belongs_to :person
   belongs_to :status
   belongs_to :referrer, optional: true
+  has_many :events
 
   default_scope { order(created_at: :desc) }
 

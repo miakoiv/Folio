@@ -18,8 +18,17 @@ en:
       slogan_html: Made with love <i class="fa fa-heart"></i> in Finland.
     menu:
       dashboard: Dashboard
+  documents:
+    panel:
+      header: Attachments
   education_level:
     none: "[No information provided]"
+  events:
+    panel:
+      header: Events
+  images:
+    panel:
+      header: Photos
   liaisons:
     panel:
       header: Customer information

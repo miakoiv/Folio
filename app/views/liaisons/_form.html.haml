@@ -2,13 +2,12 @@
     html: {novalidate: true} do |f|
   %fieldset{disabled: editing_disabled?}
     .row
-      .col-md-12
+      .col-md-6
         = f.select :status_id, status_options,
             {}, disabled: editing_disabled?,
             data: {provide: 'select2', language: I18n.locale,
               'minimum-results-for-search': 'Infinity'}
-    .row
-      .col-md-12
+      .col-md-6
         = f.select :referrer_id, referrer_options,
             {include_blank: true}, disabled: editing_disabled?,
             data: {provide: 'select2', language: I18n.locale,
@@ -35,9 +34,11 @@
 
   $('#liaison_notes').summernote
     lang: "#{t('i18n.culture')}"
+    airMode: true
     dialogsFade: true
     disableDragAndDrop: true
-    toolbar: [
-      ['para', ['style', 'ul', 'ol', 'paragraph']]
-      ['font', ['bold', 'italic', 'clear']]
-    ]
+    popover:
+      air: [
+        ['para', ['style', 'ul', 'ol', 'paragraph']]
+        ['font', ['bold', 'italic', 'clear']]
+      ]

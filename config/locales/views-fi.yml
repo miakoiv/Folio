@@ -18,8 +18,17 @@ fi:
       slogan_html: Tehty suurella sydämellä <i class="fa fa-heart"></i> Suomessa.
     menu:
       dashboard: Ohjaamo
+  documents:
+    panel:
+      header: Liitteet
   education_level:
     none: "[Ei tietoa]"
+  events:
+    panel:
+      header: Tapahtumat
+  images:
+    panel:
+      header: Kuvat
   liaisons:
     panel:
       header: Asiakkuuden tiedot

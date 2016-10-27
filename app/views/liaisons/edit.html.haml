@@ -10,7 +10,8 @@
   .row
     .col-md-3
       = render @liaison.person
-    .col-md-6
+      = render partial: 'documents'
+    .col-md-9
       .hpanel.editing-panel
         .panel-heading.hbuilt
           .pull-right
@@ -19,11 +20,3 @@
           = icon('book', t('liaisons.panel.header'))
         .panel-body
           = render partial: 'form'
-
-    .col-md-3
-      .hpanel
-        %ul.nav.nav-tabs
-          = nav_tab :documents, icon('envelope-open-o'),  class: 'active'
-        .tab-content
-          #documents.tab-pane.active
-            .panel-body

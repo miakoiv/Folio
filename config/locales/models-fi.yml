@@ -4,6 +4,9 @@ fi:
       education_level:
         one: koulutustausta
         other: koulutustaustat
+      event:
+        one: tapahtuma
+        other: tapahtumat
       image:
         one: kuva
         other: kuvat
@@ -17,6 +20,15 @@ fi:
         one: käyttäjätili
         other: käyttäjätilit
     attributes:
+      event:
+        event_type_id: Tapahtumalaji
+        user_id: Omistaja
+        liaison_id: Asiakas
+        starts_at: Alkaa
+        ends_at: Päättyy
+        all_day: Kokopäiväinen
+        title: Otsake
+        description: Kuvaus
       image:
         attachment: Kuvatiedosto
       liaison:

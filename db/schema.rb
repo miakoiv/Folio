@@ -10,11 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026094050) do
+ActiveRecord::Schema.define(version: 20161027114853) do
 
   create_table "education_levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.string  "name_fi",                    null: false
     t.boolean "needs_info", default: false, null: false
+  end
+
+  create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.integer  "event_type_id",                               null: false
+    t.integer  "user_id",                                     null: false
+    t.integer  "liaison_id",                                  null: false
+    t.datetime "starts_at",                                   null: false
+    t.datetime "ends_at"
+    t.boolean  "all_day",                     default: false, null: false
+    t.string   "title",                                       null: false
+    t.text     "description",   limit: 65535
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.index ["event_type_id"], name: "index_events_on_event_type_id", using: :btree
+    t.index ["liaison_id"], name: "index_events_on_liaison_id", using: :btree
+    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
