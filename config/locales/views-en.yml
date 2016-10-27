@@ -9,6 +9,8 @@ en:
   liaisons:
     panel:
       header: Customer information
+    new:
+      title: New customer
   shared:
     header:
       quick_search: Search anything

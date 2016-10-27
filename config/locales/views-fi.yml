@@ -9,6 +9,8 @@ fi:
   liaisons:
     panel:
       header: Asiakkuuden tiedot
+    new:
+      title: Uusi asiakkuus
   shared:
     header:
       quick_search: Etsi mitä tahansa
