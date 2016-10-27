@@ -15,5 +15,4 @@
     init: ->
       @on 'success', (file, image) ->
         $.get image['image_path']
-      @on 'complete', (file) ->
         this.removeFile(file)
