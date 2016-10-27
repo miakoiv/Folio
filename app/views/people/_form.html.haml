@@ -64,7 +64,7 @@
               'allow-clear': true, placeholder: t('education_level.none'),
               'minimum-results-for-search': 'Infinity'}
         .education-info.collapse{class: @person.education_level.try(:needs_info?) ? 'in' : ''}
-          = f.text_field :education_info, skip_label: true,
+          = f.text_field :education_info, skip_label: true, wrapper_class: 'm-t-n',
               placeholder: Person.human_attribute_name(:education_info)
     .row
       .col-md-12
