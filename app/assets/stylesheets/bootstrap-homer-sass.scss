@@ -144,8 +144,13 @@ fieldset[disabled] label.required:after {
 }
 
 // Summernote styling
-.note-editor.note-frame {
-  border-color: #e4e5e7;
+.note-editor {
+  background-color: #fff;
+  border-color: transparent;
+
+  &.note-frame {
+    border-color: #e4e5e7;
+  }
 }
 
 // Infinite pagination gets a nifty scroll bar for loading indicator
