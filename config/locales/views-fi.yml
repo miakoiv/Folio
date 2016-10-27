@@ -2,6 +2,12 @@ fi:
   actions:
     cancel: Kumoa
     edit: Muokkaa
+  dashboard:
+    index:
+      people:
+        header: Henkilöt
+        count: henkilöä kirjoilla
+        latest: viimeisin kirjaus
   dropzone:
     default_message: Pudota tiedostoja tähän tai klikkaa
   shared:

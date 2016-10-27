@@ -1,4 +1,4 @@
-= active_link_to root_path, wrap_tag: :li do
+= active_link_to root_path, wrap_tag: :li, active: :exclusive do
   %span.nav-label= icon('tachometer', t('.dashboard'))
 = active_link_to people_path, wrap_tag: :li do
   %span.nav-label= icon('address-book', title(Person, count: 2))

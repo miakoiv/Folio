@@ -2,6 +2,12 @@ en:
   actions:
     cancel: Cancel
     edit: Edit
+  dashboard:
+    index:
+      people:
+        header: People
+        count: total people
+        latest: latest record
   dropzone:
     default_message: Drop files here or click
   shared:
