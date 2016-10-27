@@ -7,6 +7,9 @@ en:
       image:
         one: image
         other: images
+      liaison:
+        one: customer
+        other: customer
       person:
         one: person
         other: people
@@ -16,6 +19,10 @@ en:
     attributes:
       image:
         attachment: Image file
+      liaison:
+        status_id: Customer status
+        referrer_id: Referred by
+        notes: Notes
       person:
         accommodation: Accommodation
         address: Street address

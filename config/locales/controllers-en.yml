@@ -6,6 +6,13 @@ en:
       notice: "Image %{image} updated."
     destroy:
       notice: "Image %{image} deleted."
+  liaisons:
+    create:
+      notice: "Customer relation %{liaison} created."
+    update:
+      notice: "Customer relation %{liaison} updated."
+    destroy:
+      notice: "Customer relation %{liaison} deleted."
   people:
     create:
       notice: "Person %{person} created."

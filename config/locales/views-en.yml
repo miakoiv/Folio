@@ -6,6 +6,9 @@ en:
     default_message: Drop files here or click
   education_level:
     none: "[No information provided]"
+  liaisons:
+    panel:
+      header: Customer information
   shared:
     header:
       quick_search: Search anything

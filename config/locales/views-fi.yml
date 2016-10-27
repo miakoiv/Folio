@@ -6,6 +6,9 @@ fi:
     default_message: Pudota tiedostoja tähän tai klikkaa
   education_level:
     none: "[Ei tietoa]"
+  liaisons:
+    panel:
+      header: Asiakkuuden tiedot
   shared:
     header:
       quick_search: Etsi mitä tahansa

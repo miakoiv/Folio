@@ -7,6 +7,9 @@ fi:
       image:
         one: kuva
         other: kuvat
+      liaison:
+        one: asiakkuus
+        other: asiakkuudet
       person:
         one: henkilö
         other: henkilöt
@@ -16,6 +19,10 @@ fi:
     attributes:
       image:
         attachment: Kuvatiedosto
+      liaison:
+        status_id: Asiakkuuden tila
+        referrer_id: Lähettävä taho
+        notes: Huomautuksia
       person:
         accommodation: Asumismuoto
         address: Lähiosoite
