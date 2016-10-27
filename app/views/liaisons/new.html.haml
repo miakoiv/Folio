@@ -1,0 +1,22 @@
+- content_for :header do
+  %h2= @person
+  %small
+    = t('liaisons.new.title')
+- content_for :breadcrumb do
+  %li= link_to title(Person, count: 2), people_path
+  %li= link_to @person, @person
+  %li.active= t('liaisons.new.title')
+
+.content
+  .row
+    .col-md-3
+      = render 'liaisons/new'
+    .col-md-6
+      .hpanel
+        .panel-heading.hbuilt
+          .pull-right
+            = link_to icon('close', t('actions.cancel')), @person,
+                class: 'btn btn-xs btn-default'
+          = icon('book', t('liaisons.panel.header'))
+        .panel-body
+          = render partial: 'form'

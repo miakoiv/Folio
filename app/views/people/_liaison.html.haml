@@ -1,0 +1,10 @@
+.hpanel.filter-item{class: liaison == active ? 'active' : nil}
+  = link_to liaison do
+    .panel-body
+      %span.label.pull-right{class: "label-#{liaison.status.appearance}"}
+        = liaison.status
+      %h4
+        = l(liaison.created_at.to_date)
+      %small
+        = icon('arrow-left')
+        = liaison.referrer

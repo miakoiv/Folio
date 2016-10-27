@@ -1,4 +1,4 @@
-.hpanel.hblue.contact-panel
+.hpanel.contact-panel{class: "h#{person.status.try(:appearance)}"}
   .panel-body
     .pull-right.text-right
       .btn-group
@@ -6,7 +6,8 @@
           = tel_to icon('phone'), person.phone, class: 'btn btn-default'
         - if person.email.present?
           = mail_to icon('envelope'), person.email, class: 'btn btn-default'
-    = profile_image(person)
-    %h3= person.last_name
-    .text-muted.font-bold.m-b-xs
-      = person.first_names
+    = link_to person do
+      = profile_image(person)
+      %h3= person.last_name
+      .text-muted.font-bold.m-b-xs
+        = person.first_names

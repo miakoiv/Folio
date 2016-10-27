@@ -9,6 +9,10 @@
   .row
     .col-md-3
       = render @person
+      = link_to [:new, @person, :liaison] do
+        = render partial: 'liaisons/new'
+      = render partial: 'liaison', collection: @liaisons,
+          locals: {active: nil}
     .col-md-6
       .hpanel
         .panel-heading.hbuilt
@@ -21,8 +25,8 @@
     .col-md-3
       .hpanel
         %ul.nav.nav-tabs
-          = nav_tab :images, icon('image'), class: 'active'
-          = nav_tab :documents, icon('paperclip')
+          = nav_tab :images, icon('film'), class: 'active'
+          = nav_tab :documents, icon('envelope-open-o')
         .tab-content
           #images.tab-pane.active
             .panel-body
