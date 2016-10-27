@@ -3,7 +3,7 @@
   %fieldset{disabled: editing_disabled?}
     .row
       .col-md-12
-        = f.select :event_type_id, [1,2,3,4,5], {},
+        = f.select :event_type_id, event_type_options, {},
             disabled: editing_disabled?,
             data: {provide: 'select2', language: I18n.locale,
               'minimum-results-for-search': 'Infinity'}

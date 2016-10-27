@@ -1,0 +1,74 @@
+event_type_1:
+  id: 1
+  name_fi: Pajakäynti
+  appearance: blue
+
+event_type_2:
+  id: 2
+  name_fi: Työpaikkakäynti
+  appearance: blue
+
+event_type_3:
+  id: 3
+  name_fi: Harrastustoiminta
+  appearance: blue
+
+event_type_4:
+  id: 4
+  name_fi: Havainto
+  appearance: blue
+
+event_type_5:
+  id: 5
+  name_fi: Pajatyö
+  appearance: blue
+
+event_type_6:
+  id: 6
+  name_fi: Päihteidenkäytön kartoittaminen
+  appearance: blue
+
+event_type_7:
+  id: 7
+  name_fi: Muu kohtaaminen
+  appearance: blue
+
+event_type_8:
+  id: 8
+  name_fi: Sähköinen viestintä
+  appearance: blue
+
+event_type_9:
+  id: 9
+  name_fi: Huoltajien tapaaminen
+  appearance: blue
+
+event_type_10:
+  id: 10
+  name_fi: Yrityskäynti
+  appearance: blue
+
+event_type_11:
+  id: 11
+  name_fi: Oppilaitoskäynti
+  appearance: blue
+
+event_type_12:
+  id: 12
+  name_fi: Kotikäynti
+  appearance: blue
+
+event_type_13:
+  id: 13
+  name_fi: Yhteistyö- ja verkostopalaveri
+  appearance: blue
+
+event_type_14:
+  id: 14
+  name_fi: Omin Jaloin -tapaaminen
+  appearance: blue
+
+event_type_15:
+  id: 15
+  name_fi: Ohjaus-, tuki- ja neuvontakontakti
+  appearance: blue
