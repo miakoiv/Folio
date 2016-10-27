@@ -7,3 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Unit.create(id: 1, name_fi: 'Paikallinen toimisto')
+
+User.create(
+  id: 1,
+  email: 'rosenblad@gmail.com',
+  last_name: 'Rosenblad',
+  first_names: 'Sami',
+  password: 'rush2112',
+  password_confirmation: 'rush2112'
+)
