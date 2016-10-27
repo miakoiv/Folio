@@ -1,12 +1,17 @@
 class EventsController < ApplicationController
 
-  before_action :set_liaison, only: [:new, :create]
+  before_action :set_liaison, only: [:index, :new, :create]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
-  # GET /events
-  # GET /events.json
+  # GET /liaisons/2/events
+  # GET /liaisons/2/events.json
   def index
-    @events = current_user.events.all
+    @events = @liaison.events
+  end
+
+  # GET /events/1
+  # GET /events/1.json
+  def show
   end
 
   # GET /liaisons/2/events/new
