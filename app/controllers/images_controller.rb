@@ -18,7 +18,9 @@ class ImagesController < ApplicationController
         format.json
       else
         format.html { render :new }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
+        format.json {
+          render json: @image.errors[:attachment], status: :unprocessable_entity
+        }
       end
     end
   end

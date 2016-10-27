@@ -6,6 +6,16 @@ class ImageUploader < Shrine
   plugin :remote_url, max_size: 16_777_216
   plugin :processing
   plugin :versions
+  plugin :parallelize, threads: 4
+  plugin :validation_helpers, default_messages: {
+    mime_type_inclusion: -> (list) {
+      I18n.t('errors.messages.mime_type_inclusion', list: list.join(', '))
+    }
+  }
+
+  Attacher.validate do
+    validate_mime_type_inclusion %w{image/jpeg image/png image/gif}
+  end
 
   process(:store) do |io, context|
     lightbox  = resize_to_limit(io.download, 720, 720)

@@ -115,6 +115,7 @@ fi:
       exclusion: on varattu
       greater_than: täytyy olla suurempi kuin %{count}
       greater_than_or_equal_to: täytyy olla suurempi tai yhtä suuri kuin %{count}
+      mime_type_inclusion: "täytyy olla sallittua tiedostotyyppiä: %{list}"
       inclusion: ei löydy listasta
       invalid: on kelvoton
       less_than: täytyy olla pienempi kuin %{count}
