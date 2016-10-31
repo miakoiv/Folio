@@ -5,8 +5,11 @@
         .media-left
           = profile_image(person, class: 'img-circle')
         .media-body
-          .pull-right.text-right
-            %small.stat-label= person.identification
-            %h5= person.municipality
+          - if person.current_liaison(current_unit).present?
+            .pull-right.text-right
+              %div
+                %span.label{class: "label-#{person.appearance(current_unit)}"}
+                  = person.status(current_unit)
+              %small.stat-label= person.assigned_user(current_unit)
           %h4= person.last_name
           %small= person.first_names
