@@ -1,7 +1,7 @@
 class CreateUsers < ActiveRecord::Migration[5.0]
   def change
     create_table :users do |t|
-      t.belongs_to :unit
+      t.belongs_to :unit, null: false
       t.string :last_name
       t.string :first_names
       t.date :activates_at
