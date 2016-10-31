@@ -9,6 +9,7 @@
             = @people.count
           .small= t('.people.count')
           .small.m-t
-            = link_to @people.latest do
-              = icon('clock-o', t('.people.latest'))
-              = l(@people.latest.created_at.to_date)
+            - if @people.latest.present?
+              = link_to @people.latest do
+                = icon('clock-o', t('.people.latest'))
+                = l(@people.latest.created_at.to_date)
