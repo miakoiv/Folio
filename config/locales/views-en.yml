@@ -16,8 +16,6 @@ en:
     footer:
       copyright_html: LeasIT Oy <i class="fa fa-copyright"></i> 2016
       slogan_html: Made with love <i class="fa fa-heart"></i> in Finland.
-    menu:
-      dashboard: Dashboard
   documents:
     panel:
       header: Attachments
