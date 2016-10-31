@@ -20,10 +20,6 @@ class Liaison < ApplicationRecord
 
 
   def to_s
-    %Q{#{model_name.human.capitalize}
-      #{Liaison.human_attribute_name(:created_at).downcase}
-      #{created_at.to_date}
-      [#{status}]
-    }
+    "#{created_at.to_date} #{referrer}"
   end
 end

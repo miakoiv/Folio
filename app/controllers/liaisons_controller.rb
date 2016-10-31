@@ -74,7 +74,7 @@ class LiaisonsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def liaison_params
       params.require(:liaison).permit(
-        :status_id, :referrer_id, :referrer_info, :notes
+        :status_id, :referrer_id, :referrer_info
       )
     end
 end

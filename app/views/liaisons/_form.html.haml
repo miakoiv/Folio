@@ -16,9 +16,6 @@
         .referrer-info{collapsible(@liaison.referrer, :needs_info?)}
           = f.text_field :referrer_info, skip_label: true, wrapper_class: 'm-t-n',
               placeholder: Liaison.human_attribute_name(:referrer_info)
-    .row
-      .col-md-12
-        = f.text_area :notes
 
     - unless editing_disabled?
       .form-group.actions
