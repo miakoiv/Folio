@@ -34,7 +34,7 @@ class Person < ApplicationRecord
   end
 
   def appearance(unit)
-    current_liaison(unit).try(:status).try(:appearance) || 'default'
+    current_liaison(unit).try(:appearance) || 'default'
   end
 
   def full_name
