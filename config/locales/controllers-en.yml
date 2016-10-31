@@ -8,11 +8,11 @@ en:
       notice: "Image %{image} deleted."
   liaisons:
     create:
-      notice: "Customer relation %{liaison} created."
+      notice: "Customer %{liaison} created."
     update:
-      notice: "Customer relation %{liaison} updated."
+      notice: "Customer %{liaison} updated."
     destroy:
-      notice: "Customer relation %{liaison} deleted."
+      notice: "Customer %{liaison} deleted."
   people:
     create:
       notice: "Person %{person} created."

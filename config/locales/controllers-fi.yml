@@ -8,11 +8,11 @@ fi:
       notice: "Kuva %{image} poistettu."
   liaisons:
     create:
-      notice: "Asiakassuhde %{liaison} luotu."
+      notice: "Asiakkuus %{liaison} luotu."
     update:
-      notice: "Asiakassuhde %{liaison} päivitetty."
+      notice: "Asiakkuus %{liaison} päivitetty."
     destroy:
-      notice: "Asiakassuhde %{liaison} poistettu."
+      notice: "Asiakkuus %{liaison} poistettu."
   people:
     create:
       notice: "Henkilö %{person} luotu."
