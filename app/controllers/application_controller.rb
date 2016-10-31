@@ -23,9 +23,7 @@ class ApplicationController < ActionController::Base
         I18n.default_locale
     end
 
-    # As users are not associated with units yet,
-    # the first unit is selected by default.
     def set_unit
-      @current_unit = Unit.first
+      @current_unit = current_user.try(:unit)
     end
 end
