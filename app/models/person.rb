@@ -4,6 +4,7 @@ class Person < ApplicationRecord
 
   paginates_per 20
 
+  belongs_to :creator, class_name: 'User'
   has_many :liaisons, dependent: :destroy
 
   belongs_to :postcode, optional: true
@@ -16,7 +17,7 @@ class Person < ApplicationRecord
 
   def self.assigned_municipalities
     ids = unscope(:order).pluck(:municipality_id).uniq
-    Municipality.find(ids)
+    ids.any? ? Municipality.find(ids) : Municipality.none
   end
 
   # Liaisons have a newest first default scope.
@@ -24,8 +25,16 @@ class Person < ApplicationRecord
     liaisons.at(unit).first
   end
 
+  def assigned_user(unit)
+    current_liaison(unit).try(:user)
+  end
+
   def status(unit)
     current_liaison(unit).try(:status)
+  end
+
+  def appearance(unit)
+    current_liaison(unit).try(:status).try(:appearance) || 'default'
   end
 
   def full_name
