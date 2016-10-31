@@ -7,7 +7,9 @@ class User < ApplicationRecord
 
   include Imageable
 
-  has_many :events
+  belongs_to :unit
+  has_many :liaisons
+  has_many :events, through: :liaisons
 
   scope :active, -> { where %q{
     (users.activates_at IS NULL OR users.activates_at >= :today) AND
