@@ -10,9 +10,7 @@
   .row
     .col-md-3
       = render @liaison.person
-      = render partial: 'documents'
-      = render partial: 'events'
-    .col-md-9
+    .col-md-6
       .hpanel
         .panel-heading.hbuilt
           .pull-right
@@ -21,6 +19,12 @@
           = icon('book', t('liaisons.panel.header'))
         .panel-body
           = render partial: 'form'
+    .col-md-3
+      = render partial: 'documents'
+  .row
+    .col-md-3
+      = render partial: 'events'
+    .col-md-9
       .hpanel
         .panel-heading.hbuilt
           = icon('calendar', t('events.panel.header'))

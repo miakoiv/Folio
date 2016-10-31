@@ -1,6 +1,5 @@
 - content_for :header do
-  %h2= title(Person, count: 2)
-  %small= @person
+  %h2= @person
 - content_for :breadcrumb do
   %li= link_to title(Person, count: 2), people_path
   %li.active= @person
@@ -9,7 +8,7 @@
   .row
     .col-md-3
       = render @person
-      = render partial: 'images'
+      = render partial: 'liaisons'
     .col-md-6
       .hpanel
         .panel-heading.hbuilt
@@ -20,4 +19,4 @@
         .panel-body
           = render partial: 'form'
     .col-md-3
-      = render partial: 'liaisons'
+      = render partial: 'images'

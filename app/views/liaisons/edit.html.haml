@@ -10,8 +10,7 @@
   .row
     .col-md-3
       = render @liaison.person
-      = render partial: 'documents'
-    .col-md-9
+    .col-md-6
       .hpanel.editing-panel
         .panel-heading.hbuilt
           .pull-right
@@ -20,3 +19,5 @@
           = icon('book', t('liaisons.panel.header'))
         .panel-body
           = render partial: 'form'
+    .col-md-3
+      = render partial: 'documents'
