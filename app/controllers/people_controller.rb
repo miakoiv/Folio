@@ -1,4 +1,5 @@
 class PeopleController < ApplicationController
+
   before_action :set_person, only: [:show, :edit, :update, :destroy]
   before_action :set_liaisons, only: [:show, :edit]
 
@@ -34,6 +35,7 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(person_params)
+    @person.creator = current_user
 
     respond_to do |format|
       if @person.save
@@ -92,7 +94,7 @@ class PeopleController < ApplicationController
       params.require(:person).permit(
         :identification, :date_of_birth, :last_name, :first_names,
         :gender, :email, :phone, :address, :postcode_id, :municipality_id,
-        :language, :nationality, :accommodation, :restrictions,
+        :language, :nationality, :accommodation, :disabilities,
         :education_level_id, :education_info
       )
     end

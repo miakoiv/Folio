@@ -17,7 +17,7 @@ class EventsController < ApplicationController
 
   # GET /liaisons/2/events/new
   def new
-    @event = @liaison.events.for(current_user).build(event_params)
+    @event = @liaison.events.build(event_params)
   end
 
   # GET /events/1/edit
@@ -27,7 +27,8 @@ class EventsController < ApplicationController
   # POST /liaisons/2/events
   # POST /liaisons/2/events.json
   def create
-    @event = @liaison.events.for(current_user).build(event_params)
+    @event = @liaison.events.build(event_params)
+    @event.creator = current_user
 
     respond_to do |format|
       if @event.save

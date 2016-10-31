@@ -11,7 +11,7 @@ class LiaisonsController < ApplicationController
 
   # GET /people/2/liaisons/new
   def new
-    @liaison = @person.liaisons.at(current_unit).build
+    @liaison = @person.liaisons.for(current_user).build
   end
 
   # GET /liaisons/1/edit
@@ -21,7 +21,8 @@ class LiaisonsController < ApplicationController
   # POST /people/2/liaisons
   # POST /people/2/liaisons.json
   def create
-    @liaison = @person.liaisons.at(current_unit).build(liaison_params)
+    @liaison = @person.liaisons.for(current_user).build(liaison_params)
+    @liaison.creator = current_user
 
     respond_to do |format|
       if @liaison.save

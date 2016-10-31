@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = current_unit.users
   end
 
   # GET /users/1
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new(locale: I18n.default_locale)
+    @user = current_unit.users.build(locale: I18n.default_locale)
   end
 
   # GET /users/1/edit
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @user = current_unit.users.build(user_params)
 
     respond_to do |format|
       if @user.save
