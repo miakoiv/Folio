@@ -19,12 +19,13 @@ class Person < ApplicationRecord
     Municipality.find(ids)
   end
 
-  def current_liaison
-    liaisons.first
+  # Liaisons have a newest first default scope.
+  def current_liaison(unit)
+    liaisons.at(unit).first
   end
 
-  def status
-    current_liaison.try(:status)
+  def status(unit)
+    current_liaison(unit).try(:status)
   end
 
   def full_name
