@@ -23,19 +23,19 @@ ActiveRecord::Schema.define(version: 20161027170303) do
   end
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.integer  "event_type_id",                               null: false
-    t.integer  "user_id",                                     null: false
     t.integer  "liaison_id",                                  null: false
+    t.integer  "event_type_id",                               null: false
     t.datetime "starts_at",                                   null: false
     t.datetime "ends_at"
     t.boolean  "all_day",                     default: false, null: false
     t.string   "title",                                       null: false
     t.text     "description",   limit: 65535
+    t.integer  "creator_id",                                  null: false
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
+    t.index ["creator_id"], name: "index_events_on_creator_id", using: :btree
     t.index ["event_type_id"], name: "index_events_on_event_type_id", using: :btree
     t.index ["liaison_id"], name: "index_events_on_liaison_id", using: :btree
-    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
@@ -48,18 +48,20 @@ ActiveRecord::Schema.define(version: 20161027170303) do
   end
 
   create_table "liaisons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.integer  "unit_id",                                 null: false
+    t.integer  "user_id",                                 null: false
     t.integer  "person_id",                               null: false
     t.integer  "status_id",                   default: 0, null: false
     t.integer  "referrer_id"
     t.string   "referrer_info"
     t.text     "notes",         limit: 65535
+    t.integer  "creator_id",                              null: false
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
+    t.index ["creator_id"], name: "index_liaisons_on_creator_id", using: :btree
     t.index ["person_id"], name: "index_liaisons_on_person_id", using: :btree
     t.index ["referrer_id"], name: "index_liaisons_on_referrer_id", using: :btree
     t.index ["status_id"], name: "index_liaisons_on_status_id", using: :btree
-    t.index ["unit_id"], name: "index_liaisons_on_unit_id", using: :btree
+    t.index ["user_id"], name: "index_liaisons_on_user_id", using: :btree
   end
 
   create_table "municipalities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
@@ -68,7 +70,7 @@ ActiveRecord::Schema.define(version: 20161027170303) do
   end
 
   create_table "people", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.string   "identification",                   null: false
+    t.string   "identification",               null: false
     t.date     "date_of_birth"
     t.string   "last_name"
     t.string   "first_names"
@@ -83,9 +85,11 @@ ActiveRecord::Schema.define(version: 20161027170303) do
     t.integer  "education_level_id"
     t.string   "education_info"
     t.string   "accommodation"
-    t.text     "restrictions",       limit: 65535
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.string   "disabilities"
+    t.integer  "creator_id",                   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["creator_id"], name: "index_people_on_creator_id", using: :btree
     t.index ["education_level_id"], name: "index_people_on_education_level_id", using: :btree
     t.index ["identification"], name: "index_people_on_identification", using: :btree
     t.index ["last_name"], name: "index_people_on_last_name", using: :btree
@@ -121,6 +125,7 @@ ActiveRecord::Schema.define(version: 20161027170303) do
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "locale"
+    t.integer  "unit_id"
     t.string   "last_name"
     t.string   "first_names"
     t.date     "activates_at"
@@ -141,6 +146,7 @@ ActiveRecord::Schema.define(version: 20161027170303) do
     t.datetime "locked_at"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["unit_id"], name: "index_users_on_unit_id", using: :btree
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
 

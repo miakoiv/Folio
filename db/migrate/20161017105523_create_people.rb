@@ -16,8 +16,9 @@ class CreatePeople < ActiveRecord::Migration[5.0]
       t.belongs_to :education_level
       t.string :education_info
       t.string :accommodation
-      t.text :restrictions
+      t.string :disabilities
 
+      t.belongs_to :creator, null: false
       t.timestamps
     end
   end

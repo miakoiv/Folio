@@ -1,11 +1,10 @@
 class Event < ApplicationRecord
 
-  belongs_to :event_type
-  belongs_to :user
   belongs_to :liaison
+  belongs_to :event_type
 
 
-  default_scope { order(starts_at: :desc)}
+  default_scope { order(starts_at: :desc) }
 
   # Scope for restricting events to a single user.
   scope :for, -> (user) { where(user: user) }
