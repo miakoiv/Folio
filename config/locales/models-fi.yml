@@ -21,25 +21,27 @@ fi:
         other: käyttäjätilit
     attributes:
       event:
+        all_day: Kokopäiväinen
+        description: Kuvaus
+        ends_at: Päättyy
         event_type_id: Tapahtumalaji
-        user_id: Omistaja
         liaison_id: Asiakas
         starts_at: Alkaa
-        ends_at: Päättyy
-        all_day: Kokopäiväinen
         title: Otsake
-        description: Kuvaus
+        user_id: Omistaja
       image:
         attachment: Kuvatiedosto
       liaison:
-        status_id: Asiakkuuden tila
+        created_at: Alkaen
+        notes: Huomautuksia
         referrer_id: Lähettävä taho
         referrer_info: Tarkenna lähettävä taho…
-        notes: Huomautuksia
+        status_id: Asiakkuuden tila
       person:
         accommodation: Asumismuoto
         address: Lähiosoite
         date_of_birth: Syntymäaika
+        disabilities: Rajoitukset
         education_level_id: Koulutustausta
         education_info: Tarkenna koulutustausta…
         email: Sähköpostiosoite
@@ -52,7 +54,6 @@ fi:
         nationality: Kansallisuus
         phone: Puhelinnumero
         postcode_id: Postiosoite
-        restrictions: Rajoitukset
       user:
         activates_at: Aktivointipäivä
         current_password: Nykyinen salasana

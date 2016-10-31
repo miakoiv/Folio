@@ -21,25 +21,27 @@ en:
         other: user accounts
     attributes:
       event:
+        all_day: All day
+        description: Description
+        ends_at: Ends
         event_type_id: Event type
-        user_id: Owner
         liaison_id: Customer
         starts_at: Starts
-        ends_at: Ends
-        all_day: All day
         title: Title
-        description: Description
+        user_id: Owner
       image:
         attachment: Image file
       liaison:
-        status_id: Customer status
+        created_at: Since
+        notes: Notes
         referrer_id: Referred by
         referrer_info: Specify referral…
-        notes: Notes
+        status_id: Customer status
       person:
         accommodation: Accommodation
         address: Street address
         date_of_birth: Date of birth
+        disabilities: Disabilities
         education_info: Specify education…
         education_level_id: Educational background
         email: E-mail address
@@ -52,7 +54,6 @@ en:
         nationality: Nationality
         phone: Phone number
         postcode_id: Postal address
-        restrictions: Restrictions
       user:
         activates_at: Activation date
         current_password: Current password
