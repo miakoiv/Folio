@@ -48,15 +48,14 @@ ActiveRecord::Schema.define(version: 20161101133743) do
   end
 
   create_table "liaisons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.integer  "user_id",                                 null: false
-    t.integer  "person_id",                               null: false
-    t.integer  "status_id",                   default: 0, null: false
+    t.integer  "user_id",                   null: false
+    t.integer  "person_id",                 null: false
+    t.integer  "status_id",     default: 0, null: false
     t.integer  "referrer_id"
     t.string   "referrer_info"
-    t.text     "notes",         limit: 65535
-    t.integer  "creator_id",                              null: false
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.integer  "creator_id",                null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["creator_id"], name: "index_liaisons_on_creator_id", using: :btree
     t.index ["person_id"], name: "index_liaisons_on_person_id", using: :btree
     t.index ["referrer_id"], name: "index_liaisons_on_referrer_id", using: :btree
