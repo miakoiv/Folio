@@ -1,37 +1,37 @@
 event_type_1:
   id: 1
   name_fi: Pajakäynti
-  appearance: blue
+  appearance: yellow
 
 event_type_2:
   id: 2
   name_fi: Työpaikkakäynti
-  appearance: blue
+  appearance: yellow
 
 event_type_3:
   id: 3
   name_fi: Harrastustoiminta
-  appearance: blue
+  appearance: violet
 
 event_type_4:
   id: 4
   name_fi: Havainto
-  appearance: blue
+  appearance: navy-blue
 
 event_type_5:
   id: 5
   name_fi: Pajatyö
-  appearance: blue
+  appearance: orange
 
 event_type_6:
   id: 6
   name_fi: Päihteidenkäytön kartoittaminen
-  appearance: blue
+  appearance: red-deep
 
 event_type_7:
   id: 7
   name_fi: Muu kohtaaminen
-  appearance: blue
+  appearance: navy-blue
 
 event_type_8:
   id: 8
@@ -46,29 +46,29 @@ event_type_9:
 event_type_10:
   id: 10
   name_fi: Yrityskäynti
-  appearance: blue
+  appearance: yellow
 
 event_type_11:
   id: 11
   name_fi: Oppilaitoskäynti
-  appearance: blue
+  appearance: yellow
 
 event_type_12:
   id: 12
   name_fi: Kotikäynti
-  appearance: blue
+  appearance: green
 
 event_type_13:
   id: 13
   name_fi: Yhteistyö- ja verkostopalaveri
-  appearance: blue
+  appearance: green
 
 event_type_14:
   id: 14
   name_fi: Omin Jaloin -tapaaminen
-  appearance: blue
+  appearance: violet
 
 event_type_15:
   id: 15
   name_fi: Ohjaus-, tuki- ja neuvontakontakti
-  appearance: blue
+  appearance: violet
