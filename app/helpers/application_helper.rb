@@ -29,6 +29,7 @@ module ApplicationHelper
     end
   end
 
+  # Haml-compliant options for #wrapper to animate panels.
   def content_animation
     {
       class: 'animate-panel', data: {
