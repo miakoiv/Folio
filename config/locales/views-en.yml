@@ -26,6 +26,9 @@ en:
       header: Events
     new:
       title: New event
+  history:
+    panel:
+      header: Customers elsewhere
   images:
     panel:
       header: Photos
