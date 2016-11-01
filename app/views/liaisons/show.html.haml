@@ -26,7 +26,17 @@
       = render partial: 'events'
     .col-md-9
       .hpanel
-        .panel-heading.hbuilt
-          = icon('calendar', t('events.panel.header'))
-        .panel-body
-          = render partial: 'events/calendar', object: @liaison, as: :container
+        %ul.nav.nav-tabs
+          = nav_tab 'notes-panel', icon('book', t('notes.panel.header')),
+              class: 'active'
+          = nav_tab 'calendar-panel', icon('calendar', t('calendar.panel.header'))
+        .tab-content
+          #notes-panel.tab-pane.active
+            .panel-body
+              Notes go here
+          #calendar-panel.tab-pane
+            .panel-body
+              = render partial: 'events/calendar', object: @liaison, as: :container
+:coffee
+  $('a[href="#calendar-panel"]').on 'shown.bs.tab', (e) ->
+    $('#calendar').fullCalendar 'render'
