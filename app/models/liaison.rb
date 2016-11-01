@@ -18,8 +18,7 @@ class Liaison < ApplicationRecord
   # Scope for finding liaisons for all users in a unit.
   scope :at, -> (unit) { joins(user: :unit).where(users: {unit_id: unit}) }
 
-
   def to_s
-    "#{created_at.to_date} #{referrer}"
+    "#{created_at.to_date} / #{user}"
   end
 end
