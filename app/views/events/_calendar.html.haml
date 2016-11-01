@@ -1,6 +1,17 @@
 #calendar
 
 :coffee
+  @eventUpdate = (event, delta, revertFunc) ->
+    $.ajax
+      type: 'PATCH'
+      url: event.update_url,
+      data:
+        event:
+          starts_at: event.start.format()
+          ends_at: event.end.format()
+      error: (xhr, status, error) ->
+        revertFunc()
+
   $ ->
     $('#calendar').fullCalendar
       events: '#{url_for([container, :events])}'
@@ -10,19 +21,31 @@
         left: 'prev,next today'
         center: 'title'
         right: 'month,agendaWeek'
+      allDaySlot: false
       navLinks: true
       weekNumbers: true
+      aspectRatio: 1.6
       businessHours:
         start: '08:00'
         end: '20:00'
         dow: [1,2,3,4,5]
-      editable: false
-      eventClick: (calEvent, jsEvent, view) ->
-        jsEvent.preventDefault()
-        $.get calEvent.edit_url
-        false
+      editable: true
+      eventAfterRender: (event, element) ->
+        element.popover('destroy') if element.popover?
+        element.popover
+          container: 'body'
+          title: event.person
+          content: event.description
+          trigger: 'focus hover'
+          delay: 500
       dayClick: (date, jsEvent, view) ->
         $.get '#{url_for([:new, container, :event])}',
           event:
             starts_at: date.format()
             ends_at: date.format()
+      eventClick: (calEvent, jsEvent, view) ->
+        jsEvent.preventDefault()
+        $.get calEvent.edit_url
+        false
+      eventResize: eventUpdate
+      eventDrop: eventUpdate
