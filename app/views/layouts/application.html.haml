@@ -17,7 +17,7 @@
         %ul#side-menu.nav
           = render partial: 'shared/menu'
 
-    #wrapper
+    #wrapper{content_animation}
       - if content_for?(:header) || content_for?(:breadcrumb)
         = render partial: 'shared/small_header'
       = yield

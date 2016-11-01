@@ -29,6 +29,16 @@ module ApplicationHelper
     end
   end
 
+  def content_animation
+    {
+      class: 'animate-panel', data: {
+        child: 'content > .row > div',
+        effect: 'fadeIn',
+        delay: 0.25
+      }
+    }
+  end
+
   # Generates a Haml-compliant hash for a collapsible element
   # that is initially shown if object#method returns true.
   def collapsible(object, method)
