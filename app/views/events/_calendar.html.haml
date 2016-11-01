@@ -14,7 +14,7 @@
 
   $ ->
     $('#calendar').fullCalendar
-      events: '#{url_for([container, :events])}'
+      events: '#{url_for([:search, container, :events])}'
       startParam: 'since_date'
       endParam: 'until_date'
       header:

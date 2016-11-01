@@ -1,13 +1,24 @@
 class EventsController < ApplicationController
 
-  before_action :set_liaison, only: [:index, :new, :create]
+  # See config/routes.rb about the nesting of resources.
+  before_action :set_liaison, only: [:search, :new, :create]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+
+  # GET /events
+  # GET /events.json
+  def index
+    @events = current_user.events
+  end
 
   # GET /liaisons/2/events
   # GET /liaisons/2/events.json
-  def index
+  def search
     @search = EventSearch.new(search_params)
     @events = @search.results
+
+    respond_to do |format|
+      format.json { render :index }
+    end
   end
 
   # GET /events/1
