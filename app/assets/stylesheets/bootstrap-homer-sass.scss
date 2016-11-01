@@ -64,19 +64,21 @@
 
 // Apply the UI colors to calendar events
 .fc-event {
-  border-color: transparent;
-  &.navy-blue { background-color: $color-navy-blue; }
-  &.violet { background-color: $color-violet; }
-  &.blue { background-color: $color-blue; }
-  &.green { background-color: $color-green; }
-  &.yellow { background-color: $color-yellow; }
-  &.orange { background-color: $color-orange; }
-  &.red { background-color: $color-red; }
-  &.red-deep { background-color: $color-red-deep; }
+  &.navy-blue { background-color: $color-navy-blue; border-color: $color-navy-blue; }
+  &.violet { background-color: $color-violet; border-color: $color-violet; }
+  &.blue { background-color: $color-blue; border-color: $color-blue; }
+  &.green { background-color: $color-green; border-color: $color-green; }
+  &.yellow { background-color: $color-yellow; border-color: $color-yellow; }
+  &.orange { background-color: $color-orange; border-color: $color-orange; }
+  &.red { background-color: $color-red; border-color: $color-red; }
+  &.red-deep { background-color: $color-red-deep; border-color: $color-red-deep; }
 }
 
 // Non-topical events are translucent.
-.fc-event:not(.topical) { opacity: 0.5; }
+.fc-event:not(.topical) {
+  background-color: transparent;
+  color: rgba($text-color, 0.333);
+}
 
 // Panel in editing mode to make forms stand out
 .editing-panel > .panel-body { background-color: $color-bright; }
