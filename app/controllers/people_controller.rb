@@ -1,7 +1,7 @@
 class PeopleController < ApplicationController
 
   before_action :set_person, only: [:show, :edit, :update, :destroy]
-  before_action :set_liaisons, only: [:show, :edit]
+  before_action :set_liaisons, only: :show
 
   # GET /people
   # GET /people.json
@@ -87,6 +87,7 @@ class PeopleController < ApplicationController
 
     def set_liaisons
       @liaisons = @person.liaisons.at(current_unit)
+      @other_liaisons = @person.liaisons - @liaisons
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
