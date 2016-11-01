@@ -27,6 +27,8 @@
   }
 }
 
+:focus { outline: 0 !important; }
+
 // Small header styling
 .normalheader {
   #hbreadcrumb { margin-top: 9px; }
@@ -87,20 +89,8 @@
   }
 }
 
-// Make disabled form controls transparent like static controls
-.form-control[disabled], fieldset[disabled] .form-control {
-  color: $color-text;
-  background-color: transparent;
-  cursor: default;
-}
-fieldset[disabled] .btn-group label.btn {
-  color: $color-text;
-  background-color: transparent;
-  cursor: default;
-  display: none;
-
-  &.active { display: block; }
-}
+// Smaller labels
+label { @extend .small; }
 
 // Decorate required form control labels
 label.required:after {
@@ -113,6 +103,23 @@ label.required:after {
 // No decoration when the fieldset is disabled
 fieldset[disabled] label.required:after {
   display: none;
+}
+
+// Make disabled form controls transparent like static controls
+.form-control[disabled], fieldset[disabled] .form-control {
+  color: $color-text;
+  background-color: transparent;
+  border-style: dashed !important;
+  cursor: default;
+}
+fieldset[disabled] .btn-group label.btn {
+  color: $color-text;
+  background-color: transparent;
+  border-style: dashed !important;
+  cursor: default;
+  display: none;
+
+  &.active { display: block; }
 }
 
 // Devise styling
@@ -132,6 +139,7 @@ fieldset[disabled] label.required:after {
 .select2-container--bootstrap.select2-container--disabled .select2-selection,
 .select2-container--bootstrap.select2-container--disabled .select2-selection--multiple .select2-selection__choice {
   background-color: transparent;
+  border-style: dashed !important;
   cursor: default;
 
   .select2-selection__arrow {
