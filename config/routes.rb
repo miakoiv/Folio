@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :events, shallow: true, except: :index do
         get :search, on: :collection
       end
+      resources :notes, shallow: true
     end
   end
   resources :users do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161027170303) do
+ActiveRecord::Schema.define(version: 20161101133743) do
 
   create_table "education_levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.string  "name_fi",                    null: false
@@ -67,6 +67,16 @@ ActiveRecord::Schema.define(version: 20161027170303) do
   create_table "municipalities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.string "name_fi", null: false
     t.string "name_sv", null: false
+  end
+
+  create_table "notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.integer  "liaison_id",               null: false
+    t.text     "content",    limit: 65535
+    t.integer  "creator_id",               null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["creator_id"], name: "index_notes_on_creator_id", using: :btree
+    t.index ["liaison_id"], name: "index_notes_on_liaison_id", using: :btree
   end
 
   create_table "people", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
