@@ -4,7 +4,11 @@ class EventSearch < Searchlight::Search
   include Searchlight::Adapters::ActionView
 
   def base_query
-    Event.all
+    Event.joins(:liaison)
+  end
+
+  def search_user_id
+    query.where(liaisons: {user_id: user_id})
   end
 
   def search_liaison_id

@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   # GET /liaisons/2/events
   # GET /liaisons/2/events.json
   def index
-    @search = EventSearch.new(params)
+    @search = EventSearch.new(search_params)
     @events = @search.results
   end
 
@@ -70,6 +70,11 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  protected
+    def search_params
+      params.slice(:since_date, :until_date).merge(user_id: current_user)
+    end
 
   private
     # Use callbacks to share common setup or constraints between actions.
