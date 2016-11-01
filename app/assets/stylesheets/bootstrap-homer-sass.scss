@@ -27,9 +27,13 @@
   }
 }
 
-// Small header H2 defaults
-.normalheader h2 {
-  @extend .font-light, .m-b-xs;
+// Small header styling
+.normalheader {
+  #hbreadcrumb { margin-top: 9px; }
+
+  h2 {
+    @extend .font-light, .m-b-xs;
+  }
 }
 
 .label { display: inline-block; }
