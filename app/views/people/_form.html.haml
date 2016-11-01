@@ -2,6 +2,11 @@
     html: {novalidate: true} do |f|
   %fieldset{disabled: editing_disabled?}
     .row
+      .col-md-6
+        = f.text_field :last_name
+      .col-md-6
+        = f.text_field :first_names
+    .row
       .col-md-4
         = f.text_field :identification
       .col-md-4
@@ -16,11 +21,6 @@
               %label.btn.btn-default{class: value == @person.gender ? 'active' : ''}
                 = f.radio_button_without_bootstrap :gender, value
                 = label
-    .row
-      .col-md-6
-        = f.text_field :last_name
-      .col-md-6
-        = f.text_field :first_names
     .hr-line-dashed
     .row
       .col-md-6
