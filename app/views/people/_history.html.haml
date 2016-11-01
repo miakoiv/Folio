@@ -1,0 +1,6 @@
+.hpanel
+  .panel-heading.hbuilt
+    = icon('archive', t('history.panel.header'))
+  .panel-body.no-padding
+    %ul.list-group
+    = render partial: 'liaisons/history_item', collection: @other_liaisons, as: :liaison
