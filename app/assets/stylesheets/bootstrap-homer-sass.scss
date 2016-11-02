@@ -80,6 +80,13 @@
   color: rgba($text-color, 0.333);
 }
 
+// Nested panels
+.nested-panel {
+  @extend .m-t-n-md, .m-l-n-md, .m-r-n-md;
+
+  .panel-body { border: 0; }
+}
+
 // Panel in editing mode to make forms stand out
 .editing-panel > .panel-body { background-color: $color-bright; }
 
