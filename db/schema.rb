@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20161101133743) do
 
   create_table "notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "liaison_id",               null: false
+    t.string   "title"
     t.text     "content",    limit: 65535
     t.integer  "creator_id",               null: false
     t.datetime "created_at",               null: false
