@@ -10,7 +10,7 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @imageable = find_imageable
-    @image = @imageable.images.new(image_params)
+    @image = @imageable.images.build(image_params)
 
     respond_to do |format|
       if @image.save
