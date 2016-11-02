@@ -1,3 +1,4 @@
-$("#{j render partial: 'events/item', object: @event, as: :event}").prependTo('#event-list');
-$('#calendar').fullCalendar('refetchEvents');
 $('#modal').modal('hide');
+$("#{j render partial: 'events/item', object: @event, as: :event}").prependTo('#event-list');
+$("##{dom_id @event}").addClass('opacity-0 animated-panel fadeIn');
+$('#calendar').fullCalendar('refetchEvents');
