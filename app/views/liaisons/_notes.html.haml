@@ -1,0 +1,6 @@
+.hpanel.nested-panel.editing-panel
+  .panel-body
+    #note-form
+      = render partial: 'notes/new'
+#note-list
+  = render partial: 'notes/item', collection: @liaison.notes, as: :note

@@ -31,10 +31,10 @@
               class: 'active'
           = nav_tab 'calendar-panel', icon('calendar', t('calendar.panel.header'))
         .tab-content
-          #notes-panel.tab-pane.active
+          #notes-panel.tab-pane.fade.in.active
             .panel-body
-              Notes go here
-          #calendar-panel.tab-pane
+              = render partial: 'notes'
+          #calendar-panel.tab-pane.fade
             .panel-body
               = render partial: 'events/calendar', object: @liaison, as: :container
 :coffee
