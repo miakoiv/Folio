@@ -22,7 +22,11 @@
     #wrapper{content_animation}
       - if content_for?(:header) || content_for?(:breadcrumb)
         = render partial: 'shared/small_header'
+
       = yield
+
+      - if content_for?(:sidebar)
+        = render partial: 'shared/sidebar'
 
       = render partial: 'shared/footer'
 

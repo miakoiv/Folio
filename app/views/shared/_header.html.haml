@@ -26,6 +26,10 @@
               = t('users.links.my_profile')
   .navbar-right
     %ul.nav.navbar-nav.no-borders
+      - if content_for?(:sidebar)
+        %li
+          %a#sidebar.right-sidebar-toggle{href: '#'}
+            %i.pe-7s-news-paper
       - if user_signed_in?
         %li
           = link_to destroy_user_session_path, method: :delete do
