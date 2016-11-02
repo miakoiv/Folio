@@ -1,0 +1,3 @@
+= bootstrap_form_for [@liaison, @note],
+    remote: true, html: {novalidate: true} do |edit_note|
+  = render partial: 'notes/form', locals: {f: edit_note}
