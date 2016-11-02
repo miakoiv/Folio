@@ -1,5 +1,5 @@
 %fieldset
-  = f.text_field :title, skip_label: true,
+  = f.text_field :title, skip_label: true, autofocus: true,
       placeholder: Note.human_attribute_name(:title)
   = f.text_area :content, skip_label: true
   .form-group.actions
