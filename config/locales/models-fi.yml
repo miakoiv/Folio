@@ -13,6 +13,9 @@ fi:
       liaison:
         one: asiakkuus
         other: asiakkuudet
+      note:
+        one: muistiinpano
+        other: muistiinpanot
       person:
         one: henkilö
         other: henkilöt
@@ -37,6 +40,9 @@ fi:
         referrer_id: Lähettävä taho
         referrer_info: Tarkenna lähettävä taho…
         status_id: Asiakkuuden tila
+      note:
+        title: Otsikko
+        content: Sisältö
       person:
         accommodation: Asumismuoto
         address: Lähiosoite

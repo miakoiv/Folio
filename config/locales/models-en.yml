@@ -13,6 +13,9 @@ en:
       liaison:
         one: customer
         other: customer
+      note:
+        one: note
+        other: notes
       person:
         one: person
         other: people
@@ -37,6 +40,9 @@ en:
         referrer_id: Referred by
         referrer_info: Specify referral…
         status_id: Customer status
+      note:
+        title: Title
+        content: Content
       person:
         accommodation: Accommodation
         address: Street address

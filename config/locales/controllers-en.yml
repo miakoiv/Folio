@@ -13,6 +13,13 @@ en:
       notice: "Customer %{liaison} updated."
     destroy:
       notice: "Customer %{liaison} deleted."
+  notes:
+    create:
+      notice: "Note %{note} created."
+    update:
+      notice: "Note %{note} updated."
+    destroy:
+      notice: "Note %{note} deleted."
   people:
     create:
       notice: "Person %{person} created."
