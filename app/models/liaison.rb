@@ -4,6 +4,7 @@ class Liaison < ApplicationRecord
   belongs_to :user
   belongs_to :person
   has_many :events
+  has_many :notes
 
   belongs_to :status
   delegate :appearance, to: :status
