@@ -20,7 +20,7 @@
       header:
         left: 'prev,next today'
         center: 'title'
-        right: 'month,agendaWeek'
+        right: 'month,agendaWeek,agendaDay'
       allDaySlot: false
       navLinks: true
       weekNumbers: true
@@ -36,6 +36,7 @@
           container: 'body'
           title: event.person
           content: event.description
+          placement: 'left'
           trigger: 'focus hover'
           delay: 500
       dayClick: (date, jsEvent, view) ->
