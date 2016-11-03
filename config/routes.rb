@@ -26,4 +26,6 @@ Rails.application.routes.draw do
   resources :users do
     resources :images, shallow: true
   end
+
+  resources :memos
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102145748) do
+ActiveRecord::Schema.define(version: 20161103093817) do
 
   create_table "documents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.string   "documentable_type",               null: false
@@ -70,6 +70,29 @@ ActiveRecord::Schema.define(version: 20161102145748) do
     t.index ["referrer_id"], name: "index_liaisons_on_referrer_id", using: :btree
     t.index ["status_id"], name: "index_liaisons_on_status_id", using: :btree
     t.index ["user_id"], name: "index_liaisons_on_user_id", using: :btree
+  end
+
+  create_table "memos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.integer  "unit_id",                  null: false
+    t.string   "title"
+    t.text     "content",    limit: 65535
+    t.integer  "creator_id",               null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["creator_id"], name: "index_memos_on_creator_id", using: :btree
+    t.index ["unit_id"], name: "index_memos_on_unit_id", using: :btree
+  end
+
+  create_table "memos_recipients", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.integer "memo_id",      null: false
+    t.integer "recipient_id", null: false
+    t.index ["recipient_id", "memo_id"], name: "index_memos_recipients_on_recipient_id_and_memo_id", unique: true, using: :btree
+  end
+
+  create_table "memos_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.integer "memo_id", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id", "memo_id"], name: "index_memos_users_on_user_id_and_memo_id", unique: true, using: :btree
   end
 
   create_table "municipalities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
