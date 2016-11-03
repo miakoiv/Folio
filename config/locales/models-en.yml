@@ -14,8 +14,8 @@ en:
         one: customer
         other: customer
       memo:
-        one: memo
-        other: memos
+        one: message
+        other: messages
       note:
         one: note
         other: notes
@@ -45,7 +45,6 @@ en:
         status_id: Customer status
       memo:
         sender_id: Sender
-        recipient_ids: Recipients
         title: Title
         content: Content
       note:

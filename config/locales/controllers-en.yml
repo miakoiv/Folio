@@ -15,11 +15,11 @@ en:
       notice: "Customer %{liaison} deleted."
   memos:
     create:
-      notice: "Memo %{memo} created."
+      notice: "Message %{memo} created."
     update:
-      notice: "Memo %{memo} updated."
+      notice: "Message %{memo} updated."
     destroy:
-      notice: "Memo %{memo} deleted."
+      notice: "Message %{memo} deleted."
   notes:
     create:
       notice: "Note %{note} created."

@@ -14,8 +14,8 @@ fi:
         one: asiakkuus
         other: asiakkuudet
       memo:
-        one: muistio
-        other: muistiot
+        one: viesti
+        other: viestit
       note:
         one: muistiinpano
         other: muistiinpanot
@@ -45,7 +45,6 @@ fi:
         status_id: Asiakkuuden tila
       memo:
         sender_id: Lähettäjä
-        recipient_ids: Vastaanottajat
         title: Otsikko
         content: Sisältö
       note:
