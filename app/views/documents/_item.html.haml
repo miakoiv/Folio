@@ -1,0 +1,15 @@
+.media{id: dom_id(document)}
+  .media-left
+    = link_to document.attachment_url do
+      = icon('file-o', class: 'fa-3x')
+  .media-body
+    - unless editing_disabled?
+      .pull-right
+        = link_to icon('trash'), document, method: :delete, remote: true,
+            class: 'btn btn-sm btn-danger'
+    %p.small.font-bold
+      = document.attachment.original_filename.truncate(16)
+    %p.small.text-muted
+      = number_to_human_size document.attachment.mime_type
+    %p.small.text-muted
+      = number_to_human_size document.attachment.size

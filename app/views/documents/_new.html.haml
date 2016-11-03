@@ -1,0 +1,18 @@
+= form_for [documentable, documentable.documents.new],
+    authenticity_token: true, enforce_utf8: false,
+    html: {class: 'dropzone'} do |f|
+  .fallback
+    %fieldset
+      = f.file_field :attachment
+      = f.submit class: 'btn btn-primary'
+  .dz-message
+    %i.pe-7s-upload.pe-4x
+    %p.small= t('dropzone.default_message')
+
+:coffee
+  Dropzone.options.newDocument =
+    paramName: 'document[attachment]'
+    init: ->
+      @on 'success', (file, document) ->
+        $.get document['document_path']
+        this.removeFile(file)
