@@ -13,6 +13,13 @@ en:
       notice: "Customer %{liaison} updated."
     destroy:
       notice: "Customer %{liaison} deleted."
+  memos:
+    create:
+      notice: "Memo %{memo} created."
+    update:
+      notice: "Memo %{memo} updated."
+    destroy:
+      notice: "Memo %{memo} deleted."
   notes:
     create:
       notice: "Note %{note} created."

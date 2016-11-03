@@ -13,6 +13,9 @@ en:
       liaison:
         one: customer
         other: customer
+      memo:
+        one: memo
+        other: memos
       note:
         one: note
         other: notes
@@ -40,6 +43,11 @@ en:
         referrer_id: Referred by
         referrer_info: Specify referral…
         status_id: Customer status
+      memo:
+        sender_id: Sender
+        recipient_ids: Recipients
+        title: Title
+        content: Content
       note:
         title: Title
         content: Content

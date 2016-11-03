@@ -13,6 +13,13 @@ fi:
       notice: "Asiakkuus %{liaison} päivitetty."
     destroy:
       notice: "Asiakkuus %{liaison} poistettu."
+  memos:
+    create:
+      notice: "Muistio %{memo} luotu."
+    update:
+      notice: "Muistio %{memo} päivitetty."
+    destroy:
+      notice: "Muistio %{memo} poistettu."
   notes:
     create:
       notice: "Muistiinpano %{note} luotu."

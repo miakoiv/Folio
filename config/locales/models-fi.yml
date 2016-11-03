@@ -13,6 +13,9 @@ fi:
       liaison:
         one: asiakkuus
         other: asiakkuudet
+      memo:
+        one: muistio
+        other: muistiot
       note:
         one: muistiinpano
         other: muistiinpanot
@@ -40,6 +43,11 @@ fi:
         referrer_id: Lähettävä taho
         referrer_info: Tarkenna lähettävä taho…
         status_id: Asiakkuuden tila
+      memo:
+        sender_id: Lähettäjä
+        recipient_ids: Vastaanottajat
+        title: Otsikko
+        content: Sisältö
       note:
         title: Otsikko
         content: Sisältö
