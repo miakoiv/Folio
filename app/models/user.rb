@@ -10,7 +10,9 @@ class User < ApplicationRecord
   belongs_to :unit
 
   has_many :sent_memos, class_name: 'Memo', foreign_key: :sender_id
-  has_and_belongs_to_many :received_memos, class_name: 'Memo'
+  has_many :deliveries, dependent: :destroy
+  has_many :received_memos, through: :deliveries,
+    class_name: 'Memo', source: :memo
 
   has_many :liaisons
   has_many :events, through: :liaisons
