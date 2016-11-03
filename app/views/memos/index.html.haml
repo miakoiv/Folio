@@ -1,0 +1,24 @@
+- content_for :header do
+  %h2= title(Memo, count: 2)
+  %small
+- content_for :breadcrumb do
+  %li.active= title(Memo, count: 2)
+
+.content
+  .row
+    .col-md-3.col-sticky
+      = link_to new_memo_path, class: 'm-b' do
+        = render partial: 'new'
+      = render partial: 'search'
+    .col-md-9
+      .hpanel
+        .panel-body
+          .row
+            .col-lg-12
+              .table-responsive.infinite-scroll
+                %table.table.table-hover.table-mailbox
+                  %tbody.infinite-content
+                    = render partial: 'item', collection: @memos, as: :memo
+            .infinite-pagination
+              = link_to_next_page @memos, '', remote: true,
+                  params: {memo_search: @memo_search_params.to_h}

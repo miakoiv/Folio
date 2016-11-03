@@ -1,0 +1,5 @@
+%tr
+  %td= icon(memo.icon)
+  %td= link_to memo.sender, memo
+  %td= link_to memo.title, memo
+  %td.text-right.mail-date= l(memo.created_at, format: :short)

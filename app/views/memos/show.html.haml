@@ -1,0 +1,22 @@
+- content_for :header do
+  %h2= @memo
+- content_for :breadcrumb do
+  %li= link_to title(Memo, count: 2), memos_path
+  %li.active= @memo
+
+.content
+  .row
+    .col-md-3
+      = render @memo.sender
+    .col-md-9
+      .hpanel.email-compose
+        .panel-heading.hbuilt
+          .h4.p-xs
+            %small.pull-right
+              = l(@memo.created_at, format: :short)
+              = surround '(', ')' do
+                = time_ago_in_words @memo.created_at
+                = t('time.ago')
+            = @memo.title
+        .panel-body
+          = @memo.content.html_safe

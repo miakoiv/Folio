@@ -1,0 +1,48 @@
+- content_for :header do
+  %h2= t('memos.new.title')
+- content_for :breadcrumb do
+  %li= link_to title(Memo, count: 2), memos_path
+  %li.active= t('memos.new.title')
+
+.content
+  .row
+    .col-md-3
+      = render @memo.sender
+    .col-md-9
+      = bootstrap_form_for @memo,
+          html: {novalidate: true} do |f|
+        .hpanel.email-compose
+          .panel-heading.hbuilt
+            .h4.p-xs
+              = t('memos.new.title')
+          .panel-heading.hbuilt
+            %fieldset.p-xs
+              = f.select :recipient_ids, User.all.map { |u| [u.to_s, u.id] },
+                  {}, multiple: true,
+                  data: {provide: 'select2', language: I18n.locale}
+              = f.text_field :title
+              = f.form_group :icon do
+                %label.control-label= Memo.human_attribute_name(:icon)
+                .btn-group{data: {toggle: 'buttons'}}
+                  - icon_options.each do |i|
+                    %label.btn.btn-default
+                      = f.radio_button_without_bootstrap :icon, i
+                      = icon(i)
+          .panel-body.no-padding
+            = f.text_area :content, skip_label: true, wrapper_class: 'm-b-none'
+          .panel-footer
+            .form-group.actions
+              = f.submit class: 'btn btn-primary'
+
+:coffee
+  $('#memo_content').summernote
+    lang: '#{t("i18n.culture")}'
+    dialogsFade: true
+    disableDragAndDrop: true
+    minHeight: 300
+    toolbar: [
+      ['para', ['ul', 'ol', 'paragraph']]
+      ['style', ['bold', 'italic', 'clear']]
+      ['color', ['color']]
+      ['insert', ['hr', 'link']]
+    ]
