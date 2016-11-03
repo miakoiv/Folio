@@ -11,7 +11,7 @@ class MemoSearch < Searchlight::Search
     query.where(%q{
       memos.title LIKE :keyword OR
       memos.content LIKE :keyword
-    }, keyword: "#{keyword}%")
+    }, keyword: "%#{keyword}%")
   end
 
   def search_recipients
