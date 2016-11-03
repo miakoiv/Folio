@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20161103135809) do
 
   create_table "memos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "sender_id",                null: false
+    t.string   "icon"
     t.string   "title"
     t.text     "content",    limit: 65535
     t.datetime "created_at",               null: false
