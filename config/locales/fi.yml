@@ -193,6 +193,7 @@ fi:
       two_words_connector: " ja "
       words_connector: ", "
   time:
+    ago: sitten
     am: aamupäivä
     formats:
       default: "%A %e. %Bta %Y %H:%M:%S %z"
