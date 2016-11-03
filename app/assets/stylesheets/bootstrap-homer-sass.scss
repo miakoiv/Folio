@@ -199,6 +199,11 @@ fieldset[disabled] .btn-group label.btn {
     border-color: #e4e5e7;
   }
 }
+.no-padding .note-editor {
+  margin-bottom: 0;
+
+  .note-editable { border: 0; }
+}
 
 // Infinite pagination gets a nifty scroll bar for loading indicator
 .infinite-pagination {
