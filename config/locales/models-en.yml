@@ -45,6 +45,8 @@ en:
         status_id: Customer status
       memo:
         sender_id: Sender
+        recipient_ids: Recipients
+        icon: Icon
         title: Title
         content: Content
       note:

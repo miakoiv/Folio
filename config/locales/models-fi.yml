@@ -45,6 +45,8 @@ fi:
         status_id: Asiakkuuden tila
       memo:
         sender_id: Lähettäjä
+        recipient_ids: Vastaanottajat
+        icon: Merkki
         title: Otsikko
         content: Sisältö
       note:
