@@ -40,6 +40,15 @@ fi:
       header: Asiakkuuden tiedot
     new:
       title: Uusi asiakkuus
+  memos:
+    panel:
+      header: Viestit
+    search:
+      header: Hae viesteistä
+      keyword: Hakusana
+      submit: Hae
+    new:
+      title: Kirjoita viesti
   notes:
     panel:
       header: Muistiinpanot

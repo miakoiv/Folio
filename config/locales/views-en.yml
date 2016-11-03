@@ -40,6 +40,15 @@ en:
       header: Customer information
     new:
       title: New customer
+  memos:
+    panel:
+      header: Messages
+    search:
+      header: Search messages
+      keyword: Keyword
+      submit: Search
+    new:
+      title: Write a message
   notes:
     panel:
       header: Notes
