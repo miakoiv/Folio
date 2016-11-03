@@ -81,12 +81,6 @@ ActiveRecord::Schema.define(version: 20161103093817) do
     t.index ["sender_id"], name: "index_memos_on_sender_id", using: :btree
   end
 
-  create_table "memos_recipients", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.integer "memo_id",      null: false
-    t.integer "recipient_id", null: false
-    t.index ["recipient_id", "memo_id"], name: "index_memos_recipients_on_recipient_id_and_memo_id", unique: true, using: :btree
-  end
-
   create_table "memos_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer "memo_id", null: false
     t.integer "user_id", null: false
