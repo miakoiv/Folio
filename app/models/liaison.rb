@@ -1,5 +1,7 @@
 class Liaison < ApplicationRecord
 
+  include Documentable
+
   belongs_to :creator, class_name: 'User'
   belongs_to :user
   belongs_to :person
