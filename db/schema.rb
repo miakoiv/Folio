@@ -10,17 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103133659) do
-
-  create_table "deliveries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.integer  "memo_id",                    null: false
-    t.integer  "user_id",                    null: false
-    t.boolean  "read",       default: false, null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.index ["memo_id"], name: "index_deliveries_on_memo_id", using: :btree
-    t.index ["user_id"], name: "index_deliveries_on_user_id", using: :btree
-  end
+ActiveRecord::Schema.define(version: 20161103135809) do
 
   create_table "documents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.string   "documentable_type",               null: false
@@ -89,6 +79,12 @@ ActiveRecord::Schema.define(version: 20161103133659) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.index ["sender_id"], name: "index_memos_on_sender_id", using: :btree
+  end
+
+  create_table "memos_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.integer "memo_id", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id", "memo_id"], name: "index_memos_users_on_user_id_and_memo_id", unique: true, using: :btree
   end
 
   create_table "municipalities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
