@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20161103135809) do
     t.integer  "liaison_id",                  null: false
     t.integer  "event_type_id",               null: false
     t.datetime "starts_at",                   null: false
+    t.integer  "duration",                    null: false
     t.datetime "ends_at"
     t.string   "title",                       null: false
     t.text     "description",   limit: 65535

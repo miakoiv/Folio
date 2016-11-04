@@ -4,6 +4,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.belongs_to :liaison, null: false
       t.belongs_to :event_type, null: false
       t.datetime :starts_at, null: false
+      t.integer :duration, null: false
       t.datetime :ends_at
       t.string :title, null: false
       t.text :description

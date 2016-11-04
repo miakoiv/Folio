@@ -8,10 +8,14 @@
             data: {provide: 'select2', language: I18n.locale,
               'minimum-results-for-search': 'Infinity'}
     .row
-      .col-md-6
-        = f.text_field :starts_at, autocomplete: 'off',
-            data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd',
-              'date-language': I18n.locale}
+      = f.fields_for :compound_starts_at do |ff|
+        .col-md-6
+          = ff.text_field :date, autocomplete: 'off',
+              data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd',
+                'date-language': I18n.locale}
+        .col-md-6
+          = ff.text_field :time, autocomplete: 'off',
+              data: {provide: 'clockpicker', autoclose: true}
     .row
       .col-md-12
         = f.number_field :duration
