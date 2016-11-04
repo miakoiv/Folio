@@ -13,7 +13,7 @@ class Liaison < ApplicationRecord
 
   belongs_to :referrer, optional: true
 
-  default_scope { order(created_at: :desc) }
+  default_scope { order(updated_at: :desc) }
 
   # Scope for liaisons handled by user.
   scope :for, -> (user) { where(user: user) }
