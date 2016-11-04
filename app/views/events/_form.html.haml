@@ -11,14 +11,22 @@
       = f.fields_for :compound_starts_at do |ff|
         .col-md-6
           = ff.text_field :date, autocomplete: 'off',
+              label: Event.human_attribute_name(:date),
               data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd',
                 'date-language': I18n.locale}
         .col-md-6
           = ff.text_field :time, autocomplete: 'off',
+              label: Event.human_attribute_name(:time),
               data: {provide: 'clockpicker', autoclose: true}
     .row
       .col-md-12
-        = f.number_field :duration
+        = f.form_group :duration do
+          %label.control-label= Event.human_attribute_name(:duration)
+          .btn-group{data: {toggle: 'buttons'}}
+            - duration_options.each do |label, value|
+              %label.btn.btn-default{class: value == @event.duration ? 'active' : ''}
+                = f.radio_button_without_bootstrap :duration, value
+                = label
     .row
       .col-md-12
         = f.text_field :title, autofocus: true

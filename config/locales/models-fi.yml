@@ -27,12 +27,12 @@ fi:
         other: käyttäjätilit
     attributes:
       event:
+        date: Alkamispäivä
         description: Kuvaus
-        ends_at: Päättyy
+        duration: Kesto
         event_type_id: Tapahtumalaji
         liaison_id: Asiakas
-        set_duration: Aseta kesto
-        starts_at: Alkaa
+        time: Alkamisaika
         title: Otsake
         user_id: Omistaja
       image:

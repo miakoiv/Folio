@@ -27,12 +27,12 @@ en:
         other: user accounts
     attributes:
       event:
+        date: Starting date
         description: Description
-        ends_at: Ends
+        duration: Duration
         event_type_id: Event type
         liaison_id: Customer
-        set_duration: Set duration
-        starts_at: Starts
+        time: Starting time
         title: Title
         user_id: Owner
       image:
