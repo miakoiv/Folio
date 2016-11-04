@@ -31,6 +31,7 @@ en:
         ends_at: Ends
         event_type_id: Event type
         liaison_id: Customer
+        set_duration: Set duration
         starts_at: Starts
         title: Title
         user_id: Owner

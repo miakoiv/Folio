@@ -31,6 +31,7 @@ fi:
         ends_at: Päättyy
         event_type_id: Tapahtumalaji
         liaison_id: Asiakas
+        set_duration: Aseta kesto
         starts_at: Alkaa
         title: Otsake
         user_id: Omistaja
