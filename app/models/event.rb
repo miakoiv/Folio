@@ -11,15 +11,18 @@ class Event < ApplicationRecord
 
   validates :title, presence: true
 
-  attribute :set_duration, :integer
-  def set_duration=(minutes)
+  attribute :duration, :integer
+  def duration=(minutes)
     self.ends_at = starts_at.advance(minutes: minutes.to_i)
   end
 
   def duration
-    (ends_at - starts_at) / 60
+    if starts_at.present? && ends_at.present?
+      (ends_at - starts_at) / 60
+    else
+      nil
+    end
   end
-  alias :set_duration :duration
 
   # An event is considered topical if it belongs to the given liaison.
   def topical?(l)
