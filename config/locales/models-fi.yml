@@ -27,7 +27,6 @@ fi:
         other: käyttäjätilit
     attributes:
       event:
-        all_day: Kokopäiväinen
         description: Kuvaus
         ends_at: Päättyy
         event_type_id: Tapahtumalaji

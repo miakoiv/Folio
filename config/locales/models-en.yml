@@ -27,7 +27,6 @@ en:
         other: user accounts
     attributes:
       event:
-        all_day: All day
         description: Description
         ends_at: Ends
         event_type_id: Event type
