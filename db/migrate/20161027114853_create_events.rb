@@ -5,7 +5,6 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.belongs_to :event_type, null: false
       t.datetime :starts_at, null: false
       t.datetime :ends_at
-      t.boolean :all_day, null: false, default: false
       t.string :title, null: false
       t.text :description
 
