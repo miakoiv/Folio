@@ -19,3 +19,6 @@ $.fn.extend
 
 $ ->
   $(document).select2handler()
+
+$(document).on 'shown.bs.modal', '.modal', ->
+  $(this).select2handler()
