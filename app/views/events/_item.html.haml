@@ -8,4 +8,4 @@
       %small
         = l(event.starts_at, format: :short)
         = icon('clock-o')
-        = event.ends_at.present? ? l(event.ends_at, format: :short) : nil
+        = duration_in_hours_minutes event.duration
