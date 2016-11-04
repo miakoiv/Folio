@@ -100,7 +100,7 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.fetch(:event) {{}}.permit(
-        :event_type_id, :starts_at, :ends_at, :all_day, :title, :description
+        :event_type_id, :starts_at, :set_duration, :ends_at, :title, :description
       )
     end
 end
