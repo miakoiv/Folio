@@ -30,6 +30,7 @@
             options_from_current(@person.postcode, :id, :text),
             {include_blank: true}, disabled: editing_disabled?,
             data: {provide: 'select2', language: I18n.locale,
+              'allow-clear': true, placeholder: '',
               'ajax--url': postcodes_path, 'ajax--delay': 500}
     .row
       .col-md-6
@@ -37,6 +38,7 @@
             options_from_current(@person.municipality),
             {include_blank: true}, disabled: editing_disabled?,
             data: {provide: 'select2', language: I18n.locale,
+              'allow-clear': true, placeholder: '',
               'ajax--url': municipalities_path, 'ajax--delay': 500}
       .col-md-6
         = f.text_field :accommodation
