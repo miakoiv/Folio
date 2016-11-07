@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 20161107080307) do
   end
 
   create_table "people", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.string   "identification",               null: false
+    t.string   "identification"
     t.date     "date_of_birth"
     t.string   "last_name"
     t.string   "first_names"
@@ -126,7 +126,6 @@ ActiveRecord::Schema.define(version: 20161107080307) do
     t.datetime "updated_at",                   null: false
     t.index ["creator_id"], name: "index_people_on_creator_id", using: :btree
     t.index ["education_level_id"], name: "index_people_on_education_level_id", using: :btree
-    t.index ["identification"], name: "index_people_on_identification", using: :btree
     t.index ["last_name"], name: "index_people_on_last_name", using: :btree
     t.index ["municipality_id"], name: "index_people_on_municipality_id", using: :btree
     t.index ["postcode_id"], name: "index_people_on_postcode_id", using: :btree

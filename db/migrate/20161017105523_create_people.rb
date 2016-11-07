@@ -1,7 +1,7 @@
 class CreatePeople < ActiveRecord::Migration[5.0]
   def change
     create_table :people do |t|
-      t.string :identification, null: false, index: true
+      t.string :identification
       t.date :date_of_birth
       t.string :last_name, index: true
       t.string :first_names
