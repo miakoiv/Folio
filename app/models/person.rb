@@ -41,8 +41,13 @@ class Person < ApplicationRecord
   end
 
   def full_name
-    return last_name if first_names.empty?
+    return last_name unless first_names.present?
     [last_name, first_names].join ', '
+  end
+
+  # Text method for JSON responses to select2
+  def text
+    to_s
   end
 
   def to_s
