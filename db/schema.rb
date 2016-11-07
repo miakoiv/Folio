@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103135809) do
+ActiveRecord::Schema.define(version: 20161107080307) do
 
   create_table "documents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.string   "documentable_type",               null: false
@@ -144,6 +144,21 @@ ActiveRecord::Schema.define(version: 20161103135809) do
   create_table "referrers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.string  "name_fi",                    null: false
     t.boolean "needs_info", default: false, null: false
+  end
+
+  create_table "relations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.string "name_fi"
+  end
+
+  create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.integer  "person_id",   null: false
+    t.integer  "parent_id",   null: false
+    t.integer  "relation_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["parent_id"], name: "index_relationships_on_parent_id", using: :btree
+    t.index ["person_id"], name: "index_relationships_on_person_id", using: :btree
+    t.index ["relation_id"], name: "index_relationships_on_relation_id", using: :btree
   end
 
   create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|

@@ -11,6 +11,9 @@ class Person < ApplicationRecord
   belongs_to :municipality, optional: true
   belongs_to :education_level, optional: true
 
+  has_many :relationships, dependent: :destroy
+  has_many :related_people, through: :relationships, source: :parent
+
   default_scope { order(:last_name, :first_names) }
 
   validates :last_name, :first_names, presence: true
