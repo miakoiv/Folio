@@ -67,6 +67,16 @@ en:
       first_names: person
   referrer:
     none: "[No referral]"
+  relationships:
+    panel:
+      header: Relationships
+    new:
+      title: New relationship
+    form:
+      delete: Sever relationship
+      new_parent: "[New person]"
+    parent_fields:
+      new_parent: New person
   users:
     links:
       my_profile: My profile

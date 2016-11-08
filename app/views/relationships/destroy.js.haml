@@ -1,0 +1,2 @@
+$('#modal').modal('hide');
+$('#relationship-list').html("#{j render partial: 'relationships/item', collection: @person.relationships, as: :relationship}");

@@ -2,6 +2,7 @@ class PeopleController < ApplicationController
 
   before_action :set_person, only: [:show, :edit, :update, :destroy]
   before_action :set_liaisons, only: :show
+  before_action :set_relationships, only: :show
 
   # GET /people
   # GET /people.json
@@ -13,6 +14,20 @@ class PeopleController < ApplicationController
     respond_to do |format|
       format.html
       format.js
+    end
+  end
+
+  # GET /people/parents.json
+  def parents
+    q = params[:q]
+    @people = if q.present?
+      PersonSearch.new(keyword: q).results
+    else
+      Person.none
+    end
+
+    respond_to do |format|
+      format.json
     end
   end
 
@@ -88,6 +103,10 @@ class PeopleController < ApplicationController
     def set_liaisons
       @liaisons = @person.liaisons.at(current_unit)
       @other_liaisons = @person.liaisons - @liaisons
+    end
+
+    def set_relationships
+      @relationships = @person.relationships
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

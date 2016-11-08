@@ -22,6 +22,9 @@ en:
       person:
         one: person
         other: people
+      relationship:
+        one: relationship
+        other: relationships
       user:
         one: user account
         other: user accounts
@@ -69,6 +72,9 @@ en:
         nationality: Nationality
         phone: Phone number
         postcode_id: Postal address
+      relationship:
+        parent_id: Related person
+        relation_id: Kind of relation
       user:
         activates_at: Activation date
         current_password: Current password

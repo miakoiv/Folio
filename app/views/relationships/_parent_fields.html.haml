@@ -1,0 +1,33 @@
+%fieldset
+  = f.fields_for :parent do |ff|
+    = ff.hidden_field :id
+    = ff.hidden_field :creator_id,
+        value: ff.object.creator_id || current_user.id
+    .row
+      .col-md-6
+        = ff.text_field :last_name
+      .col-md-6
+        = ff.text_field :first_names
+    .row
+      .col-md-6
+        = ff.text_field :address
+      .col-md-6
+        = ff.select :postcode_id,
+            options_from_current(ff.object.postcode, :id, :text),
+            {include_blank: true},
+            data: {provide: 'select2', language: I18n.locale,
+              'allow-clear': true, placeholder: '',
+              'ajax--url': postcodes_path, 'ajax--delay': 500}
+    .row
+      .col-md-6
+        = ff.select :municipality_id,
+            options_from_current(ff.object.municipality),
+            {include_blank: true},
+            data: {provide: 'select2', language: I18n.locale,
+              'allow-clear': true, placeholder: '',
+              'ajax--url': municipalities_path, 'ajax--delay': 500}
+    .row
+      .col-md-6
+        = ff.telephone_field :phone
+      .col-md-6
+        = ff.email_field :email

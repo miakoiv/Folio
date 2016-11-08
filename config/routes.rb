@@ -21,7 +21,12 @@ Rails.application.routes.draw do
       resources :notes
     end
     resources :images, shallow: true
+    resources :relationships, shallow: true, except: [:index, :show]
+    get :parents, on: :collection
   end
+
+  post 'relationships/parent', to: 'relationships#parent',
+    as: :set_parent
 
   resources :users do
     resources :images, shallow: true

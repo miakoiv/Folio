@@ -1,0 +1,5 @@
+= link_to [:new, @person, :relationship], remote: true do
+  = render partial: 'relationships/new'
+#relationship-list.m-b-lg
+  = render partial: 'relationships/item', collection: @relationships,
+      as: :relationship

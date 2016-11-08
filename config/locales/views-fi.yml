@@ -67,6 +67,16 @@ fi:
       first_names: henkilö
   referrer:
     none: "[Ei lähettävää tahoa]"
+  relationships:
+    panel:
+      header: Suhteet
+    new:
+      title: Uusi suhde
+    form:
+      delete: Katkaise suhde
+      new_parent: "[Uusi henkilö]"
+    parent_fields:
+      new_parent: Uusi henkilö
   users:
     links:
       my_profile: Oma profiili

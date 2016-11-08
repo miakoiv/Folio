@@ -5,7 +5,7 @@ class Municipality < ApplicationRecord
   has_many :postcodes
 
   scope :query, -> (q) {
-    where(arel_table[localized_name_method].matches("#{q}%"))
+    where(arel_table[:id].eq(q).or(arel_table[localized_name_method].matches("#{q}%")))
   }
 
   # Text method for JSON responses to select2

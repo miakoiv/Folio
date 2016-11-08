@@ -1,0 +1,13 @@
+.hpanel.filter-item{id: dom_id(relationship)}
+  = link_to [:edit, relationship], remote: true do
+    .panel-body.social-board
+      .media.social-profile.clearfix
+        .media-left
+          = profile_image(relationship.parent, class: 'img-circle')
+        .media-body
+          .pull-right.text-right
+            %div
+              %span.label.label-default
+                = relationship.relation
+          %h4= relationship.parent.last_name
+          %small= relationship.parent.first_names

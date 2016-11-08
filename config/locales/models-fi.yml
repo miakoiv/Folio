@@ -22,6 +22,9 @@ fi:
       person:
         one: henkilö
         other: henkilöt
+      relationship:
+        one: suhde
+        other: suhteet
       user:
         one: käyttäjätili
         other: käyttäjätilit
@@ -69,6 +72,9 @@ fi:
         nationality: Kansallisuus
         phone: Puhelinnumero
         postcode_id: Postiosoite
+      relationship:
+        parent_id: Toinen osapuoli
+        relation_id: Suhteen laatu
       user:
         activates_at: Aktivointipäivä
         current_password: Nykyinen salasana
