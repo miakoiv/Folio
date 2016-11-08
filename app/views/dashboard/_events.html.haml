@@ -1,0 +1,4 @@
+.hpanel
+  .panel-heading= icon('calendar', t('.header'))
+  .panel-body
+    = render partial: 'events/calendar', object: current_user, as: :container

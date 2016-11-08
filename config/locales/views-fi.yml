@@ -2,6 +2,11 @@ fi:
   actions:
     cancel: Kumoa
     edit: Muokkaa
+  dashboard:
+    events:
+      header: Tapahtumakalenteri
+    liaisons:
+      header: Aktiiviset asiakkuudet
   dropzone:
     default_message: Pudota tiedostoja tähän tai klikkaa
   shared:

@@ -1,0 +1,7 @@
+.hpanel
+  .panel-heading
+    = icon('handshake-o', t('.header'))
+  .panel-body.no-padding.social-board
+    %ul.list-group
+      = render partial: 'liaisons/list_item',
+          collection: current_user.liaisons.active, as: :liaison

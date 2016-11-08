@@ -1,0 +1,10 @@
+%li.list-group-item
+  = link_to liaison do
+    .media.social-profile.clearfix
+      %span.label.pull-right{class: "label-#{liaison.appearance}"}
+        = liaison.status
+      .media-left
+        = profile_image(liaison.person, class: 'img-circle')
+      .media-body
+        %h5= liaison.person
+        %small.text-muted= l(liaison.updated_at.to_date)

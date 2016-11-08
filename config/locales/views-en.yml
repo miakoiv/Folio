@@ -2,6 +2,11 @@ en:
   actions:
     cancel: Cancel
     edit: Edit
+  dashboard:
+    events:
+      header: Event calendar
+    liaisons:
+      header: Active customers
   dropzone:
     default_message: Drop files here or click
   shared:

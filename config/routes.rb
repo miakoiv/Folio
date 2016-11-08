@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   end
 
   resources :users do
+    resources :events, except: :index do
+      get :search, on: :collection
+    end
     resources :images, shallow: true
   end
 
