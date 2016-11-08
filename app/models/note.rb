@@ -8,6 +8,10 @@ class Note < ApplicationRecord
 
   validates :title, :content, presence: true
 
+  def fresh?
+    created_at > 2.hours.ago
+  end
+
   def to_s
     title
   end
