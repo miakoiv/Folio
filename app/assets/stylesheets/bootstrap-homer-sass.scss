@@ -74,8 +74,8 @@
   &.red-deep { background-color: $color-red-deep; border-color: $color-red-deep; }
 }
 
-// Non-topical events are translucent.
-.fc-event:not(.topical) {
+// External events are translucent.
+.fc-event.external {
   background-color: transparent;
   color: rgba($text-color, 0.333);
 }

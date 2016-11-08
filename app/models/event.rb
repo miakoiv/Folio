@@ -23,9 +23,10 @@ class Event < ApplicationRecord
   end
 
 
-  # An event is considered topical if it belongs to the given liaison.
-  def topical?(l)
-    liaison == l
+  # An event is considered external if a liaison is specified and
+  # the event does not belong to it.
+  def external?(for_liaison)
+    for_liaison.present? && liaison != for_liaison
   end
 
   def to_s
