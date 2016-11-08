@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   # See config/routes.rb about the nesting of resources.
-  before_action :set_liaison, only: [:search, :new, :create]
+  before_action :set_liaison, only: [:new, :create]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
@@ -10,9 +10,13 @@ class EventsController < ApplicationController
     @events = current_user.events
   end
 
-  # GET /liaisons/2/events
   # GET /liaisons/2/events.json
+  # GET /users/2/events.json
+  #
+  # Searching events is always limited to current user, with or without
+  # an associated liaison.
   def search
+    @liaison = current_unit.liaisons.find_by(id: params[:liaison_id])
     @search = EventSearch.new(search_params)
     @events = @search.results
 
