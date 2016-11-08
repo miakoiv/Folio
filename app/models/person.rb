@@ -11,8 +11,11 @@ class Person < ApplicationRecord
   belongs_to :municipality, optional: true
   belongs_to :education_level, optional: true
 
+  # Relationships with parents, guardians, or other benefactors called
+  # collectively as "parents". The other party subsequently has "children".
   has_many :relationships, dependent: :destroy
-  has_many :related_people, through: :relationships, source: :parent
+  has_many :parents, through: :relationships, source: :parent
+  has_many :parentships, class_name: 'Relationship', foreign_key: :parent_id
 
   default_scope { order(:last_name, :first_names) }
 

@@ -1,43 +1,40 @@
-= bootstrap_form_for [@person, @relationship], remote: true,
-    html: {novalidate: true} do |f|
-  %fieldset
-    .row
-      .col-md-12
-        .form-group
-          = f.label :relation_id
-          .input-group
-            = f.select_without_bootstrap :relation_id, relation_options, {},
-                data: {provide: 'select2', language: I18n.locale,
-                  'minimum-results-for-search': 'Infinity'}
-            - unless @relationship.new_record?
-              %span.input-group-btn
-                = link_to @relationship, method: :delete, remote: true,
-                    class: 'btn btn-danger' do
-                  = icon('close', t('.delete'))
-    .row
-      .col-md-12
-        = f.select :parent_id,
-            options_from_current(@relationship, :parent_id, :parent),
-            {include_blank: true},
-            data: {provide: 'select2', language: I18n.locale,
-              'allow-clear': true, placeholder: t('.new_parent'),
-              'ajax--url': parents_people_path, 'ajax--delay': 500}
-    .hr-line-dashed
-    = render partial: 'parent_fields', locals: {f: f}
-    .form-group.actions
-      = f.submit class: 'btn btn-primary'
+#relationship-form
+  = bootstrap_form_for [@person, @relationship],
+      remote: true, html: {novalidate: true} do |f|
+    %fieldset
+      .row
+        .col-md-12
+          .form-group
+            = f.label :relation_id
+            .input-group
+              = f.select_without_bootstrap :relation_id, relation_options, {},
+                  data: {provide: 'select2', language: I18n.locale,
+                    'minimum-results-for-search': 'Infinity'}
+              - unless @relationship.new_record?
+                %span.input-group-btn
+                  = link_to @relationship, method: :delete, remote: true,
+                      class: 'btn btn-danger' do
+                    = icon('close', t('.delete'))
+      .row
+        .col-md-12
+          = f.select :parent_id,
+              options_from_current(@relationship, :parent_id, :parent),
+              {include_blank: true},
+              data: {provide: 'select2', language: I18n.locale,
+                'allow-clear': true, placeholder: t('.new_parent'),
+                'ajax--url': parents_people_path, 'ajax--delay': 500}
+      .hr-line-dashed
+      = render partial: 'parent_fields', locals: {f: f}
+      .form-group.actions
+        = f.submit class: 'btn btn-primary'
 
-:coffee
-  $('#relationship_parent_id').on 'change', (e) ->
-    $.ajax
-      type: 'POST'
-      url: '#{set_parent_path}',
-      data:
-        parent_id: e.currentTarget.value
-      success: (data, status, xhr) ->
-        for key, value of data
-          $field = $('#relationship_parent_attributes_' + key)
-          if $field.is '[data-provide="select2"]'
-            $field.select2_ajax_reset value
-          else
-            $field.val value
+  :coffee
+    $('#relationship_parent_id').on 'change', (e) ->
+      $form = $('#relationship-form > form')
+      url = '#{@relationship.new_record? ?
+        new_person_relationship_path(@person, @relationship) :
+        edit_relationship_path(@relationship)}'
+      $.ajax
+        type: 'GET'
+        url: url
+        data: $form.serialize()

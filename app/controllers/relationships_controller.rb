@@ -1,16 +1,36 @@
 class RelationshipsController < ApplicationController
 
   before_action :set_person, only: [:new, :create]
-  before_action :set_relationship, only: [:edit, :update, :destroy]
+  before_action :set_relationship, only: [:edit, :update, :destroy, :parent]
 
   # GET /people/2/relationships/new
   def new
-    @relationship = @person.relationships.build
-    @relationship.parent = Person.find_or_initialize_by(id: params[:parent_id])
+    if relationship_params.empty?
+      @relationship = @person.relationships.build
+      @relationship.parent = Person.new
+
+      render :new
+    else
+      params = relationship_params.slice(:relation_id, :parent_id)
+      @relationship = @person.relationships.build(params)
+      @relationship.parent = Person.find_or_initialize_by(id: params[:parent_id])
+
+      render :parent
+    end
   end
 
   # GET /relationships/1/edit
   def edit
+    if relationship_params.empty?
+
+      render :edit
+    else
+      params = relationship_params.slice(:relation_id, :parent_id)
+      @relationship.attributes = params
+      @relationship.parent = Person.find_or_initialize_by(id: params[:parent_id])
+
+      render :parent
+    end
   end
 
   # POST /people/2/relationships
@@ -57,15 +77,6 @@ class RelationshipsController < ApplicationController
     end
   end
 
-  # POST /relationships/parent.json
-  def parent
-    @parent = Person.find_or_initialize_by(id: params[:parent_id])
-
-    respond_to do |format|
-      format.json { render @parent }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_person
@@ -78,7 +89,7 @@ class RelationshipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def relationship_params
-      params.require(:relationship).permit(
+      params.fetch(:relationship) {{}}.permit(
         :parent_id, :relation_id,
         parent_attributes: [
           :id, :creator_id,
