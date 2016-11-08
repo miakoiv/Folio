@@ -8,7 +8,7 @@ $.fn.select2.template = (option) ->
     option.text
 
 $.fn.extend
-  select2handler: ->
+  select2_handler: ->
     $(this)
       .find('[data-provide="select2"]')
       .not('.select2-hidden-accessible')
@@ -17,5 +17,19 @@ $.fn.extend
         templateResult: $.fn.select2.template
         templateSelection: $.fn.select2.template
 
+  select2_ajax_reset: (value) ->
+    $field = $(this)
+    $.ajax
+      type: 'GET'
+      url: $field.data 'ajax--url'
+      data:
+        q: value
+      success: (data, status, xhr) ->
+        $field.html '<option value=""></option>'
+        first = data.results[0]
+        if first?
+          $option = $('<option>', {value: first.id, text: first.text, selected: true})
+          $field.append($option)
+
 $ ->
-  $(document).select2handler()
+  $(document).select2_handler()
