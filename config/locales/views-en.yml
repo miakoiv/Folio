@@ -2,12 +2,6 @@ en:
   actions:
     cancel: Cancel
     edit: Edit
-  dashboard:
-    index:
-      people:
-        header: People
-        count: total people
-        latest: latest record
   dropzone:
     default_message: Drop files here or click
   shared:
@@ -78,6 +72,13 @@ en:
       new_parent: "[New person]"
     parent_fields:
       new_parent: New person
+  reports:
+    title: Reports
+    index:
+      people:
+        header: People
+        count: total people
+        latest: latest record
   users:
     links:
       my_profile: My profile

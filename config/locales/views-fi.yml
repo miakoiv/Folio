@@ -2,12 +2,6 @@ fi:
   actions:
     cancel: Kumoa
     edit: Muokkaa
-  dashboard:
-    index:
-      people:
-        header: Henkilöt
-        count: henkilöä kirjoilla
-        latest: viimeisin kirjaus
   dropzone:
     default_message: Pudota tiedostoja tähän tai klikkaa
   shared:
@@ -78,6 +72,13 @@ fi:
       new_parent: "[Uusi henkilö]"
     parent_fields:
       new_parent: Uusi henkilö
+  reports:
+    title: Raportointi
+    index:
+      people:
+        header: Henkilöt
+        count: henkilöä kirjoilla
+        latest: viimeisin kirjaus
   users:
     links:
       my_profile: Oma profiili

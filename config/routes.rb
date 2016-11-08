@@ -30,4 +30,6 @@ Rails.application.routes.draw do
   end
 
   resources :memos
+
+  get 'reports', to: 'reports#index', as: :reports
 end

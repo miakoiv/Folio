@@ -1,0 +1,15 @@
+.content
+  .row
+    .col-md-3
+      .hpanel
+        .panel-heading= t('.people.header')
+        .panel-body.text-center
+          %i.pe-7s-user.pe-5x
+          %h1.font-extra-bold.m-b-xs
+            = @people.count
+          .small= t('.people.count')
+          .small.m-t
+            - if @people.latest.present?
+              = link_to @people.latest do
+                = icon('clock-o', t('.people.latest'))
+                = l(@people.latest.created_at.to_date)
