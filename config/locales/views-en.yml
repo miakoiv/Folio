@@ -60,6 +60,7 @@ en:
       help: Apply additional filters below
       keyword: Last name or identification
       municipalities: Municipality
+      parental: Search parents and guardians
       year_of_birth: Year of birth
       submit: Search
     new:

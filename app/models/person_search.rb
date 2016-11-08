@@ -7,6 +7,20 @@ class PersonSearch < Searchlight::Search
     Person.includes(:images, :liaisons, postcode: :municipality)
   end
 
+  def options
+    super.tap do |opts|
+      opts['parental'] ||= '0'
+    end
+  end
+
+  def search_parental
+    if checked?(parental)
+      query.where(Person.arel_table[:children_count].gt(0))
+    else
+      query.where(children_count: 0)
+    end
+  end
+
   def search_keyword
     query.where(%q{
       people.last_name LIKE :keyword OR

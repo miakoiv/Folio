@@ -60,6 +60,7 @@ fi:
       help: Valitse lisää hakuehtoja alta
       keyword: Sukunimi tai tunnus
       municipalities: Kotikunta
+      parental: Hae huoltajista ja sidosryhmistä
       year_of_birth: Syntymävuosi
       submit: Hae
     new:
