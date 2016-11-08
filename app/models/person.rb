@@ -24,8 +24,16 @@ class Person < ApplicationRecord
   attr_readonly :children_count
   scope :parental, -> { where(arel_table[:children_count].gt(0)) }
 
+  def parental?
+    children_count > 0
+  end
+
   # People who are not parents are potential customers.
   scope :customer, -> { where(children_count: 0) }
+
+  def customer?
+    children_count == 0
+  end
 
   default_scope { order(:last_name, :first_names) }
 
