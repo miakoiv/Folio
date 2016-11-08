@@ -12,12 +12,23 @@ class Person < ApplicationRecord
   belongs_to :education_level, optional: true
 
   # Relationships with parents, guardians, or other benefactors called
-  # collectively as "parents". The other party subsequently has "children".
+  # collectively as "parents".
   has_many :relationships, dependent: :destroy
   has_many :parents, through: :relationships, source: :parent
-  has_many :parentships, class_name: 'Relationship', foreign_key: :parent_id
+
+  # Parentships are relationships where this person is the parent.
+  # Caching the number of parentships as children count gives us
+  # a scope for "parental units".
+  has_many :parentships, class_name: 'Relationship', foreign_key: :parent_id,
+    counter_cache: :children_count
+  attr_readonly :children_count
+  scope :parental, -> { where(arel_table[:children_count].gt(0)) }
+
+  # People who are not parents are potential customers.
+  scope :customer, -> { where(children_count: 0) }
 
   default_scope { order(:last_name, :first_names) }
+
 
   validates :last_name, :first_names, presence: true
 

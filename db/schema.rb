@@ -121,9 +121,11 @@ ActiveRecord::Schema.define(version: 20161107080307) do
     t.string   "education_info"
     t.string   "accommodation"
     t.string   "disabilities"
-    t.integer  "creator_id",                   null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "creator_id",                               null: false
+    t.integer  "children_count",               default: 0, null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.index ["children_count"], name: "index_people_on_children_count", using: :btree
     t.index ["creator_id"], name: "index_people_on_creator_id", using: :btree
     t.index ["education_level_id"], name: "index_people_on_education_level_id", using: :btree
     t.index ["last_name"], name: "index_people_on_last_name", using: :btree
