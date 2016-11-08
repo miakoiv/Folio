@@ -17,6 +17,11 @@ $.fn.extend
         templateResult: $.fn.select2.template
         templateSelection: $.fn.select2.template
 
+  select2_teardown: ->
+    $(this)
+      .find('[data-provide="select2"]')
+      .select2 'destroy'
+
   select2_ajax_reset: (value) ->
     $field = $(this)
     $.ajax
