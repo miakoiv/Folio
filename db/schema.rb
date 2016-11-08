@@ -163,8 +163,9 @@ ActiveRecord::Schema.define(version: 20161107080307) do
   end
 
   create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.string "name_fi",    null: false
-    t.string "appearance", null: false
+    t.boolean "active",     default: false, null: false
+    t.string  "name_fi",                    null: false
+    t.string  "appearance",                 null: false
   end
 
   create_table "units", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|

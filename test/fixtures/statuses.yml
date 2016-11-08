@@ -6,16 +6,19 @@ status_0:
 
 status_1:
   id: 1
+  active: true
   name_fi: aktiivinen
   appearance: green
 
 status_2:
   id: 2
+  active: true
   name_fi: satunnainen
   appearance: blue
 
 status_3:
   id: 3
+  active: true
   name_fi: ei tavoiteta
   appearance: yellow
 

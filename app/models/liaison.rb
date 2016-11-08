@@ -9,11 +9,12 @@ class Liaison < ApplicationRecord
   has_many :notes, dependent: :destroy
 
   belongs_to :status
-  delegate :appearance, to: :status
+  delegate :appearance, :active, to: :status
 
   belongs_to :referrer, optional: true
 
   default_scope { order(updated_at: :desc) }
+  scope :active, -> { joins(:status).merge(Status.active) }
 
   # Scope for liaisons handled by user.
   scope :for, -> (user) { where(user: user) }
