@@ -4,4 +4,4 @@ json.extract! person, :id, :identification, :date_of_birth,
   :language, :nationality, :education_level_id, :education_info,
   :accommodation, :disabilities,
   :created_at, :updated_at
-json.url person_url(person, format: :json)
+json.url person_url(person, format: :json) unless person.new_record?
