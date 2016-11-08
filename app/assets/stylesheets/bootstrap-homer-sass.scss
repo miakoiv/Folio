@@ -127,7 +127,7 @@
 }
 
 // Smaller labels
-label { @extend .small; }
+label.control-label { @extend .small; }
 
 // Decorate required form control labels
 label.required:after {
