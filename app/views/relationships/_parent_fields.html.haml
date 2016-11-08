@@ -1,5 +1,6 @@
 %fieldset
   = f.fields_for :parent do |ff|
+    %legend= ff.object.new_record? ? t('.new_parent') : ff.object
     = ff.hidden_field :id
     = ff.hidden_field :creator_id,
         value: ff.object.creator_id || current_user.id
