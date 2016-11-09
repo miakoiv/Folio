@@ -22,14 +22,21 @@ class PersonSearch < Searchlight::Search
   end
 
   def search_keyword
-    query.where(%q{
-      people.last_name LIKE :keyword OR
-      people.identification LIKE :keyword
-    }, keyword: "#{keyword}%")
+    query.where(
+      Person.arel_table[:last_name].matches("#{keyword}%")
+      .or(Person.arel_table[:first_names].matches("#{keyword}%")))
   end
 
-  def search_municipalities
-    query.where(municipality_id: municipalities)
+  def search_phone
+    query.where(Person.arel_table[:phone].matches("%#{phone}%"))
+  end
+
+  def search_address
+    query.where(Person.arel_table[:address].matches("%#{address}%"))
+  end
+
+  def search_postcode
+    query.where(postcode_id: postcode)
   end
 
   def search_year_of_birth

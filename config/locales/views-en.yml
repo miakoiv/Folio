@@ -55,11 +55,13 @@ en:
     panel:
       header: Personal information
     search:
+      address: Street address
       header: Search people
       help: Apply additional filters below
-      keyword: Last name or identification
-      municipalities: Municipality
+      keyword: Name
       parental: Search parents and guardians
+      phone: Phone number
+      postcode: Postal address
       year_of_birth: Year of birth
       submit: Search
     new:

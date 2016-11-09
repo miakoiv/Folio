@@ -45,6 +45,11 @@ class Person < ApplicationRecord
     ids.any? ? Municipality.find(ids) : Municipality.none
   end
 
+  def self.assigned_postcodes
+    ids = unscope(:order).pluck(:postcode_id).uniq
+    ids.any? ? Postcode.find(ids) : Postcode.none
+  end
+
   # Liaisons have a newest first default scope.
   def current_liaison(unit)
     liaisons.at(unit).first
