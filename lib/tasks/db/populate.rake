@@ -14,7 +14,6 @@ namespace :db do
     records.each do |r|
       creation = Date.parse(r['registered'])
       postcode = postcodes.sample
-      user = users.sample
 
       person = Person.create(
         identification: r['id']['value'],
@@ -29,13 +28,15 @@ namespace :db do
         phone: r['cell'],
         language: 'fi',
         nationality: r['nat'],
-        creator: user,
+        creator: users.sample,
         created_at: creation,
         updated_at: creation
       )
       person.images.create attachment_remote_url: r['picture']['large']
 
       rand(3).times do |n|
+        user = users.sample
+
         person.liaisons.create(
           user: user,
           creator: user,
