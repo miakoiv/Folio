@@ -41,12 +41,12 @@ class Person < ApplicationRecord
   validates :last_name, :first_names, presence: true
 
   def self.assigned_municipalities
-    ids = unscope(:order).pluck(:municipality_id).uniq
+    ids = unscope(:order).pluck(:municipality_id).reject(&:blank?).uniq
     ids.any? ? Municipality.find(ids) : Municipality.none
   end
 
   def self.assigned_postcodes
-    ids = unscope(:order).pluck(:postcode_id).uniq
+    ids = unscope(:order).pluck(:postcode_id).reject(&:blank?).uniq
     ids.any? ? Postcode.find(ids) : Postcode.none
   end
 
