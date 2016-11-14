@@ -6,9 +6,7 @@
     %i.fa.fa-bars
   .small-logo
     %span.text-primary Folio
-  %form.navbar-form-custom{role: 'search'}
-    .form-group
-      %input.form-control{type: 'text', placeholder: t('.quick_search')}
+  = render partial: 'search/navbar'
   .mobile-menu
     %button.navbar-toggle.mobile-menu-toggle{type: 'button',
       data: {toggle: 'collapse', target: '#mobile-collapse'}}

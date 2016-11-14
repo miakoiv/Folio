@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :authenticate_user!
   before_action :set_unit
+  before_action :set_search_params
   after_action :prepare_unobtrusive_flash
 
   # Set a flag to disable editing in rendered forms.
@@ -25,5 +26,9 @@ class ApplicationController < ActionController::Base
 
     def set_unit
       @current_unit = current_user.try(:unit)
+    end
+
+    def set_search_params
+      @search_params = params.fetch(:search_params) {{}}
     end
 end

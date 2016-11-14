@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: 'dashboard#index'
-
   resources :municipalities, only: :index
   resources :postcodes, only: :index
 
@@ -34,5 +33,6 @@ Rails.application.routes.draw do
 
   resources :memos
 
+  post 'search', to: 'search#index', as: :search
   get 'reports', to: 'reports#index', as: :reports
 end

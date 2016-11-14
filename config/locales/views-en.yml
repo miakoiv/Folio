@@ -9,9 +9,12 @@ en:
       header: Active customers
   dropzone:
     default_message: Drop files here or click
+  search:
+    index:
+      header: Search results
+    navbar:
+      prompt: Search anything…
   shared:
-    header:
-      quick_search: Search anything
     footer:
       copyright_html: LeasIT Oy <i class="fa fa-copyright"></i> 2016
       slogan_html: Made with love <i class="fa fa-heart"></i> in Finland.

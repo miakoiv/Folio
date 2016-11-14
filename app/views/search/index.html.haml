@@ -1,0 +1,23 @@
+- content_for :header do
+  %h2= t('.header')
+  %small
+- content_for :breadcrumb do
+  %li.active= t('.header')
+
+.content
+  .row
+    .col-md-6
+      .hpanel
+        .panel-heading
+          = icon('address-book', title(Person, count: 2))
+        .panel-body.no-padding
+          = render partial: 'people/item', collection: @people, as: :person
+    .col-md-6
+      .hpanel
+        .panel-heading
+          = icon('book', title(Memo, count: 2))
+        .panel-body.no-padding
+          .table-responsive
+            %table.table.table-hover.table-mailbox
+              %tbody
+                = render partial: 'memos/item', collection: @memos, as: :memo
