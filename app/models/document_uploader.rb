@@ -1,3 +1,5 @@
+require 'image_processing/mini_magick'
+
 class DocumentUploader < Shrine
   include ImageProcessing::MiniMagick
 
