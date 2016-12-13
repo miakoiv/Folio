@@ -20,9 +20,10 @@
 
 // A sticky column stays at a position where it would be without
 // .normalheader present, which is header height + .content top padding
-@media (min-width: 768px) {
+@media (min-width: 993px) and (min-height: 880px) {
   .col-sticky {
     position: sticky;
+    position: -webkit-sticky;
     top: 87px; // 62+25
   }
 }
