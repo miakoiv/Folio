@@ -1,0 +1,14 @@
+.hpanel.filter-item
+  = link_to liaison do
+    .panel-body.social-board
+      .media.social-profile.clearfix
+        .media-left
+          = profile_image(liaison.person, class: 'img-circle')
+        .media-body
+          .pull-right.text-right
+            %div
+              %span.label.pull-right{class: "label-#{liaison.appearance}"}
+                = liaison.status
+            %small.stat-label= l(liaison.updated_at.to_date)
+          %h5= liaison.person.last_name
+          %small.text-muted= liaison.person.first_names
