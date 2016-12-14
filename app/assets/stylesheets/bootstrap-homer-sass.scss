@@ -52,6 +52,11 @@
   }
 }
 
+// Any non-A element acting as a link.
+*[data-href] {
+  cursor: pointer;
+}
+
 // More color definitions for UI elements
 .hred-deep { @extend .hreddeep; }
 .label-navy-blue { background-color: $color-navy-blue; }
