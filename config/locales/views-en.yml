@@ -45,10 +45,16 @@ en:
   memos:
     panel:
       header: Messages
+    mailboxen:
+      inbox: Inbox
+      sent: Sent
     search:
       header: Search messages
       keyword: Keyword
       submit: Search
+    headers:
+      from: Sender
+      to: Recipients
     new:
       title: Write a message
   notes:

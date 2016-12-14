@@ -5,13 +5,26 @@ class MemosController < ApplicationController
   # GET /memos
   # GET /memos.json
   def index
-    @memo_search_params = search_params
+    @memo_search_params = search_params.merge(recipients: current_user)
     @search = MemoSearch.new(@memo_search_params)
     @memos = @search.results.page(params[:page])
 
     respond_to do |format|
       format.html
       format.js
+    end
+  end
+
+  # GET /memos/sent
+  # GET /memos/sent.json
+  def sent
+    @memo_search_params = search_params.merge(sender: current_user)
+    @search = MemoSearch.new(@memo_search_params)
+    @memos = @search.results.page(params[:page])
+
+    respond_to do |format|
+      format.html { render :index }
+      format.js { render :index }
     end
   end
 
@@ -72,9 +85,7 @@ class MemosController < ApplicationController
 
   protected
     def search_params
-      params.fetch(:memo_search) {{}}.permit(:keyword).merge(
-        recipients: current_user
-      )
+      params.fetch(:memo_search) {{}}.permit(:keyword)
     end
 
   private

@@ -1,0 +1,3 @@
+%ul.mailbox-list
+  = active_link_to icon('envelope', t('.inbox')), memos_path, wrap_tag: :li, active: :exact
+  = active_link_to icon('paper-plane', t('.sent')), sent_memos_path, wrap_tag: :li, active: :exact

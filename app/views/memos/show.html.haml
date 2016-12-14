@@ -6,8 +6,10 @@
 
 .content
   .row
-    .col-md-3
-      = render @memo.sender
+    .col-md-3.col-sticky
+      .hpanel
+        .panel-body
+          = render partial: 'mailboxen'
     .col-md-9
       .hpanel.email-compose
         .panel-heading.hbuilt
@@ -18,5 +20,6 @@
                 = time_ago_in_words @memo.created_at
                 = t('time.ago')
             = @memo.title
+        = render partial: 'headers'
         .panel-body
           = @memo.content.html_safe

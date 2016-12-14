@@ -6,8 +6,10 @@
 
 .content
   .row
-    .col-md-3
-      = render @memo.sender
+    .col-md-3.col-sticky
+      .hpanel
+        .panel-body
+          = render partial: 'mailboxen'
     .col-md-9
       = bootstrap_form_for @memo,
           html: {novalidate: true} do |f|

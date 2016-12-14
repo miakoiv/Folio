@@ -45,10 +45,16 @@ fi:
   memos:
     panel:
       header: Viestit
+    mailboxen:
+      inbox: Saapuneet
+      sent: Lähetetyt
     search:
       header: Hae viesteistä
       keyword: Hakusana
       submit: Hae
+    headers:
+      from: Lähettäjä
+      to: Vastaanottajat
     new:
       title: Kirjoita viesti
   notes:

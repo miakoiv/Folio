@@ -14,6 +14,10 @@ class MemoSearch < Searchlight::Search
     }, keyword: "%#{keyword}%")
   end
 
+  def search_sender
+    query.where(sender_id: sender)
+  end
+
   def search_recipients
     query.joins(:recipients).where(users: {id: recipients})
   end

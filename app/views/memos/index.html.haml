@@ -7,8 +7,11 @@
 .content
   .row
     .col-md-3.col-sticky
-      = link_to new_memo_path, class: 'm-b' do
-        = render partial: 'new'
+      .hpanel
+        .panel-body
+          = link_to new_memo_path, class: 'btn btn-block btn-success m-b-md' do
+            = render partial: 'new'
+          = render partial: 'mailboxen'
       = render partial: 'search'
     .col-md-9
       .hpanel

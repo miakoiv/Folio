@@ -31,7 +31,9 @@ Rails.application.routes.draw do
     resources :images, shallow: true
   end
 
-  resources :memos
+  resources :memos do
+    get :sent, on: :collection
+  end
 
   post 'search', to: 'search#index', as: :search
   get 'reports', to: 'reports#index', as: :reports
