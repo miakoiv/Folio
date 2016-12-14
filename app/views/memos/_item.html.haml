@@ -1,5 +1,5 @@
-%tr
-  %td= icon(memo.icon)
-  %td= link_to memo.sender, memo
-  %td= link_to memo.title, memo
-  %td.text-right.mail-date= l(memo.created_at, format: :short)
+%tr{data: {href: memo_path(memo)}}
+  %td= icon(memo.icon, class: 'fa-lg')
+  %td= memo.sender
+  %td.font-bold= memo.title
+  %td.text-right.mail-date= l(memo.created_at, format: :long)

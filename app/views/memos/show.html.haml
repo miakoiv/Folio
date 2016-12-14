@@ -15,7 +15,7 @@
         .panel-heading.hbuilt
           .h4.p-xs
             %small.pull-right
-              = l(@memo.created_at, format: :short)
+              = l(@memo.created_at, format: :long)
               = surround '(', ')' do
                 = time_ago_in_words @memo.created_at
                 = t('time.ago')
