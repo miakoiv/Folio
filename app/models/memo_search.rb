@@ -4,7 +4,7 @@ class MemoSearch < Searchlight::Search
   include Searchlight::Adapters::ActionView
 
   def base_query
-    Memo.all
+    Memo.joins(:deliveries)
   end
 
   def search_keyword
@@ -14,11 +14,7 @@ class MemoSearch < Searchlight::Search
     }, keyword: "%#{keyword}%")
   end
 
-  def search_sender
-    query.where(sender_id: sender)
-  end
-
   def search_recipients
-    query.joins(:recipients).where(users: {id: recipients})
+    query.where(deliveries: {recipient: recipients})
   end
 end
