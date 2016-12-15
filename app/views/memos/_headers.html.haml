@@ -9,4 +9,4 @@
       %span.font-extra-bold
         = succeed ':' do
           = t('.to')
-      = @memo.recipients.to_a.to_sentence
+      = @memo.deliveries.map(&:recipient).to_sentence
