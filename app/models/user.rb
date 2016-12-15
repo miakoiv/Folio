@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :liaisons
   has_many :events, through: :liaisons
 
+  default_scope { order(:last_name, :first_names) }
+
   scope :active, -> { where %q{
     (users.activates_at IS NULL OR users.activates_at >= :today) AND
     (users.expires_at IS NULL OR users.expires_at > :today)
@@ -36,6 +38,11 @@ class User < ApplicationRecord
   def full_name
     return last_name if first_names.empty?
     [last_name, first_names].join ', '
+  end
+
+
+  def self.to_collection_title
+    model_name.human(count: 2).capitalize
   end
 
   def to_s
