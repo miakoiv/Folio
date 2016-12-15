@@ -12,7 +12,8 @@
           = link_to new_memo_path, class: 'btn btn-block btn-success m-b-md' do
             = render partial: 'new'
           = render partial: 'mailboxen'
-      = render partial: 'search'
+      - unless @search.nil?
+        = render partial: 'search'
     .col-md-9
       .hpanel
         .panel-body
