@@ -5,7 +5,7 @@ class MemosController < ApplicationController
   # GET /memos
   # GET /memos.json
   def index
-    @memo_search_params = search_params.merge(recipients: current_user)
+    @memo_search_params = search_params.merge(recipients: [current_user, current_unit])
     @search = MemoSearch.new(@memo_search_params)
     @memos = @search.results.page(params[:page])
 
@@ -18,9 +18,7 @@ class MemosController < ApplicationController
   # GET /memos/sent
   # GET /memos/sent.json
   def sent
-    @memo_search_params = search_params.merge(sender: current_user)
-    @search = MemoSearch.new(@memo_search_params)
-    @memos = @search.results.page(params[:page])
+    @memos = current_user.sent_memos.page(params[:page])
 
     respond_to do |format|
       format.html { render :index }
