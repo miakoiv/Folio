@@ -25,9 +25,12 @@ en:
       relationship:
         one: relationship
         other: relationships
+      unit:
+        one: unit
+        other: units
       user:
-        one: user account
-        other: user accounts
+        one: user
+        other: user
     attributes:
       event:
         date: Starting date

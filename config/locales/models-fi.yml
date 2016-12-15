@@ -25,9 +25,12 @@ fi:
       relationship:
         one: suhde
         other: suhteet
+      unit:
+        one: yksikkö
+        other: yksiköt
       user:
-        one: käyttäjätili
-        other: käyttäjätilit
+        one: käyttäjä
+        other: käyttäjät
     attributes:
       event:
         date: Alkamispäivä
