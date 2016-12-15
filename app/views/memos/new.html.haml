@@ -19,9 +19,10 @@
               = t('memos.new.title')
           .panel-heading.hbuilt
             %fieldset.p-xs
-              = f.select :recipient_ids, User.all.map { |u| [u.to_s, u.id] },
-                  {}, multiple: true,
-                  data: {provide: 'select2', language: I18n.locale}
+              = f.grouped_collection_select :recipient_ids,
+                [Unit, User], :all, :to_collection_title, :to_global_id, :to_s,
+                {}, {multiple: true,
+                  data: {provide: 'select2', language: I18n.locale}}
               = f.text_field :title
               = f.form_group :icon do
                 %label.control-label= Memo.human_attribute_name(:icon)
