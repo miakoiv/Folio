@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 20161214141839) do
     t.integer  "memo_id",        null: false
     t.string   "recipient_type", null: false
     t.integer  "recipient_id",   null: false
-    t.datetime "accessed_at"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["memo_id"], name: "index_deliveries_on_memo_id", using: :btree
