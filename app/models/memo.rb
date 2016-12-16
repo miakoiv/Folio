@@ -2,12 +2,21 @@ class Memo < ApplicationRecord
 
   belongs_to :sender, class_name: 'User'
   has_many :deliveries, dependent: :destroy
+  has_many :collections, dependent: :destroy
 
   default_scope { order(created_at: :desc) }
 
   validates :title, presence: true
   validates :recipient_ids, presence: true
 
+
+  def collected_by?(user)
+    collections.by(user).first
+  end
+
+  def collect_by(user)
+    collections.by(user).first_or_create
+  end
 
   # Delivery recipients as a list of global ids.
   def recipient_ids

@@ -30,6 +30,7 @@ class MemosController < ApplicationController
   # GET /memos/1.json
   def show
     disable_editing!
+    @memo.collect_by(current_user)
   end
 
   # GET /memos/new

@@ -1,5 +1,5 @@
-%tr{data: {href: memo_path(memo)}}
+%tr{class: memo.collected_by?(current_user) ? '' : 'font-extra-bold', data: {href: memo_path(memo)}}
   %td= icon(memo.icon, class: 'fa-lg')
   %td= memo.sender
-  %td.font-bold= memo.title
+  %td= memo.title
   %td.text-right.mail-date= l(memo.created_at, format: :long)

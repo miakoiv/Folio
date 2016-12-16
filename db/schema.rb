@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161214141839) do
+ActiveRecord::Schema.define(version: 20161216133556) do
+
+  create_table "collections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.integer  "memo_id",    null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["memo_id", "user_id"], name: "index_collections_on_memo_id_and_user_id", unique: true, using: :btree
+    t.index ["memo_id"], name: "index_collections_on_memo_id", using: :btree
+    t.index ["user_id"], name: "index_collections_on_user_id", using: :btree
+  end
 
   create_table "deliveries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "memo_id",        null: false
