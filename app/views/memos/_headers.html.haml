@@ -1,12 +1,14 @@
 .border-top.border-left.border-right.bg-light
   .p-m
-    %div
-      %span.font-extra-bold
-        = succeed ':' do
-          = t('.from')
-      = @memo.sender
-    %div
-      %span.font-extra-bold
-        = succeed ':' do
-          = t('.to')
-      = @memo.deliveries.map(&:recipient).to_sentence
+    %dl.dl-horizontal.m-n
+      %dt= t('.from')
+      %dd= @memo.sender
+      %dt= t('.to')
+      %dd
+        %ul.list-inline
+          - @memo.deliveries.each do |delivery|
+            %li
+              - if delivery.recipient.is_a?(Unit)
+                %span.label.label-violet= delivery.recipient
+              - else
+                = delivery.recipient
