@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(version: 20161216133556) do
     t.text     "description",   limit: 65535
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.index ["event_type_id"], name: "index_events_on_event_type_id", using: :btree
     t.index ["customer_id"], name: "index_events_on_customer_id", using: :btree
+    t.index ["event_type_id"], name: "index_events_on_event_type_id", using: :btree
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
@@ -110,10 +110,10 @@ ActiveRecord::Schema.define(version: 20161216133556) do
   create_table "notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "customer_id",               null: false
     t.string   "title"
-    t.text     "content",    limit: 65535
-    t.integer  "creator_id",               null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "content",     limit: 65535
+    t.integer  "creator_id",                null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["creator_id"], name: "index_notes_on_creator_id", using: :btree
     t.index ["customer_id"], name: "index_notes_on_customer_id", using: :btree
   end
