@@ -14,7 +14,7 @@
 
   $ ->
     $('#calendar').fullCalendar
-      events: '#{url_for([:search, container, :events])}'
+      events: '#{url_for([:search, context, :events])}'
       startParam: 'since_date'
       endParam: 'until_date'
       header:
@@ -40,7 +40,7 @@
           trigger: 'focus hover'
           delay: 500
       dayClick: (date, jsEvent, view) ->
-        $.get '#{url_for([:new, container, :event])}',
+        $.get '#{url_for([:new, context, :event])}',
           event:
             starts_at: date.format()
             ends_at: date.format()
