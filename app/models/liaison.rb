@@ -23,6 +23,6 @@ class Liaison < ApplicationRecord
   scope :at, -> (unit) { joins(user: :unit).where(users: {unit_id: unit}) }
 
   def to_s
-    "#{created_at.to_date} / #{user}"
+    "#{model_name.human.capitalize} / #{person} ↔ #{user}"
   end
 end
