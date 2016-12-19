@@ -132,8 +132,10 @@
   }
 }
 
-// Smaller labels
+// Smaller labels and table headers
 label.control-label { @extend .small; }
+.table > thead > tr > th,
+.table > thead > tr > td { @extend .small; }
 
 // Decorate required form control labels
 label.required:after {
