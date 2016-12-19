@@ -34,7 +34,7 @@
         element.popover('destroy') if element.popover?
         element.popover
           container: 'body'
-          title: event.person
+          title: event.person or event.user
           content: event.description
           placement: 'left'
           trigger: 'focus hover'

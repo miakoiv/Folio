@@ -1,8 +1,8 @@
 class Event < ApplicationRecord
 
-  belongs_to :creator, class_name: 'User'
-  belongs_to :liaison
-  after_create :touch_liaison
+  # Events always belong to a user and may belong to a liaison.
+  belongs_to :user
+  belongs_to :liaison, optional: true
 
   belongs_to :event_type
   delegate :appearance, to: :event_type
@@ -12,6 +12,8 @@ class Event < ApplicationRecord
   validates :title, presence: true
 
   before_save :synchronize
+  after_create :touch_liaison
+
 
   # See app/models/compound_datetime.rb for details.
   attribute :compound_starts_at, :string
@@ -35,7 +37,7 @@ class Event < ApplicationRecord
 
   private
     def touch_liaison
-      liaison.touch
+      liaison.touch if liaison.present?
     end
 
     def synchronize

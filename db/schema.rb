@@ -52,19 +52,19 @@ ActiveRecord::Schema.define(version: 20161216133556) do
   end
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.integer  "liaison_id",                  null: false
+    t.integer  "user_id",                     null: false
     t.integer  "event_type_id",               null: false
+    t.integer  "liaison_id"
     t.datetime "starts_at",                   null: false
     t.integer  "duration",                    null: false
     t.datetime "ends_at"
     t.string   "title",                       null: false
     t.text     "description",   limit: 65535
-    t.integer  "creator_id",                  null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.index ["creator_id"], name: "index_events_on_creator_id", using: :btree
     t.index ["event_type_id"], name: "index_events_on_event_type_id", using: :btree
     t.index ["liaison_id"], name: "index_events_on_liaison_id", using: :btree
+    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|

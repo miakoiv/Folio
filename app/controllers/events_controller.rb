@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
-  # See config/routes.rb about the nesting of resources.
-  before_action :set_liaison, only: [:new, :create]
+  # Context is liaison if present, current user otherwise.
+  before_action :set_context, only: [:search, :new, :create]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
@@ -10,13 +10,9 @@ class EventsController < ApplicationController
     @events = current_user.events
   end
 
-  # GET /liaisons/2/events.json
-  # GET /users/2/events.json
-  #
-  # Searching events is always limited to current user, with or without
-  # an associated liaison.
+  # GET /users/2/events/search.json
+  # GET /liaisons/2/events/search.json
   def search
-    @liaison = current_unit.liaisons.find_by(id: params[:liaison_id])
     @search = EventSearch.new(search_params)
     @events = @search.results
 
@@ -30,20 +26,23 @@ class EventsController < ApplicationController
   def show
   end
 
+  # GET /users/2/events/new
   # GET /liaisons/2/events/new
   def new
-    @event = @liaison.events.build(event_params)
+    @event = @context.events.build(event_params)
   end
 
   # GET /events/1/edit
   def edit
   end
 
+  # POST /users/2/events/new
+  # POST /users/2/events/new.json
   # POST /liaisons/2/events
   # POST /liaisons/2/events.json
   def create
-    @event = @liaison.events.build(event_params)
-    @event.creator = current_user
+    @event = @context.events.build(event_params)
+    @event.user ||= current_user
 
     respond_to do |format|
       if @event.save
@@ -93,8 +92,9 @@ class EventsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_liaison
-      @liaison = current_unit.liaisons.find(params[:liaison_id])
+    def set_context
+      @liaison = current_unit.liaisons.find_by(id: params[:liaison_id])
+      @context = @liaison || current_user
     end
 
     def set_event
