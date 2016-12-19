@@ -49,6 +49,7 @@ class MemosController < ApplicationController
 
     respond_to do |format|
       if @memo.save
+        @memo.collect_by(current_user)
         format.html { redirect_to memos_path, notice: t('.notice', memo: @memo) }
         format.json { render :show, status: :created, location: @memo }
       else
