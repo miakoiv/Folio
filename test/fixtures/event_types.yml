@@ -1,3 +1,8 @@
+event_type_0:
+  id: 0
+  name_fi: Oma toiminta
+  appearance: default
+
 event_type_1:
   id: 1
   name_fi: Pajakäynti
