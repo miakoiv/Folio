@@ -31,6 +31,10 @@ class Event < ApplicationRecord
     for_liaison.present? && liaison != for_liaison
   end
 
+  def context
+    liaison || user
+  end
+
   def to_s
     title
   end
