@@ -12,7 +12,7 @@ en:
         other: images
       customer:
         one: customer
-        other: customer
+        other: customers
       memo:
         one: message
         other: messages
@@ -30,7 +30,7 @@ en:
         other: units
       user:
         one: user
-        other: user
+        other: users
     attributes:
       event:
         date: Starting date
