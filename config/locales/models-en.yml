@@ -55,6 +55,7 @@ en:
         icon: Icon
         title: Title
         content: Content
+        created_at: Sent
       note:
         title: Title
         content: Content

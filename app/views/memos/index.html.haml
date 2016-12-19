@@ -21,6 +21,12 @@
             .col-lg-12
               .table-responsive.infinite-scroll
                 %table.table.table-hover.table-mailbox
+                  %thead
+                    %tr
+                      %th
+                      %th= Memo.human_attribute_name(:sender_id)
+                      %th= Memo.human_attribute_name(:title)
+                      %th.text-right= Memo.human_attribute_name(:created_at)
                   %tbody.infinite-content
                     = render partial: 'item', collection: @memos, as: :memo
             .infinite-pagination

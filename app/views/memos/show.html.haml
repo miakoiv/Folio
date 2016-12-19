@@ -9,6 +9,8 @@
     .col-md-3.col-sticky
       .hpanel
         .panel-body
+          = link_to new_memo_path, class: 'btn btn-block btn-success m-b-md' do
+            = render partial: 'new'
           = render partial: 'mailboxen'
     .col-md-9
       .hpanel.email-compose
@@ -19,7 +21,8 @@
               = surround '(', ')' do
                 = time_ago_in_words @memo.created_at
                 = t('time.ago')
-            = @memo.title
+            = icon(@memo.icon, @memo)
         = render partial: 'headers'
         .panel-body
+          %h4= @memo.title
           = @memo.content.html_safe

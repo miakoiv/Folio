@@ -55,6 +55,7 @@ fi:
         icon: Merkki
         title: Otsikko
         content: Sisältö
+        created_at: Lähetetty
       note:
         title: Otsikko
         content: Sisältö

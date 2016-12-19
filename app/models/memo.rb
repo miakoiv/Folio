@@ -31,6 +31,6 @@ class Memo < ApplicationRecord
   end
 
   def to_s
-    title
+    "#{Memo.model_name.human.capitalize} #{id}"
   end
 end
