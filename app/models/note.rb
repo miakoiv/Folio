@@ -1,8 +1,8 @@
 class Note < ApplicationRecord
 
   belongs_to :creator, class_name: 'User'
-  belongs_to :liaison
-  after_create :touch_liaison
+  belongs_to :customer
+  after_create :touch_customer
 
   default_scope { order(created_at: :desc) }
 
@@ -17,7 +17,7 @@ class Note < ApplicationRecord
   end
 
   private
-    def touch_liaison
-      liaison.touch
+    def touch_customer
+      customer.touch
     end
 end

@@ -1,4 +1,4 @@
-class Liaison < ApplicationRecord
+class Customer < ApplicationRecord
 
   include Documentable
 
@@ -16,10 +16,10 @@ class Liaison < ApplicationRecord
   default_scope { order(updated_at: :desc) }
   scope :active, -> { joins(:status).merge(Status.active) }
 
-  # Scope for liaisons handled by user.
+  # Scope for customers handled by user.
   scope :for, -> (user) { where(user: user) }
 
-  # Scope for finding liaisons for all users in a unit.
+  # Scope for finding customers for all users in a unit.
   scope :at, -> (unit) { joins(user: :unit).where(users: {unit_id: unit}) }
 
   def to_s

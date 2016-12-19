@@ -10,7 +10,7 @@ en:
       image:
         one: image
         other: images
-      liaison:
+      customer:
         one: customer
         other: customer
       memo:
@@ -37,13 +37,13 @@ en:
         description: Description
         duration: Duration
         event_type_id: Event type
-        liaison_id: Customer
+        customer_id: Customer
         time: Starting time
         title: Title
         user_id: Owner
       image:
         attachment: Image file
-      liaison:
+      customer:
         created_at: Since
         notes: Notes
         referrer_id: Referred by

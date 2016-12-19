@@ -5,7 +5,7 @@ en:
   dashboard:
     events:
       header: Event calendar
-    liaisons:
+    customers:
       header: Active customers
   dropzone:
     default_message: Drop files here or click
@@ -37,7 +37,7 @@ en:
   images:
     panel:
       header: Photos
-  liaisons:
+  customers:
     panel:
       header: Customer information
     new:

@@ -5,7 +5,7 @@ class Person < ApplicationRecord
   paginates_per 20
 
   belongs_to :creator, class_name: 'User'
-  has_many :liaisons, dependent: :destroy
+  has_many :customers, dependent: :destroy
 
   belongs_to :postcode, optional: true
   belongs_to :municipality, optional: true
@@ -50,21 +50,21 @@ class Person < ApplicationRecord
     ids.any? ? Postcode.find(ids) : Postcode.none
   end
 
-  # Liaisons have a newest first default scope.
-  def current_liaison(unit)
-    liaisons.at(unit).first
+  # Customers have a newest first default scope.
+  def current_customer(unit)
+    customers.at(unit).first
   end
 
   def assigned_user(unit)
-    current_liaison(unit).try(:user)
+    current_customer(unit).try(:user)
   end
 
   def status(unit)
-    current_liaison(unit).try(:status)
+    current_customer(unit).try(:status)
   end
 
   def appearance(unit)
-    current_liaison(unit).try(:appearance) || 'default'
+    current_customer(unit).try(:appearance) || 'default'
   end
 
   def full_name

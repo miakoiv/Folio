@@ -1,5 +1,5 @@
 namespace :db do
-  desc 'Populate the database with random people and liaisons'
+  desc 'Populate the database with random people and customers'
   task populate: :environment do
 
     records = HTTParty
@@ -37,7 +37,7 @@ namespace :db do
       rand(3).times do |n|
         user = users.sample
 
-        person.liaisons.create(
+        person.customers.create(
           user: user,
           creator: user,
           created_at: creation + rand(1500).days,

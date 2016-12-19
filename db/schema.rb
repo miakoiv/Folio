@@ -22,6 +22,22 @@ ActiveRecord::Schema.define(version: 20161216133556) do
     t.index ["user_id"], name: "index_collections_on_user_id", using: :btree
   end
 
+  create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.integer  "user_id",                   null: false
+    t.integer  "person_id",                 null: false
+    t.integer  "status_id",     default: 0, null: false
+    t.integer  "referrer_id"
+    t.string   "referrer_info"
+    t.integer  "creator_id",                null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["creator_id"], name: "index_customers_on_creator_id", using: :btree
+    t.index ["person_id"], name: "index_customers_on_person_id", using: :btree
+    t.index ["referrer_id"], name: "index_customers_on_referrer_id", using: :btree
+    t.index ["status_id"], name: "index_customers_on_status_id", using: :btree
+    t.index ["user_id"], name: "index_customers_on_user_id", using: :btree
+  end
+
   create_table "deliveries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "memo_id",        null: false
     t.string   "recipient_type", null: false
@@ -54,7 +70,7 @@ ActiveRecord::Schema.define(version: 20161216133556) do
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "user_id",                     null: false
     t.integer  "event_type_id",               null: false
-    t.integer  "liaison_id"
+    t.integer  "customer_id"
     t.datetime "starts_at",                   null: false
     t.integer  "duration",                    null: false
     t.datetime "ends_at"
@@ -63,7 +79,7 @@ ActiveRecord::Schema.define(version: 20161216133556) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.index ["event_type_id"], name: "index_events_on_event_type_id", using: :btree
-    t.index ["liaison_id"], name: "index_events_on_liaison_id", using: :btree
+    t.index ["customer_id"], name: "index_events_on_customer_id", using: :btree
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
@@ -74,22 +90,6 @@ ActiveRecord::Schema.define(version: 20161216133556) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
-  end
-
-  create_table "liaisons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.integer  "user_id",                   null: false
-    t.integer  "person_id",                 null: false
-    t.integer  "status_id",     default: 0, null: false
-    t.integer  "referrer_id"
-    t.string   "referrer_info"
-    t.integer  "creator_id",                null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.index ["creator_id"], name: "index_liaisons_on_creator_id", using: :btree
-    t.index ["person_id"], name: "index_liaisons_on_person_id", using: :btree
-    t.index ["referrer_id"], name: "index_liaisons_on_referrer_id", using: :btree
-    t.index ["status_id"], name: "index_liaisons_on_status_id", using: :btree
-    t.index ["user_id"], name: "index_liaisons_on_user_id", using: :btree
   end
 
   create_table "memos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
@@ -108,14 +108,14 @@ ActiveRecord::Schema.define(version: 20161216133556) do
   end
 
   create_table "notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.integer  "liaison_id",               null: false
+    t.integer  "customer_id",               null: false
     t.string   "title"
     t.text     "content",    limit: 65535
     t.integer  "creator_id",               null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.index ["creator_id"], name: "index_notes_on_creator_id", using: :btree
-    t.index ["liaison_id"], name: "index_notes_on_liaison_id", using: :btree
+    t.index ["customer_id"], name: "index_notes_on_customer_id", using: :btree
   end
 
   create_table "people", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|

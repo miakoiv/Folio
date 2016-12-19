@@ -1,0 +1,14 @@
+.hpanel.filter-item
+  = link_to customer do
+    .panel-body.social-board
+      .media.social-profile.clearfix
+        .media-left
+          = profile_image(customer.person, class: 'img-circle')
+        .media-body
+          .pull-right.text-right
+            %div
+              %span.label.pull-right{class: "label-#{customer.appearance}"}
+                = customer.status
+            %small.stat-label= l(customer.updated_at.to_date)
+          %h5= customer.person.last_name
+          %small.text-muted= customer.person.first_names

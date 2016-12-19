@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :deliveries, as: :recipient
   has_many :received_memos, through: :deliveries, source: :memo
 
-  has_many :liaisons
+  has_many :customers
   has_many :events, dependent: :destroy
 
   default_scope { order(:last_name, :first_names) }

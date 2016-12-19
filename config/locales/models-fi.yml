@@ -10,7 +10,7 @@ fi:
       image:
         one: kuva
         other: kuvat
-      liaison:
+      customer:
         one: asiakkuus
         other: asiakkuudet
       memo:
@@ -37,13 +37,13 @@ fi:
         description: Kuvaus
         duration: Kesto
         event_type_id: Tapahtumalaji
-        liaison_id: Asiakas
+        customer_id: Asiakas
         time: Alkamisaika
         title: Otsake
         user_id: Omistaja
       image:
         attachment: Kuvatiedosto
-      liaison:
+      customer:
         created_at: Alkaen
         notes: Huomautuksia
         referrer_id: Lähettävä taho

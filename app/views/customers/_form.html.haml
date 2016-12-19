@@ -1,4 +1,4 @@
-= bootstrap_form_for [@person, @liaison],
+= bootstrap_form_for [@person, @customer],
     html: {novalidate: true} do |f|
   %fieldset{disabled: editing_disabled?}
     .row
@@ -13,9 +13,9 @@
             data: {provide: 'select2', language: I18n.locale,
               'allow-clear': true, placeholder: t('referrer.none'),
               'minimum-results-for-search': 'Infinity'}
-        .referrer-info{collapsible(@liaison.referrer, :needs_info?)}
+        .referrer-info{collapsible(@customer.referrer, :needs_info?)}
           = f.text_field :referrer_info, skip_label: true, wrapper_class: 'm-t-n',
-              placeholder: Liaison.human_attribute_name(:referrer_info)
+              placeholder: Customer.human_attribute_name(:referrer_info)
 
     - unless editing_disabled?
       .form-group.actions
@@ -23,7 +23,7 @@
 
 :coffee
   needs_info = #{Referrer.needs_info.pluck(:id)}
-  $('#liaison_referrer_id').on 'change', (e) ->
+  $('#customer_referrer_id').on 'change', (e) ->
     if +e.currentTarget.value in needs_info
       $('.referrer-info').collapse 'show'
     else

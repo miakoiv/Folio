@@ -1,8 +1,8 @@
 class Event < ApplicationRecord
 
-  # Events always belong to a user and may belong to a liaison.
+  # Events always belong to a user and may belong to a customer.
   belongs_to :user
-  belongs_to :liaison, optional: true
+  belongs_to :customer, optional: true
 
   belongs_to :event_type
   delegate :appearance, to: :event_type
@@ -12,7 +12,7 @@ class Event < ApplicationRecord
   validates :title, presence: true
 
   before_save :synchronize
-  after_create :touch_liaison
+  after_create :touch_customer
 
 
   # See app/models/compound_datetime.rb for details.
@@ -25,14 +25,14 @@ class Event < ApplicationRecord
   end
 
 
-  # An event is considered external if a liaison is specified and
+  # An event is considered external if a customer is specified and
   # the event does not belong to it.
-  def external?(for_liaison)
-    for_liaison.present? && liaison != for_liaison
+  def external?(for_customer)
+    for_customer.present? && customer != for_customer
   end
 
   def context
-    liaison || user
+    customer || user
   end
 
   def to_s
@@ -40,8 +40,8 @@ class Event < ApplicationRecord
   end
 
   private
-    def touch_liaison
-      liaison.touch if liaison.present?
+    def touch_customer
+      customer.touch if customer.present?
     end
 
     def synchronize

@@ -1,15 +1,15 @@
 class NotesController < ApplicationController
 
-  before_action :set_liaison, only: :create
+  before_action :set_customer, only: :create
   before_action :set_note, only: [:edit, :update, :destroy]
 
   # GET /notes/1/edit.js
   def edit
   end
 
-  # POST /liaisons/2/notes.js
+  # POST /customers/2/notes.js
   def create
-    @note = @liaison.notes.build(note_params)
+    @note = @customer.notes.build(note_params)
     @note.creator = current_user
 
     respond_to do |format|
@@ -23,7 +23,7 @@ class NotesController < ApplicationController
 
   # PATCH/PUT /notes/1.js
   def update
-    @liaison = @note.liaison
+    @customer = @note.customer
 
     respond_to do |format|
       if @note.update(note_params)
@@ -44,8 +44,8 @@ class NotesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_liaison
-      @liaison = current_unit.liaisons.find(params[:liaison_id])
+    def set_customer
+      @customer = current_unit.customers.find(params[:customer_id])
     end
 
     def set_note

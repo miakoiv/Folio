@@ -1,0 +1,3 @@
+= link_to [:new, @person, :customer] do
+  = render partial: 'customers/new'
+= render partial: 'customers/item', collection: @customers, as: :customer

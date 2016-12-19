@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 
-  # Context is liaison if present, current user otherwise.
+  # Context is customer if present, current user otherwise.
   before_action :set_context, only: [:search, :new, :create]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   end
 
   # GET /users/2/events/search.json
-  # GET /liaisons/2/events/search.json
+  # GET /customers/2/events/search.json
   def search
     @search = EventSearch.new(search_params)
     @events = @search.results
@@ -27,7 +27,7 @@ class EventsController < ApplicationController
   end
 
   # GET /users/2/events/new
-  # GET /liaisons/2/events/new
+  # GET /customers/2/events/new
   def new
     @event = @context.events.build(event_params)
   end
@@ -38,8 +38,8 @@ class EventsController < ApplicationController
 
   # POST /users/2/events/new
   # POST /users/2/events/new.json
-  # POST /liaisons/2/events
-  # POST /liaisons/2/events.json
+  # POST /customers/2/events
+  # POST /customers/2/events.json
   def create
     @event = @context.events.build(event_params)
     @event.user ||= current_user
@@ -76,11 +76,11 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @liaison = @event.liaison
+    @customer = @event.customer
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to @liaison, notice: t('.notice', event: @event) }
+      format.html { redirect_to @customer, notice: t('.notice', event: @event) }
       format.json { head :no_content }
     end
   end
@@ -93,8 +93,8 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_context
-      @liaison = current_unit.liaisons.find_by(id: params[:liaison_id])
-      @context = @liaison || current_user
+      @customer = current_unit.customers.find_by(id: params[:customer_id])
+      @context = @customer || current_user
     end
 
     def set_event

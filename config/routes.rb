@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   resources :municipalities, only: :index
   resources :postcodes, only: :index
 
-  resources :liaisons, only: :index
+  resources :customers, only: :index
   resources :events, only: :index
 
   resources :people do
-    resources :liaisons, shallow: true, except: :index do
+    resources :customers, shallow: true, except: :index do
       resources :documents
       resources :events, except: :index do
         get :search, on: :collection

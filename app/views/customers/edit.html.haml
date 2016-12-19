@@ -1,22 +1,22 @@
 - content_for :header do
-  %h2= @liaison.person
-  %small= @liaison
+  %h2= @customer.person
+  %small= @customer
 - content_for :breadcrumb do
   %li= link_to title(Person, count: 2), people_path
-  %li= link_to @liaison.person, @liaison.person
-  %li.active= @liaison
+  %li= link_to @customer.person, @customer.person
+  %li.active= @customer
 
 .content
   .row
     .col-md-3
-      = render @liaison.person
+      = render @customer.person
     .col-md-6
       .hpanel.editing-panel
         .panel-heading.hbuilt
           .pull-right
-            = link_to icon('close', t('actions.cancel')), @liaison,
+            = link_to icon('close', t('actions.cancel')), @customer,
                 class: 'btn btn-xs btn-default'
-          = icon('handshake-o', t('liaisons.panel.header'))
+          = icon('handshake-o', t('customers.panel.header'))
         .panel-body
           = render partial: 'form'
     .col-md-3

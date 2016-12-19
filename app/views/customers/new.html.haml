@@ -1,10 +1,10 @@
 - content_for :header do
   %h2= @person
-  %small= t('liaisons.new.title')
+  %small= t('customers.new.title')
 - content_for :breadcrumb do
   %li= link_to title(Person, count: 2), people_path
   %li= link_to @person, @person
-  %li.active= t('liaisons.new.title')
+  %li.active= t('customers.new.title')
 
 .content
   .row
@@ -16,6 +16,6 @@
           .pull-right
             = link_to icon('close', t('actions.cancel')), @person,
                 class: 'btn btn-xs btn-default'
-          = icon('book', t('liaisons.panel.header'))
+          = icon('book', t('customers.panel.header'))
         .panel-body
           = render partial: 'form'

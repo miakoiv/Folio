@@ -1,7 +1,7 @@
 module EventsHelper
 
   def event_type_options
-    EventType.for_liaisons.map { |t| [t.to_s, t.id, data: {label: t.appearance}] }
+    EventType.for_customers.map { |t| [t.to_s, t.id, data: {label: t.appearance}] }
   end
 
   def duration_options

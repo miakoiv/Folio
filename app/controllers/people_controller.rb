@@ -1,7 +1,7 @@
 class PeopleController < ApplicationController
 
   before_action :set_person, only: [:show, :edit, :update, :destroy]
-  before_action :set_liaisons, only: :show
+  before_action :set_customers, only: :show
   before_action :set_relationships, only: :show
 
   # GET /people
@@ -101,9 +101,9 @@ class PeopleController < ApplicationController
       @person = Person.find(params[:id])
     end
 
-    def set_liaisons
-      @liaisons = @person.liaisons.at(current_unit)
-      @other_liaisons = @person.liaisons - @liaisons
+    def set_customers
+      @customers = @person.customers.at(current_unit)
+      @other_customers = @person.customers - @customers
     end
 
     def set_relationships

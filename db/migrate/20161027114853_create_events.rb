@@ -3,7 +3,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
     create_table :events do |t|
       t.belongs_to :user, null: false
       t.belongs_to :event_type, null: false
-      t.belongs_to :liaison
+      t.belongs_to :customer
       t.datetime :starts_at, null: false
       t.integer :duration, null: false
       t.datetime :ends_at

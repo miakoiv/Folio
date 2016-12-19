@@ -5,7 +5,7 @@
         .media-left
           = profile_image(person, class: 'img-circle')
         .media-body
-          - if person.current_liaison(current_unit).present?
+          - if person.current_customer(current_unit).present?
             .pull-right.text-right
               %div
                 %span.label{class: "label-#{person.appearance(current_unit)}"}

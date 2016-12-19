@@ -1,7 +1,7 @@
 = bootstrap_form_for [@context, @event], remote: true,
     html: {novalidate: true} do |f|
   %fieldset
-    - if @event.context.is_a?(Liaison)
+    - if @event.context.is_a?(Customer)
       .row
         .col-md-12
           = f.select :event_type_id, event_type_options, {},

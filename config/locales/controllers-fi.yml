@@ -6,13 +6,13 @@ fi:
       notice: "Kuva %{image} päivitetty."
     destroy:
       notice: "Kuva %{image} poistettu."
-  liaisons:
+  customers:
     create:
-      notice: "Asiakkuus %{liaison} luotu."
+      notice: "Asiakkuus %{customer} luotu."
     update:
-      notice: "Asiakkuus %{liaison} päivitetty."
+      notice: "Asiakkuus %{customer} päivitetty."
     destroy:
-      notice: "Asiakkuus %{liaison} poistettu."
+      notice: "Asiakkuus %{customer} poistettu."
   memos:
     create:
       notice: "Viesti %{memo} luotu."

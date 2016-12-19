@@ -5,7 +5,7 @@ fi:
   dashboard:
     events:
       header: Tapahtumakalenteri
-    liaisons:
+    customers:
       header: Aktiiviset asiakkuudet
   dropzone:
     default_message: Pudota tiedostoja tähän tai klikkaa
@@ -37,7 +37,7 @@ fi:
   images:
     panel:
       header: Kuvat
-  liaisons:
+  customers:
     panel:
       header: Asiakkuuden tiedot
     new:
