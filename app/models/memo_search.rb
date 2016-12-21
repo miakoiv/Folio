@@ -8,10 +8,10 @@ class MemoSearch < Searchlight::Search
   end
 
   def search_keyword
-    query.where(%q{
-      memos.title LIKE :keyword OR
-      memos.content LIKE :keyword
-    }, keyword: "%#{keyword}%")
+    query.where(
+      Memo.arel_table[:title].matches("%#{keyword}%")
+      .or(Memo.arel_table[:content].matches("%#{keyword}%"))
+    )
   end
 
   def search_recipients

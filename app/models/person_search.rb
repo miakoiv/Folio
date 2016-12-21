@@ -40,6 +40,9 @@ class PersonSearch < Searchlight::Search
   end
 
   def search_year_of_birth
-    query.where('YEAR(date_of_birth) = ?', year_of_birth)
+    query.where(
+      Arel::Nodes::NamedFunction.new('YEAR', [Person.arel_table[:date_of_birth]])
+      .eq(year_of_birth)
+    )
   end
 end

@@ -18,10 +18,10 @@ class User < ApplicationRecord
 
   default_scope { order(:last_name, :first_names) }
 
-  scope :active, -> { where %q{
-    (users.activates_at IS NULL OR users.activates_at >= :today) AND
-    (users.expires_at IS NULL OR users.expires_at > :today)
-  }, today: Date.current}
+  scope :active, -> { where(
+    (arel_table[:activates_at].eq(nil).or(arel_table[:activates_at].lteq(Date.current)))
+    .and(arel_table[:expires_at].eq(nil).or(arel_table[:expires_at].gt(Date.current)))
+  )}
 
   validates :last_name, :first_names, presence: true
 
