@@ -38,5 +38,7 @@
             .panel-body
               = render partial: 'events/calendar', object: @customer, as: :context
 :coffee
+  $('#new_event').on 'click', (e) ->
+    $('a[href="#calendar-panel"]').tab 'show'
   $('a[href="#calendar-panel"]').on 'shown.bs.tab', (e) ->
     $('#calendar').fullCalendar 'render'

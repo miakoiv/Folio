@@ -1,4 +1,4 @@
-= link_to [:new, @customer, :event], remote: true do
+= link_to [:new, @customer, :event], id: 'new_event', remote: true do
   = render partial: 'events/new'
 #event-list
   = render partial: 'events/item', collection: @customer.events, as: :event
