@@ -10,6 +10,7 @@ class Event < ApplicationRecord
   scope :for, -> (user) { where(user: user) }
 
   validates :title, presence: true
+  validates :duration, presence: true
 
   before_save :synchronize
   after_create :touch_customer
