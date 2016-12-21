@@ -9,8 +9,7 @@ class NotesController < ApplicationController
 
   # POST /customers/2/notes.js
   def create
-    @note = @customer.notes.build(note_params)
-    @note.creator = current_user
+    @note = @customer.notes.by(current_user).build(note_params)
 
     respond_to do |format|
       if @note.save
@@ -37,6 +36,7 @@ class NotesController < ApplicationController
   # DELETE /notes/1.js
   def destroy
     @note.destroy
+
     respond_to do |format|
       format.js
     end

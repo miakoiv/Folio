@@ -11,7 +11,7 @@ class CustomersController < ApplicationController
 
   # GET /people/2/customers/new
   def new
-    @customer = @person.customers.for(current_user).build
+    @customer = @person.customers.at(current_unit).build
   end
 
   # GET /customers/1/edit
@@ -21,8 +21,7 @@ class CustomersController < ApplicationController
   # POST /people/2/customers
   # POST /people/2/customers.json
   def create
-    @customer = @person.customers.for(current_user).build(customer_params)
-    @customer.creator = current_user
+    @customer = @person.customers.at(current_unit).build(customer_params)
 
     respond_to do |format|
       if @customer.save

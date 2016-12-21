@@ -4,7 +4,6 @@ class Person < ApplicationRecord
 
   paginates_per 20
 
-  belongs_to :creator, class_name: 'User'
   has_many :customers, dependent: :destroy
 
   belongs_to :postcode, optional: true
@@ -53,10 +52,6 @@ class Person < ApplicationRecord
   # Customers have a newest first default scope.
   def current_customer(unit)
     customers.at(unit).first
-  end
-
-  def assigned_user(unit)
-    current_customer(unit).try(:user)
   end
 
   def status(unit)

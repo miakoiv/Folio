@@ -50,7 +50,6 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(person_params)
-    @person.creator = current_user
 
     respond_to do |format|
       if @person.save
@@ -102,8 +101,9 @@ class PeopleController < ApplicationController
     end
 
     def set_customers
-      @customers = @person.customers.at(current_unit)
-      @other_customers = @person.customers - @customers
+      all_customers = @person.customers
+      @customers = all_customers.at(current_unit)
+      @other_customers = all_customers - @customers
     end
 
     def set_relationships

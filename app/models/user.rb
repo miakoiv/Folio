@@ -13,8 +13,8 @@ class User < ApplicationRecord
   has_many :deliveries, as: :recipient
   has_many :received_memos, through: :deliveries, source: :memo
 
-  has_many :customers
   has_many :events, dependent: :destroy
+  has_many :notes, dependent: :destroy
 
   default_scope { order(:last_name, :first_names) }
 
@@ -24,6 +24,7 @@ class User < ApplicationRecord
   }, today: Date.current}
 
   validates :last_name, :first_names, presence: true
+
 
   def active?
     (activates_at.nil? || !activates_at.future?) &&

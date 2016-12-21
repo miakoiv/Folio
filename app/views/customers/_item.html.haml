@@ -4,8 +4,6 @@
       %span.label.pull-right{class: "label-#{customer.appearance}"}
         = customer.status
       %h4
-        = l(customer.created_at.to_date)
+        = l(customer.date)
       %small
         = customer.referrer
-        = icon('arrow-right')
-        = customer.user

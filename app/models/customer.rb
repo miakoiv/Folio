@@ -2,8 +2,7 @@ class Customer < ApplicationRecord
 
   include Documentable
 
-  belongs_to :creator, class_name: 'User'
-  belongs_to :user
+  belongs_to :unit
   belongs_to :person
   has_many :events, dependent: :destroy
   has_many :notes, dependent: :destroy
@@ -13,16 +12,20 @@ class Customer < ApplicationRecord
 
   belongs_to :referrer, optional: true
 
-  default_scope { order(updated_at: :desc) }
+  default_scope { order(created_at: :desc) }
   scope :active, -> { joins(:status).merge(Status.active) }
 
-  # Scope for customers handled by user.
-  scope :for, -> (user) { where(user: user) }
+  # Scope for customers at a unit.
+  scope :at, -> (unit) { where(unit: unit) }
 
-  # Scope for finding customers for all users in a unit.
-  scope :at, -> (unit) { joins(user: :unit).where(users: {unit_id: unit}) }
+  # Scope for customers with notes by a user.
+  scope :noted_by, -> (user) { joins(:notes).merge(Note.by(user)) }
+
+  def date
+    created_at.to_date
+  end
 
   def to_s
-    "#{model_name.human.capitalize} / #{person} ↔ #{user}"
+    "#{model_name.human.capitalize} #{id}"
   end
 end

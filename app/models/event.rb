@@ -1,6 +1,5 @@
 class Event < ApplicationRecord
 
-  # Events always belong to a user and may belong to a customer.
   belongs_to :user
   belongs_to :customer, optional: true
 
@@ -8,6 +7,7 @@ class Event < ApplicationRecord
   delegate :appearance, to: :event_type
 
   default_scope { order(starts_at: :desc) }
+  scope :for, -> (user) { where(user: user) }
 
   validates :title, presence: true
 

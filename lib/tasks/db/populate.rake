@@ -6,7 +6,7 @@ namespace :db do
       .get('https://randomuser.me/api?results=100&nat=fi&exc=login')
       .parsed_response['results']
 
-    users = User.all
+    units = Unit.all
     postcodes = Postcode.all
     statuses = Status.all
     referrers = Referrer.all
@@ -28,18 +28,14 @@ namespace :db do
         phone: r['cell'],
         language: 'fi',
         nationality: r['nat'],
-        creator: users.sample,
         created_at: creation,
         updated_at: creation
       )
       person.images.create attachment_remote_url: r['picture']['large']
 
       rand(3).times do |n|
-        user = users.sample
-
         person.customers.create(
-          user: user,
-          creator: user,
+          unit: units.sample,
           created_at: creation + rand(1500).days,
           status: statuses.sample,
           referrer: referrers.sample

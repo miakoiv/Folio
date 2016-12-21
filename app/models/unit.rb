@@ -3,7 +3,7 @@ class Unit < ApplicationRecord
   include Translatable
 
   has_many :users
-  has_many :customers, through: :users
+  has_many :customers
 
 
   def self.to_collection_title

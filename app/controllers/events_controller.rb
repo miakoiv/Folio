@@ -29,7 +29,7 @@ class EventsController < ApplicationController
   # GET /users/2/events/new
   # GET /customers/2/events/new
   def new
-    @event = @context.events.build(event_params)
+    @event = @context.events.for(current_user).build(event_params)
   end
 
   # GET /events/1/edit
@@ -41,8 +41,7 @@ class EventsController < ApplicationController
   # POST /customers/2/events
   # POST /customers/2/events.json
   def create
-    @event = @context.events.build(event_params)
-    @event.user ||= current_user
+    @event = @context.events.for(current_user).build(event_params)
 
     respond_to do |format|
       if @event.save

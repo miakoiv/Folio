@@ -92,8 +92,7 @@ class RelationshipsController < ApplicationController
       params.fetch(:relationship) {{}}.permit(
         :parent_id, :relation_id,
         parent_attributes: [
-          :id, :creator_id,
-          :last_name, :first_names, :address, :postcode_id,
+          :id, :last_name, :first_names, :address, :postcode_id,
           :municipality_id, :phone, :email
         ]
       )

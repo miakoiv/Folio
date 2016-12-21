@@ -18,7 +18,6 @@ class CreatePeople < ActiveRecord::Migration[5.0]
       t.string :accommodation
       t.string :disabilities
 
-      t.belongs_to :creator, null: false
       t.integer :children_count, null: false, default: 0, index: true
       t.timestamps
     end

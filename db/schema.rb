@@ -23,19 +23,17 @@ ActiveRecord::Schema.define(version: 20161216133556) do
   end
 
   create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.integer  "user_id",                   null: false
+    t.integer  "unit_id",                   null: false
     t.integer  "person_id",                 null: false
     t.integer  "status_id",     default: 0, null: false
     t.integer  "referrer_id"
     t.string   "referrer_info"
-    t.integer  "creator_id",                null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
-    t.index ["creator_id"], name: "index_customers_on_creator_id", using: :btree
     t.index ["person_id"], name: "index_customers_on_person_id", using: :btree
     t.index ["referrer_id"], name: "index_customers_on_referrer_id", using: :btree
     t.index ["status_id"], name: "index_customers_on_status_id", using: :btree
-    t.index ["user_id"], name: "index_customers_on_user_id", using: :btree
+    t.index ["unit_id"], name: "index_customers_on_unit_id", using: :btree
   end
 
   create_table "deliveries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
@@ -108,14 +106,14 @@ ActiveRecord::Schema.define(version: 20161216133556) do
   end
 
   create_table "notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.integer  "customer_id",               null: false
+    t.integer  "user_id",                   null: false
+    t.integer  "customer_id"
     t.string   "title"
     t.text     "content",     limit: 65535
-    t.integer  "creator_id",                null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
-    t.index ["creator_id"], name: "index_notes_on_creator_id", using: :btree
     t.index ["customer_id"], name: "index_notes_on_customer_id", using: :btree
+    t.index ["user_id"], name: "index_notes_on_user_id", using: :btree
   end
 
   create_table "people", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
@@ -135,12 +133,10 @@ ActiveRecord::Schema.define(version: 20161216133556) do
     t.string   "education_info"
     t.string   "accommodation"
     t.string   "disabilities"
-    t.integer  "creator_id",                               null: false
     t.integer  "children_count",               default: 0, null: false
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
     t.index ["children_count"], name: "index_people_on_children_count", using: :btree
-    t.index ["creator_id"], name: "index_people_on_creator_id", using: :btree
     t.index ["education_level_id"], name: "index_people_on_education_level_id", using: :btree
     t.index ["last_name"], name: "index_people_on_last_name", using: :btree
     t.index ["municipality_id"], name: "index_people_on_municipality_id", using: :btree

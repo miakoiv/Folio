@@ -2,4 +2,5 @@
   .panel-heading
     = icon('handshake-o', t('.header'))
   = render partial: 'customers/item_with_person',
-      collection: current_user.customers.active, as: :customer
+      collection: current_unit.customers.active.noted_by(current_user).limit(10),
+      as: :customer

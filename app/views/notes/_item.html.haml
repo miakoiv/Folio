@@ -1,12 +1,12 @@
 .note{id: dom_id(note)}
-  - if note.creator == current_user
+  - if note.user == current_user
     - if note.fresh?
       .pull-right.m-l
         = link_to icon('pencil', t('actions.edit')), [:edit, note], remote: true,
             class: 'btn btn-xs btn-primary'
   - else
     .pull-right.m-l
-      %span.label.label-default= note.creator
+      %span.label.label-default= note.user
   .pull-right.text-muted.m-l-lg= l(note.created_at, format: :long)
   %h3= note.title
   .note-content

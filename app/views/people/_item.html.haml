@@ -10,6 +10,7 @@
               %div
                 %span.label{class: "label-#{person.appearance(current_unit)}"}
                   = person.status(current_unit)
-              %small.stat-label= person.assigned_user(current_unit)
+              %small.stat-label
+                = l(person.current_customer(current_unit).date, format: :iso)
           %h4= person.last_name
           %small= person.first_names
