@@ -43,6 +43,7 @@ fi:
       default: "%-d.%-m.%Y"
       long: "%A %e. %Bta %Y"
       short: "%d. %b"
+      iso: "%Y-%m-%d"
     month_names:
     -
     - tammikuu
