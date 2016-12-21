@@ -69,8 +69,8 @@ ActiveRecord::Schema.define(version: 20161216133556) do
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "user_id",                     null: false
-    t.integer  "event_type_id",               null: false
     t.integer  "customer_id"
+    t.integer  "event_type_id",               null: false
     t.datetime "starts_at",                   null: false
     t.integer  "duration",                    null: false
     t.datetime "ends_at"
