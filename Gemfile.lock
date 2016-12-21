@@ -82,9 +82,6 @@ GEM
       sass (>= 3.2)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    goldiloader (0.0.10)
-      activerecord (>= 3.2, < 5.1)
-      activesupport (>= 3.2, < 5.1)
     haml (4.0.7)
       tilt
     haml-rails (0.9.0)
@@ -245,7 +242,6 @@ DEPENDENCIES
   devise
   dropzonejs-rails
   font-awesome-sass (~> 4.7)
-  goldiloader
   haml
   haml-rails
   httparty
