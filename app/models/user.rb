@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  rolify
 
   # Include default devise modules. Others available are:
   # :registerable, :confirmable, and :omniauthable
@@ -25,6 +26,10 @@ class User < ApplicationRecord
 
   validates :last_name, :first_names, presence: true
 
+  after_create :assign_default_role
+  def assign_default_role
+    add_role(:user) if roles.blank?
+  end
 
   def active?
     (activates_at.nil? || !activates_at.future?) &&

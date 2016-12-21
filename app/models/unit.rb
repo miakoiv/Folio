@@ -1,6 +1,7 @@
 class Unit < ApplicationRecord
 
   include Translatable
+  resourcify
 
   has_many :users
   has_many :customers
