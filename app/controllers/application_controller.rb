@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
   before_action :authenticate_user!
-  before_action :set_unit
+  before_action :set_unit, if: -> { user_signed_in? }
   before_action :set_search_params
   after_action :prepare_unobtrusive_flash
 
@@ -17,6 +17,12 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_unit
 
+  # Units accessible by the current user, see #set_unit.
+  def accessible_units
+    @accessible_units ||= Unit.accessible_by(current_user)
+  end
+  helper_method :accessible_units
+
   private
     def set_locale
       I18n.locale = params[:locale] ||
@@ -24,8 +30,13 @@ class ApplicationController < ActionController::Base
         I18n.default_locale
     end
 
+    # Sets the current unit from user specified id, which is saved into session,
+    # falling back to the primary unit if the specified unit is not accessible.
     def set_unit
-      @current_unit = current_user.try(:unit)
+      session[:unit_id] = params[:unit_id] if params[:unit_id].present?
+      @current_unit = session[:unit_id].present? &&
+        accessible_units.find(session[:unit_id]) ||
+        current_user.unit
     end
 
     def set_search_params
