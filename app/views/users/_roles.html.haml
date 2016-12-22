@@ -4,5 +4,5 @@
   .panel-body.no-padding
     = render partial: 'roles/list', object: @user, as: :user
     - unless editing_disabled?
-      .p-sm.bg-light
+      .p-sm.border-top.bg-light
         = render partial: 'roles/new', object: @user, as: :user

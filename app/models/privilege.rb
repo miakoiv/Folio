@@ -5,8 +5,6 @@
 class Privilege
   extend ActiveModel::Naming
 
-  AVAILABLE_ROLES = [:admin, :user].freeze
-
   include ActiveModel::Model
   attr_accessor :name, :resource_gid
 
