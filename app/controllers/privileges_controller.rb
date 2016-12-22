@@ -4,6 +4,7 @@ class PrivilegesController < ApplicationController
   def create
     @privilege = Privilege.new(privilege_params)
     @user.add_role @privilege.name, @privilege.resource
+    @user.roles.reload
 
     respond_to do |format|
       format.js { render :update }
