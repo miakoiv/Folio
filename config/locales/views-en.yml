@@ -95,6 +95,9 @@ en:
         header: People
         count: total people
         latest: latest record
+  roles:
+    panel:
+      header: Privileges
   users:
     links:
       my_profile: My profile

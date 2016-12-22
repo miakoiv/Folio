@@ -1,4 +1,13 @@
 en:
+  activemodel:
+    models:
+      privilege:
+        one: privilege
+        other: privileges
+    attributes:
+      privilege:
+        name: Role
+        resource_gid: Context
   activerecord:
     models:
       education_level:

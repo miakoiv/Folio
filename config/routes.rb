@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  post '/users/:user_id/privileges', to: 'privileges#create', as: :add_privilege
+  delete '/users/:user_id/privileges/:name/:resource_gid',
+    to: 'privileges#destroy', as: :remove_privilege
+
   root to: 'dashboard#index'
   resources :municipalities, only: :index
   resources :postcodes, only: :index

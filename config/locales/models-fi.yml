@@ -1,4 +1,13 @@
 fi:
+  activemodel:
+    models:
+      privilege:
+        one: valtuus
+        other: valtuudet
+    attributes:
+      privilege:
+        name: Rooli
+        resource_gid: Konteksti
   activerecord:
     models:
       education_level:

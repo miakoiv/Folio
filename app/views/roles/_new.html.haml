@@ -1,0 +1,11 @@
+= bootstrap_form_for Privilege.new, url: add_privilege_path(@user),
+    remote: true, authenticity_token: true, enforce_utf8: false do |f|
+  %fieldset
+    = f.select :name, Privilege::AVAILABLE_ROLES, {},
+        data: {provide: 'select2', language: I18n.locale,
+        'minimum-results-for-search': 'Infinity'}
+    = f.grouped_collection_select :resource_gid,
+        [Unit], :all, :to_collection_title, :to_global_id, :to_s,
+        {}, {data: {provide: 'select2', language: I18n.locale,
+        'minimum-results-for-search': 'Infinity'}}
+    = f.submit class: 'btn btn-primary'

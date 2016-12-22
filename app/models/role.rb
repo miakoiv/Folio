@@ -1,4 +1,5 @@
 class Role < ApplicationRecord
+
   has_and_belongs_to_many :users, join_table: :users_roles
 
   belongs_to :resource, polymorphic: true, optional: true
@@ -9,7 +10,11 @@ class Role < ApplicationRecord
 
   scopify
 
+  def resource_gid
+    resource.to_global_id
+  end
+
   def to_s
-    name
+    name.capitalize
   end
 end

@@ -1,0 +1,8 @@
+.list-group-item{id: dom_id(role)}
+  - unless editing_disabled?
+    .pull-right
+      = link_to icon('trash'),
+          remove_privilege_path(@user, role.name, role.resource_gid.to_s),
+          method: :delete, remote: true, class: 'btn btn-sm btn-danger'
+  %h5= role
+  %small= role.resource

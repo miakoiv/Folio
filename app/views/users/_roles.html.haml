@@ -1,0 +1,8 @@
+.hpanel
+  .panel-heading.hbuilt
+    = icon('check-square', t('roles.panel.header'))
+  .panel-body.no-padding
+    = render partial: 'roles/list', object: @user, as: :user
+    - unless editing_disabled?
+      .p-sm.bg-light
+        = render partial: 'roles/new', object: @user, as: :user

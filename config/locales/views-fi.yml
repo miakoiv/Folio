@@ -95,6 +95,9 @@ fi:
         header: Henkilöt
         count: henkilöä kirjoilla
         latest: viimeisin kirjaus
+  roles:
+    panel:
+      header: Valtuudet
   users:
     links:
       my_profile: Oma profiili
