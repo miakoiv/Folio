@@ -2,6 +2,8 @@ fi:
   actions:
     cancel: Kumoa
     edit: Muokkaa
+  authority:
+    forbidden: Käyttöoikeutesi ei riitä tähän toimintoon.
   dashboard:
     events:
       header: Tapahtumakalenteri

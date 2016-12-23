@@ -2,6 +2,8 @@ en:
   actions:
     cancel: Cancel
     edit: Edit
+  authority:
+    forbidden: You are not authorized to complete that action.
   dashboard:
     events:
       header: Event calendar
