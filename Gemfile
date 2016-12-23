@@ -57,6 +57,7 @@ gem 'jbuilder', '~> 2.5'
 # User authentication and authorization
 gem 'devise'
 gem 'rolify'
+gem 'authority'
 
 # Gems to import records from zip files
 gem 'rubyzip'
