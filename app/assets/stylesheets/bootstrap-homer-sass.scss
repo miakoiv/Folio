@@ -158,13 +158,19 @@ fieldset[disabled] label.required:after {
   cursor: default;
 }
 fieldset[disabled] .btn-group label.btn {
-  color: $color-text;
-  background-color: transparent;
+  color: $color-text !important;
+  background-color: transparent !important;
   border-style: dashed !important;
+  border-color: $border-color !important;
   cursor: default;
   display: none;
 
   &.active { display: block; }
+}
+
+// More visibility to active buttons in button groups
+.btn-group {
+  .btn-default.active { @extend .btn-info; }
 }
 
 // Devise styling
