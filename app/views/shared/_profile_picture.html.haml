@@ -11,7 +11,7 @@
         - if accessible_units.count > 1
           - accessible_units.each do |unit|
             %li
-              = link_to params.permit(:unit_id).merge(unit_id: unit) do
+              = link_to unit_root_path(unit) do
                 %i.fa.fa-fw.fa-home
                 = unit
           %li.divider

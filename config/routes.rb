@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     to: 'privileges#destroy', as: :remove_privilege
 
   root to: 'dashboard#index'
+  get '/unit/(:unit_id)', to: 'dashboard#index', as: :unit_root
+
   resources :municipalities, only: :index
   resources :postcodes, only: :index
 
