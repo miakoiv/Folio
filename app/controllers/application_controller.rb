@@ -6,6 +6,19 @@ class ApplicationController < ActionController::Base
   before_action :set_search_params
   after_action :prepare_unobtrusive_flash
 
+  # Handle security violations gracefully.
+  def authority_forbidden(error)
+    Authority.logger.warn(error.message)
+
+    respond_to do |format|
+      format.js { render 'shared/forbidden', status: :forbidden }
+      format.html {
+        redirect_to request.referrer.presence || root_path,
+          alert: t('authority.forbidden')
+      }
+    end
+  end
+
   # Set a flag to disable editing in rendered forms.
   def disable_editing!
     @disable_editing = true
