@@ -4,27 +4,32 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    authorize_action_for User, unit: current_unit
     @users = current_unit.users
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    authorize_action_for @user
     disable_editing!
   end
 
   # GET /users/new
   def new
+    authorize_action_for User, unit: current_unit
     @user = current_unit.users.build(locale: I18n.default_locale)
   end
 
   # GET /users/1/edit
   def edit
+    authorize_action_for @user
   end
 
   # POST /users
   # POST /users.json
   def create
+    authorize_action_for User, unit: current_unit
     @user = current_unit.users.build(user_params)
 
     respond_to do |format|
@@ -41,6 +46,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    authorize_action_for @user
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: t('.notice', user: @user) }
@@ -55,7 +62,9 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    authorize_action_for @user
     @user.destroy
+
     respond_to do |format|
       format.html { redirect_to users_url, notice: t('.notice', user: @user) }
       format.json { head :no_content }

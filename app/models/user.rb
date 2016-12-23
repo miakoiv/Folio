@@ -1,5 +1,11 @@
 class User < ApplicationRecord
 
+  # Adds `can_create?(resource)`, etc
+  include Authority::UserAbilities
+
+  # Adds `creatable_by?(user)`, etc
+  include Authority::Abilities
+
   rolify
 
   # Include default devise modules. Others available are:

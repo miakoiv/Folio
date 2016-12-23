@@ -1,8 +1,11 @@
 class PrivilegesController < ApplicationController
   before_action :set_user
 
+  authority_actions create: 'update', destroy: 'update'
+
   def create
     @privilege = Privilege.new(privilege_params)
+    authorize_action_for @privilege, unit: @user.unit
     @user.add_role @privilege.name, @privilege.resource
     @user.roles.reload
 
@@ -13,6 +16,7 @@ class PrivilegesController < ApplicationController
 
   def destroy
     @privilege = Privilege.new(name: params[:name], resource_gid: params[:resource_gid])
+    authorize_action_for @privilege, unit: @user.unit
     @user.remove_role @privilege.name, @privilege.resource
 
     respond_to do |format|

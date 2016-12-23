@@ -8,6 +8,9 @@ class Privilege
   include ActiveModel::Model
   attr_accessor :name, :resource_gid
 
+  # Adds `creatable_by?(user)`, etc
+  include Authority::Abilities
+
 
   # Returns the resource this privilege specifies with its resource gid.
   def resource
