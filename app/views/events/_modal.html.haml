@@ -1,6 +1,9 @@
 .color-line
 .modal-header
-  %h4.modal-title= title(Event)
-  %small.font-bold= @event.context
+  .pull-right.label.label-violet= @event.context.unit
+  %h4.modal-title
+    = title(Event)
+  .small.font-bold= @event.context
+  .small.font-bold= @event.customer.person if @event.customer.present?
 .modal-body
   = render partial: 'form'

@@ -26,10 +26,11 @@ class Event < ApplicationRecord
   end
 
 
-  # An event is considered external if a customer is specified and
-  # the event does not belong to it.
-  def external?(for_customer)
-    for_customer.present? && customer != for_customer
+  # An event is external when a customer is given as context and this event
+  # is not theirs, or without customer context, the event doesn't belong to
+  # the given unit.
+  def external?(for_customer, at_unit)
+    (for_customer.present? && customer != for_customer) || context.unit != at_unit
   end
 
   def context
