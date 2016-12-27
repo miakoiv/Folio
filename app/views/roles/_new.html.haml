@@ -1,7 +1,7 @@
 = bootstrap_form_for Privilege.new, url: add_privilege_path(@user),
     remote: true, authenticity_token: true, enforce_utf8: false do |f|
   %fieldset
-    = f.select :name, Role::ALL.keys, {},
+    = f.select :name, current_user.grantable_roles_at(current_unit), {},
         data: {provide: 'select2', language: I18n.locale,
         'minimum-results-for-search': 'Infinity'}
     = f.grouped_collection_select :resource_gid,

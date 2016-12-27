@@ -39,6 +39,10 @@ class User < ApplicationRecord
     add_role(:user, unit) if roles.blank?
   end
 
+  def grantable_roles_at(unit)
+    has_role?(:admin, unit) && [:user] || []
+  end
+
   def active?
     (activates_at.nil? || !activates_at.future?) &&
     (expires_at.nil? || expires_at.future?)
