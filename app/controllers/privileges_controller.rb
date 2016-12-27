@@ -1,8 +1,6 @@
 class PrivilegesController < ApplicationController
   before_action :set_user
 
-  authority_actions create: 'update', destroy: 'update'
-
   def create
     @privilege = Privilege.new(privilege_params)
     authorize_action_for @privilege, unit: @user.unit
