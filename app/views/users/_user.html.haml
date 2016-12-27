@@ -1,5 +1,9 @@
-.hpanel.hblue.contact-panel
+.hpanel.contact-panel{class: user.active? ? 'hgreen' : ''}
   .panel-body
+    .pull-right.text-right
+      - user.roles.each do |role|
+        %div
+          %span.label{class: "label-#{role.appearance}"}= icon(role.icon, role.resource)
     = profile_image(user)
     %h3= user.last_name
     .text-muted.font-bold.m-b-xs
