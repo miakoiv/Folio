@@ -14,8 +14,8 @@ class Role < ApplicationRecord
 
 
   ALL = {
-     user: {icon: 'user'},
-    admin: {icon: 'user-circle-o'}
+     user: {icon: 'user', appearance: 'blue'},
+    admin: {icon: 'user-circle-o', appearance: 'violet'}
   }.freeze
 
   def self.resource_classes
@@ -30,7 +30,11 @@ class Role < ApplicationRecord
     Role::ALL[name.to_sym][:icon]
   end
 
+  def appearance
+    Role::ALL[name.to_sym][:appearance]
+  end
+
   def to_s
-    name.capitalize
+    name
   end
 end
