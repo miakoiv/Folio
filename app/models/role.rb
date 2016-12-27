@@ -14,8 +14,9 @@ class Role < ApplicationRecord
 
 
   ALL = {
-     user: {icon: 'user', appearance: 'blue'},
-    admin: {icon: 'user-circle-o', appearance: 'violet'}
+      user: {icon: 'user', appearance: 'blue'},
+     admin: {icon: 'user-circle-o', appearance: 'violet'},
+    wizard: {icon: 'magic', appearance: 'red-deep'}
   }.freeze
 
   def self.resource_classes

@@ -40,7 +40,9 @@ class User < ApplicationRecord
   end
 
   def grantable_roles_at(unit)
-    has_role?(:admin, unit) && [:user] || []
+    return [:user, :admin, :wizard] if has_role?(:wizard, unit)
+    return [:user] if has_role?(:admin, unit)
+    []
   end
 
   def active?

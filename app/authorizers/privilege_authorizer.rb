@@ -1,12 +1,14 @@
 class PrivilegeAuthorizer < ApplicationAuthorizer
 
   def creatable_by?(user, options)
-    return false if resource.name == 'admin'
-    user.has_role?(:admin, options[:unit])
+    return true if user.has_role?(:wizard, options[:unit])
+    return true if user.has_role?(:admin, options[:unit]) && resource.name == 'user'
+    false
   end
 
   def deletable_by?(user, options)
-    return false if resource.name == 'admin'
-    user.has_role?(:admin, options[:unit])
+    return true if user.has_role?(:wizard, options[:unit])
+    return true if user.has_role?(:admin, options[:unit]) && resource.name == 'user'
+    false
   end
 end
