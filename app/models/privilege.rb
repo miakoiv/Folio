@@ -12,6 +12,10 @@ class Privilege
   include Authority::Abilities
 
 
+  def self.from_role(role)
+    self.new(name: role.name, resource_gid: role.resource_gid)
+  end
+
   # Returns the resource this privilege specifies with its resource gid.
   def resource
     GlobalID::Locator.locate(resource_gid)
