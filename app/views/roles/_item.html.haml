@@ -1,8 +1,8 @@
 .list-group-item{id: dom_id(role)}
-  - unless editing_disabled?
+  - if !editing_disabled? && current_user.can_delete?(Privilege.from_role(role), {unit: @user.unit})
     .pull-right
       = link_to icon('trash'),
           remove_privilege_path(@user, role.name, role.resource_gid.to_s),
           method: :delete, remote: true, class: 'btn btn-xs btn-danger'
   = icon(role.icon, role, class: 'fa-lg')
-  %span.label.label-violet= role.resource
+  %span.label{class: "label-#{role.appearance}"}= role.resource
