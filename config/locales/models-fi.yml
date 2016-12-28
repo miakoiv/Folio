@@ -10,6 +10,9 @@ fi:
         resource_gid: Konteksti
   activerecord:
     models:
+      activity:
+        one: aktiviteetti
+        other: aktiviteetit
       education_level:
         one: koulutustausta
         other: koulutustaustat

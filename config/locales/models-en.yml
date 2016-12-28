@@ -10,6 +10,9 @@ en:
         resource_gid: Context
   activerecord:
     models:
+      activity:
+        one: activity
+        other: activities
       education_level:
         one: educational background
         other: educational backgrounds
