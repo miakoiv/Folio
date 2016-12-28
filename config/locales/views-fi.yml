@@ -2,6 +2,9 @@ fi:
   actions:
     cancel: Kumoa
     edit: Muokkaa
+  activities:
+    sidebar:
+      load: Lataa
   authority:
     forbidden: Käyttöoikeutesi ei riitä tähän toimintoon.
   dashboard:

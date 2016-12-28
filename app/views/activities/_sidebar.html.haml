@@ -1,0 +1,17 @@
+.p-m.border-bottom
+  .pull-right
+    %button#load-activities.btn.btn-xs.btn-default= t('.load')
+  %span.font-bold= title(Activity, count: 2)
+  #activity-list.m-t-md
+
+:coffee
+  $ ->
+    $('#load-activities').on 'click', ->
+      $(this).hide()
+      $.ajax
+        type: 'GET'
+        url: '#{activities_path(format: :js)}'
+        data:
+          activity_search:
+            resource_type: '#{resource.class}'
+            resource_id: #{resource.id}

@@ -1,0 +1,11 @@
+.social-talk
+  .media.social-profile.clearfix
+    .pull-left
+      = profile_image(activity.user)
+    .media-body
+      .pull-right
+        %span{class: "text-#{activity.appearance}"}
+          = icon(activity.icon, class: 'fa-lg')
+      %span.font-bold= activity.user
+      .social-talk
+        %small.text-muted= l(activity.created_at, format: :short)

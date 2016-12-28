@@ -6,6 +6,9 @@
   %li= link_to @customer.person, @customer.person
   %li.active= @customer
 
+- content_for :sidebar do
+  = render partial: 'activities/sidebar', object: @customer, as: :resource
+
 .content
   .row
     .col-md-3

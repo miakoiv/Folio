@@ -4,6 +4,9 @@
   %li= link_to title(Person, count: 2), people_path
   %li.active= @person
 
+- content_for :sidebar do
+  = render partial: 'activities/sidebar', object: @person, as: :resource
+
 .content
   .row
     .col-md-3
