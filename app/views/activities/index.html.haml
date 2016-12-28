@@ -1,0 +1,19 @@
+- content_for :header do
+  %h2= title(Activity, count: 2)
+  %small
+- content_for :breadcrumb do
+  %li.active= title(Activity, count: 2)
+
+.content
+  .row
+    .col-md-3.col-sticky
+      = render partial: 'search'
+    .col-md-9
+      .row
+        .col-lg-12
+          .infinite-scroll
+            .infinite-content
+              = render partial: 'item', collection: @activities, as: :activity
+            .infinite-pagination
+              = link_to_next_page @activities, '', remote: true,
+                  params: {person_search: @activity_search_params.to_h}

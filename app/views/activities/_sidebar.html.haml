@@ -10,8 +10,6 @@
       $(this).hide()
       $.ajax
         type: 'GET'
-        url: '#{activities_path(format: :js)}'
+        url: '#{sidebar_activities_path(format: :js)}'
         data:
-          activity_search:
-            resource_type: '#{resource.class}'
-            resource_id: #{resource.id}
+          gid: '#{resource.to_global_id.to_s}'

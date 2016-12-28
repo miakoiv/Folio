@@ -1,12 +1,13 @@
 class Activity < ApplicationRecord
 
   belongs_to :unit
-  belongs_to :user
+  belongs_to :whodunnit, class_name: 'User'
   belongs_to :resource, polymorphic: true
 
   serialize :differences, JSON
 
   default_scope { order(id: :desc) }
+  scope :at, -> (unit) { where(unit: unit) }
 
 
   ACTIONS = {

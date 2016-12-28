@@ -1,0 +1,11 @@
+= bootstrap_form_for @search, url: activities_path, method: :get, enforce_utf8: false do |f|
+  .hpanel
+    .panel-body
+      %h4= t('.header')
+      %p.small= t('.help')
+      %fieldset
+        = f.collection_select :whodunnit, current_unit.users, :id, :to_s,
+            {label: t('.whodunnit')},
+            {multiple: true, data: {provide: 'select2', language: I18n.locale}}
+      .form-group.actions
+        = f.submit t('.submit'), class: 'btn btn-block btn-primary'

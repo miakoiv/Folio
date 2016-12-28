@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20161228073959) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "unit_id",                     null: false
-    t.integer  "user_id",                     null: false
+    t.integer  "whodunnit_id",                null: false
     t.string   "action"
     t.string   "resource_type",               null: false
     t.integer  "resource_id",                 null: false
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20161228073959) do
     t.datetime "updated_at",                  null: false
     t.index ["resource_type", "resource_id"], name: "index_activities_on_resource_type_and_resource_id", using: :btree
     t.index ["unit_id"], name: "index_activities_on_unit_id", using: :btree
-    t.index ["user_id"], name: "index_activities_on_user_id", using: :btree
+    t.index ["whodunnit_id"], name: "index_activities_on_whodunnit_id", using: :btree
   end
 
   create_table "collections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|

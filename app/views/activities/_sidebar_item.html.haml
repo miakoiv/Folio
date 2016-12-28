@@ -1,0 +1,11 @@
+.social-talk
+  .media.social-profile.clearfix
+    .pull-left
+      = profile_image(activity.whodunnit)
+    .media-body
+      .pull-right
+        %span{class: "text-#{activity.appearance}"}
+          = icon(activity.icon, class: 'fa-lg')
+      %span.font-bold= activity.whodunnit
+      .social-talk
+        %small.text-muted= l(activity.created_at, format: :short)

@@ -19,8 +19,6 @@ class User < ApplicationRecord
   # The primary unit, users may have access to others, see Unit.accessible_by(user).
   belongs_to :unit
 
-  has_many :activities
-
   has_many :sent_memos, class_name: 'Memo', foreign_key: :sender_id
   has_many :deliveries, as: :recipient
   has_many :received_memos, through: :deliveries, source: :memo

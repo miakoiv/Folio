@@ -1,11 +1,15 @@
-.social-talk
-  .media.social-profile.clearfix
-    .pull-left
-      = profile_image(activity.user)
-    .media-body
-      .pull-right
-        %span{class: "text-#{activity.appearance}"}
-          = icon(activity.icon, class: 'fa-lg')
-      %span.font-bold= activity.user
-      .social-talk
-        %small.text-muted= l(activity.created_at, format: :short)
+.hpanel.filter-item
+  = link_to activity do
+    .panel-body.social-board
+      .media.social-profile.clearfix
+        .media-left
+          = profile_image(activity.resource)
+        .media-body
+          .pull-right.text-right
+            %div
+              %span{class: "text-#{activity.appearance}"}
+                = icon(activity.icon, class: 'fa-lg')
+            %small.stat-label
+              = activity.whodunnit
+          %h4= activity.resource
+          %small= l(activity.created_at, format: :short)

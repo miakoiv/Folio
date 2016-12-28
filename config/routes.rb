@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   root to: 'dashboard#index'
   get '/unit/(:unit_id)', to: 'dashboard#index', as: :unit_root
 
-  resources :activities
+  resources :activities do
+    get :sidebar, on: :collection
+  end
 
   resources :municipalities, only: :index
   resources :postcodes, only: :index

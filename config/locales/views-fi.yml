@@ -3,6 +3,11 @@ fi:
     cancel: Kumoa
     edit: Muokkaa
   activities:
+    search:
+      header: Aktiviteettihaku
+      help: Valitse hakuehdot
+      submit: Hae
+      whodunnit: Tekijä
     sidebar:
       load: Lataa
   authority:

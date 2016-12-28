@@ -13,10 +13,16 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  # GET /activities/sidebar
+  def sidebar
+    @resource = GlobalID::Locator.locate(params[:gid])
+    @activities = @resource.activities.at(current_unit).limit(20)
+  end
+
   protected
     def search_params
       params.fetch(:activity_search) {{}}.permit(
-        :user, :resource_type, :resource_id
+        whodunnit: []
       ).merge(
         unit: current_unit.id
       )

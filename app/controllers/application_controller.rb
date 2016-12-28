@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
 
     Activity.create(
       unit: current_unit,
-      user: current_user,
+      whodunnit: current_user,
       action: action_name,
       resource: resource,
       differences: differences
