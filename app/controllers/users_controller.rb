@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  after_action :track_user, only: [:show, :edit, :create, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -15,6 +14,7 @@ class UsersController < ApplicationController
   def show
     authorize_action_for @user
     disable_editing!
+    track @user
   end
 
   # GET /users/new
@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     authorize_action_for @user
+    track @user
   end
 
   # POST /users
@@ -36,6 +37,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        track @user
         format.html { redirect_to @user, notice: t('.notice', user: @user) }
         format.json { render :show, status: :created, location: @user }
       else
@@ -52,6 +54,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update(user_params)
+        track @user
         format.html { redirect_to @user, notice: t('.notice', user: @user) }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -65,6 +68,7 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     authorize_action_for @user
+    track @user
     @user.destroy
 
     respond_to do |format|
@@ -86,9 +90,5 @@ class UsersController < ApplicationController
         :password, :password_confirmation,
         :activates_at, :expires_at
       )
-    end
-
-    def track_user
-      track @user
     end
 end

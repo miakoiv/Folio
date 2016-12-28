@@ -2,12 +2,12 @@ class CustomersController < ApplicationController
 
   before_action :set_person, only: [:new, :create]
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
-  after_action :track_customer, only: [:show, :edit, :create, :update, :destroy]
 
   # GET /customers/1
   # GET /customers/1.json
   def show
     disable_editing!
+    track @customer
   end
 
   # GET /people/2/customers/new
@@ -17,6 +17,7 @@ class CustomersController < ApplicationController
 
   # GET /customers/1/edit
   def edit
+    track @customer
   end
 
   # POST /people/2/customers
@@ -26,6 +27,7 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
+        track @customer
         format.html { redirect_to @customer, notice: t('.notice', customer: @customer) }
         format.json { render :show, status: :created, location: @customer }
       else
@@ -40,6 +42,7 @@ class CustomersController < ApplicationController
   def update
     respond_to do |format|
       if @customer.update(customer_params)
+        track @customer
         format.html { redirect_to @customer, notice: t('.notice', customer: @customer) }
         format.json { render :show, status: :ok, location: @customer }
       else
@@ -53,6 +56,7 @@ class CustomersController < ApplicationController
   # DELETE /customers/1.json
   def destroy
     @person = @customer.person
+    track @customer
     @customer.destroy
 
     respond_to do |format|
@@ -76,9 +80,5 @@ class CustomersController < ApplicationController
       params.require(:customer).permit(
         :status_id, :referrer_id, :referrer_info
       )
-    end
-
-    def track_customer
-      track @customer
     end
 end

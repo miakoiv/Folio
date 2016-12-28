@@ -2,7 +2,6 @@ class RelationshipsController < ApplicationController
 
   before_action :set_person, only: [:new, :create]
   before_action :set_relationship, only: [:edit, :update, :destroy, :parent]
-  after_action :track_relationship, only: [:edit, :create, :update, :destroy]
 
   # GET /people/2/relationships/new
   def new
@@ -97,9 +96,5 @@ class RelationshipsController < ApplicationController
           :municipality_id, :phone, :email
         ]
       )
-    end
-
-    def track_relationship
-      track @relationship
     end
 end

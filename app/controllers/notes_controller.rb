@@ -2,10 +2,10 @@ class NotesController < ApplicationController
 
   before_action :set_customer, only: :create
   before_action :set_note, only: [:edit, :update, :destroy]
-  after_action :track_note, only: [:create, :update, :destroy]
 
   # GET /notes/1/edit.js
   def edit
+    track @note
   end
 
   # POST /customers/2/notes.js
@@ -14,6 +14,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.save
+        track @note
         format.js
       else
         format.js { render json: @note.errors, status: :unprocessable_entity }
@@ -27,6 +28,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.update(note_params)
+        track @note
         format.js
       else
         format.js { render json: @note.errors, status: :unprocessable_entity }
@@ -36,6 +38,7 @@ class NotesController < ApplicationController
 
   # DELETE /notes/1.js
   def destroy
+    track @note
     @note.destroy
 
     respond_to do |format|
@@ -56,9 +59,5 @@ class NotesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
       params.require(:note).permit(:title, :content)
-    end
-
-    def track_note
-      track @note
     end
 end

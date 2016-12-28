@@ -3,7 +3,6 @@ class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
   before_action :set_customers, only: :show
   before_action :set_relationships, only: :show
-  after_action :track_person, only: [:show, :create, :update, :destroy]
 
   # GET /people
   # GET /people.json
@@ -36,6 +35,7 @@ class PeopleController < ApplicationController
   # GET /people/1.json
   def show
     disable_editing!
+    track @person
   end
 
   # GET /people/new
@@ -45,6 +45,7 @@ class PeopleController < ApplicationController
 
   # GET /people/1/edit
   def edit
+    track @person
   end
 
   # POST /people
@@ -54,6 +55,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.save
+        track @person
         format.html { redirect_to @person, notice: t('.notice', person: @person) }
         format.json { render :show, status: :created, location: @person }
       else
@@ -68,6 +70,7 @@ class PeopleController < ApplicationController
   def update
     respond_to do |format|
       if @person.update(person_params)
+        track @person
         format.html { redirect_to @person, notice: t('.notice', person: @person) }
         format.json { render :show, status: :ok, location: @person }
       else
@@ -80,7 +83,9 @@ class PeopleController < ApplicationController
   # DELETE /people/1
   # DELETE /people/1.json
   def destroy
+    track @person
     @person.destroy
+
     respond_to do |format|
       format.html { redirect_to people_url, notice: t('.notice', person: @person) }
       format.json { head :no_content }
@@ -119,9 +124,5 @@ class PeopleController < ApplicationController
         :language, :nationality, :accommodation, :disabilities,
         :education_level_id, :education_info
       )
-    end
-
-    def track_person
-      track @person
     end
 end

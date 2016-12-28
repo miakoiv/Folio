@@ -3,7 +3,6 @@ class EventsController < ApplicationController
   # Context is customer if present, current user otherwise.
   before_action :set_context, only: [:search, :new, :create]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  after_action :track_event, only: [:edit, :create, :update, :destroy]
 
   # GET /events
   # GET /events.json
@@ -35,6 +34,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    track @event
   end
 
   # POST /users/2/events/new
@@ -46,6 +46,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
+        track @event
         format.html { redirect_to @event, notice: t('.notice', event: @event) }
         format.js
         format.json { render :show, status: :created, location: @event }
@@ -62,6 +63,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
+        track @event
         format.html { redirect_to @event, notice: t('.notice', event: @event) }
         format.js
         format.json { render :show, status: :ok, location: @event }
@@ -77,6 +79,7 @@ class EventsController < ApplicationController
   # DELETE /events/1.json
   def destroy
     @customer = @event.customer
+    track @event
     @event.destroy
 
     respond_to do |format|
@@ -108,9 +111,5 @@ class EventsController < ApplicationController
         :starts_at, :ends_at, :duration,
         compound_starts_at_attributes: [:date, :time]
       )
-    end
-
-    def track_event
-      track @event
     end
 end

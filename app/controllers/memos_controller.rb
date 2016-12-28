@@ -1,7 +1,6 @@
 class MemosController < ApplicationController
 
   before_action :set_memo, only: [:show, :edit, :update, :destroy]
-  after_action :track_memo, only: [:show, :create]
 
   # GET /memos
   # GET /memos.json
@@ -31,6 +30,7 @@ class MemosController < ApplicationController
   # GET /memos/1.json
   def show
     disable_editing!
+    track @memo
     @memo.collect_by(current_user)
   end
 
@@ -41,6 +41,7 @@ class MemosController < ApplicationController
 
   # GET /memos/1/edit
   def edit
+    track @memo
   end
 
   # POST /memos
@@ -50,6 +51,7 @@ class MemosController < ApplicationController
 
     respond_to do |format|
       if @memo.save
+        track @memo
         @memo.collect_by(current_user)
         format.html { redirect_to memos_path, notice: t('.notice', memo: @memo) }
         format.json { render :show, status: :created, location: @memo }
@@ -65,6 +67,7 @@ class MemosController < ApplicationController
   def update
     respond_to do |format|
       if @memo.update(memo_params)
+        track @memo
         format.html { redirect_to @memo, notice: t('.notice', memo: @memo) }
         format.json { render :show, status: :ok, location: @memo }
       else
@@ -77,7 +80,9 @@ class MemosController < ApplicationController
   # DELETE /memos/1
   # DELETE /memos/1.json
   def destroy
+    track @memo
     @memo.destroy
+
     respond_to do |format|
       format.html { redirect_to memos_url, notice: t('.notice', memo: @memo) }
       format.json { head :no_content }
@@ -100,9 +105,5 @@ class MemosController < ApplicationController
       params.require(:memo).permit(
         :icon, :title, :content, recipient_ids: []
       )
-    end
-
-    def track_memo
-      track @memo
     end
 end
