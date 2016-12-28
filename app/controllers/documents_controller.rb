@@ -1,7 +1,5 @@
 class DocumentsController < ApplicationController
 
-  after_action :track_document, only: [:create, :destroy]
-
   # GET /documents/1
   # GET /documents/1.js
   def show
@@ -55,9 +53,5 @@ class DocumentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
       params.require(:document).permit(:attachment)
-    end
-
-    def track_document
-      track @document
     end
 end
