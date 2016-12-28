@@ -1,6 +1,7 @@
 class MemosController < ApplicationController
 
   before_action :set_memo, only: [:show, :edit, :update, :destroy]
+  after_action :track_memo, only: [:show, :create]
 
   # GET /memos
   # GET /memos.json
@@ -99,5 +100,9 @@ class MemosController < ApplicationController
       params.require(:memo).permit(
         :icon, :title, :content, recipient_ids: []
       )
+    end
+
+    def track_memo
+      track @memo
     end
 end

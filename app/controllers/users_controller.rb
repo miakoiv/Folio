@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  after_action :track_user, only: [:show, :edit, :create, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -84,5 +86,9 @@ class UsersController < ApplicationController
         :password, :password_confirmation,
         :activates_at, :expires_at
       )
+    end
+
+    def track_user
+      track @user
     end
 end

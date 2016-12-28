@@ -2,6 +2,7 @@ class CustomersController < ApplicationController
 
   before_action :set_person, only: [:new, :create]
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  after_action :track_customer, only: [:show, :edit, :create, :update, :destroy]
 
   # GET /customers/1
   # GET /customers/1.json
@@ -75,5 +76,9 @@ class CustomersController < ApplicationController
       params.require(:customer).permit(
         :status_id, :referrer_id, :referrer_info
       )
+    end
+
+    def track_customer
+      track @customer
     end
 end

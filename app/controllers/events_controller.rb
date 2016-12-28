@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   # Context is customer if present, current user otherwise.
   before_action :set_context, only: [:search, :new, :create]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  after_action :track_event, only: [:edit, :create, :update, :destroy]
 
   # GET /events
   # GET /events.json
@@ -107,5 +108,9 @@ class EventsController < ApplicationController
         :starts_at, :ends_at, :duration,
         compound_starts_at_attributes: [:date, :time]
       )
+    end
+
+    def track_event
+      track @event
     end
 end

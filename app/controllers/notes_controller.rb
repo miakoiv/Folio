@@ -2,6 +2,7 @@ class NotesController < ApplicationController
 
   before_action :set_customer, only: :create
   before_action :set_note, only: [:edit, :update, :destroy]
+  after_action :track_note, only: [:create, :update, :destroy]
 
   # GET /notes/1/edit.js
   def edit
@@ -55,5 +56,9 @@ class NotesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
       params.require(:note).permit(:title, :content)
+    end
+
+    def track_note
+      track @note
     end
 end

@@ -3,6 +3,7 @@ class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
   before_action :set_customers, only: :show
   before_action :set_relationships, only: :show
+  after_action :track_person, only: [:show, :create, :update, :destroy]
 
   # GET /people
   # GET /people.json
@@ -118,5 +119,9 @@ class PeopleController < ApplicationController
         :language, :nationality, :accommodation, :disabilities,
         :education_level_id, :education_info
       )
+    end
+
+    def track_person
+      track @person
     end
 end

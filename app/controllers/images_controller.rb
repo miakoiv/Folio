@@ -1,5 +1,7 @@
 class ImagesController < ApplicationController
 
+  after_action :track_image, only: [:create, :destroy]
+
   # GET /images/1
   # GET /images/1.js
   def show
@@ -53,5 +55,9 @@ class ImagesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
       params.require(:image).permit(:attachment)
+    end
+
+    def track_image
+      track @image
     end
 end
