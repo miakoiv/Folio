@@ -1,5 +1,7 @@
 class Relationship < ApplicationRecord
 
+  include Trackable
+
   # Person is related to parent in a relation way. Parents keep a cached
   # children count to immediately identify people who are parents and
   # exclude them from the index view.

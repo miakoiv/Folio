@@ -6,6 +6,7 @@ class User < ApplicationRecord
   # Adds `creatable_by?(user)`, etc
   include Authority::Abilities
 
+  include Trackable
   rolify
 
   # Include default devise modules. Others available are:

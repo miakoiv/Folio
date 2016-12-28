@@ -1,6 +1,7 @@
 class Customer < ApplicationRecord
 
   include Documentable
+  include Trackable
 
   belongs_to :unit
   belongs_to :person

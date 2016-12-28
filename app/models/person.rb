@@ -1,6 +1,7 @@
 class Person < ApplicationRecord
 
   include Imageable
+  include Trackable
 
   paginates_per 20
 

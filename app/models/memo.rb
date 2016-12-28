@@ -1,5 +1,7 @@
 class Memo < ApplicationRecord
 
+  include Trackable
+
   belongs_to :sender, class_name: 'User'
   has_many :deliveries, dependent: :destroy
   has_many :collections, dependent: :destroy
