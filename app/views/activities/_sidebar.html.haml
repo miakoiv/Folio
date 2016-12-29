@@ -1,13 +1,10 @@
 .p-m.border-bottom
-  .pull-right
-    %button#load-activities.btn.btn-xs.btn-default= t('.load')
   %span.font-bold= title(Activity, count: 2)
   #activity-list.m-t-md
 
 :coffee
   $ ->
-    $('#load-activities').on 'click', ->
-      $(this).hide()
+    $('#sidebar').on 'click', ->
       $.ajax
         type: 'GET'
         url: '#{sidebar_activities_path(format: :js)}'

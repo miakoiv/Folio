@@ -9,8 +9,6 @@ en:
       submit: Search
       upto_date: Latest date
       whodunnit: Agent
-    sidebar:
-      load: Load
   authority:
     forbidden: You are not authorized to complete that action.
   dashboard:

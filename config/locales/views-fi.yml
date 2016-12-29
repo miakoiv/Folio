@@ -9,8 +9,6 @@ fi:
       submit: Hae
       upto_date: Päiväys viimeistään
       whodunnit: Tekijä
-    sidebar:
-      load: Lataa
   authority:
     forbidden: Käyttöoikeutesi ei riitä tähän toimintoon.
   dashboard:
