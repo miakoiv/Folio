@@ -8,3 +8,5 @@
   %span.nav-label= icon('user-circle', title(User, count: 2))
 = active_link_to reports_path, wrap_tag: :li do
   %span.nav-label= icon('pie-chart', t('reports.title'))
+= active_link_to activities_path, wrap_tag: :li do
+  %span.nav-label= icon('heartbeat', title(Activity, count: 2))
