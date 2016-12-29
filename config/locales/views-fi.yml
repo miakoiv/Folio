@@ -16,8 +16,8 @@ fi:
   dashboard:
     events:
       header: Tapahtumakalenteri
-    customers:
-      header: Aktiiviset asiakkuudet
+    notes:
+      header: Uusimmat muistiinpanot
   dropzone:
     default_message: Pudota tiedostoja tähän tai klikkaa
   search:

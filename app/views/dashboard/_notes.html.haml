@@ -1,0 +1,6 @@
+.hpanel
+  .panel-heading
+    = icon('book', t('.header'))
+  = render partial: 'notes/item_with_person',
+      collection: current_unit.notes.includes(customer: :person).limit(10),
+      as: :note

@@ -16,8 +16,8 @@ en:
   dashboard:
     events:
       header: Event calendar
-    customers:
-      header: Active customers
+    notes:
+      header: Latest notes
   dropzone:
     default_message: Drop files here or click
   search:
