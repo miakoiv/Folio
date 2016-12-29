@@ -7,6 +7,7 @@ fi:
       header: Aktiviteettihaku
       help: Valitse hakuehdot
       submit: Hae
+      upto_date: Päiväys viimeistään
       whodunnit: Tekijä
     sidebar:
       load: Lataa

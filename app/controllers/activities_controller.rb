@@ -22,7 +22,7 @@ class ActivitiesController < ApplicationController
   protected
     def search_params
       params.fetch(:activity_search) {{}}.permit(
-        whodunnit: []
+        {whodunnit: []}, :upto_date
       ).merge(
         unit: current_unit.id
       )

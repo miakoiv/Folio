@@ -14,4 +14,11 @@ class ActivitySearch < Searchlight::Search
   def search_whodunnit
     query.where(whodunnit_id: whodunnit)
   end
+
+  def search_upto_date
+    query.where(
+      Arel::Nodes::NamedFunction.new('DATE', [Activity.arel_table[:created_at]])
+      .lteq(upto_date)
+    )
+  end
 end

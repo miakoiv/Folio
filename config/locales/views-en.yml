@@ -7,6 +7,7 @@ en:
       header: Activity search
       help: Select search options
       submit: Search
+      upto_date: Latest date
       whodunnit: Agent
     sidebar:
       load: Load
