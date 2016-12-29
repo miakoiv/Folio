@@ -27,6 +27,6 @@ class Customer < ApplicationRecord
   end
 
   def to_s
-    "#{model_name.human.capitalize} #{id}"
+    "#{model_name.human.capitalize} #{date}"
   end
 end

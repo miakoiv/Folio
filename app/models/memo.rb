@@ -33,6 +33,6 @@ class Memo < ApplicationRecord
   end
 
   def to_s
-    "#{Memo.model_name.human.capitalize} #{id}"
+    "#{Memo.model_name.human.capitalize} #{created_at.year}-#{id}"
   end
 end
