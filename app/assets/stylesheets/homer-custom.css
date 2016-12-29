@@ -1,7 +1,18 @@
 /* Toastr custom styles*/
-#toast-container {
+#toast-container.toast-bottom-center {
+  position: absolute;
+  bottom: 0;
+}
+#toast-container.toast-top-center {
   position: absolute;
   top: 0;
+}
+
+#toast-container.toast-bottom-center, #toast-container.toast-top-center {
+  width: 300px;
+  left: 50%;
+  right: auto;
+  transform: translate(-150px, 0);
 }
 
 #toast-container.toast-bottom-center > div, #toast-container.toast-top-center > div {
