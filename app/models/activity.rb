@@ -4,6 +4,9 @@
 #
 class Activity < ApplicationRecord
 
+  # Adds `creatable_by?(user)`, etc
+  include Authority::Abilities
+
   belongs_to :unit
   belongs_to :whodunnit, class_name: 'User'
   belongs_to :resource, polymorphic: true
