@@ -3,7 +3,7 @@
     .panel-body.social-board
       .media.social-profile.clearfix
         .media-left
-          = profile_image(activity.context)
+          = profile_image(activity.resource)
         .media-body
           .pull-right.text-right
             %div
@@ -12,5 +12,6 @@
                 = icon(activity.icon, activity.resource.model_name.human, class: 'fa-lg')
             %small.stat-label
               %span.font-normal= l(activity.created_at, format: :short)
-          %h4= activity.context
-          %small= activity.resource
+          %h4= activity.resource
+          - if activity.context != activity.resource
+            %small= activity.context
