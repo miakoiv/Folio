@@ -18,9 +18,12 @@ ActiveRecord::Schema.define(version: 20161228073959) do
     t.string   "action"
     t.string   "resource_type",               null: false
     t.integer  "resource_id",                 null: false
+    t.string   "context_type",                null: false
+    t.integer  "context_id",                  null: false
     t.text     "differences",   limit: 65535
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.index ["context_type", "context_id"], name: "index_activities_on_context_type_and_context_id", using: :btree
     t.index ["resource_type", "resource_id"], name: "index_activities_on_resource_type_and_resource_id", using: :btree
     t.index ["unit_id"], name: "index_activities_on_unit_id", using: :btree
     t.index ["whodunnit_id"], name: "index_activities_on_whodunnit_id", using: :btree

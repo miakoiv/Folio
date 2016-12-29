@@ -1,8 +1,13 @@
+# Activities are records of actions taken by users (whodunnit) on
+# resources in a certain context. The context may be the resource itself,
+# or its relational parent record, with which the activity should appear.
+#
 class Activity < ApplicationRecord
 
   belongs_to :unit
   belongs_to :whodunnit, class_name: 'User'
   belongs_to :resource, polymorphic: true
+  belongs_to :context, polymorphic: true
 
   serialize :differences, JSON
 

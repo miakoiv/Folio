@@ -5,7 +5,7 @@ class NotesController < ApplicationController
 
   # GET /notes/1/edit.js
   def edit
-    track @note
+    track @note, @note.customer
   end
 
   # POST /customers/2/notes.js
@@ -14,7 +14,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.save
-        track @note
+        track @note, @note.customer
         format.js
       else
         format.js { render json: @note.errors, status: :unprocessable_entity }
@@ -28,7 +28,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.update(note_params)
-        track @note
+        track @note, @note.customer
         format.js
       else
         format.js { render json: @note.errors, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class NotesController < ApplicationController
 
   # DELETE /notes/1.js
   def destroy
-    track @note
+    track @note, @note.customer
     @note.destroy
 
     respond_to do |format|

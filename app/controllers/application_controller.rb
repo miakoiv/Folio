@@ -36,10 +36,10 @@ class ApplicationController < ActionController::Base
   end
   helper_method :accessible_units
 
-  # Tracks activity for given resource in the scope of current unit and
-  # current user. Stores the action taken on given resource, storing any
+  # Tracks activity for given resource in given context, with current unit
+  # and current user. Stores the action taken on given resource, storing any
   # changes made as differences, except changes between two blank values.
-  def track(resource)
+  def track(resource, context = nil)
     differences = resource.previous_changes
       .except('created_at', 'updated_at')
       .reject { |attribute, value| value.reject(&:blank?).empty? }
@@ -49,6 +49,7 @@ class ApplicationController < ActionController::Base
       whodunnit: current_user,
       action: action_name,
       resource: resource,
+      context: context || resource,
       differences: differences
     )
   end

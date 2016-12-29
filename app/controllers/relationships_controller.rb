@@ -22,7 +22,6 @@ class RelationshipsController < ApplicationController
   # GET /relationships/1/edit
   def edit
     if relationship_params.empty?
-
       render :edit
     else
       params = relationship_params.slice(:relation_id, :parent_id)
@@ -40,6 +39,7 @@ class RelationshipsController < ApplicationController
 
     respond_to do |format|
       if @relationship.save
+        track @relationship.parent, @person
         format.html { redirect_to @relationship, notice: t('.notice', relationship: @relationship) }
         format.js
         format.json { render :show, status: :created, location: @relationship }
@@ -56,6 +56,7 @@ class RelationshipsController < ApplicationController
   def update
     respond_to do |format|
       if @relationship.update(relationship_params)
+        track @relationship.parent, @relationship.person
         format.html { redirect_to @relationship, notice: t('.notice', relationship: @relationship) }
         format.js
         format.json { render :show, status: :ok, location: @relationship }
@@ -70,6 +71,7 @@ class RelationshipsController < ApplicationController
   # DELETE /relationships/1.js
   def destroy
     @person = @relationship.person
+    track @relationship.parent, @person
     @relationship.destroy
 
     respond_to do |format|

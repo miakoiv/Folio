@@ -34,7 +34,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    track @event
+    track @event, @event.context
   end
 
   # POST /users/2/events/new
@@ -46,7 +46,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        track @event
+        track @event, @context
         format.html { redirect_to @event, notice: t('.notice', event: @event) }
         format.js
         format.json { render :show, status: :created, location: @event }
@@ -63,7 +63,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        track @event
+        track @event, @event.context
         format.html { redirect_to @event, notice: t('.notice', event: @event) }
         format.js
         format.json { render :show, status: :ok, location: @event }
@@ -79,7 +79,7 @@ class EventsController < ApplicationController
   # DELETE /events/1.json
   def destroy
     @customer = @event.customer
-    track @event
+    track @event, @event.context
     @event.destroy
 
     respond_to do |format|

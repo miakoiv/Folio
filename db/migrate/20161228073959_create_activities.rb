@@ -4,7 +4,8 @@ class CreateActivities < ActiveRecord::Migration[5.0]
       t.belongs_to :unit, null: false, index: true
       t.belongs_to :whodunnit, null: false, index: true
       t.string :action
-      t.references :resource, polymorphic: true, null: false, index: true
+      t.references :resource, polymorphic: true, null: false
+      t.references :context, polymorphic: true, null: false, index: true
       t.text :differences
 
       t.timestamps

@@ -3,13 +3,14 @@
     .panel-body.social-board
       .media.social-profile.clearfix
         .media-left
-          = profile_image(activity.resource)
+          = profile_image(activity.context)
         .media-body
           .pull-right.text-right
             %div
+              %span.small.font-bold= activity.whodunnit
               %span{class: "text-#{activity.appearance}"}
-                = icon(activity.icon, class: 'fa-lg')
+                = icon(activity.icon, activity.resource.model_name.human, class: 'fa-lg')
             %small.stat-label
-              = activity.whodunnit
-          %h4= activity.resource
-          %small= l(activity.created_at, format: :short)
+              %span.font-normal= l(activity.created_at, format: :short)
+          %h4= activity.context
+          %small= activity.resource

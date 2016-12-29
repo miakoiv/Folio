@@ -3,9 +3,11 @@
     .pull-left
       = profile_image(activity.whodunnit)
     .media-body
-      .pull-right
-        %span{class: "text-#{activity.appearance}"}
-          = icon(activity.icon, class: 'fa-lg')
+      .pull-right.m-l-sm
+        %span.small{class: "text-#{activity.appearance}"}
+          = icon(activity.icon, activity.resource.model_name.human, class: 'fa-lg')
       %span.font-bold= activity.whodunnit
       .social-talk
-        %small.text-muted= l(activity.created_at, format: :short)
+        .pull-right.m-l-sm
+          %small.text-muted= l(activity.created_at, format: :short)
+        %small= activity.resource
