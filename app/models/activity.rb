@@ -35,6 +35,6 @@ class Activity < ApplicationRecord
   end
 
   def to_s
-    action
+    "#{model_name.human.capitalize} #{created_at.year}-#{id}"
   end
 end
