@@ -4,9 +4,11 @@
   %span.nav-label= icon('commenting', title(Memo, count: 2))
 = active_link_to people_path, wrap_tag: :li do
   %span.nav-label= icon('address-book', title(Person, count: 2))
-= active_link_to users_path, wrap_tag: :li do
-  %span.nav-label= icon('user-circle', title(User, count: 2))
+- if current_user.can_read?(User, unit: current_unit)
+  = active_link_to users_path, wrap_tag: :li do
+    %span.nav-label= icon('user-circle', title(User, count: 2))
 = active_link_to reports_path, wrap_tag: :li do
   %span.nav-label= icon('pie-chart', t('reports.title'))
-= active_link_to activities_path, wrap_tag: :li do
-  %span.nav-label= icon('heartbeat', title(Activity, count: 2))
+- if current_user.can_read?(Activity, unit: current_unit)
+  = active_link_to activities_path, wrap_tag: :li do
+    %span.nav-label= icon('heartbeat', title(Activity, count: 2))
