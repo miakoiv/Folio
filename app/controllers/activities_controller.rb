@@ -1,5 +1,7 @@
 class ActivitiesController < ApplicationController
 
+  before_action :set_activity, only: [:show]
+
   # GET /activities
   # GET /activities.json
   def index
@@ -19,6 +21,11 @@ class ActivitiesController < ApplicationController
     @activities = @resource.activities.at(current_unit).limit(20)
   end
 
+  # GET /activities/1
+  # GET /activities/1.json
+  def show
+  end
+
   protected
     def search_params
       params.fetch(:activity_search) {{}}.permit(
@@ -27,4 +34,10 @@ class ActivitiesController < ApplicationController
         unit: current_unit.id
       )
     end
+
+    private
+      # Use callbacks to share common setup or constraints between actions.
+      def set_activity
+        @activity = current_unit.activities.find(params[:id])
+      end
 end

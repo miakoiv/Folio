@@ -1,0 +1,17 @@
+- content_for :header do
+  %h2= title(Activity, count: 2)
+  %small= @activity
+- content_for :breadcrumb do
+  %li= link_to title(Activity, count: 2), activities_path
+  %li.active= @activity
+
+.content
+  .row
+    .col-md-3
+      = render @activity.whodunnit
+    .col-md-9
+      .hpanel
+        .panel-heading.hbuilt
+          = icon('heartbeat', t('activities.panel.header'))
+        .panel-body
+          = render partial: 'details'

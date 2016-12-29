@@ -3,6 +3,8 @@ fi:
     cancel: Kumoa
     edit: Muokkaa
   activities:
+    panel:
+      header: Aktiviteetin yksityiskohdat
     search:
       header: Aktiviteettihaku
       help: Valitse hakuehdot

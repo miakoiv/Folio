@@ -44,6 +44,16 @@ en:
         one: user
         other: users
     attributes:
+      activity:
+        action: Action
+        attribute: Attribute
+        context: Context
+        created_at: Timestamp
+        differences: Changes made
+        new_value: New value
+        old_value: Old value
+        resource: Record
+        whodunnit_id: Actor
       event:
         date: Starting date
         description: Description

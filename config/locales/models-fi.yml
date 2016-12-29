@@ -44,6 +44,16 @@ fi:
         one: käyttäjä
         other: käyttäjät
     attributes:
+      activity:
+        action: Toiminto
+        attribute: Attribuutti
+        context: Konteksti
+        created_at: Aikaleima
+        differences: Muutokset
+        new_value: Uusi arvo
+        old_value: Vanha arvo
+        resource: Tietue
+        whodunnit_id: Tekijä
       event:
         date: Alkamispäivä
         description: Kuvaus

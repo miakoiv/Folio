@@ -1,0 +1,33 @@
+.row
+  .col-md-6
+    .form-group
+      %label.control-label= Activity.human_attribute_name(:created_at)
+      %p.form-control-static= l(@activity.created_at, format: :long)
+  .col-md-6
+    .form-group
+      %label.control-label= Activity.human_attribute_name(:whodunnit_id)
+      %p.form-control-static= @activity.whodunnit
+.row
+  .col-md-6
+    .form-group
+      %label.control-label= Activity.human_attribute_name(:resource)
+      %p.form-control-static= @activity.resource
+  - if @activity.context != @activity.resource
+    .col-md-6
+      .form-group
+        %label.control-label= Activity.human_attribute_name(:context)
+        %p.form-control-static= @activity.context
+.row
+  .col-md-12
+    %table.table.table-hover
+      %thead
+        %tr
+          %th.col-xs-2= Activity.human_attribute_name(:attribute)
+          %th.col-xs-5= Activity.human_attribute_name(:old_value)
+          %th.col-xs-5= Activity.human_attribute_name(:new_value)
+      %tbody
+        - @activity.differences.each do |attribute, values|
+          %tr
+            %td= @activity.resource.class.human_attribute_name(attribute)
+            - values.each do |value|
+              %td= value
