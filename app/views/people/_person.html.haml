@@ -1,6 +1,6 @@
 .hpanel.contact-panel{class: "h#{person.appearance(current_unit)}"}
   .panel-body
-    .pull-right.text-right
+    .pull-right.text-right.hidden-print
       .btn-group
         - if person.phone.present?
           = tel_to icon('phone'), person.phone, class: 'btn btn-default'

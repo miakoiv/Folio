@@ -1,4 +1,5 @@
+%h5.visible-print= title(Event, count: 2)
 = link_to [:new, @customer, :event], id: 'new_event', remote: true do
   = render partial: 'events/new'
-#event-list
+#event-list.m-b-lg
   = render partial: 'events/item', collection: @customer.events, as: :event
