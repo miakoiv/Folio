@@ -1,11 +1,9 @@
 .color-line
-#logo.light-version
-  %span Folio
+#logo.light-version= image_tag 'folio-logo.svg', height: '20'
 %nav{role: 'navigation'}
   .header-link.hide-menu
     %i.fa.fa-bars
-  .small-logo
-    %span.text-primary Folio
+  .small-logo= image_tag 'folio-logo.svg', height: '20'
   = render partial: 'search/navbar'
   .mobile-menu
     %button.navbar-toggle.mobile-menu-toggle{type: 'button',
