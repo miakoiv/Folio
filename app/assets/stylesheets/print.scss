@@ -1,0 +1,113 @@
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 1.4cm 1.4cm 2.1cm 2.1cm;
+  }
+
+  body {
+    font-size: 9pt;
+  }
+
+  #header, #menu, footer, #right-sidebar, #hbreadcrumb {
+    display: none;
+  }
+
+  #wrapper {
+    position: static;
+    top: auto !important;
+    min-height: 0 !important;
+    margin-left: 0;
+    border: 0;
+  }
+
+  .content {
+    min-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  a[href]::after { content: none; }
+
+  img { max-width: none !important; }
+
+  .hpanel {
+    margin-bottom: 15px;
+    page-break-inside: avoid;
+
+    .panel-body {
+      padding-top: 10px;
+      padding-left: 0;
+      padding-right: 0;
+      border: 0 !important;
+      border-radius: 0;
+    }
+  }
+
+  .contact-panel > .panel-body img {
+    float: left;
+    margin-right: 15px;
+  }
+
+  // Use h5, panel heading, and nav tab as subheads with identical styling.
+  h5, .hpanel > .panel-heading, .nav.nav-tabs > li > a {
+    margin: 0;
+    padding: 10px 0;
+    border: 0 !important;
+    border-radius: 0;
+    border-bottom: 1px solid #e4e5e7 !important;
+    font-size: 10pt;
+    font-weight: 500 !important;
+
+    .fa, .pull-right { display: none; }
+  }
+
+  // Unfloat nav tabs and hide all but the active one
+  .nav.nav-tabs {
+    border-bottom: none;
+
+    > li {
+      float: none;
+      margin-bottom: 0;
+    }
+    > li:not(.active) { display: none; }
+  }
+  .tab-content {
+    .tab-pane { }
+  }
+
+  .hr-line-dashed { margin: 10px 0; }
+
+  // Reset medium columns to original widths inside fieldsets
+  // for better form layout in print
+  fieldset {
+    .row {
+      .col-md-1  { float: left; width: 8.33333333%; }
+      .col-md-2  { float: left; width: 16.66666667%; }
+      .col-md-3  { float: left; width: 25%; }
+      .col-md-4  { float: left; width: 33.33333333%; }
+      .col-md-5  { float: left; width: 41.66666667%; }
+      .col-md-6  { float: left; width: 50%; }
+      .col-md-7  { float: left; width: 58.33333333%; }
+      .col-md-8  { float: left; width: 66.66666667%; }
+      .col-md-9  { float: left; width: 75%; }
+      .col-md-10 { float: left; width: 83.33333333%; }
+      .col-md-11 { float: left; width: 91.66666667%; }
+      .col-md-12 { float: left; width: 100%; }
+    }
+  }
+
+  // Reset form controls to resemble regular body copy
+  .form-control, .btn-group label.btn,
+  .select2-container--bootstrap,
+  .select2-container--bootstrap.select2-container--disabled .select2-selection,
+  .select2-container--bootstrap.select2-container--disabled .select2-selection--multiple {
+    height: auto;
+    padding: 0;
+    color: inherit !important;
+    border: 0 !important;
+    border-radius: 0;
+    font-size: inherit;
+  }
+
+  #toast-container { display: none; }
+}

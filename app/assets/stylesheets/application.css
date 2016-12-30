@@ -32,4 +32,5 @@
  * Bootstrap with HOMER theme
  *= require bootstrap-homer-sass
  *= require homer-custom
+ *= require print
  */
