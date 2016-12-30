@@ -22,6 +22,9 @@
               = t('users.links.my_profile')
   .navbar-right
     %ul.nav.navbar-nav.no-borders
+      %li
+        %button.btn.btn-default.navbar-btn.print
+          %i.pe-7s-print
       - if content_for?(:sidebar)
         %li
           %button#sidebar.btn.btn-default.navbar-btn.right-sidebar-toggle

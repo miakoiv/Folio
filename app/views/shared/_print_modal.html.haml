@@ -1,0 +1,17 @@
+.color-line
+.modal-header
+  %h4.modal-title
+    = t('print.title')
+.modal-body
+  = t('print.body_html')
+.modal-footer
+  %button#print-now.btn.btn-default
+    = icon('print', t('print.print_now'))
+  = link_to icon('wrench', t('print.install')),
+      'https://addons.mozilla.org/en-US/firefox/addon/js-print-setup/',
+      class: 'btn btn-primary', target: '_blank'
+
+:coffee
+  $('#print-now').on 'click', ->
+    $('#print-modal').modal 'hide'
+    window.print()
