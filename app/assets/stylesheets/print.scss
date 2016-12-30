@@ -109,5 +109,24 @@
     font-size: inherit;
   }
 
+  // FullCalendar overrides for printing:
+  //   setting scroller height to auto will display the whole calendar,
+  //   while widget header is adjusted not to have room for a scrollbar
+  .fc {
+    .fc-row.fc-widget-header {
+      margin-right: 0 !important;
+      border-right-width: 0 !important;
+    }
+    .fc-scroller {
+      height: auto !important;
+      overflow-y: hidden !important;
+    }
+    .fc-toolbar {
+      .fc-left, .fc-right { display: none; }
+      .fc-center h2 { font-size: 14pt; }
+    }
+    .fc-event.external, .fc-list-item.external { display: none; }
+  }
+
   #toast-container { display: none; }
 }
