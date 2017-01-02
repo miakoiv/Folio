@@ -1,5 +1,5 @@
 .profile-picture
-  = profile_image(current_user, class: 'img-circle m-b')
+  = profile_image current_user, class: 'm-b'
   .stats-label.text-color
     %span.font-extra-bold.font-uppercase= current_user.full_name
     .dropdown
