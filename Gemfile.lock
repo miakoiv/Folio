@@ -67,6 +67,13 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.3)
+    countries (2.0.5)
+      i18n_data (~> 0.7.0)
+      money (~> 6.7)
+      unicode_utils (~> 1.4)
+    country_select (3.0.0)
+      countries (~> 2.0)
+      sort_alphabetical (~> 1.0)
     debug_inspector (0.0.2)
     devise (4.2.0)
       bcrypt (~> 3.0)
@@ -100,7 +107,9 @@ GEM
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
+    i18n_data (0.7.0)
     image_processing (0.4.1)
+    iso-639 (0.2.8)
     jbuilder (2.6.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -131,6 +140,9 @@ GEM
     minitest (5.10.1)
     momentjs-rails (2.15.1)
       railties (>= 3.1)
+    money (6.7.1)
+      i18n (>= 0.6.4, <= 0.7.0)
+      sixarm_ruby_unaccent (>= 1.1.1, < 2)
     multi_json (1.12.1)
     multi_xml (0.6.0)
     mysql2 (0.4.5)
@@ -193,6 +205,9 @@ GEM
     sexp_processor (4.7.0)
     shrine (2.5.0)
       down (>= 2.3.6)
+    sixarm_ruby_unaccent (1.1.1)
+    sort_alphabetical (1.1.0)
+      unicode_utils (>= 1.2.2)
     spring (2.0.0)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -214,6 +229,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.4)
       execjs (>= 0.3.0, < 3)
+    unicode_utils (1.4.0)
     unobtrusive_flash (3.3.1)
       railties
     warden (1.2.6)
@@ -243,6 +259,7 @@ DEPENDENCIES
   byebug
   clockpicker-rails
   coffee-rails (~> 4.2)
+  country_select
   devise
   dropzonejs-rails
   font-awesome-sass (~> 4.7)
@@ -250,6 +267,7 @@ DEPENDENCIES
   haml-rails
   httparty
   image_processing
+  iso-639
   jbuilder (~> 2.5)
   jquery-infinite-pages
   jquery-rails

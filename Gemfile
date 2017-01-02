@@ -59,6 +59,10 @@ gem 'devise'
 gem 'rolify'
 gem 'authority'
 
+# Country and language selections
+gem 'country_select'
+gem 'iso-639'
+
 # Gems to import records from zip files
 gem 'rubyzip'
 gem 'activerecord-import'

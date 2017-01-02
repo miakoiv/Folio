@@ -52,10 +52,13 @@
       .col-md-6
         = f.select :language, language_options, {},
             disabled: editing_disabled?,
-            data: {provide: 'select2', language: I18n.locale,
-              'minimum-results-for-search': 'Infinity'}
+            data: {provide: 'select2', language: I18n.locale}
       .col-md-6
-        = f.text_field :nationality
+        .form-group
+          %label.control-label= Person.human_attribute_name(:nationality)
+          = country_select :person, :nationality, {selected: 'FI'},
+              disabled: editing_disabled?,
+              data: {provide: 'select2', language: I18n.locale}
     .row
       .col-md-12
         = f.select :education_level_id, education_level_options,

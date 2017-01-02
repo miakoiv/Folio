@@ -40,7 +40,7 @@ class PeopleController < ApplicationController
 
   # GET /people/new
   def new
-    @person = Person.new
+    @person = Person.new(language: I18n.locale)
   end
 
   # GET /people/1/edit

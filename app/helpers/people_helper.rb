@@ -2,7 +2,7 @@ module PeopleHelper
 
   # Generates options for languages people may have
   def language_options
-    [['suomi', :fi], ['svenska', :sv], ['English', :en]]
+    ISO_639::ISO_639_1.map { |l| [l[3], l[2]] }
   end
 
   def gender_options
