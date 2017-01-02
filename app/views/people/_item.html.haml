@@ -3,7 +3,7 @@
     .panel-body.social-board
       .media.social-profile.clearfix
         .media-left
-          = profile_image person
+          = profile_image person, :thumbnail
         .media-body
           - if person.current_customer(current_unit).present?
             .pull-right.text-right

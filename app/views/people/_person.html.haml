@@ -7,7 +7,7 @@
         - if person.email.present?
           = mail_to icon('envelope'), person.email, class: 'btn btn-default'
     = link_to person do
-      = profile_image person
+      = profile_image person, :thumbnail
       %h3= person.last_name
       .text-muted.font-bold.m-b-xs
         = person.first_names
