@@ -22,6 +22,8 @@ class User < ApplicationRecord
   has_many :sent_memos, class_name: 'Memo', foreign_key: :sender_id
   has_many :deliveries, as: :recipient
   has_many :received_memos, through: :deliveries, source: :memo
+  has_many :collections
+  has_many :read_memos, through: :collections, source: :memo
 
   has_many :events, dependent: :destroy
   has_many :notes, dependent: :destroy
