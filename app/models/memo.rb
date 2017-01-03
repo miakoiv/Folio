@@ -7,6 +7,9 @@ class Memo < ApplicationRecord
   has_many :collections, dependent: :destroy
 
   default_scope { order(created_at: :desc) }
+  scope :unread_by, -> (user) {
+    includes(:collections).where(collections: {user: nil})
+  }
 
   validates :title, presence: true
   validates :recipient_ids, presence: true
