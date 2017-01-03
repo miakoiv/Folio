@@ -20,6 +20,11 @@ fi:
       header: Uusimmat muistiinpanot
   dropzone:
     default_message: Pudota tiedostoja tähän tai klikkaa
+  header:
+    memos:
+      you_have: Sinulle on
+      unread_memos: uutta viestiä
+      show_all: Näytä kaikki viestit
   search:
     index:
       header: Hakutulokset

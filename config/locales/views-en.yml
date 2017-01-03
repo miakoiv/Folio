@@ -20,6 +20,11 @@ en:
       header: Latest notes
   dropzone:
     default_message: Drop files here or click
+  header:
+    memos:
+      you_have: You have
+      unread_memos: new messages
+      show_all: Show all messages
   search:
     index:
       header: Search results

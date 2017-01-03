@@ -1,0 +1,33 @@
+%li.dropdown
+  %a.dropdown-toggle.label-menu-corner{href: '#', data: {toggle: 'dropdown'}}
+    %i.pe-7s-mail
+    %span.unread-count.label.label-success
+  %ul#unread-list.dropdown-menu.hdropdown.animated.flipInX
+    .title
+      = t('header.memos.you_have')
+      %span.unread-count
+      = t('header.memos.unread_memos')
+    %li.summary
+      = link_to t('header.memos.show_all'), memos_path
+
+:coffee
+  $ ->
+    $.ajax
+      type: 'GET'
+      url: '#{unread_memos_path}'
+      success: (data, status, xhr) ->
+        num = data.length
+        $('.unread-count').html num or ''
+        if num
+          $summary = $('#unread-list > .summary')
+          for memo in data[0..9]
+            $item = $('<li>')
+            $link = $('<a>', {
+              href: memo.url,
+              text: ' ' + memo.title
+            })
+            $('<i>', {class: 'fa fa-' + memo.icon}).prependTo $link
+            $link.appendTo $item
+            $summary.before $item
+        else
+          $('#unread-list > .title').hide()
