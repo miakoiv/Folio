@@ -43,6 +43,7 @@ Rails.application.routes.draw do
 
   resources :memos do
     get :sent, on: :collection
+    get :unread, on: :collection
   end
 
   post 'search', to: 'search#index', as: :search
