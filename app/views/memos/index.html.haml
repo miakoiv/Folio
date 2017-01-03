@@ -19,16 +19,17 @@
         .panel-body
           .row
             .col-lg-12
-              .table-responsive.infinite-scroll
-                %table.table.table-hover.table-mailbox
-                  %thead
-                    %tr
-                      %th
-                      %th= Memo.human_attribute_name(:sender_id)
-                      %th= Memo.human_attribute_name(:title)
-                      %th.text-right= Memo.human_attribute_name(:created_at)
-                  %tbody.infinite-content
-                    = render partial: 'item', collection: @memos, as: :memo
-            .infinite-pagination
-              = link_to_next_page @memos, '', remote: true,
-                  params: {memo_search: @memo_search_params.to_h}
+              .infinite-scroll
+                .table-responsive
+                  %table.table.table-hover.table-mailbox
+                    %thead
+                      %tr
+                        %th
+                        %th= Memo.human_attribute_name(:sender_id)
+                        %th= Memo.human_attribute_name(:title)
+                        %th.text-right= Memo.human_attribute_name(:created_at)
+                    %tbody.infinite-content
+                      = render partial: 'item', collection: @memos, as: :memo
+                .infinite-pagination
+                  = link_to_next_page @memos, '', remote: true,
+                      params: {memo_search: @memo_search_params.to_h}

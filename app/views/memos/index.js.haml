@@ -1,0 +1,6 @@
+$("#{j render partial: 'item', collection: @memos, as: :memo}").appendTo($('.infinite-scroll .infinite-content'));
+
+- if @memos.last_page?
+  $('.infinite-pagination > a').remove();
+- else
+  $('.infinite-pagination').html("#{j link_to_next_page @memos, '', remote: true, params: {memo_search: @memo_search_params.to_h}}");
