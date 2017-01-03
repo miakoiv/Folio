@@ -20,7 +20,7 @@ class MemosController < ApplicationController
   # GET /memos/unread.json
   def unread
     search = MemoSearch.new(recipients: [current_user, current_unit])
-    @memos = search.results.unread_by(current_user)
+    @memos = search.results.where.not(id: current_user.read_memos)
 
     respond_to do |format|
       format.json
