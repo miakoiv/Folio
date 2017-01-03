@@ -5,8 +5,10 @@ class MemosController < ApplicationController
   # GET /memos
   # GET /memos.json
   def index
-    @memo_search_params = search_params.merge(recipients: [current_user, current_unit])
-    @search = MemoSearch.new(@memo_search_params)
+    @memo_search_params = search_params
+    @search = MemoSearch.new(@memo_search_params.merge(
+      recipients: [current_user, current_unit]
+    ))
     @memos = @search.results.page(params[:page])
 
     respond_to do |format|
