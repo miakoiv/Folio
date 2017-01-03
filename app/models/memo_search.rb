@@ -4,7 +4,7 @@ class MemoSearch < Searchlight::Search
   include Searchlight::Adapters::ActionView
 
   def base_query
-    Memo.joins(:deliveries)
+    Memo.joins(:deliveries).distinct
   end
 
   def search_keyword
