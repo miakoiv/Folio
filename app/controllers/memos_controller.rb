@@ -17,6 +17,16 @@ class MemosController < ApplicationController
     end
   end
 
+  # GET /memos/unread.json
+  def unread
+    search = MemoSearch.new(recipients: [current_user, current_unit])
+    @memos = search.results.unread_by(current_user)
+
+    respond_to do |format|
+      format.json
+    end
+  end
+
   # GET /memos/sent
   # GET /memos/sent.json
   def sent
