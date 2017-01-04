@@ -32,7 +32,7 @@ en:
       prompt: Search anything…
   shared:
     footer:
-      copyright_html: LeasIT Oy <i class="fa fa-copyright"></i> 2016
+      copyright_html: LeasIT Oy <i class="fa fa-copyright"></i> 2016–2017
       slogan_html: Made with love <i class="fa fa-heart"></i> in Finland.
   calendar:
     panel:
