@@ -93,6 +93,9 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
+  # Favicons by realfavicongenerator.net
+  gem 'rails_real_favicon'
+
   # Entity-Relationship Diagrams.
   gem 'rails-erd'
 end
