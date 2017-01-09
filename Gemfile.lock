@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/Houdini/two_factor_authentication.git
+  remote: https://github.com/Houdini/two_factor_authentication.git
   revision: d0d42e565ad989b60a61db42b072d0ee1a02798b
   specs:
     two_factor_authentication (2.0.0)

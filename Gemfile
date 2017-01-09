@@ -56,7 +56,7 @@ gem 'jbuilder', '~> 2.5'
 
 # User authentication and authorization
 gem 'devise'
-gem 'two_factor_authentication', github: 'Houdini/two_factor_authentication'
+gem 'two_factor_authentication', git: 'https://github.com/Houdini/two_factor_authentication.git'
 gem 'rolify'
 gem 'authority'
 
