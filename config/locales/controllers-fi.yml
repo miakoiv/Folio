@@ -41,3 +41,5 @@ fi:
       notice: "Käyttäjätili %{user} päivitetty."
     destroy:
       notice: "Käyttäjätili %{user} poistettu."
+    confirm_two_factor_update:
+      notice: "Kaksivaiheinen autentikaatio aktivoitu."

@@ -244,6 +244,24 @@ Devise.setup do |config|
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
 
+  # ==> Two Factor Authentication configuration
+  #     with the two_factor_authentication gem
+  # Maximum second factor attempts count.
+  config.max_login_attempts = 3
+  # Allowed TOTP time drift between client and server.
+  config.allowed_otp_drift_seconds = 30
+  # TOTP code length.
+  config.otp_length = 6
+  # Time before direct OTP becomes invalid.
+  config.direct_otp_valid_for = 5.minutes
+  # Direct OTP code length.
+  config.direct_otp_length = 6
+  # Time before browser has to perform 2FA again. Default is 0.
+  config.remember_otp_session_for_seconds = 16.hours
+  config.otp_secret_encryption_key = 'ed2b956ad1f0b2707fcf768b621787364186fb86157bdc25e14d464dd2885908e0daabdcf2d570c769ade0ce1abf22b3698e1b2467a0d30c8fe6c4057260bcbf'
+  # Field or method name used to set value for 2FA remember cookie.
+  config.second_factor_resource_id = 'id'
+
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.

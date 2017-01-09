@@ -1,0 +1,15 @@
+.text-center.m-b-md
+  %h3 Folio
+  %small= t('users.two_factor.title')
+.hpanel
+  .panel-body
+    = form_tag [resource_name, :two_factor_authentication],
+        method: :put do |f|
+      .form-group
+        %label.control-label= t('users.two_factor.enter_code')
+        = text_field_tag :code, '', class: 'form-control',
+            autofocus: true, autocomplete: 'off'
+      .actions
+        = submit_tag t('users.two_factor.submit_code'), class: 'btn btn-primary btn-block'
+      .devise-actions
+        = link_to t('devise.shared.links.sign_out'), destroy_user_session_path, method: :delete

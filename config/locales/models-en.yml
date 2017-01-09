@@ -115,4 +115,5 @@ en:
         remember_me: Remember me
         reset_password_token: Reset password token
         sign_in_count: Visits
+        two_factor_enabled: Protected with two-factor authentication
         unlock_token: Unlock token

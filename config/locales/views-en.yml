@@ -127,3 +127,8 @@ en:
     new:
       last_name: New
       first_names: user account
+    two_factor:
+      title: Two-factor authentication
+      confirm: Confirm two-factor authentication
+      enter_code: Enter code from authenticator
+      submit_code: Validate

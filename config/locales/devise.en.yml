@@ -97,6 +97,12 @@ en:
       send_instructions: You will receive an email with instructions for how to unlock your account in a few minutes.
       send_paranoid_instructions: If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.
       unlocked: Your account has been unlocked successfully. Please sign in to continue.
+    two_factor_authentication:
+      max_login_attempts_reached: Maximum number of attempts reached
+      contact_administrator: Contact administration for further information.
+      user:
+        success: Authentication successful.
+        attempt_failed: Authentication failed.
   errors:
     messages:
       already_confirmed: was already confirmed, please try signing in

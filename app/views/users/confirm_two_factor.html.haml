@@ -1,0 +1,26 @@
+- content_for :header do
+  %h2= title(User, count: 2)
+  %small= @user.full_name
+- content_for :breadcrumb do
+  %li= link_to title(User, count: 2), users_path
+  %li= link_to @user.full_name, @user
+  %li.active= t('users.two_factor.confirm')
+
+.content
+  .row
+    .col-md-3
+      = render @user
+    .col-md-5
+      = google_authenticator_qrcode(@user)
+    .col-md-4
+      .hpanel
+        .panel-heading.hbuilt
+          = icon('lock', t('users.two_factor.confirm'))
+        .panel-body
+          = form_tag confirm_two_factor_update_path(@user), method: :put do
+            .form-group
+              %label.control-label= t('users.two_factor.enter_code')
+              = text_field_tag :code, '', class: 'form-control',
+                  autofocus: true, autocomplete: 'off'
+            .form-group
+              = submit_tag t('users.two_factor.submit_code'), class: 'btn btn-primary'

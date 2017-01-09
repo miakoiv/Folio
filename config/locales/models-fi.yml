@@ -115,4 +115,5 @@ fi:
         remember_me: Muista minut
         reset_password_token: Salasanan nollausavain
         sign_in_count: Käyntejä
+        two_factor_enabled: Suojattu kaksivaiheisella autentikoinnilla
         unlock_token: Lukituksen avain

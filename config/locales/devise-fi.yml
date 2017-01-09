@@ -97,6 +97,12 @@ fi:
       send_instructions: Saat hetken kuluttua sähköpostiisi ohjeet tunnuksesi lukituksen poistoon.
       send_paranoid_instructions: Jos tilisi on olemassa, muutaman minuutin kuluttua sähköpostiisi on lähetetty ohjeet kuinka poistaa lukitus.
       unlocked: Tunnuksesi on nyt avattu. Olet kirjautuneena sisälle.
+    two_factor_authentication:
+      max_login_attempts_reached: Autentikaatioyritysten määrä ylittynyt
+      contact_administrator: Ota yhteyttä ylläpitoon.
+      user:
+        success: Autentikaatio onnistui.
+        attempt_failed: Autentikaatio epäonnistui.
   errors:
     messages:
       already_confirmed: on jo vahvistettu, yritä kirjautua sisään uudelleen

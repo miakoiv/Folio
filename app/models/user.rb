@@ -11,10 +11,13 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :registerable, :confirmable, and :omniauthable
-  devise :database_authenticatable, :lockable, :recoverable,
-         :rememberable, :trackable, :timeoutable, :validatable
+  devise :database_authenticatable, :two_factor_authenticatable, :lockable,
+         :recoverable, :rememberable, :trackable, :timeoutable, :validatable
 
   include Imageable
+
+  # Two-factor authentication with OTPs
+  has_one_time_password encrypted: true
 
   # The primary unit, users may have access to others, see Unit.accessible_by(user).
   belongs_to :unit
@@ -37,6 +40,8 @@ class User < ApplicationRecord
 
   validates :last_name, :first_names, presence: true
 
+  before_save :valid_two_factor_confirmation
+
   after_create :assign_default_role
   def assign_default_role
     add_role(:user, unit) if roles.blank?
@@ -58,6 +63,16 @@ class User < ApplicationRecord
     super && active?
   end
 
+  # 2FA is needed if enabled and already confirmed from an authorizer app.
+  def need_two_factor_authentication?(request)
+    two_factor_enabled? && !unconfirmed_two_factor?
+  end
+
+  def confirm_two_factor!(code)
+    return false unless authenticate_otp(code)
+    update(unconfirmed_two_factor: false)
+  end
+
   def full_name
     return last_name if first_names.empty?
     [last_name, first_names].join ', '
@@ -71,4 +86,25 @@ class User < ApplicationRecord
   def to_s
     full_name
   end
+
+  private
+    def generate_secret_key
+      self.otp_secret_key = generate_totp_secret
+    end
+
+    # If two-factor authentication has just been enabled, set status to
+    # unconfirmed and generate a fresh secret key.
+    def valid_two_factor_confirmation
+      if two_factor_just_set
+        self.unconfirmed_two_factor = true
+        generate_secret_key
+      else
+        self.unconfirmed_two_factor = false
+      end
+      true
+    end
+
+    def two_factor_just_set
+      two_factor_enabled? && two_factor_enabled_changed?
+    end
 end

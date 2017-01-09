@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy,
+    :confirm_two_factor, :confirm_two_factor_update]
 
   # GET /users
   # GET /users.json
@@ -55,7 +56,13 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         track @user
-        format.html { redirect_to @user, notice: t('.notice', user: @user) }
+        format.html {
+          if @user.unconfirmed_two_factor?
+            redirect_to confirm_two_factor_path(@user)
+          else
+            redirect_to @user, notice: t('.notice', user: @user)
+          end
+        }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -77,6 +84,23 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/1/two_factor/confirm
+  def confirm_two_factor
+  end
+
+  # PUT /users/1/two_factor
+  def confirm_two_factor_update
+    respond_to do |format|
+      format.html {
+        if @user.confirm_two_factor!(params[:code])
+          redirect_to @user, notice: t('.notice', user: @user)
+        else
+          render :confirm_two_factor
+        end
+      }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -88,7 +112,8 @@ class UsersController < ApplicationController
       params.require(:user).permit(
         :email, :last_name, :first_names, :locale,
         :password, :password_confirmation,
-        :activates_at, :expires_at
+        :activates_at, :expires_at,
+        :two_factor_enabled
       )
     end
 end

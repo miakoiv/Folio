@@ -127,3 +127,8 @@ fi:
     new:
       last_name: Uusi
       first_names: käyttäjätili
+    two_factor:
+      title: Kaksivaiheinen autentikointi
+      confirm: Vahvista kaksivaiheinen autentikointi
+      enter_code: Syötä autentikaattorin koodi
+      submit_code: Tarkasta

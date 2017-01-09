@@ -56,8 +56,12 @@ gem 'jbuilder', '~> 2.5'
 
 # User authentication and authorization
 gem 'devise'
+gem 'two_factor_authentication', github: 'Houdini/two_factor_authentication'
 gem 'rolify'
 gem 'authority'
+
+# QRCode generation
+gem 'rqrcode'
 
 # Country and language selections
 gem 'country_select'

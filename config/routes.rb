@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  get '/users/:id/two_factor/confirm',
+    to: 'users#confirm_two_factor', as: :confirm_two_factor
+  put '/users/:id/two_factor',
+    to: 'users#confirm_two_factor_update', as: :confirm_two_factor_update
+
   post '/users/:user_id/privileges', to: 'privileges#create', as: :add_privilege
   delete '/users/:user_id/privileges/:name/:resource_gid',
     to: 'privileges#destroy', as: :remove_privilege
