@@ -2,6 +2,7 @@ en:
   actions:
     cancel: Cancel
     edit: Edit
+    back: Back
   activities:
     panel:
       header: Activity details

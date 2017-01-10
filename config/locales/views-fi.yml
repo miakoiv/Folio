@@ -2,6 +2,7 @@ fi:
   actions:
     cancel: Kumoa
     edit: Muokkaa
+    back: Takaisin
   activities:
     panel:
       header: Aktiviteetin yksityiskohdat
@@ -128,7 +129,7 @@ fi:
       last_name: Uusi
       first_names: käyttäjätili
     two_factor:
-      title: Kaksivaiheinen autentikointi
-      confirm: Vahvista kaksivaiheinen autentikointi
+      title: Kaksivaiheinen tunnistautuminen
+      confirm: Vahvista kaksivaiheinen tunnistautuminen
       enter_code: Syötä autentikaattorin koodi
       submit_code: Tarkasta
