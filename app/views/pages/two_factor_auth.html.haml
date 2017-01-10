@@ -1,0 +1,72 @@
+- content_for :header do
+  %h2 Kaksivaiheinen tunnistautuminen
+  %small Folio-ohjeet
+- content_for :breadcrumb do
+  %li Folio-ohjeet
+  %li.active Kaksivaiheinen tunnistautuminen
+
+.content.content-boxed
+  .row
+    .col-lg-12
+      .hpanel.blog-article-box
+        .panel-heading
+          %h4 Kaksivaiheinen tunnistautuminen
+          %small Mikä se on ja miten se toimii?
+        .panel-body
+          %p
+            Kaksivaiheinen tunnistautuminen on tietoturvaa lisäävä toiminto, jossa käyttäjä tunnistautuu Folioon kahdella eri menetelmällä. Tavallisen sähköpostiosoitteen ja salasanan lisäksi käytämme älypuhelimeen asennettavaa autentikaattoria.
+          %p
+            Jokainen Folion käyttäjä voi aktivoida kaksivaiheisen tunnistautumisen itsenäisesti, helposti ja nopeasti. Aloita asentamalla autentikaattori puhelimeesi:
+
+          .row
+            .col-sm-4.m-t-md.m-b-md
+              %a.btn.btn-default.btn-block.btn-lg{target: '_blank', href: 'https://appsto.re/fi/fdakx.i'}
+                = icon('apple', 'iPhone')
+            .col-sm-4.m-t-md.m-b-md
+              %a.btn.btn-default.btn-block.btn-lg{target: '_blank', href: 'https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2'}
+                = icon('android', 'Android')
+            .col-sm-4.m-t-md.m-b-md
+              %a.btn.btn-default.btn-block.btn-lg{target: '_blank', href: 'https://www.microsoft.com/en-us/store/p/authenticator/9nblggh08h54'}
+                = icon('windows', 'Windows Phone')
+
+          %small
+            = icon('exclamation-circle')
+            Google Authenticator -autentikaattorin käyttö ei vaadi Google-tiliä eikä ole muutenkaan yhteydessä Googlen palveluihin.
+
+          .hr-line-dashed
+
+          .row
+            .col-sm-4.col-md-3
+              = image_tag 'pages/my_profile.png', class: 'thumbnail img-responsive'
+
+            .col-sm-8.col-md-9
+              %p
+                Seuraavaksi avaa oma profiilisi käyttäjävalikosta oman nimesi alapuolelta, ja valitse
+                %span.btn.btn-sm.btn-default= icon('pencil', 'Muokkaa')
+              .pull-right
+                = image_tag 'pages/enable_2fa.png', class: 'thumbnail img-responsive'
+              %p
+                Aktivoi kaksivaiheinen tunnistautuminen lukkosymbolista ja
+                %span.btn.btn-sm.btn-default Päivitä käyttäjä.
+
+          .hr-line-dashed
+
+          %p
+            Avaa puhelimesi autentikaattori ja aloita käyttöönotto ohjeiden mukaisesti. Valitse
+            %span.btn.btn-default= icon('camera', 'Skannaa viivakoodi')
+            ja osoita puhelimen kamera kohti ruudullasi näkyvää viivakoodia. Näppäile puhelimen antama numerosarja kohtaan
+            %label.control-label Syötä autentikaattorin koodi
+            ja valitse
+            %span.btn.btn-sm.btn-default Tarkasta
+          %p
+            = image_tag 'pages/confirm_2fa.png', class: 'thumbnail img-responsive'
+          %p
+            Koodin ollessa oikein kaksivaiheinen tunnistautuminen aktivoituu. Seuraavalla kirjautumiskerralla sinulta kysytään autentikaattorin näyttämää koodia, joka vaihtuu 30 sekunnin välein.
+          %p
+            Koodi on voimassa 16 tuntia, joten tänä aikana voit kirjautua ulos ja takaisin sisään ilman autentikaattoria.
+          %small
+            = icon('warning')
+            Tunnistautumiseen sallitaan kolme yritystä. Jos koodi syötetään neljännen kerran väärin, käyttäjätilisi lukkiutuu. Ota yhteys ylläpitoon tilin avaamiseksi.
+
+        .panel-footer
+          = link_to icon('hand-o-left', t('actions.back')), :back
