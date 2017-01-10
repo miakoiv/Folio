@@ -77,6 +77,9 @@ gem 'httparty'
 # Date library for FullCalendar
 gem 'momentjs-rails'
 
+# Facilities for static pages
+gem 'high_voltage'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
