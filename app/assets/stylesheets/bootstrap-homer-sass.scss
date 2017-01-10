@@ -191,6 +191,18 @@ fieldset[disabled] .btn-group label.btn {
   .btn-default.active { @extend .btn-info; }
 }
 
+// Blog articles with a serif font
+.blog-article-box .panel-body p {
+  font-family: 'TeX Gyre Pagella', serif;
+  font-size: 1.333em;
+  line-height: 1.6em;
+
+  // with buttons reverted to sans
+  .btn {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+}
+
 // Devise styling
 .devise-actions {
   @extend .m-t-md;
