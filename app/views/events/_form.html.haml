@@ -26,7 +26,7 @@
           %label.control-label= Event.human_attribute_name(:duration)
           .btn-group{data: {toggle: 'buttons'}}
             - duration_options.each do |label, value|
-              %label.btn.btn-default{class: value == @event.duration ? 'active' : ''}
+              %label.btn.btn-default{class: value == @event.duration && 'active'}
                 = f.radio_button_without_bootstrap :duration, value
                 = label
     .row

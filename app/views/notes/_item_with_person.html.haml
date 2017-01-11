@@ -9,7 +9,7 @@
             %small
               = time_ago_in_words note.created_at
               = t('time.ago')
-            .stat-label{class: note.user == current_user ? 'font-light' : ''}
+            .stat-label{class: note.user == current_user && 'font-light'}
               = note.user
           %span.font-bold= note.customer.person.full_name
           .social-content

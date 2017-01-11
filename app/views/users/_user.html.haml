@@ -1,4 +1,4 @@
-.hpanel.contact-panel{class: user.active? ? 'hgreen' : ''}
+.hpanel.contact-panel{class: user.active? && 'hgreen'}
   .panel-body
     .pull-right.text-right
       - user.roles.each do |role|

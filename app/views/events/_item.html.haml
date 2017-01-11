@@ -1,4 +1,4 @@
-.hpanel.filter-item{id: dom_id(event)}
+.hpanel.filter-item[event]
   = link_to [:edit, event], remote: true do
     .panel-body
       %span.label.pull-right{class: "label-#{event.event_type.appearance}"}

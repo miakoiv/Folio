@@ -1,4 +1,4 @@
-.list-group-item{id: dom_id(role)}
+.list-group-item[role]
   - if !editing_disabled? && current_user.can_delete?(Privilege.from_role(role), {unit: @user.unit})
     .pull-right
       = link_to icon('trash'),

@@ -18,7 +18,7 @@
           %label.control-label= Person.human_attribute_name(:gender)
           .btn-group{data: {toggle: 'buttons'}}
             - gender_options.each do |label, value|
-              %label.btn.btn-default{class: value == @person.gender ? 'active' : ''}
+              %label.btn.btn-default{class: value == @person.gender && 'active'}
                 = f.radio_button_without_bootstrap :gender, value
                 = label
     .hr-line-dashed

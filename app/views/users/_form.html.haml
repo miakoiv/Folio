@@ -41,7 +41,7 @@
                 = icon('question-circle', class: 'fa-lg')
             .btn-group{data: {toggle: 'buttons'}}
               - two_factor_options.each do |label, value|
-                %label.btn.btn-default{class: value == @user.two_factor_enabled ? 'active' : ''}
+                %label.btn.btn-default{class: value == @user.two_factor_enabled && 'active'}
                   = f.radio_button_without_bootstrap :two_factor_enabled, value
                   = label
     - unless editing_disabled?

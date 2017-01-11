@@ -1,4 +1,4 @@
-.media{id: dom_id(document)}
+.media[document]
   .media-left
     = link_to document.attachment_url(:original), target: '_blank' do
       = image_tag document.attachment_url(:thumbnail),
