@@ -19,8 +19,10 @@ default: &default
   socket: /var/run/mysqld/mysqld.sock
 
 development:
-  <<: *default
-  database: folio_dev
+  encoding: utf8
+  collation: utf8_swedish_ci
+  pool: 5
+  url: <%= ENV['DATABASE_URL'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -49,5 +51,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: folio
+  encoding: utf8
+  collation: utf8_swedish_ci
+  pool: 5
+  url: <%= ENV['DATABASE_URL'] %>

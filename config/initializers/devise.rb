@@ -258,7 +258,7 @@ Devise.setup do |config|
   config.direct_otp_length = 6
   # Time before browser has to perform 2FA again. Default is 0.
   config.remember_otp_session_for_seconds = 16.hours
-  config.otp_secret_encryption_key = 'ed2b956ad1f0b2707fcf768b621787364186fb86157bdc25e14d464dd2885908e0daabdcf2d570c769ade0ce1abf22b3698e1b2467a0d30c8fe6c4057260bcbf'
+  config.otp_secret_encryption_key = ENV['OTP_SECRET_KEY']
   # Field or method name used to set value for 2FA remember cookie.
   config.second_factor_resource_id = 'id'
 
