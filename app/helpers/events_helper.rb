@@ -6,7 +6,7 @@ module EventsHelper
 
   def duration_options
     [].tap do |options|
-      (1800..14400).step(1800) do |d|
+      [900, 1800, 2700, 3600, 5400, 7200, 10800, 14400].each do |d|
         options << [duration_in_hours_minutes(d), d]
       end
     end
