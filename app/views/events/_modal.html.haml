@@ -5,5 +5,4 @@
     = title(Event)
   .small.font-bold= @event.context
   .small.font-bold= @event.customer.person if @event.customer.present?
-.modal-body
-  = render partial: 'form'
+= render partial: 'form'

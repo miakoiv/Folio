@@ -192,6 +192,11 @@ textarea.form-control {
   min-height: 54px;
 }
 
+.form-group.actions {
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
 // More visibility to active buttons in button groups
 .btn-group {
   .btn-default.active { @extend .btn-info; }

@@ -8,4 +8,5 @@
         Role.resource_classes, :all, :to_collection_title, :to_global_id, :to_s,
         {}, {data: {provide: 'select2', language: I18n.locale,
         'minimum-results-for-search': 'Infinity'}}
+  .form-group.actions
     = f.submit class: 'btn btn-primary'

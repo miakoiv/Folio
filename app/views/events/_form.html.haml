@@ -1,39 +1,40 @@
 = bootstrap_form_for [@context, @event], remote: true,
     html: {novalidate: true} do |f|
-  %fieldset
-    - if @event.context.is_a?(Customer)
+  .modal-body
+    %fieldset
+      - if @event.context.is_a?(Customer)
+        .row
+          .col-md-12
+            = f.select :event_type_id, event_type_options, {},
+                data: {provide: 'select2', language: I18n.locale,
+                  'minimum-results-for-search': 'Infinity'}
+      - else
+        = f.hidden_field :event_type_id, value: 0
+      .row
+        = f.fields_for :compound_starts_at do |ff|
+          .col-md-6
+            = ff.text_field :date, autocomplete: 'off',
+                label: Event.human_attribute_name(:date),
+                data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd',
+                  'date-language': I18n.locale}
+          .col-md-6
+            = ff.text_field :time, autocomplete: 'off',
+                label: Event.human_attribute_name(:time),
+                data: {provide: 'clockpicker', autoclose: true}
       .row
         .col-md-12
-          = f.select :event_type_id, event_type_options, {},
-              data: {provide: 'select2', language: I18n.locale,
-                'minimum-results-for-search': 'Infinity'}
-    - else
-      = f.hidden_field :event_type_id, value: 0
-    .row
-      = f.fields_for :compound_starts_at do |ff|
-        .col-md-6
-          = ff.text_field :date, autocomplete: 'off',
-              label: Event.human_attribute_name(:date),
-              data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd',
-                'date-language': I18n.locale}
-        .col-md-6
-          = ff.text_field :time, autocomplete: 'off',
-              label: Event.human_attribute_name(:time),
-              data: {provide: 'clockpicker', autoclose: true}
-    .row
-      .col-md-12
-        = f.form_group :duration do
-          %label.control-label= Event.human_attribute_name(:duration)
-          .btn-group{data: {toggle: 'buttons'}}
-            - duration_options.each do |label, value|
-              %label.btn.btn-default{class: value == @event.duration && 'active'}
-                = f.radio_button_without_bootstrap :duration, value
-                = label
-    .row
-      .col-md-12
-        = f.text_field :title, autofocus: true
-    .row
-      .col-md-12
-        = f.text_area :description
-    .form-group.actions
-      = f.submit class: 'btn btn-primary'
+          = f.form_group :duration do
+            %label.control-label= Event.human_attribute_name(:duration)
+            .btn-group{data: {toggle: 'buttons'}}
+              - duration_options.each do |label, value|
+                %label.btn.btn-default{class: value == @event.duration && 'active'}
+                  = f.radio_button_without_bootstrap :duration, value
+                  = label
+      .row
+        .col-md-12
+          = f.text_field :title, autofocus: true
+      .row
+        .col-md-12
+          = f.text_area :description
+  .modal-footer
+    = f.submit class: 'btn btn-primary'

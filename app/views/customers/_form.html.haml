@@ -17,9 +17,9 @@
           = f.text_field :referrer_info, skip_label: true, wrapper_class: 'm-t-n',
               placeholder: Customer.human_attribute_name(:referrer_info)
 
-    - unless editing_disabled?
-      .form-group.actions
-        = f.submit class: 'btn btn-primary'
+  - unless editing_disabled?
+    .form-group.actions
+      = f.submit class: 'btn btn-primary'
 
 :coffee
   needs_info = #{Referrer.needs_info.pluck(:id)}

@@ -34,8 +34,7 @@
           .panel-body.no-padding
             = f.text_area :content, skip_label: true, wrapper_class: 'm-b-none'
           .panel-footer
-            .form-group.actions
-              = f.submit class: 'btn btn-primary'
+            = f.submit class: 'btn btn-primary'
 
 :coffee
   $('#memo_content').summernote

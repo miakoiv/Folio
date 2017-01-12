@@ -44,6 +44,6 @@
                 %label.btn.btn-default{class: value == @user.two_factor_enabled && 'active'}
                   = f.radio_button_without_bootstrap :two_factor_enabled, value
                   = label
-    - unless editing_disabled?
-      .form-group.actions
-        = f.submit class: 'btn btn-primary'
+  - unless editing_disabled?
+    .form-group.actions
+      = f.submit class: 'btn btn-primary'
