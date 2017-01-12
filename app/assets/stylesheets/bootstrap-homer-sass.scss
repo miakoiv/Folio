@@ -186,6 +186,12 @@ fieldset[disabled] .btn-group label.btn {
   &.active { display: block; }
 }
 
+// Only allow vertical resizing of textareas
+textarea.form-control {
+  resize: vertical;
+  min-height: 54px;
+}
+
 // More visibility to active buttons in button groups
 .btn-group {
   .btn-default.active { @extend .btn-info; }
