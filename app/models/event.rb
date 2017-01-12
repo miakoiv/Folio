@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
 
+  include SoftDeletable
   include Trackable
 
   belongs_to :user

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170112083205) do
+ActiveRecord::Schema.define(version: 20170112120711) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "unit_id",                     null: false
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20170112083205) do
     t.text     "description",   limit: 65535
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.datetime "deleted_at"
     t.index ["customer_id"], name: "index_events_on_customer_id", using: :btree
     t.index ["event_type_id"], name: "index_events_on_event_type_id", using: :btree
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
