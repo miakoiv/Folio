@@ -54,6 +54,13 @@ en:
         old_value: Old value
         resource: Record
         whodunnit_id: Actor
+      customer:
+        contact_id: Primary contact
+        created_at: Since
+        notes: Notes
+        referrer_id: Referred by
+        referrer_info: Specify referral…
+        status_id: Customer status
       event:
         date: Starting date
         description: Description
@@ -65,12 +72,6 @@ en:
         user_id: Owner
       image:
         attachment: Image file
-      customer:
-        created_at: Since
-        notes: Notes
-        referrer_id: Referred by
-        referrer_info: Specify referral…
-        status_id: Customer status
       memo:
         sender_id: Sender
         recipient_ids: Recipients

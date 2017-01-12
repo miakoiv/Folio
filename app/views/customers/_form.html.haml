@@ -8,6 +8,12 @@
             data: {provide: 'select2', language: I18n.locale,
               'minimum-results-for-search': 'Infinity'}
       .col-md-6
+        = f.select :contact_id, contact_options(@customer.unit),
+            {}, disabled: editing_disabled?,
+            data: {provide: 'select2', language: I18n.locale,
+              'minimum-results-for-search': 'Infinity'}
+    .row
+      .col-md-12
         = f.select :referrer_id, referrer_options,
             {include_blank: true}, disabled: editing_disabled?,
             data: {provide: 'select2', language: I18n.locale,

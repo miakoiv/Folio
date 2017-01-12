@@ -54,6 +54,13 @@ fi:
         old_value: Vanha arvo
         resource: Tietue
         whodunnit_id: Tekijä
+      customer:
+        contact_id: Yhteyshenkilö
+        created_at: Alkaen
+        notes: Huomautuksia
+        referrer_id: Lähettävä taho
+        referrer_info: Tarkenna lähettävä taho…
+        status_id: Asiakkuuden tila
       event:
         date: Alkamispäivä
         description: Kuvaus
@@ -65,12 +72,6 @@ fi:
         user_id: Omistaja
       image:
         attachment: Kuvatiedosto
-      customer:
-        created_at: Alkaen
-        notes: Huomautuksia
-        referrer_id: Lähettävä taho
-        referrer_info: Tarkenna lähettävä taho…
-        status_id: Asiakkuuden tila
       memo:
         sender_id: Lähettäjä
         recipient_ids: Vastaanottajat
