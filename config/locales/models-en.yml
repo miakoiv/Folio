@@ -96,6 +96,7 @@ en:
         last_name: Last name
         municipality_id: Municipality
         nationality: Nationality
+        notes: Notes
         phone: Phone number
         postcode_id: Postal address
       relationship:

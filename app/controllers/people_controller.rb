@@ -122,7 +122,7 @@ class PeopleController < ApplicationController
         :identification, :date_of_birth, :last_name, :first_names,
         :gender, :email, :phone, :address, :postcode_id, :municipality_id,
         :language, :nationality, :accommodation, :disabilities,
-        :education_level_id, :education_info
+        :education_level_id, :education_info, :notes
       )
     end
 end

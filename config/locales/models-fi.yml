@@ -96,6 +96,7 @@ fi:
         last_name: Sukunimi
         municipality_id: Kotikunta
         nationality: Kansallisuus
+        notes: Muistiinpanoja
         phone: Puhelinnumero
         postcode_id: Postiosoite
       relationship:

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104120743) do
+ActiveRecord::Schema.define(version: 20170112073744) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "unit_id",                     null: false
@@ -150,9 +150,10 @@ ActiveRecord::Schema.define(version: 20170104120743) do
     t.string   "education_info"
     t.string   "accommodation"
     t.string   "disabilities"
-    t.integer  "children_count",               default: 0, null: false
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.text     "notes",              limit: 65535
+    t.integer  "children_count",                   default: 0, null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.index ["children_count"], name: "index_people_on_children_count", using: :btree
     t.index ["education_level_id"], name: "index_people_on_education_level_id", using: :btree
     t.index ["last_name"], name: "index_people_on_last_name", using: :btree
