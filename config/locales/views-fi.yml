@@ -1,5 +1,6 @@
 fi:
   actions:
+    menu: Toiminnot
     cancel: Kumoa
     edit: Muokkaa
     back: Takaisin
@@ -48,6 +49,8 @@ fi:
       header: Tapahtumat
     new:
       title: Uusi tapahtuma
+    form:
+      cancel: Peru tapahtuma
   history:
     panel:
       header: Asiakkuudet muualla

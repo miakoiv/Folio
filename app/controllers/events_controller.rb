@@ -75,16 +75,13 @@ class EventsController < ApplicationController
     end
   end
 
-  # DELETE /events/1
-  # DELETE /events/1.json
+  # DELETE /events/1.js
   def destroy
-    @customer = @event.customer
     track @event, @event.context
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to @customer, notice: t('.notice', event: @event) }
-      format.json { head :no_content }
+      format.js
     end
   end
 

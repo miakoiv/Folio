@@ -1,5 +1,6 @@
 en:
   actions:
+    menu: Actions
     cancel: Cancel
     edit: Edit
     back: Back
@@ -48,6 +49,8 @@ en:
       header: Events
     new:
       title: New event
+    form:
+      cancel: Cancel event
   history:
     panel:
       header: Customers elsewhere

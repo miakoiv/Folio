@@ -37,4 +37,13 @@
         .col-md-12
           = f.text_area :description
   .modal-footer
+    - unless @event.new_record?
+      .pull-left
+        .dropdown
+          %button.btn.btn-default.dropdown-toggle{type: 'button', data: {toggle: 'dropdown'}}
+            = t('actions.menu')
+            %span.caret
+          %ul.dropdown-menu
+            %li= link_to icon('remove', t('.cancel')), @event,
+              method: :delete, remote: true
     = f.submit class: 'btn btn-primary'
