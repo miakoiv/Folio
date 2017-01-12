@@ -5,17 +5,9 @@
       %fieldset
         .row
           .col-md-12
-            .form-group
-              = f.label :relation_id
-              .input-group
-                = f.select_without_bootstrap :relation_id, relation_options, {},
-                    data: {provide: 'select2', language: I18n.locale,
-                      'minimum-results-for-search': 'Infinity'}
-                - unless @relationship.new_record?
-                  %span.input-group-btn
-                    = link_to @relationship, method: :delete, remote: true,
-                        class: 'btn btn-danger' do
-                      = icon('close', t('.delete'))
+            = f.select :relation_id, relation_options, {},
+                data: {provide: 'select2', language: I18n.locale,
+                  'minimum-results-for-search': 'Infinity'}
         .row
           .col-md-12
             = f.select :parent_id,
@@ -27,6 +19,11 @@
       .hr-line-dashed
       = render partial: 'parent_fields', locals: {f: f}
     .modal-footer
+      - unless @relationship.new_record?
+        .pull-left
+          = link_to @relationship, method: :delete, remote: true,
+              class: 'btn btn-danger' do
+            = icon('close', t('.delete'))
       = f.submit class: 'btn btn-primary'
 
   :coffee
