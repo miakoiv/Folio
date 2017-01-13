@@ -16,10 +16,12 @@ fi:
   authority:
     forbidden: Käyttöoikeutesi ei riitä tähän toimintoon.
   dashboard:
+    customers:
+      header: Asiakkaat
     events:
       header: Tapahtumakalenteri
     notes:
-      header: Uusimmat muistiinpanot
+      header: Asiakasmerkinnät
   dropzone:
     default_message: Pudota tiedostoja tähän tai klikkaa
   header:

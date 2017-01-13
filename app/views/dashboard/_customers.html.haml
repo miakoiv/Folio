@@ -1,0 +1,3 @@
+= render partial: 'customers/item_with_person',
+    collection: current_user.customers.at(current_unit).includes(:person),
+    as: :customer

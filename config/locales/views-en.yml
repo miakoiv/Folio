@@ -16,10 +16,12 @@ en:
   authority:
     forbidden: You are not authorized to complete that action.
   dashboard:
+    customers:
+      header: Customers
     events:
       header: Event calendar
     notes:
-      header: Latest notes
+      header: Customer notes
   dropzone:
     default_message: Drop files here or click
   header:

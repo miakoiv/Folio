@@ -1,6 +1,15 @@
 .content
   .row
     .col-md-4
-      = render partial: 'notes'
+      .hpanel
+        %ul.nav.nav-tabs
+          = nav_tab 'customers-panel', icon('handshake-o', t('dashboard.customers.header')),
+              class: 'active'
+          = nav_tab 'notes-panel', icon('book', t('dashboard.notes.header'))
+        .tab-content
+          #customers-panel.tab-pane.fade.in.active
+            = render partial: 'customers'
+          #notes-panel.tab-pane.fade
+            = render partial: 'notes'
     .col-md-8
       = render partial: 'events'
