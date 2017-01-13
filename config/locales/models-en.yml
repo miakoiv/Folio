@@ -55,7 +55,7 @@ en:
         resource: Record
         whodunnit_id: Actor
       customer:
-        contact_id: Primary contact
+        contact_id: Person responsible
         created_at: Since
         notes: Notes
         referrer_id: Referred by

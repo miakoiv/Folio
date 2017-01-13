@@ -55,7 +55,7 @@ fi:
         resource: Tietue
         whodunnit_id: Tekijä
       customer:
-        contact_id: Yhteyshenkilö
+        contact_id: Vastuuhenkilö
         created_at: Alkaen
         notes: Huomautuksia
         referrer_id: Lähettävä taho
