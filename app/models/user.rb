@@ -22,6 +22,9 @@ class User < ApplicationRecord
   # The primary unit, users may have access to others, see Unit.accessible_by(user).
   belongs_to :unit
 
+  # Customers where the user is the primary contact
+  has_many :customers, foreign_key: :contact_id
+
   has_many :sent_memos, class_name: 'Memo', foreign_key: :sender_id
   has_many :deliveries, as: :recipient
   has_many :received_memos, through: :deliveries, source: :memo
