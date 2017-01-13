@@ -136,3 +136,6 @@ en:
       confirm: Confirm two-factor authentication
       enter_code: Enter code from authenticator
       submit_code: Validate
+      reminder: Two-factor authentication hasn't been confirmed yet. Confirmation is required to activate two-factor authentication.
+      confirm_now: Confirm now
+      confirm_later: Later

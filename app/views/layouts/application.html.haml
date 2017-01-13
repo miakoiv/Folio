@@ -41,3 +41,6 @@
       .modal-dialog
         .modal-content
           = render partial: 'shared/print_modal'
+
+    - if user_signed_in? && need_2fa_confirm?
+      = render partial: 'devise/two_factor_authentication/confirm_alert'

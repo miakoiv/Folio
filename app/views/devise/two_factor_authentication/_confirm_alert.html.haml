@@ -1,0 +1,12 @@
+:coffee
+  swal
+    titleText: "#{I18n.t('users.two_factor.confirm')}"
+    text: "#{I18n.t('users.two_factor.reminder')}"
+    type: 'warning'
+    showCancelButton: true
+    reverseButtons: true
+    confirmButtonText: "#{I18n.t('users.two_factor.confirm_now')}"
+    cancelButtonText: "#{I18n.t('users.two_factor.confirm_later')}"
+    allowOutsideClick: false
+  .then ->
+    window.location = "#{confirm_two_factor_path(current_user)}"

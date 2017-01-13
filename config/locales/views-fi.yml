@@ -136,3 +136,6 @@ fi:
       confirm: Vahvista kaksivaiheinen tunnistautuminen
       enter_code: Syötä autentikaattorin koodi
       submit_code: Tarkasta
+      reminder: Kaksivaiheista tunnistautumista ei ole vielä vahvistettu. Vahvistus tarvitaan, jotta kaksivaiheinen tunnistautuminen voidaan aktivoida.
+      confirm_now: Vahvista nyt
+      confirm_later: Myöhemmin

@@ -19,6 +19,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Check if current user has two factor authentication left unconfirmed,
+  # and has gone outside UsersController.
+  def need_2fa_confirm?
+    !request.xhr? && current_user.unconfirmed_two_factor? &&
+      controller_name != 'users'
+  end
+  helper_method :need_2fa_confirm?
+
   # Set a flag to disable editing in rendered forms.
   def disable_editing!
     @disable_editing = true
