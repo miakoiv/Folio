@@ -67,7 +67,7 @@ module ApplicationHelper
 
   # Generates an options array for locale select tags.
   def locale_options
-    I18n.available_locales.map do |l|
+    [:fi, :en].map do |l|
       [I18n.with_locale(l) { t('i18n.language.name') }, l]
     end
   end
