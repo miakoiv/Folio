@@ -9,7 +9,7 @@ class Activity < ApplicationRecord
 
   belongs_to :unit
   belongs_to :whodunnit, class_name: 'User'
-  belongs_to :resource, polymorphic: true
+  belongs_to :resource, -> { unscope(where: :deleted_at) }, polymorphic: true
   belongs_to :context, polymorphic: true
 
   serialize :differences, JSON
