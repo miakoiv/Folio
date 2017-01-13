@@ -261,6 +261,11 @@ textarea.form-control {
   .note-editable { border: 0; }
 }
 
+// Sweetalert2 styling
+.swal2-modal {
+  font-family: inherit;
+}
+
 // Infinite pagination gets a nifty scroll bar for loading indicator
 .infinite-pagination {
   @extend .progress, .full, .progress-striped, .m-t;

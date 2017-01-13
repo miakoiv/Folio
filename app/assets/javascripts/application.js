@@ -33,6 +33,7 @@
 //= require jquery.slimscroll.min
 //= require metisMenu.min
 //= require toastr.min
+//= require sweetalert2.min
 //= require homer
 //
 //= require_tree .

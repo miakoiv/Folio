@@ -29,6 +29,7 @@
  *= require animate.min
  *= require metisMenu.min
  *= require toastr.min
+ *= require sweetalert2.min
  *
  * Bootstrap with HOMER theme
  *= require bootstrap-homer-sass
