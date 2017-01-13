@@ -1,7 +1,7 @@
 .color-line
 .modal-header
-  %h4.modal-title
-    = t('print.title')
+  .pull-right= modal_close_button
+  %h4.modal-title= t('print.title')
 .modal-body
   = t('print.body_html')
 .modal-footer

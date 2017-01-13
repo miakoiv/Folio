@@ -33,11 +33,11 @@
     #toast-container.toast-top-center
       %span
 
-    #modal.modal.fade{role: 'dialog'}
+    #modal.modal.fade{role: 'dialog', data: {backdrop: 'static'}}
       .modal-dialog
         .modal-content
 
-    #print-modal.modal.fade{role: 'dialog'}
+    #print-modal.modal.fade{role: 'dialog', data: {backdrop: 'static'}}
       .modal-dialog
         .modal-content
           = render partial: 'shared/print_modal'

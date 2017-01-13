@@ -57,6 +57,14 @@ module ApplicationHelper
     link_to text, "mailto:#{email}", options
   end
 
+  # Button to dismiss a modal
+  def modal_close_button
+    content_tag :button, type: 'button', class: 'close',
+      data: {dismiss: 'modal'} do
+      icon('close')
+    end
+  end
+
   # Generates an options array for locale select tags.
   def locale_options
     I18n.available_locales.map do |l|
