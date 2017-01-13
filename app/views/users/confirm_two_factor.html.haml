@@ -22,5 +22,5 @@
               %label.control-label= t('users.two_factor.enter_code')
               = text_field_tag :code, '', class: 'form-control',
                   autofocus: true, autocomplete: 'off'
-            .form-group
+            .form-group.actions
               = submit_tag t('users.two_factor.submit_code'), class: 'btn btn-primary'
