@@ -70,7 +70,10 @@ class User < ApplicationRecord
 
   def confirm_two_factor!(code)
     return false unless authenticate_otp(code)
-    update(unconfirmed_two_factor: false)
+    update(
+      unconfirmed_two_factor: false,
+      second_factor_attempts_count: 0
+    )
   end
 
   def full_name
