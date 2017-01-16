@@ -28,6 +28,7 @@
 //= require unobtrusive_flash
 //
 // Vendor scripts
+//= require Chart.min
 //= require fullcalendar/fullcalendar.min
 //= require fullcalendar/locale/fi
 //= require jquery.slimscroll.min
