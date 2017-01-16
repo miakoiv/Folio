@@ -52,5 +52,8 @@ Rails.application.routes.draw do
   end
 
   post 'search', to: 'search#index', as: :search
+
   get 'reports', to: 'reports#index', as: :reports
+  get 'reports/people', to: 'reports#people', as: :people_reports
+  get 'reports/customers', to: 'reports#customers', as: :customers_reports
 end
