@@ -1,3 +1,46 @@
 .content
   .row
-    .col-md-12
+    .col-md-3
+      .hpanel
+        .panel-heading= t('.title')
+        .panel-body.text-center
+          %i.pe-7s-user.pe-5x
+          %h1.font-extra-bold.m-b-xs
+            = @people.count
+          .small= t('.count')
+          .small.m-t
+            - if @people.latest.present?
+              = link_to @people.latest do
+                = icon('clock-o', t('.latest'))
+                = l(@people.latest.created_at.to_date)
+
+    .col-md-6
+      .hpanel
+        .panel-heading= t('.by_age')
+        .panel-body
+          %canvas#people-by-age
+    .col-md-3
+      .hpanel
+        .panel-heading= t('.by_gender')
+        .panel-body
+          %canvas#people-by-gender
+
+:coffee
+  new Chart $('#people-by-age'),
+    type: 'bar'
+    data: #{ChartData.by_age(@people).to_json}
+    options:
+      legend:
+        display: false
+      scales:
+        yAxes: [{
+          ticks:
+            beginAtZero: true
+        }]
+
+  new Chart $('#people-by-gender'),
+    type: 'pie'
+    data: #{ChartData.by_gender(@people).to_json}
+    options:
+      legend:
+        display: false

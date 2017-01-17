@@ -1,3 +1,32 @@
 .content
   .row
-    .col-md-12
+    .col-md-8
+      .hpanel
+        .panel-heading= t('.by_age')
+        .panel-body
+          %canvas#customers-by-age
+    .col-md-4
+      .hpanel
+        .panel-heading= t('.by_gender')
+        .panel-body
+          %canvas#customers-by-gender
+
+:coffee
+  new Chart $('#customers-by-age'),
+    type: 'bar'
+    data: #{ChartData.by_age(@customers).to_json}
+    options:
+      legend:
+        display: false
+      scales:
+        yAxes: [{
+          ticks:
+            beginAtZero: true
+        }]
+
+  new Chart $('#customers-by-gender'),
+    type: 'pie'
+    data: #{ChartData.by_gender(@customers).to_json}
+    options:
+      legend:
+        display: false
