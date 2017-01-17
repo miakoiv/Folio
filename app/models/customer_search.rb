@@ -7,5 +7,7 @@ class CustomerSearch < Searchlight::Search
     Customer.includes(:person)
   end
 
-
+  def search_unit
+    query.where(unit_id: unit)
+  end
 end
