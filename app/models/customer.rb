@@ -24,16 +24,6 @@ class Customer < ApplicationRecord
   # Scope for customers with notes by a user.
   scope :noted_by, -> (user) { joins(:notes).merge(Note.by(user)) }
 
-  def self.count_by_age
-    joins(:person).unscope(:order)
-      .where.not(people: {date_of_birth: nil})
-      .group(Person.age_function.to_sql).count
-  end
-
-  def self.count_by_gender
-    joins(:person).unscope(:order).group(:gender).count
-  end
-
   def date
     created_at.to_date
   end
@@ -42,3 +32,5 @@ class Customer < ApplicationRecord
     "#{model_name.human.capitalize} #{date}"
   end
 end
+
+require_dependency 'customer/stats'

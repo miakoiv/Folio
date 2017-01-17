@@ -50,15 +50,6 @@ class Person < ApplicationRecord
     ids.any? ? Postcode.find(ids) : Postcode.none
   end
 
-  # Arel function to calculate a person's age.
-  def self.age_function
-    Arel::Nodes::NamedFunction.new('TIMESTAMPDIFF', [
-      Arel.sql('YEAR'),
-      Person.arel_table[:date_of_birth],
-      Arel::Nodes::NamedFunction.new('CURDATE', [])
-    ])
-  end
-
   # Customers have a newest first default scope.
   def current_customer(unit)
     customers.at(unit).first
@@ -86,3 +77,5 @@ class Person < ApplicationRecord
     full_name
   end
 end
+
+require_dependency 'person/stats'
