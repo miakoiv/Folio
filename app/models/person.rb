@@ -37,12 +37,6 @@ class Person < ApplicationRecord
 
   default_scope { order(:last_name, :first_names) }
 
-  # Statistical scopes that return hashes.
-  scope :count_by_age, -> {
-    unscope(:order).where.not(date_of_birth: nil).group(age_function.to_sql).count
-  }
-  scope :count_by_gender, -> { unscope(:order).group(:gender).count }
-
 
   validates :last_name, :first_names, presence: true
 
@@ -54,6 +48,15 @@ class Person < ApplicationRecord
   def self.assigned_postcodes
     ids = unscope(:order).pluck(:postcode_id).reject(&:blank?).uniq
     ids.any? ? Postcode.find(ids) : Postcode.none
+  end
+
+  # Arel function to calculate a person's age.
+  def self.age_function
+    Arel::Nodes::NamedFunction.new('TIMESTAMPDIFF', [
+      Arel.sql('YEAR'),
+      Person.arel_table[:date_of_birth],
+      Arel::Nodes::NamedFunction.new('CURDATE', [])
+    ])
   end
 
   # Customers have a newest first default scope.
@@ -82,14 +85,4 @@ class Person < ApplicationRecord
   def to_s
     full_name
   end
-
-  private
-    # Arel function to calculate a person's age.
-    def self.age_function
-      Arel::Nodes::NamedFunction.new('TIMESTAMPDIFF', [
-        Arel.sql('YEAR'),
-        Person.arel_table[:date_of_birth],
-        Arel::Nodes::NamedFunction.new('CURDATE', [])
-      ])
-    end
 end
