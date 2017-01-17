@@ -28,7 +28,15 @@
 :coffee
   new Chart $('#people-by-age'),
     type: 'bar'
-    data: #{ChartData.by_age(@people).to_json}
+    data:
+      labels: #{@by_age.labels.to_json}
+      datasets: [
+        {
+          data: #{@by_age.data.to_json}
+          backgroundColor: 'rgba(98,203,49,0.5)'
+          hoverBackgroundColor: 'rgba(98,203,49,1)'
+        }
+      ]
     options:
       legend:
         display: false
@@ -40,7 +48,15 @@
 
   new Chart $('#people-by-gender'),
     type: 'pie'
-    data: #{ChartData.by_gender(@people).to_json}
+    data:
+      labels: #{@by_gender.labels.to_json}
+      datasets: [
+        {
+          data: #{@by_gender.data.to_json}
+          backgroundColor: ['rgba(231,76,60,0.5)', 'rgba(52,152,219,0.5)']
+          hoverBackgroundColor: ['rgba(231,76,60,1)', 'rgba(52,152,219,1)']
+        }
+      ]
     options:
       legend:
         display: false
