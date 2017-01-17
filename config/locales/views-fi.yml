@@ -117,11 +117,15 @@ fi:
       new_parent: Uusi henkilö
   reports:
     title: Raportointi
-    index:
-      people:
-        header: Henkilöt
-        count: henkilöä kirjoilla
-        latest: viimeisin kirjaus
+    customers:
+      by_age: Ikäjakauma
+      by_gender: Sukupuolijakauma
+    people:
+      title: Henkilöt
+      count: henkilöä kirjoilla
+      latest: viimeisin kirjaus
+      by_age: Ikäjakauma
+      by_gender: Sukupuolijakauma
   roles:
     panel:
       header: Valtuudet

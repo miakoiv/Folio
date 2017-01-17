@@ -117,11 +117,15 @@ en:
       new_parent: New person
   reports:
     title: Reports
-    index:
-      people:
-        header: People
-        count: total people
-        latest: latest record
+    customers:
+      by_age: Customers by age
+      by_gender: Customers by gender
+    people:
+      title: People
+      count: total people
+      latest: latest record
+      by_age: People by age
+      by_gender: People by gender
   roles:
     panel:
       header: Privileges
