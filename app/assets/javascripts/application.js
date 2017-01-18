@@ -37,4 +37,6 @@
 //= require sweetalert2.min
 //= require homer
 //
+// Mind the load order
+//= require palette
 //= require_tree .
