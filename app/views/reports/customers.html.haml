@@ -17,11 +17,9 @@
     data:
       labels: #{@by_age.labels.to_json}
       datasets: [
-        {
+        $.extend {
           data: #{@by_age.data.to_json}
-          backgroundColor: 'rgba(98,203,49,0.5)'
-          hoverBackgroundColor: 'rgba(98,203,49,1)'
-        }
+        }, Chart.defaults.colors.sequential
       ]
     options:
       scales:
@@ -35,9 +33,9 @@
     data:
       labels: #{@by_gender.labels.to_json}
       datasets: [
-        {
+        $.extend {
           data: #{@by_gender.data.to_json}
-          backgroundColor: ['rgba(231,76,60,0.5)', 'rgba(52,152,219,0.5)']
-          hoverBackgroundColor: ['rgba(231,76,60,1)', 'rgba(52,152,219,1)']
-        }
+        }, Chart.defaults.colors.qualitative
       ]
+    options:
+      cutoutPercentage: 50
