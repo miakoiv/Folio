@@ -7,6 +7,8 @@ class Customer < ApplicationRecord
   end
 
   def self.count_by_gender
-    joins(:person).unscope(:order).group(:gender).count
+    joins(:person).unscope(:order)
+      .group(Person.gender_function.to_sql).count
+      .transform_keys { |k| {'m' => '♂', 'f' => '♀', '' => ''}[k] }
   end
 end
