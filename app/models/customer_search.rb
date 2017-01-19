@@ -10,4 +10,12 @@ class CustomerSearch < Searchlight::Search
   def search_unit
     query.where(unit_id: unit)
   end
+
+  def search_since_date
+    query.where(Customer.table[:created_at].gteq(since_date))
+  end
+
+  def search_until_date
+    query.where(Customer.table[:created_at].lt(until_date))
+  end
 end

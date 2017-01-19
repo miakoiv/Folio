@@ -1,7 +1,14 @@
 .content
   .row
     .col-md-3
+      = render partial: 'customer_search'
     .col-md-9
+      .row
+        .col-md-12
+          .hpanel
+            .panel-heading= t('.by_month')
+            .panel-body
+              %canvas#customers-by-month
       .row
         .col-md-8
           .hpanel
@@ -13,12 +20,6 @@
             .panel-heading= t('.by_gender')
             .panel-body
               %canvas#customers-by-gender
-      .row
-        .col-md-12
-          .hpanel
-            .panel-heading= t('.by_month')
-            .panel-body
-              %canvas#customers-by-month
 
 :coffee
   new Chart $('#customers-by-age'),
