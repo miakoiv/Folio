@@ -18,4 +18,8 @@ class CustomerSearch < Searchlight::Search
   def search_until_date
     query.where(Customer.table[:created_at].lt(until_date))
   end
+
+  def search_contacts
+    query.where(contact_id: contacts)
+  end
 end

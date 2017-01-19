@@ -25,7 +25,7 @@ class ReportsController < ApplicationController
   protected
     def customer_search_params
       params.fetch(:customer_search) {{}}.permit(
-        :since_date, :until_date
+        :since_date, :until_date, contacts: []
       ).merge(unit: current_unit)
     end
 end

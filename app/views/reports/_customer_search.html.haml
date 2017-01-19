@@ -3,11 +3,18 @@
     .panel-body
       %h4= t('.header')
       %fieldset
-        = f.text_field :since_date, autocomplete: 'off',
-            label: t('.since_date'), data: {provide: 'datepicker',
-              'date-format': 'yyyy-mm-dd', 'date-language': I18n.locale}
-        = f.text_field :until_date, autocomplete: 'off',
-            label: t('.until_date'), data: {provide: 'datepicker',
-              'date-format': 'yyyy-mm-dd', 'date-language': I18n.locale}
+        %label.control-label= t('.date_range')
+        .input-daterange.input-group{data: {provide: 'datepicker',
+          'date-format': 'yyyy-mm-dd', 'date-language': I18n.locale}}
+          = f.text_field_without_bootstrap :since_date,
+              autocomplete: 'off', class: 'form-control'
+          %span.input-group-addon= icon('minus')
+          = f.text_field_without_bootstrap :until_date,
+              autocomplete: 'off', class: 'form-control'
+      %hr.hr-line-dashed
+      %fieldset
+        = f.collection_select :contacts, current_unit.users, :id, :to_s,
+            {label: t('.contacts')},
+            {multiple: true, data: {provide: 'select2', language: I18n.locale}}
       .form-group.actions
         = f.submit t('.submit'), class: 'btn btn-block btn-primary'

@@ -119,8 +119,8 @@ en:
     title: Reports
     customer_search:
       header: Search parameters
-      since_date: Since date
-      until_date: Until date
+      date_range: Date range
+      contacts: Persons responsible
       submit: Search and report
     customers:
       by_age: Customers by age

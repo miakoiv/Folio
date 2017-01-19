@@ -119,8 +119,8 @@ fi:
     title: Raportointi
     customer_search:
       header: Hakuparametrit
-      since_date: Alkamispäivä
-      until_date: Päättymispäivä
+      date_range: Aikajakso
+      contacts: Vastuuhenkilöt
       submit: Hae ja raportoi
     customers:
       by_age: Ikäjakauma
