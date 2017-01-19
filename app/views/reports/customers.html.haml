@@ -1,15 +1,24 @@
 .content
   .row
-    .col-md-8
-      .hpanel
-        .panel-heading= t('.by_age')
-        .panel-body
-          %canvas#customers-by-age
-    .col-md-4
-      .hpanel
-        .panel-heading= t('.by_gender')
-        .panel-body
-          %canvas#customers-by-gender
+    .col-md-3
+    .col-md-9
+      .row
+        .col-md-8
+          .hpanel
+            .panel-heading= t('.by_age')
+            .panel-body
+              %canvas#customers-by-age
+        .col-md-4
+          .hpanel
+            .panel-heading= t('.by_gender')
+            .panel-body
+              %canvas#customers-by-gender
+      .row
+        .col-md-12
+          .hpanel
+            .panel-heading= t('.by_month')
+            .panel-body
+              %canvas#customers-by-month
 
 :coffee
   new Chart $('#customers-by-age'),
@@ -39,3 +48,30 @@
       ]
     options:
       cutoutPercentage: 50
+
+  new Chart $('#customers-by-month'),
+    type: 'bar'
+    data:
+      labels: #{@by_month.labels.to_json}
+      datasets: [
+        {
+          type: 'bar'
+          data: #{@by_month.data.to_json}
+        }
+        {
+          type: 'line'
+          data: #{@by_month.data.accumulate(@starting_count).to_json}
+          fill: false
+        }
+      ]
+    options:
+      scales:
+        xAxes: [{
+          stacked: true
+          type: 'time'
+          categoryPercentage: 0.4
+        }]
+        yAxes: [{
+          ticks:
+            beginAtZero: true
+        }]

@@ -18,6 +18,8 @@ class ReportsController < ApplicationController
     @customers = @search.results
     @by_age    = ChartData.new(@customers, :count_by_age)
     @by_gender = ChartData.new(@customers, :count_by_gender)
+    @by_month  = ChartData.new(@customers, :count_by_month)
+    @starting_count = @customers.starting_count
   end
 
   protected

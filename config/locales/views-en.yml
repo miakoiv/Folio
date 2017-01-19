@@ -120,6 +120,7 @@ en:
     customers:
       by_age: Customers by age
       by_gender: Customers by gender
+      by_month: Customers by month
     people:
       title: People
       count: total people

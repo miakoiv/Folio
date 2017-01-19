@@ -120,6 +120,7 @@ fi:
     customers:
       by_age: Ikäjakauma
       by_gender: Sukupuolijakauma
+      by_month: Asiakkaat kuukausittain
     people:
       title: Henkilöt
       count: henkilöä kirjoilla
