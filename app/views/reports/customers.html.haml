@@ -27,9 +27,7 @@
     data:
       labels: #{@by_age.labels.to_json}
       datasets: [
-        $.extend {
-          data: #{@by_age.data.to_json}
-        }, Chart.defaults.colors.sequential
+        data: #{@by_age.data.to_json}
       ]
     options:
       scales:
@@ -68,8 +66,10 @@
     options:
       scales:
         xAxes: [{
-          stacked: true
           type: 'time'
+          stacked: true
+          time:
+            minUnit: 'month'
           categoryPercentage: 0.4
         }]
         yAxes: [{
