@@ -21,7 +21,7 @@ class Person < ApplicationRecord
   def self.age_function
     Arel::Nodes::NamedFunction.new('TIMESTAMPDIFF', [
       Arel.sql('YEAR'),
-      Person.arel_table[:date_of_birth],
+      table[:date_of_birth],
       Arel::Nodes::NamedFunction.new('CURDATE', [])
     ])
   end
@@ -29,7 +29,11 @@ class Person < ApplicationRecord
   # Arel function to coalesce genders into {''|'f'|'m'}
   def self.gender_function
     Arel::Nodes::NamedFunction.new('COALESCE', [
-      Person.arel_table[:gender], Arel::Nodes::Quoted.new('')
+      table[:gender], Arel::Nodes::Quoted.new('')
     ])
+  end
+
+  def self.table
+    @table ||= Person.arel_table
   end
 end
