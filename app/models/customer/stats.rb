@@ -22,10 +22,10 @@ class Customer < ApplicationRecord
   # NOTE: to successfully unscope :created_at, it must have been applied
   #       as a hash condition or through Arel
   def self.starting_count
-    earliest = last
+    return 0 if last.nil?
     unscope(where: :created_at).where(
       creation_month_function.lt(
-        table.project(creation_month_function).where(table[:id].eq(earliest.id))
+        table.project(creation_month_function).where(table[:id].eq(last.id))
       )
     ).count
   end
