@@ -119,6 +119,7 @@ en:
     title: Reports
     customer_search:
       header: Search parameters
+      help: Select search terms for customer report
       date_range: Date range
       contacts: Persons responsible
       submit: Search and report

@@ -119,6 +119,7 @@ fi:
     title: Raportointi
     customer_search:
       header: Hakuparametrit
+      help: Valitse rajaavat ehdot asiakasraportille
       date_range: Aikajakso
       contacts: Vastuuhenkilöt
       submit: Hae ja raportoi
