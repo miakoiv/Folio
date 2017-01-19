@@ -34,8 +34,12 @@ namespace :db do
       person.images.create attachment_remote_url: r['picture']['large']
 
       rand(3).times do |n|
+        unit = units.sample
+        contact = unit.users.sample
+
         person.customers.create(
-          unit: units.sample,
+          unit: unit,
+          contact: contact,
           created_at: creation + rand(1500).days,
           status: statuses.sample,
           referrer: referrers.sample
