@@ -12,4 +12,7 @@ class Palette
   @generate: (type, opacity) ->
     @mix(ink, opacity) for ink in @palettes[type]
 
+  @pick: (type, idx, opacity) ->
+    @mix(@palettes[type][idx], opacity)
+
 (exports ? this).Palette = Palette
