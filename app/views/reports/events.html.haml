@@ -1,0 +1,34 @@
+.content
+  .row
+    .col-md-3
+      = render partial: 'event_search'
+    .col-md-9
+      .row
+        .col-md-12
+          .hpanel
+            .panel-heading= t('.by_week')
+            .panel-body
+              %canvas#events-by-week
+
+:coffee
+  new Chart $('#events-by-week'),
+    type: 'bar'
+    data:
+      labels: #{@by_week.labels.to_json}
+      datasets: [
+        {
+          type: 'bar'
+          data: #{@by_week.data.to_json}
+        }
+        {
+          type: 'line'
+          data: #{@by_week.data.to_json}
+          fill: false
+        }
+      ]
+    options:
+      scales:
+        yAxes: [{
+          ticks:
+            beginAtZero: true
+        }]
