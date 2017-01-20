@@ -7,12 +7,12 @@ class EventSearch < Searchlight::Search
     Event.includes(:customer)
   end
 
-  def search_user_id
-    query.where(user_id: user_id)
+  def search_user
+    query.where(user: user)
   end
 
-  def search_customer_id
-    query.where(customer_id: customer_id)
+  def search_customer
+    query.where(customer: customer)
   end
 
   def search_since_date

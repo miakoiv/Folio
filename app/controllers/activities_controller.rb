@@ -31,7 +31,7 @@ class ActivitiesController < ApplicationController
       params.fetch(:activity_search) {{}}.permit(
         {whodunnit: []}, :upto_date
       ).merge(
-        unit: current_unit.id
+        unit: current_unit
       )
     end
 

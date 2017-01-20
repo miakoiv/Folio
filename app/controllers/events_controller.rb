@@ -87,7 +87,7 @@ class EventsController < ApplicationController
 
   protected
     def search_params
-      params.slice(:since_date, :until_date).merge(user_id: current_user)
+      params.slice(:since_date, :until_date).merge(user: current_user)
     end
 
   private

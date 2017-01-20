@@ -36,7 +36,7 @@ class PersonSearch < Searchlight::Search
   end
 
   def search_postcode
-    query.where(postcode_id: postcode)
+    query.where(postcode: postcode)
   end
 
   def search_year_of_birth

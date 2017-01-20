@@ -8,7 +8,7 @@ class CustomerSearch < Searchlight::Search
   end
 
   def search_unit
-    query.where(unit_id: unit)
+    query.where(unit: unit)
   end
 
   def search_since_date
@@ -20,6 +20,6 @@ class CustomerSearch < Searchlight::Search
   end
 
   def search_contacts
-    query.where(contact_id: contacts)
+    query.where(contact: contacts)
   end
 end

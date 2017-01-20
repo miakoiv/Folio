@@ -8,11 +8,11 @@ class ActivitySearch < Searchlight::Search
   end
 
   def search_unit
-    query.where(unit_id: unit)
+    query.where(unit: unit)
   end
 
   def search_whodunnit
-    query.where(whodunnit_id: whodunnit)
+    query.where(whodunnit: whodunnit)
   end
 
   def search_upto_date
