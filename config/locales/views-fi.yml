@@ -133,7 +133,7 @@ fi:
       header: Hakuparametrit
       help: Valitse rajaavat ehdot tapahtumaraportille
       date_range: Aikajakso
-      contacts: Vastuuhenkilöt
+      users: Käyttäjät
       submit: Hae ja raportoi
     events:
       by_week: Tapahtumat viikottain

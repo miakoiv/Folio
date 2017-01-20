@@ -14,8 +14,8 @@
               autocomplete: 'off', class: 'form-control'
       %hr.hr-line-dashed
       %fieldset
-        = f.collection_select :contacts, current_unit.users, :id, :to_s,
-            {label: t('.contacts')},
+        = f.collection_select :users, current_unit.users, :id, :to_s,
+            {label: t('.users')},
             {multiple: true, data: {provide: 'select2', language: I18n.locale}}
       .form-group.actions
         = f.submit t('.submit'), class: 'btn btn-block btn-primary'

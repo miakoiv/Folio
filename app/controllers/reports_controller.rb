@@ -38,9 +38,11 @@ class ReportsController < ApplicationController
       ).merge(unit: current_unit)
     end
 
+    # Including current unit in search params excludes events without
+    # a customer as the associated unit is found through customers.
     def event_search_params
       params.fetch(:event_search) {{}}.permit(
-        :since_date, :until_date, contacts: []
+        :since_date, :until_date, users: []
       ).merge(unit: current_unit)
     end
 end

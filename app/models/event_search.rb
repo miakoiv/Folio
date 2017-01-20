@@ -4,11 +4,19 @@ class EventSearch < Searchlight::Search
   include Searchlight::Adapters::ActionView
 
   def base_query
-    Event.includes(:customer)
+    Event.includes(customer: :unit)
   end
 
   def search_user
     query.where(user: user)
+  end
+
+  def search_unit
+    query.where(customers: {unit: unit})
+  end
+
+  def search_users
+    query.where(user: users)
   end
 
   def search_customer
@@ -21,9 +29,5 @@ class EventSearch < Searchlight::Search
 
   def search_until_date
     query.where(Event.arel_table[:starts_at].lt(until_date))
-  end
-
-  def search_contacts
-    query.where(customers: {contact: contacts})
   end
 end
