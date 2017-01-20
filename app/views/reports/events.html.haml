@@ -18,17 +18,47 @@
       datasets: [
         {
           type: 'bar'
+          label: "#{t('.count')}"
           data: #{@by_week.data.to_json}
+          yAxisID: 'count'
+          backgroundColor: Palette.pick 'qualitative', 0, 0.5
+          borderWidth: 0
         }
         {
           type: 'line'
-          data: #{@by_week.data.to_json}
+          label: "#{t('.total_hours')}"
+          data: #{@total_hours_by_week.data.to_json}
+          yAxisID: 'hours'
+          borderColor: Palette.pick 'qualitative', 1, 0.5
+          backgroundColor: 'transparent'
           fill: false
         }
       ]
     options:
+      legend:
+        display: true
       scales:
-        yAxes: [{
+        xAxes: [{
+          gridLines:
+            display: false
           ticks:
-            beginAtZero: true
+            callback: (value) ->
+              moment(value, 'YYYYWW').format('YYYY/WW')
         }]
+        yAxes: [
+          {
+            id: 'count'
+            ticks:
+              beginAtZero: true
+          }
+          {
+            id: 'hours'
+            position: 'right'
+            gridLines:
+              borderDash: [5,8]
+            ticks:
+              beginAtZero: true
+              callback: (value) ->
+                value + ' h'
+          }
+        ]

@@ -127,6 +127,18 @@ en:
       by_age: Customers by age
       by_gender: Customers by gender
       by_month: Customers by month
+      created: new
+      total: total customers
+    event_search:
+      header: Search parameters
+      help: Select search terms for event report
+      date_range: Date range
+      contacts: Persons responsible
+      submit: Search and report
+    events:
+      by_week: Events by week
+      count: count
+      total_hours: total hours
     people:
       title: People
       count: total people

@@ -127,6 +127,18 @@ fi:
       by_age: Ikäjakauma
       by_gender: Sukupuolijakauma
       by_month: Asiakkaat kuukausittain
+      created: uusia
+      total: asiakkaita yhteensä
+    event_search:
+      header: Hakuparametrit
+      help: Valitse rajaavat ehdot tapahtumaraportille
+      date_range: Aikajakso
+      contacts: Vastuuhenkilöt
+      submit: Hae ja raportoi
+    events:
+      by_week: Tapahtumat viikottain
+      count: määrä
+      total_hours: tunnit yhteensä
     people:
       title: Henkilöt
       count: henkilöä kirjoilla

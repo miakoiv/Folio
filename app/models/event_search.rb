@@ -22,4 +22,8 @@ class EventSearch < Searchlight::Search
   def search_until_date
     query.where(Event.arel_table[:starts_at].lt(until_date))
   end
+
+  def search_contacts
+    query.where(customers: {contact: contacts})
+  end
 end

@@ -35,6 +35,10 @@
       ]
     options:
       scales:
+        xAxes: [{
+          gridLines:
+            display: false
+        }]
         yAxes: [{
           ticks:
             beginAtZero: true
@@ -50,4 +54,7 @@
         }, Chart.defaults.colors.qualitative
       ]
     options:
+      legend:
+        display: true
+        position: 'bottom'
       cutoutPercentage: 50

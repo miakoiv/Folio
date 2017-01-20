@@ -22,9 +22,24 @@ class ReportsController < ApplicationController
     @starting_count = @customers.starting_count
   end
 
+  # GET /reports/events
+  def events
+    @event_search_params = event_search_params
+    @search = EventSearch.new(@event_search_params)
+    @events = @search.results
+    @by_week             = ChartData.new(@events, :count_by_week)
+    @total_hours_by_week = ChartData.new(@events, :total_hours_by_week)
+  end
+
   protected
     def customer_search_params
       params.fetch(:customer_search) {{}}.permit(
+        :since_date, :until_date, contacts: []
+      ).merge(unit: current_unit)
+    end
+
+    def event_search_params
+      params.fetch(:event_search) {{}}.permit(
         :since_date, :until_date, contacts: []
       ).merge(unit: current_unit)
     end

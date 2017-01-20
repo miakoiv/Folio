@@ -22,6 +22,8 @@
       = title(Person, count: 2)
     = active_link_to customers_reports_path, wrap_tag: :li do
       = title(Customer, count: 2)
+    = active_link_to events_reports_path, wrap_tag: :li do
+      = title(Event, count: 2)
 
 - if current_user.can_read?(Activity, unit: current_unit)
   = active_link_to activities_path, wrap_tag: :li do

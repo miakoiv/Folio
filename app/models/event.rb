@@ -59,3 +59,5 @@ class Event < ApplicationRecord
       end
     end
 end
+
+require_dependency 'event/stats'

@@ -56,4 +56,5 @@ Rails.application.routes.draw do
   get 'reports', to: 'reports#index', as: :reports
   get 'reports/people', to: 'reports#people', as: :people_reports
   get 'reports/customers', to: 'reports#customers', as: :customers_reports
+  get 'reports/events', to: 'reports#events', as: :events_reports
 end
