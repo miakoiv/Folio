@@ -1,0 +1,15 @@
+.panel-body[post]
+  .media
+    .media-image.col-md-2
+      = profile_image(post.author)
+      .author-info
+        .font-bold= post.author
+        %span{title: l(post.created_at, format: :long)}
+          = l(post.created_at, format: :short)
+    .media-body
+      - if post.author == current_user && post.fresh?
+        .pull-right.m-l
+          = link_to icon('pencil', t('actions.edit')), [:edit, post], remote: true,
+              class: 'btn btn-xs btn-primary'
+      %h5= post.title
+      = post.content.html_safe

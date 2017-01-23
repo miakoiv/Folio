@@ -1,0 +1,27 @@
+- content_for :header do
+  %h2= t('posts.title')
+  %small
+- content_for :breadcrumb do
+  %li.active= t('posts.title')
+
+.content
+  .row
+    .col-md-3.col-sticky.hidden-print
+      = render partial: 'search'
+    .col-md-9
+      .hpanel.forum-box.email-compose
+        .panel-heading
+          .pull-right
+            %button.btn.btn-xs.btn-success{data: {toggle: 'collapse', target: '#post-editor'}}
+              = icon('pencil', t('posts.new.title'))
+          = render partial: 'latest'
+        #post-editor.editing-panel.collapse.hidden-print
+          .panel-body
+            #post-form
+              = render partial: 'new'
+        .infinite-scroll
+          #post-list.infinite-content
+            = render partial: 'item', collection: @posts, as: :post
+          .infinite-pagination
+            = link_to_next_page @posts, '', remote: true,
+                params: {post_search: @post_search_params.to_h}

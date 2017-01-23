@@ -1,0 +1,4 @@
+$("#{j render partial: 'posts/item', object: @post, as: :post}").prependTo('#post-list');
+$("##{dom_id @post}").addClass('opacity-0 animated-panel fadeIn');
+$('#post-form').html("#{j render partial: 'posts/new'}");
+$('#post-editor').collapse('hide');

@@ -98,6 +98,17 @@ en:
     new:
       last_name: New
       first_names: person
+  posts:
+    title: Diary
+    latest:
+      timestamp: Latest entry
+      none: No entries
+    search:
+      header: Search diary
+      keyword: Keyword
+      submit: Search
+    new:
+      title: Write a diary entry
   print:
     title: Printing in Folio
     body_html: <p class="lead"><i class="fa fa-warning"></i> jsPrintSetup is not installed</p>Printing in Folio yields better results with the <i>jsPrintSetup</i> browser extension. You can download and install the extension by clicking <b>Install</b> or print without it by clicking <b>Print now</b>.<p><p class="small">Installation will open in a new window. Once finished, your browser will restart and you can resume printing.</p>

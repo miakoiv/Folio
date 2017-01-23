@@ -98,6 +98,17 @@ fi:
     new:
       last_name: Uusi
       first_names: henkilö
+  posts:
+    title: Päiväkirja
+    latest:
+      timestamp: Uusin merkintä
+      none: Ei merkintöjä
+    search:
+      header: Hae päiväkirjasta
+      keyword: Hakusana
+      submit: Hae
+    new:
+      title: Kirjoita päiväkirjaan
   print:
     title: Tulostus Foliosta
     body_html: <p class="lead"><i class="fa fa-warning"></i> jsPrintSetup ei ole asennettuna</p>Tulostus Foliosta antaa paremman tuloksen kun <i>jsPrintSetup</i>-laajennus on asennettu selaimeen. Voit ladata ja asentaa laajennuksen valitsemalla <b>Asenna</b> tai tulostaa ilman sitä valitsemalla <b>Tulosta nyt</b>.<p><p class="small">Asennus aukeaa uuteen ikkunaan. Kun laajennus on asennettu, selaimesi käynnistyy uudelleen, ja voit jatkaa tulostusta.</p>

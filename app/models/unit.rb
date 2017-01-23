@@ -6,6 +6,7 @@ class Unit < ApplicationRecord
   has_many :users
   has_many :customers
   has_many :notes, through: :customers
+  has_many :posts
   has_many :activities
 
   scope :accessible_by, -> (user) { joins(roles: :users).where(users: {id: user}) }

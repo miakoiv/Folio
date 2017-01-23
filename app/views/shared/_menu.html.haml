@@ -1,6 +1,9 @@
 = active_link_to root_path, wrap_tag: :li, active: :exclusive do
   %span.nav-label= icon('home', current_unit, class: 'fa-fw')
 
+= active_link_to posts_path, wrap_tag: :li do
+  %span.nav-label= icon('pencil', t('posts.title'), class: 'fa-fw')
+
 = active_link_to memos_path, wrap_tag: :li do
   %span.nav-label= icon('commenting', title(Memo, count: 2), class: 'fa-fw')
 

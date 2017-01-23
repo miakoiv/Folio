@@ -34,6 +34,9 @@ fi:
       person:
         one: henkilö
         other: henkilöt
+      post:
+        one: merkintä
+        other: merkinnät
       relationship:
         one: suhde
         other: suhteet
@@ -100,6 +103,10 @@ fi:
         notes: Muistiinpanoja
         phone: Puhelinnumero
         postcode_id: Postiosoite
+      post:
+        author_id: Kirjoittaja
+        title: Otsikko
+        content: Sisältö
       relationship:
         parent_id: Toinen osapuoli
         relation_id: Suhteen laatu

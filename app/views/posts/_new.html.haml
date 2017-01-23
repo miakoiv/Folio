@@ -1,0 +1,9 @@
+.media
+  .media-image.col-md-2
+    = profile_image(current_user)
+    .author-info
+      .font-bold= current_user
+  .media-body
+    = bootstrap_form_for Post.new,
+        remote: true, html: {novalidate: true} do |new_post|
+      = render partial: 'posts/form', locals: {f: new_post}

@@ -1,0 +1,8 @@
+- if @posts.any?
+  = icon('clock-o', t('.timestamp'))
+  = l(@posts.first.created_at, format: :long)
+  = surround '(', ')' do
+    = time_ago_in_words @posts.first.created_at
+    = t('time.ago')
+- else
+  = t('.none')

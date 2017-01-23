@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170112120711) do
+ActiveRecord::Schema.define(version: 20170123105058) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "unit_id",                     null: false
@@ -171,6 +171,17 @@ ActiveRecord::Schema.define(version: 20170112120711) do
     t.integer "municipality_id",           null: false
     t.index ["code"], name: "index_postcodes_on_code", using: :btree
     t.index ["municipality_id"], name: "index_postcodes_on_municipality_id", using: :btree
+  end
+
+  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.integer  "unit_id",                  null: false
+    t.integer  "author_id",                null: false
+    t.string   "title"
+    t.text     "content",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["author_id"], name: "index_posts_on_author_id", using: :btree
+    t.index ["unit_id"], name: "index_posts_on_unit_id", using: :btree
   end
 
   create_table "referrers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|

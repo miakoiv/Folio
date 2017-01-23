@@ -51,6 +51,8 @@ Rails.application.routes.draw do
     get :unread, on: :collection
   end
 
+  resources :posts
+
   post 'search', to: 'search#index', as: :search
 
   get 'reports', to: 'reports#index', as: :reports

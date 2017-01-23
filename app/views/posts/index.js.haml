@@ -1,0 +1,6 @@
+$("#{j render partial: 'item', collection: @posts, as: :post}").appendTo($('.infinite-scroll > .infinite-content'));
+
+- if @posts.last_page?
+  $('.infinite-pagination > a').remove();
+- else
+  $('.infinite-pagination').html("#{j link_to_next_page @posts, '', remote: true, params: {post_search: @post_search_params.to_h}}");

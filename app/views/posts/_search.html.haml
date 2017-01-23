@@ -1,0 +1,9 @@
+= bootstrap_form_for @search, url: posts_path, method: :get, enforce_utf8: false do |f|
+  .hpanel
+    .panel-body
+      %h4= t('.header')
+      %fieldset
+        = f.search_field :keyword, placeholder: t('.keyword'),
+            skip_label: true
+      .form-group.actions
+        = f.submit t('.submit'), class: 'btn btn-block btn-primary'

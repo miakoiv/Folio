@@ -34,6 +34,9 @@ en:
       person:
         one: person
         other: people
+      post:
+        one: entry
+        other: entries
       relationship:
         one: relationship
         other: relationships
@@ -100,6 +103,10 @@ en:
         notes: Notes
         phone: Phone number
         postcode_id: Postal address
+      post:
+        author_id: Author
+        title: Title
+        content: Content
       relationship:
         parent_id: Related person
         relation_id: Kind of relation
