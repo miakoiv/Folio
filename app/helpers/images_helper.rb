@@ -1,8 +1,9 @@
 module ImagesHelper
 
   def profile_image(imageable, options = {})
-    options[:class] ||= ''
-    options[:class] += ' img-circle'
+    classes = (options[:class] || '').split
+    classes << 'img-circle grayscale'
+    options[:class] = classes.join(' ')
     if imageable.respond_to?(:images) && imageable.images.any?
       first = imageable.images.first
       image_tag first.attachment_url(:thumbnail),

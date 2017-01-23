@@ -75,6 +75,11 @@
   cursor: pointer;
 }
 
+// Grayscale filter
+.grayscale {
+  filter: brightness(1.04) contrast(1.08) grayscale(1);
+}
+
 // More color definitions for UI elements
 .hred-deep { @extend .hreddeep; }
 .label-navy-blue { background-color: $color-navy-blue; }
