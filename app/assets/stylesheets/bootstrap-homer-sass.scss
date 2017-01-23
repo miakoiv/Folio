@@ -269,6 +269,7 @@ textarea.form-control {
 // Infinite pagination gets a nifty scroll bar for loading indicator
 .infinite-pagination {
   @extend .progress, .full, .progress-striped, .m-t;
+  background-color: transparent;
 
   a {
     display: block;
