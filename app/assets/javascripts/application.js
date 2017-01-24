@@ -31,6 +31,7 @@
 //= require Chart.min
 //= require fullcalendar/fullcalendar.min
 //= require fullcalendar/locale/fi
+//= require jquery.scrollTo.min
 //= require jquery.slimscroll.min
 //= require metisMenu.min
 //= require toastr.min
