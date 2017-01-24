@@ -13,3 +13,11 @@
               class: 'btn btn-xs btn-primary'
       %h5= post.title
       = post.content.html_safe
+
+      - if post.comments.any?
+        .forum-comments
+          = render partial: 'comments/item', collection: post.comments, as: :comment
+          = render partial: 'comments/new', object: post, as: :post
+      - else
+        .m-t-md.initial-comment.opacity-0
+          = render partial: 'comments/new', object: post, as: :post

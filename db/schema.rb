@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170123105058) do
+ActiveRecord::Schema.define(version: 20170124083355) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "unit_id",                     null: false
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 20170123105058) do
     t.index ["memo_id", "user_id"], name: "index_collections_on_memo_id_and_user_id", unique: true, using: :btree
     t.index ["memo_id"], name: "index_collections_on_memo_id", using: :btree
     t.index ["user_id"], name: "index_collections_on_user_id", using: :btree
+  end
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.integer  "post_id",                  null: false
+    t.integer  "author_id",                null: false
+    t.text     "content",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["author_id"], name: "index_comments_on_author_id", using: :btree
+    t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
   end
 
   create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|

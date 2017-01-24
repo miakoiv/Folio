@@ -51,7 +51,9 @@ Rails.application.routes.draw do
     get :unread, on: :collection
   end
 
-  resources :posts
+  resources :posts do
+    resources :comments, shallow: true, only: :create
+  end
 
   post 'search', to: 'search#index', as: :search
 

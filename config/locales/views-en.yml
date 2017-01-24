@@ -41,6 +41,10 @@ en:
   calendar:
     panel:
       header: Calendar
+  comments:
+    new:
+      title: Comment
+      prompt: Your comment…
   documents:
     panel:
       header: Attachments

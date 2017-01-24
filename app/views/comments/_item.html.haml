@@ -1,0 +1,8 @@
+.media
+  .pull-left
+    = profile_image(comment.author)
+  .media-body
+    %span.font-bold= comment.author
+    %small.text-muted= l(comment.created_at, format: :short)
+    .social-content
+      = comment.content

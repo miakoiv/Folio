@@ -4,7 +4,7 @@ class PostSearch < Searchlight::Search
   include Searchlight::Adapters::ActionView
 
   def base_query
-    Post.includes(:author)
+    Post.includes(:author, :comments)
   end
 
   def search_unit

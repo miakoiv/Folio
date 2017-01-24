@@ -41,6 +41,10 @@ fi:
   calendar:
     panel:
       header: Kalenteri
+  comments:
+    new:
+      title: Kommentoi
+      prompt: Kommentoi…
   documents:
     panel:
       header: Liitteet

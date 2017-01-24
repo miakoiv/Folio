@@ -208,6 +208,17 @@ textarea.form-control {
   .btn-default.active { @extend .btn-info; }
 }
 
+// Forum posts are pseudo-selectable.
+.forum-box .post {
+  cursor: pointer;
+
+  &:hover {
+    z-index: 100;
+    background-color: #fafcfd;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.175);
+  }
+}
+
 // Blog articles with a serif font
 .blog-article-box .panel-body p {
   font-family: 'TeX Gyre Pagella', serif;

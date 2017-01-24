@@ -25,3 +25,8 @@
           .infinite-pagination
             = link_to_next_page @posts, '', remote: true,
                 params: {post_search: @post_search_params.to_h}
+
+:coffee
+  $(document).on 'click', '.post', (e) ->
+    $(this).find('.initial-comment').addClass 'animated-panel fadeInUp'
+    $(this).find('.form-control').focus()
