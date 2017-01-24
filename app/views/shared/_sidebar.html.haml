@@ -1,5 +1,6 @@
 #right-sidebar.animated.fadeInRight
-  .p-m
-    %button#sidebar-close.right-sidebar-toggle.sidebar-button.btn.btn-default.m-b-md
-      %i.pe.pe-7s-close
-  = yield :sidebar
+  .slim-scroll
+    .p-m
+      %button#sidebar-close.right-sidebar-toggle.sidebar-button.btn.btn-default.m-b-md
+        %i.pe.pe-7s-close
+    = yield :sidebar
