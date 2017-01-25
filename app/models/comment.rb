@@ -9,4 +9,8 @@ class Comment < ApplicationRecord
   scope :by, -> (author) { where(author: author) }
 
   validates :content, presence: true
+
+  def to_s
+    content
+  end
 end
