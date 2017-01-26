@@ -8,7 +8,8 @@
             data: {provide: 'select2', language: I18n.locale,
               'minimum-results-for-search': 'Infinity'}
       .col-md-6
-        = f.select :contact_id, contact_options(@customer.unit),
+        = f.grouped_collection_select :contact_id,
+            Unit.all, :users, :to_s, :id, :to_s,
             {}, disabled: editing_disabled?,
             data: {provide: 'select2', language: I18n.locale,
               'minimum-results-for-search': 'Infinity'}
