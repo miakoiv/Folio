@@ -6,8 +6,7 @@ module ImagesHelper
     options[:class] = classes.join(' ')
     if imageable.respond_to?(:images) && imageable.images.any?
       first = imageable.images.first
-      image_tag first.attachment_url(:thumbnail),
-        options.merge('data-printable': first.attachment_url(:preview))
+      image_tag first.attachment_url(:thumbnail), options
     end
   end
 end
