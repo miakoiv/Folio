@@ -12,8 +12,22 @@
       .row
         .col-lg-12
           .infinite-scroll
-            .infinite-content
+            #activity-list.infinite-content
               = render partial: 'item', collection: @activities, as: :activity
             .infinite-pagination
               = link_to_next_page @activities, '', remote: true,
                   params: {person_search: @activity_search_params.to_h}
+
+:coffee
+  # Sets up ActionCable subscription to current unit's activity
+  # locally, as these messages are not of interest outside of this view.
+  App.activity = App.cable.subscriptions.create {
+      channel: 'ActivityChannel'
+      unit_id: #{current_unit.id}
+    },
+    connected: ->
+
+    disconnected: ->
+
+    received: (activity) ->
+      $('#activity-list').prepend activity

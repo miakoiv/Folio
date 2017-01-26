@@ -47,12 +47,13 @@ class ApplicationController < ActionController::Base
   # Tracks activity for given resource in given context, with current unit
   # and current user. Stores the action taken on given resource, storing any
   # changes made as differences, except changes between two blank values.
+  # The newly created activity is also rendered and broadcast to current unit.
   def track(resource, context = nil)
     differences = resource.previous_changes
       .except('created_at', 'updated_at')
       .reject { |attribute, value| value.reject(&:blank?).empty? }
 
-    Activity.create(
+    activity = Activity.create(
       unit: current_unit,
       whodunnit: current_user,
       action: action_name,
@@ -60,6 +61,8 @@ class ApplicationController < ActionController::Base
       context: context || resource,
       differences: differences
     )
+    ActivityChannel.broadcast_to current_unit,
+      ApplicationController.render(partial: 'activities/item', object: activity, as: :activity)
   end
 
   private
