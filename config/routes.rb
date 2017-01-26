@@ -61,4 +61,6 @@ Rails.application.routes.draw do
   get 'reports/people', to: 'reports#people', as: :people_reports
   get 'reports/customers', to: 'reports#customers', as: :customers_reports
   get 'reports/events', to: 'reports#events', as: :events_reports
+
+  mount ActionCable.server, at: '/cable'
 end
