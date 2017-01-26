@@ -16,7 +16,7 @@
               = render partial: 'item', collection: @activities, as: :activity
             .infinite-pagination
               = link_to_next_page @activities, '', remote: true,
-                  params: {person_search: @activity_search_params.to_h}
+                  params: {activity_search: @activity_search_params.to_h}
 
 :coffee
   # Sets up ActionCable subscription to current unit's activity
