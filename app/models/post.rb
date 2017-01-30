@@ -14,7 +14,7 @@ class Post < ApplicationRecord
   validates :title, presence: true
 
   def fresh?
-    created_at > 2.hours.ago
+    created_at > 2.weeks.ago
   end
 
   def to_s
