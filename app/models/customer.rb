@@ -21,6 +21,9 @@ class Customer < ApplicationRecord
   # Scope for customers at a unit.
   scope :at, -> (unit) { where(unit: unit) }
 
+  # Scope for customers without a contact.
+  scope :without_contact, -> { where(contact: nil) }
+
   # Scope for customers with notes by a user.
   scope :noted_by, -> (user) { joins(:notes).merge(Note.by(user)) }
 
