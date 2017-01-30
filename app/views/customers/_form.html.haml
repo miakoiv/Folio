@@ -10,8 +10,9 @@
       .col-md-6
         = f.grouped_collection_select :contact_id,
             Unit.all, :users, :to_s, :id, :to_s,
-            {}, disabled: editing_disabled?,
+            {include_blank: true}, disabled: editing_disabled?,
             data: {provide: 'select2', language: I18n.locale,
+              'allow-clear': true, placeholder: t('contact.none'),
               'minimum-results-for-search': 'Infinity'}
     .row
       .col-md-12

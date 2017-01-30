@@ -45,6 +45,8 @@ en:
     new:
       title: Comment
       prompt: Your comment…
+  contact:
+    none: "[No person responsible]"
   documents:
     panel:
       header: Attachments

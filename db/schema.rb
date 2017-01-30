@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124083355) do
+ActiveRecord::Schema.define(version: 20170130081647) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "unit_id",                     null: false
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20170124083355) do
   create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "unit_id",                   null: false
     t.integer  "person_id",                 null: false
-    t.integer  "contact_id",                null: false
+    t.integer  "contact_id"
     t.integer  "status_id",     default: 0, null: false
     t.integer  "referrer_id"
     t.string   "referrer_info"

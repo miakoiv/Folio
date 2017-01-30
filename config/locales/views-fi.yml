@@ -45,6 +45,8 @@ fi:
     new:
       title: Kommentoi
       prompt: Kommentoi…
+  contact:
+    none: "[Ei vastuuhenkilöä]"
   documents:
     panel:
       header: Liitteet

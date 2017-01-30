@@ -5,7 +5,7 @@ class Customer < ApplicationRecord
 
   belongs_to :unit
   belongs_to :person
-  belongs_to :contact, class_name: 'User'
+  belongs_to :contact, class_name: 'User', optional: true
 
   has_many :events, dependent: :destroy
   has_many :notes, dependent: :destroy
