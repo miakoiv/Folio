@@ -12,11 +12,11 @@ class CustomerSearch < Searchlight::Search
   end
 
   def search_since_date
-    query.where(Customer.table[:created_at].gteq(since_date))
+    query.where(Customer.table[:started_at].gteq(since_date))
   end
 
   def search_until_date
-    query.where(Customer.table[:created_at].lt(until_date))
+    query.where(Customer.table[:started_at].lt(until_date))
   end
 
   def search_contacts

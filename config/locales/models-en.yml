@@ -59,10 +59,10 @@ en:
         whodunnit_id: Actor
       customer:
         contact_id: Person responsible
-        created_at: Since
         notes: Notes
         referrer_id: Referred by
         referrer_info: Specify referral…
+        started_at: Since
         status_id: Customer status
       event:
         date: Starting date

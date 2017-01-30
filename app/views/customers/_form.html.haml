@@ -2,20 +2,12 @@
     html: {novalidate: true} do |f|
   %fieldset{disabled: editing_disabled?}
     .row
-      .col-md-6
+      .col-md-4
         = f.select :status_id, status_options,
             {}, disabled: editing_disabled?,
             data: {provide: 'select2', language: I18n.locale,
               'minimum-results-for-search': 'Infinity'}
-      .col-md-6
-        = f.grouped_collection_select :contact_id,
-            Unit.all, :users, :to_s, :id, :to_s,
-            {include_blank: true}, disabled: editing_disabled?,
-            data: {provide: 'select2', language: I18n.locale,
-              'allow-clear': true, placeholder: t('contact.none'),
-              'minimum-results-for-search': 'Infinity'}
-    .row
-      .col-md-12
+      .col-md-8
         = f.select :referrer_id, referrer_options,
             {include_blank: true}, disabled: editing_disabled?,
             data: {provide: 'select2', language: I18n.locale,
@@ -24,7 +16,19 @@
         .referrer-info{collapsible(@customer.referrer, :needs_info?)}
           = f.text_field :referrer_info, skip_label: true, wrapper_class: 'm-t-n',
               placeholder: Customer.human_attribute_name(:referrer_info)
-
+    .row
+      .col-md-4
+        = f.text_field :started_at, autocomplete: 'off',
+            label: Customer.human_attribute_name(:started_at),
+            data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd',
+              'date-language': I18n.locale}
+      .col-md-8
+        = f.grouped_collection_select :contact_id,
+            Unit.all, :users, :to_s, :id, :to_s,
+            {include_blank: true}, disabled: editing_disabled?,
+            data: {provide: 'select2', language: I18n.locale,
+              'allow-clear': true, placeholder: t('contact.none'),
+              'minimum-results-for-search': 'Infinity'}
   - unless editing_disabled?
     .form-group.actions
       = f.submit class: 'btn btn-primary'

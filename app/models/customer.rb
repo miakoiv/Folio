@@ -15,7 +15,7 @@ class Customer < ApplicationRecord
 
   belongs_to :referrer, optional: true
 
-  default_scope { order(created_at: :desc) }
+  default_scope { order(started_at: :desc) }
   scope :active, -> { joins(:status).merge(Status.active) }
 
   # Scope for customers at a unit.
@@ -24,12 +24,8 @@ class Customer < ApplicationRecord
   # Scope for customers with notes by a user.
   scope :noted_by, -> (user) { joins(:notes).merge(Note.by(user)) }
 
-  def date
-    created_at.to_date
-  end
-
   def to_s
-    "#{model_name.human.capitalize} #{date}"
+    "#{model_name.human.capitalize} #{started_at}"
   end
 end
 

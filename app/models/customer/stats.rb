@@ -14,25 +14,25 @@ class Customer < ApplicationRecord
 
   def self.count_by_month
     unscope(:order)
-      .group(creation_month_function.to_sql).count
+      .group(starting_month_function.to_sql).count
   end
 
-  # This method establishes the count of customers created before
+  # This method establishes the count of customers started before
   # the earliest one (last one) in whatever relation this is called on.
-  # NOTE: to successfully unscope :created_at, it must have been applied
+  # NOTE: to successfully unscope :started_at, it must have been applied
   #       as a hash condition or through Arel
   def self.starting_count
     return 0 if last.nil?
-    unscope(where: :created_at).where(
-      creation_month_function.lt(
-        table.project(creation_month_function).where(table[:id].eq(last.id))
+    unscope(where: :started_at).where(
+      starting_month_function.lt(
+        table.project(starting_month_function).where(table[:id].eq(last.id))
       )
     ).count
   end
 
-  def self.creation_month_function
+  def self.starting_month_function
     Arel::Nodes::NamedFunction.new('DATE_FORMAT', [
-      table[:created_at], Arel::Nodes::Quoted.new('%Y-%m')
+      table[:started_at], Arel::Nodes::Quoted.new('%Y-%m')
     ])
   end
 
