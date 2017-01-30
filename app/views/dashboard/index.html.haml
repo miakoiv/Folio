@@ -3,12 +3,20 @@
     .col-md-4
       .hpanel
         %ul.nav.nav-tabs
-          = nav_tab 'customers-panel', icon('handshake-o', t('dashboard.customers.header')),
-              class: 'active'
+          - if @user_customers.any?
+            = nav_tab 'user-customers-panel',
+                icon('handshake-o', t('dashboard.customers.user.header')),
+                class: 'active'
+          - if @unit_customers.any?
+            = nav_tab 'unit-customers-panel',
+                icon('home', t('dashboard.customers.unit.header')),
+                class: @user_customers.none? ? 'active' : nil
           = nav_tab 'notes-panel', icon('book', t('dashboard.notes.header'))
         .tab-content
-          #customers-panel.tab-pane.fade.in.active
-            = render partial: 'customers'
+          #user-customers-panel.tab-pane.fade{class: @user_customers.any? && 'in active'}
+            = render partial: 'user_customers'
+          #unit-customers-panel.tab-pane.fade{class: @user_customers.none? && 'in active'}
+            = render partial: 'unit_customers'
           #notes-panel.tab-pane.fade
             = render partial: 'notes'
     .col-md-8

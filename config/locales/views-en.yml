@@ -17,11 +17,14 @@ en:
     forbidden: You are not authorized to complete that action.
   dashboard:
     customers:
-      header: Customers
+      user:
+        header: Own customers
+      unit:
+        header: Unit customers
     events:
       header: Event calendar
     notes:
-      header: Customer notes
+      header: Notes
   dropzone:
     default_message: Drop files here or click
   header:

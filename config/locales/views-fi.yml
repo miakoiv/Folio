@@ -17,11 +17,14 @@ fi:
     forbidden: Käyttöoikeutesi ei riitä tähän toimintoon.
   dashboard:
     customers:
-      header: Asiakkaat
+      user:
+        header: Omat asiakkaat
+      unit:
+        header: Yksikön asiakkaat
     events:
       header: Tapahtumakalenteri
     notes:
-      header: Asiakasmerkinnät
+      header: Merkinnät
   dropzone:
     default_message: Pudota tiedostoja tähän tai klikkaa
   header:
