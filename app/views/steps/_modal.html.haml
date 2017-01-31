@@ -1,0 +1,9 @@
+.color-line
+.modal-header
+  .pull-right= modal_close_button
+  %h4.modal-title= title(Step)
+  .small.font-bold
+    .label.label-violet= @step.customer.unit
+    = @step.customer
+  .small.font-bold= @step.customer.person
+= render partial: 'form'

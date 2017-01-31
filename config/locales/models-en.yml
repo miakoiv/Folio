@@ -40,6 +40,9 @@ en:
       relationship:
         one: relationship
         other: relationships
+      steps:
+        one: step
+        other: steps
       unit:
         one: unit
         other: units
@@ -110,6 +113,10 @@ en:
       relationship:
         parent_id: Related person
         relation_id: Kind of relation
+      step:
+        milestone_id: Event
+        notes: Notes
+        reached_at: Date
       user:
         activates_at: Activation date
         current_password: Current password

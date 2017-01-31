@@ -168,6 +168,9 @@ fi:
   roles:
     panel:
       header: Valtuudet
+  steps:
+    new:
+      title: Uusi askel
   users:
     links:
       my_profile: Oma profiili

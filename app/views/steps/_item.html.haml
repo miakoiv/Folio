@@ -1,0 +1,9 @@
+.hpanel.filter-item[step]
+  = link_to [:edit, step], remote: true do
+    .panel-body
+      %span.label.label-default.pull-right
+        = step.milestone.milestone_type
+      %h4
+        = l(step.reached_at, format: :short)
+      %small
+        = step.milestone

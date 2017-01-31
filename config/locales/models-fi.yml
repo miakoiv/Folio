@@ -40,6 +40,9 @@ fi:
       relationship:
         one: suhde
         other: suhteet
+      step:
+        one: askel
+        other: askeleet
       unit:
         one: yksikkö
         other: yksiköt
@@ -110,6 +113,10 @@ fi:
       relationship:
         parent_id: Toinen osapuoli
         relation_id: Suhteen laatu
+      step:
+        milestone_id: Tapahtuma
+        notes: Lisätietoja
+        reached_at: Päiväys
       user:
         activates_at: Aktivointipäivä
         current_password: Nykyinen salasana

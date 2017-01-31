@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130090701) do
+ActiveRecord::Schema.define(version: 20170131094006) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "unit_id",                     null: false
@@ -131,6 +131,20 @@ ActiveRecord::Schema.define(version: 20170130090701) do
     t.index ["sender_id"], name: "index_memos_on_sender_id", using: :btree
   end
 
+  create_table "milestone_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.string   "name_fi"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "milestones", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.integer  "milestone_type_id", null: false
+    t.string   "name_fi"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["milestone_type_id"], name: "index_milestones_on_milestone_type_id", using: :btree
+  end
+
   create_table "municipalities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.string "name_fi", null: false
     t.string "name_sv", null: false
@@ -229,6 +243,17 @@ ActiveRecord::Schema.define(version: 20170130090701) do
     t.boolean "active",     default: false, null: false
     t.string  "name_fi",                    null: false
     t.string  "appearance",                 null: false
+  end
+
+  create_table "steps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.integer  "customer_id",                null: false
+    t.integer  "milestone_id",               null: false
+    t.date     "reached_at",                 null: false
+    t.text     "notes",        limit: 65535
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["customer_id"], name: "index_steps_on_customer_id", using: :btree
+    t.index ["milestone_id"], name: "index_steps_on_milestone_id", using: :btree
   end
 
   create_table "units", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|

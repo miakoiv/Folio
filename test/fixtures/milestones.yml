@@ -1,0 +1,44 @@
+milestone_1:
+  id: 1
+  milestone_type_id: 1
+  name_fi: Työllistynyt avoimille työmarkkinoille
+
+milestone_2:
+  id: 2
+  milestone_type_id: 1
+  name_fi: Työllistynyt palkkatukityöhön
+
+milestone_3:
+  id: 3
+  milestone_type_id: 1
+  name_fi: Aloittanut työkokeilun
+
+milestone_4:
+  id: 4
+  milestone_type_id: 1
+  name_fi: Aloittanut koulutuksen
+
+milestone_5:
+  id: 5
+  milestone_type_id: 1
+  name_fi: Keskeyttänyt hankkeen
+
+milestone_6:
+  id: 6
+  milestone_type_id: 1
+  name_fi: Lopettanut hankkeessa
+
+milestone_7:
+  id: 7
+  milestone_type_id: 1
+  name_fi: Aloittanut hankkeessa
+
+milestone_8:
+  id: 8
+  milestone_type_id: 1
+  name_fi: Muu tilanne
+
+milestone_9:
+  id: 9
+  milestone_type_id: 1
+  name_fi: Työhönvalmennuksessa

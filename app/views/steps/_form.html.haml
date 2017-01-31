@@ -1,0 +1,18 @@
+= bootstrap_form_for [@customer, @step], remote: true,
+    html: {novalidate: true} do |f|
+  .modal-body
+    %fieldset
+      .row
+        .col-md-8
+          = f.grouped_collection_select :milestone_id,
+              MilestoneType.all, :milestones, :to_s, :id, :to_s, {},
+              data: {provide: 'select2', language: I18n.locale}
+        .col-md-4
+          = f.text_field :reached_at, autocomplete: 'off',
+              data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd',
+                'date-language': I18n.locale}
+      .row
+        .col-md-12
+          = f.text_area :notes
+  .modal-footer
+    = f.submit class: 'btn btn-primary'

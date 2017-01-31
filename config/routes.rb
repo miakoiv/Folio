@@ -33,6 +33,7 @@ Rails.application.routes.draw do
         get :search, on: :collection
       end
       resources :notes
+      resources :steps, except: :index
     end
     resources :images, shallow: true
     resources :relationships, shallow: true, except: [:index, :show]

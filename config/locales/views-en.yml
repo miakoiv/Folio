@@ -168,6 +168,9 @@ en:
   roles:
     panel:
       header: Privileges
+  steps:
+    new:
+      title: New step
   users:
     links:
       my_profile: My profile

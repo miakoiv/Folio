@@ -1,0 +1,4 @@
+= link_to [:new, @customer, :step], id: 'new_step', remote: true do
+  = render partial: 'steps/new'
+#step-list.m-b-lg.hidden-print
+  = render partial: 'steps/item', collection: @customer.steps, as: :step
