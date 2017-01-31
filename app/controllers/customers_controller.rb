@@ -12,7 +12,10 @@ class CustomersController < ApplicationController
 
   # GET /people/2/customers/new
   def new
-    @customer = @person.customers.at(current_unit).build(contact: current_user)
+    @customer = @person.customers.at(current_unit).build(
+      contact: current_user,
+      started_at: Date.current
+    )
   end
 
   # GET /customers/1/edit
