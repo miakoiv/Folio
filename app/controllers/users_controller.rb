@@ -53,8 +53,14 @@ class UsersController < ApplicationController
   def update
     authorize_action_for @user
 
+    if params[:user][:password].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+
     respond_to do |format|
       if @user.update(user_params)
+        bypass_sign_in(@user) if @user == current_user
         track @user
         format.html {
           if @user.unconfirmed_two_factor?
