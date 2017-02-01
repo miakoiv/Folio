@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  devise_for :users
+  devise_for :users, path_prefix: 'local'
 
   get '/users/:id/two_factor/confirm',
     to: 'users#confirm_two_factor', as: :confirm_two_factor
