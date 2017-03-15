@@ -11,8 +11,7 @@
   .row
     .col-md-3
       = render @person
-      - if @person.customer?
-        = render partial: 'customers'
+      = render partial: 'customers'
     .col-md-6
       .hpanel
         .panel-heading.hbuilt
@@ -25,5 +24,4 @@
     .col-md-3
       = render partial: 'images'
       = render partial: 'relationships'
-      - if @person.customer?
-        = render partial: 'history'
+      = render partial: 'history'
