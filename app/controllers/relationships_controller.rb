@@ -92,7 +92,7 @@ class RelationshipsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def relationship_params
       params.fetch(:relationship) {{}}.permit(
-        :parent_id, :relation_id,
+        :parent_id, :relation_id, :legal_guardian,
         parent_attributes: [
           :id, :last_name, :first_names, :address, :postcode_id,
           :municipality_id, :phone, :email

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170131094006) do
+ActiveRecord::Schema.define(version: 20170327115300) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "unit_id",                     null: false
@@ -219,11 +219,12 @@ ActiveRecord::Schema.define(version: 20170131094006) do
   end
 
   create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.integer  "person_id",   null: false
-    t.integer  "parent_id",   null: false
-    t.integer  "relation_id", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "person_id",                      null: false
+    t.integer  "parent_id",                      null: false
+    t.integer  "relation_id",                    null: false
+    t.boolean  "legal_guardian", default: false, null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.index ["parent_id"], name: "index_relationships_on_parent_id", using: :btree
     t.index ["person_id"], name: "index_relationships_on_person_id", using: :btree
     t.index ["relation_id"], name: "index_relationships_on_relation_id", using: :btree

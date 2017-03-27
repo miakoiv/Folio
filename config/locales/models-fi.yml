@@ -111,6 +111,7 @@ fi:
         title: Otsikko
         content: Sisältö
       relationship:
+        legal_guardian: Huoltaja
         parent_id: Toinen osapuoli
         relation_id: Suhteen laatu
       step:

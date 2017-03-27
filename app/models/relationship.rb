@@ -10,4 +10,8 @@ class Relationship < ApplicationRecord
   belongs_to :parent, class_name: 'Person', counter_cache: :children_count
   accepts_nested_attributes_for :parent
 
+
+  def appearance
+    legal_guardian? ? 'primary' : 'default'
+  end
 end

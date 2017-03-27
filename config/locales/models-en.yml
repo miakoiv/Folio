@@ -111,6 +111,7 @@ en:
         title: Title
         content: Content
       relationship:
+        legal_guardian: Legal guardian
         parent_id: Related person
         relation_id: Kind of relation
       step:
