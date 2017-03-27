@@ -8,7 +8,9 @@
       = f.email_field :email, autofocus: true
       = f.password_field :password, autocomplete: 'off'
       - if devise_mapping.rememberable?
-        = f.check_box :remember_me
+        .checkbox
+          = f.check_box_without_bootstrap :remember_me
+          = f.label :remember_me
       .actions
         = f.submit t('.sign_in'), class: 'btn btn-success btn-block'
       = render "devise/shared/links"

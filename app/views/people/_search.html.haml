@@ -5,8 +5,9 @@
       %fieldset
         = f.search_field :keyword, placeholder: t('.keyword'),
             skip_label: true
-        = f.form_group :parental do
-          = f.check_box :parental, label: t('.parental')
+        .checkbox
+          = f.check_box_without_bootstrap :parental
+          = f.label :parental, t('.parental')
       %hr.hr-line-dashed
       %p.small= t('.help')
       %fieldset
