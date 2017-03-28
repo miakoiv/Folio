@@ -36,13 +36,15 @@ namespace :db do
       rand(3).times do |n|
         unit = units.sample
         contact = unit.users.sample
+        started = creation + rand(1500).days
 
         person.customers.create(
           unit: unit,
-          contact: contact,
-          created_at: creation + rand(1500).days,
+          contacts: [contact],
           status: statuses.sample,
-          referrer: referrers.sample
+          referrer: referrers.sample,
+          started_at: started,
+          created_at: started
         )
       end
     end
