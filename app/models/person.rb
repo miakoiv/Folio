@@ -28,13 +28,6 @@ class Person < ApplicationRecord
     children_count > 0
   end
 
-  # People who are not parents are potential customers.
-  scope :customer, -> { where(children_count: 0) }
-
-  def customer?
-    children_count == 0
-  end
-
   default_scope { order(:last_name, :first_names) }
 
 
