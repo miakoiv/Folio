@@ -19,13 +19,13 @@
             Jokainen Folion käyttäjä voi aktivoida kaksivaiheisen tunnistautumisen itsenäisesti, helposti ja nopeasti. Aloita asentamalla autentikaattori puhelimeesi:
 
           .row
-            .col-sm-4.m-t-md.m-b-md
+            .col-sm-6.col-md-3.col-lg-4.m-t-md.m-b-md
               %a.btn.btn-default.btn-block.btn-lg{target: '_blank', href: 'https://appsto.re/fi/fdakx.i'}
                 = icon('apple', 'iPhone')
-            .col-sm-4.m-t-md.m-b-md
+            .col-sm-6.col-md-4.col-lg-4.m-t-md.m-b-md
               %a.btn.btn-default.btn-block.btn-lg{target: '_blank', href: 'https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2'}
                 = icon('android', 'Android')
-            .col-sm-4.m-t-md.m-b-md
+            .col-sm-12.col-md-5.col-lg-4.m-t-md.m-b-md
               %a.btn.btn-default.btn-block.btn-lg{target: '_blank', href: 'https://www.microsoft.com/en-us/store/p/authenticator/9nblggh08h54'}
                 = icon('windows', 'Windows Phone')
 
@@ -37,14 +37,14 @@
 
           .row
             .col-sm-4.col-md-3
-              = image_tag 'pages/my_profile.png', class: 'thumbnail img-responsive'
+              = image_tag 'pages/my_profile.png', width: 162, height: 174, class: 'thumbnail img-responsive'
 
             .col-sm-8.col-md-9
               %p
                 Seuraavaksi avaa oma profiilisi käyttäjävalikosta oman nimesi alapuolelta, ja valitse
                 %span.btn.btn-sm.btn-default= icon('pencil', 'Muokkaa')
               .pull-right
-                = image_tag 'pages/enable_2fa.png', class: 'thumbnail img-responsive'
+                = image_tag 'pages/enable_2fa.png', width: 224, height: 70, class: 'thumbnail img-responsive'
               %p
                 Aktivoi kaksivaiheinen tunnistautuminen lukkosymbolista ja
                 %span.btn.btn-sm.btn-default Päivitä käyttäjä.
@@ -58,12 +58,20 @@
             %label.control-label Syötä autentikaattorin koodi
             ja valitse
             %span.btn.btn-sm.btn-default Tarkasta
+
+          .row
+            .col-md-8.col-lg-7
+              = image_tag 'pages/confirm_2fa.png', width: 466, height: 200, class: 'thumbnail img-responsive'
+
+            .col-md-4
+              %small
+                = icon('exclamation-circle')
+                Näppäile vain numerosarja ilman välilyöntejä.
+
+          .hr-line-dashed
+
           %p
-            = image_tag 'pages/confirm_2fa.png', class: 'thumbnail img-responsive'
-          %p
-            Koodin ollessa oikein kaksivaiheinen tunnistautuminen aktivoituu. Seuraavalla kirjautumiskerralla sinulta kysytään autentikaattorin näyttämää koodia, joka vaihtuu 30 sekunnin välein.
-          %p
-            Koodi on voimassa 16 tuntia, joten tänä aikana voit kirjautua ulos ja takaisin sisään ilman autentikaattoria.
+            Koodin ollessa oikein kaksivaiheinen tunnistautuminen aktivoituu. Seuraavasta kirjautumiskerrasta lähtien sinulta kysytään autentikaattorin näyttämää koodia, joka vaihtuu 30 sekunnin välein.
           %small
             = icon('warning')
             Tunnistautumiseen sallitaan kolme yritystä. Jos koodi syötetään kolmannen kerran väärin, käyttäjätilisi lukkiutuu. Ota yhteys ylläpitoon tilin avaamiseksi.
