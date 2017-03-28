@@ -101,6 +101,7 @@ class UsersController < ApplicationController
         if @user.confirm_two_factor!(params[:code])
           redirect_to @user, notice: t('.notice', user: @user)
         else
+          flash.now[:alert] = t('.error')
           render :confirm_two_factor
         end
       }

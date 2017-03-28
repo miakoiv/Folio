@@ -43,3 +43,4 @@ fi:
       notice: "Käyttäjätili %{user} poistettu."
     confirm_two_factor_update:
       notice: "Kaksivaiheinen autentikaatio aktivoitu."
+      error: "Vahvistus epäonnistui, tarkista koodi."

@@ -43,3 +43,4 @@ en:
       notice: "User account %{user} deleted."
     confirm_two_factor_update:
       notice: "Two-factor authentication activated."
+      error: "Verification failed, make sure the code is correctly entered."
