@@ -7,7 +7,7 @@ module UsersHelper
   end
 
   def google_authenticator_qrcode(user)
-    qrcode = RQRCode::QRCode.new(user.provisioning_uri)
+    qrcode = RQRCode::QRCode.new(user.provisioning_uri(user.email, issuer: 'Folio'))
     base64 = Base64.encode64(qrcode.as_svg(module_size: 16))
     image_tag "data:image/svg+xml;base64,#{base64}", class: 'img-responsive'
   end
