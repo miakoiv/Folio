@@ -23,7 +23,7 @@ class User < ApplicationRecord
   belongs_to :unit
 
   # Customers where the user is one of the contacts
-  has_and_belongs_to_many :customers, foreign_key: :user_id
+  has_and_belongs_to_many :customers
 
   has_many :sent_memos, class_name: 'Memo', foreign_key: :sender_id
   has_many :deliveries, as: :recipient
