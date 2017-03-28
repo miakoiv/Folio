@@ -5,7 +5,7 @@ class CreateJoinTableCustomerUser < ActiveRecord::Migration[5.0]
     end
 
     Customer.find_each(batch_size: 50) do |customer|
-      customer.contacts << customer.contact if customer.contact.present?
+      customer.contact_ids << customer.contact_id unless customer.contact_id.nil?
     end
   end
 
