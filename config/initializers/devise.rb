@@ -164,7 +164,7 @@ Devise.setup do |config|
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
-  config.timeout_in = 4.hours
+  config.timeout_in = 2.hours
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
@@ -257,7 +257,7 @@ Devise.setup do |config|
   # Direct OTP code length.
   config.direct_otp_length = 6
   # Time before browser has to perform 2FA again. Default is 0.
-  config.remember_otp_session_for_seconds = 16.hours
+  config.remember_otp_session_for_seconds = 2.hours
   config.otp_secret_encryption_key = ENV['OTP_SECRET_KEY']
   # Field or method name used to set value for 2FA remember cookie.
   config.second_factor_resource_id = 'id'
