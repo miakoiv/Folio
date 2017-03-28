@@ -13,7 +13,7 @@ class CustomersController < ApplicationController
   # GET /people/2/customers/new
   def new
     @customer = @person.customers.at(current_unit).build(
-      contact: current_user,
+      contacts: [current_user],
       started_at: Date.current
     )
   end
@@ -81,7 +81,8 @@ class CustomersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
       params.require(:customer).permit(
-        :contact_id, :status_id, :referrer_id, :referrer_info, :started_at
+        :status_id, :referrer_id, :referrer_info, :started_at,
+        contact_ids: []
       )
     end
 end

@@ -61,7 +61,7 @@ fi:
         resource: Tietue
         whodunnit_id: Tekijä
       customer:
-        contact_id: Vastuuhenkilö
+        contact_ids: Vastuuhenkilöt
         notes: Huomautuksia
         referrer_id: Lähettävä taho
         referrer_info: Tarkenna lähettävä taho…

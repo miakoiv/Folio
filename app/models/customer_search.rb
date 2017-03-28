@@ -20,6 +20,6 @@ class CustomerSearch < Searchlight::Search
   end
 
   def search_contacts
-    query.where(contact: contacts)
+    query.left_outer_joins(:contacts).where(users: {id: contacts})
   end
 end

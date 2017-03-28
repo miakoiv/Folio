@@ -5,7 +5,7 @@ class Customer < ApplicationRecord
 
   belongs_to :unit
   belongs_to :person
-  belongs_to :contact, class_name: 'User', optional: true
+  has_and_belongs_to_many :contacts, class_name: 'User'
 
   has_many :events, dependent: :destroy
   has_many :notes, dependent: :destroy
@@ -23,10 +23,15 @@ class Customer < ApplicationRecord
   scope :at, -> (unit) { where(unit: unit) }
 
   # Scope for customers without a contact.
-  scope :without_contact, -> { where(contact: nil) }
+  scope :without_contact, -> { left_outer_joins(:contacts).where(users: {id: nil}) }
 
   # Scope for customers with notes by a user.
   scope :noted_by, -> (user) { joins(:notes).merge(Note.by(user)) }
+
+
+  def contacts_to_s
+    contacts.map { |c| "#{c.first_names} #{c.last_name}" }.to_sentence
+  end
 
   def to_s
     "#{model_name.human.capitalize} #{started_at}"

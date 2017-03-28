@@ -23,12 +23,11 @@
             data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd',
               'date-language': I18n.locale}
       .col-md-8
-        = f.grouped_collection_select :contact_id,
+        = f.grouped_collection_select :contact_ids,
             Unit.all, :users, :to_s, :id, :to_s,
             {include_blank: true}, disabled: editing_disabled?,
-            data: {provide: 'select2', language: I18n.locale,
-              'allow-clear': true, placeholder: t('contact.none'),
-              'minimum-results-for-search': 'Infinity'}
+            multiple: true, data: {provide: 'select2', language: I18n.locale,
+              placeholder: t('contacts.none')}
   - unless editing_disabled?
     .form-group.actions
       = f.submit class: 'btn btn-primary'

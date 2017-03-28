@@ -48,7 +48,7 @@ en:
     new:
       title: Comment
       prompt: Your comment…
-  contact:
+  contacts:
     none: "[No person responsible]"
   documents:
     panel:

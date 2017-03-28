@@ -61,7 +61,7 @@ en:
         resource: Record
         whodunnit_id: Actor
       customer:
-        contact_id: Person responsible
+        contact_ids: Persons responsible
         notes: Notes
         referrer_id: Referred by
         referrer_info: Specify referral…
