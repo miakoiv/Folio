@@ -91,9 +91,21 @@
 .label-orange { background-color: $color-orange; }
 .label-red { background-color: $color-red; }
 .label-red-deep { background-color: $color-red-deep; }
+.label-personal, .label-shared { background-color: #fff; color: $text-color; }
 
-// Apply the UI colors to calendar events
-.fc-event {
+// Calendar events of different types
+.fc-event.personal {
+  background-color: #fff;
+  color: $text-color;
+}
+.fc-event.shared {
+  background-color: #fff;
+  color: $text-muted;
+  border-style: dotted;
+}
+
+// Apply the UI colors to calendar events of customer type
+.fc-event.customer {
   &.navy-blue { background-color: $color-navy-blue; border-color: $color-navy-blue; }
   &.violet { background-color: $color-violet; border-color: $color-violet; }
   &.blue { background-color: $color-blue; border-color: $color-blue; }
@@ -104,11 +116,8 @@
   &.red-deep { background-color: $color-red-deep; border-color: $color-red-deep; }
 }
 
-// Default and external events are translucent.
-.fc-event.default, .fc-event.external {
-  background-color: transparent;
-  color: rgba($text-color, 0.333);
-}
+// Muted events
+.fc-event.muted { opacity: 0.333; }
 
 // Nested panels
 .nested-panel {
