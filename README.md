@@ -1,24 +1,30 @@
-# README
+# Folio documentation
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Models
 
-Things you may want to cover:
+### Events
 
-* Ruby version
+An event has associations to its *event type*, the *unit* it was created at, the *user* who created it, and optionally a *customer*.
 
-* System dependencies
+    class Event
+      belongs_to :event_type
+      delegate :event_scope, :customer?, :personal?, :shared?, to: :event_type
 
-* Configuration
+      belongs_to :unit
+      belongs_to :user
+      belongs_to :customer, optional: true
+    end
 
-* Database creation
+    class EventType
+      enum event_scope: {customer: 0, personal: 1, shared: 2}
+    end
 
-* Database initialization
+The event type specifies the *event scope*, or how the event associations are interpreted:
 
-* How to run the test suite
+  - **customer** events involve a user and a customer, allocating time from both parties.
+  - **personal** events don't involve a customer, the user's own time is allocated.
+  - **shared** events don't allocate anyone's time, but they are visible to all users on shared calendars. *The user association is still present to record who created the event.*
 
-* Services (job queues, cache servers, search engines, etc.)
+With event delegations, there are shortcuts to query the event scope directly:
 
-* Deployment instructions
-
-* ...
+    @event.customer? || @event.personal?
