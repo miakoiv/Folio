@@ -24,7 +24,6 @@ Rails.application.routes.draw do
   resources :postcodes, only: :index
 
   resources :customers, only: :index
-  resources :events, only: :index
 
   resources :people do
     resources :customers, shallow: true, except: :index do
