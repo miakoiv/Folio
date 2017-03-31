@@ -68,14 +68,15 @@ en:
         started_at: Since
         status_id: Customer status
       event:
+        customer_id: Customer
         date: Starting date
         description: Description
         duration: Duration
         event_type_id: Event type
-        customer_id: Customer
         time: Starting time
         title: Title
-        user_id: Owner
+        unit_id: Unit
+        user_id: User
       image:
         attachment: Image file
       memo:

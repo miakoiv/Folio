@@ -4,7 +4,7 @@ class EventSearch < Searchlight::Search
   include Searchlight::Adapters::ActionView
 
   def base_query
-    Event.includes(customer: :unit)
+    Event.joins(:event_type).includes(:customer)
   end
 
   def search_user
@@ -12,7 +12,7 @@ class EventSearch < Searchlight::Search
   end
 
   def search_unit
-    query.where(customers: {unit: unit})
+    query.where(unit: unit)
   end
 
   def search_users

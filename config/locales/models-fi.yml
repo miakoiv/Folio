@@ -68,14 +68,15 @@ fi:
         started_at: Alkaen
         status_id: Asiakkuuden tila
       event:
+        customer_id: Asiakas
         date: Alkamispäivä
         description: Kuvaus
         duration: Kesto
         event_type_id: Tapahtumalaji
-        customer_id: Asiakas
         time: Alkamisaika
         title: Otsake
-        user_id: Omistaja
+        unit_id: Yksikkö
+        user_id: Käyttäjä
       image:
         attachment: Kuvatiedosto
       memo:

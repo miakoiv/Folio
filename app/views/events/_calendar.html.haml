@@ -31,13 +31,13 @@
         start: '08:00'
         end: '20:00'
         dow: [1,2,3,4,5]
-      editable: true
       eventAfterRender: (event, element) ->
         element.popover('destroy') if element.popover?
         element.popover
           container: 'body'
+          html: true
           title: event.person or event.user
-          content: event.description
+          content: event.html_description
           placement: 'left'
           trigger: 'focus hover'
           delay: 500
@@ -48,7 +48,7 @@
             ends_at: date.format()
       eventClick: (calEvent, jsEvent, view) ->
         jsEvent.preventDefault()
-        $.get calEvent.edit_url
+        if calEvent.editable then $.get calEvent.edit_url
         false
       eventResize: eventUpdate
       eventDrop: eventUpdate

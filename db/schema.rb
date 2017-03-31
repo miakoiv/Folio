@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170328064600) do
+ActiveRecord::Schema.define(version: 20170331111436) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "unit_id",                     null: false
@@ -95,11 +95,13 @@ ActiveRecord::Schema.define(version: 20170328064600) do
   end
 
   create_table "event_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.string "name_fi"
-    t.string "appearance"
+    t.integer "event_scope", default: 0, null: false
+    t.string  "name_fi"
+    t.string  "appearance"
   end
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.integer  "unit_id",                     null: false
     t.integer  "user_id",                     null: false
     t.integer  "customer_id"
     t.integer  "event_type_id",               null: false
@@ -113,6 +115,7 @@ ActiveRecord::Schema.define(version: 20170328064600) do
     t.datetime "deleted_at"
     t.index ["customer_id"], name: "index_events_on_customer_id", using: :btree
     t.index ["event_type_id"], name: "index_events_on_event_type_id", using: :btree
+    t.index ["unit_id"], name: "index_events_on_unit_id", using: :btree
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 

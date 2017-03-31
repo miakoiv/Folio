@@ -1,20 +1,13 @@
 class EventsController < ApplicationController
 
-  # Context is customer if present, current user otherwise.
   before_action :set_context, only: [:search, :new, :create]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-
-  # GET /events
-  # GET /events.json
-  def index
-    @events = current_user.events
-  end
 
   # GET /users/2/events/search.json
   # GET /customers/2/events/search.json
   def search
     @search = EventSearch.new(search_params)
-    @events = @search.results
+    @events = @search.results.in_context_of(current_unit, current_user, @context)
 
     respond_to do |format|
       format.json { render :index }
@@ -29,7 +22,7 @@ class EventsController < ApplicationController
   # GET /users/2/events/new
   # GET /customers/2/events/new
   def new
-    @event = @context.events.for(current_user).build(event_params)
+    @event = @context.events.at(current_unit).for(current_user).build(event_params)
   end
 
   # GET /events/1/edit
@@ -42,7 +35,7 @@ class EventsController < ApplicationController
   # POST /customers/2/events
   # POST /customers/2/events.json
   def create
-    @event = @context.events.for(current_user).build(event_params)
+    @event = @context.events.at(current_unit).for(current_user).build(event_params)
 
     respond_to do |format|
       if @event.save
@@ -87,14 +80,16 @@ class EventsController < ApplicationController
 
   protected
     def search_params
-      params.slice(:since_date, :until_date).merge(user: current_user)
+      params.slice(:since_date, :until_date)
     end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Sets context to associate new events to an object, and for
+    # scoping search results.
     def set_context
-      @customer = current_unit.customers.find_by(id: params[:customer_id])
-      @context = @customer || current_user
+      @customer = Customer.find_by(id: params[:customer_id])
+      @user = User.find_by(id: params[:user_id])
+      @context = @customer || @user
     end
 
     def set_event

@@ -1,7 +1,7 @@
 module EventsHelper
 
   def event_type_options
-    EventType.for_customers.map { |t| [t.to_s, t.id, data: {label: t.appearance}] }
+    EventType.all.map { |t| [t.to_s, t.id, data: {label: t.appearance}] }
   end
 
   def duration_options
@@ -18,5 +18,10 @@ module EventsHelper
     h, m = mins.divmod 60
     return "#{h}\u2008h" if m == 0
     "#{h}\u2008h\u2008#{m}\u2008min"
+  end
+
+  def html_description(event)
+    content_tag(:p, event.user) +
+    content_tag(:p, event.description, class: 'small')
   end
 end

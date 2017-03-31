@@ -1,0 +1,11 @@
+.panel-body
+  %span.label.pull-right{class: "label-#{event.event_type.appearance}"}
+    = event.event_type
+  %h4
+    = event.title
+  %small
+    .pull-right
+      = event.user
+      = icon('clock-o')
+      = duration_in_hours_minutes event.duration
+    = l(event.starts_at, format: :short)

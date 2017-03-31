@@ -3,14 +3,34 @@ class Event < ApplicationRecord
   include SoftDeletable
   include Trackable
 
+  belongs_to :unit
   belongs_to :user
   belongs_to :customer, optional: true
 
+  # Event type specifies the event scope, or how to interpret event associations.
   belongs_to :event_type
   delegate :appearance, to: :event_type
+  delegate :event_scope, :customer?, :personal?, :shared?, to: :event_type
+
 
   default_scope { order(starts_at: :desc) }
+
+  scope :at, -> (unit) { where(unit: unit) }
   scope :for, -> (user) { where(user: user) }
+
+  scope :in_context_of, -> (current_unit, current_user, context) {
+    if context.is_a?(Customer)
+      where(customer: context).merge(EventType.customer).or(
+        where(user: current_user).merge(EventType.customer_or_personal).or(
+          where(unit: current_unit).merge(EventType.shared)
+        )
+      )
+    else
+      where(user: context).merge(EventType.customer_or_personal).or(
+        where(unit: current_unit).merge(EventType.shared)
+      )
+    end
+  }
 
   validates :title, presence: true
   validates :duration, presence: true
@@ -29,15 +49,22 @@ class Event < ApplicationRecord
   end
 
 
-  # An event is external when a customer is given as context and this event
-  # is not theirs, or without customer context, the event doesn't belong to
-  # the given unit.
-  def external?(for_customer, at_unit)
-    (for_customer.present? && customer != for_customer) || context.unit != at_unit
+  # Event context for activity tracking.
+  def context
+    return customer if customer?
+    return user if personal?
+    unit
   end
 
-  def context
-    customer || user
+  def editable?(for_user)
+    user == for_user || customer.contacts.include?(for_user)
+  end
+
+  def rendering(for_user, for_customer)
+    classes = [event_scope]
+    classes << appearance if customer?
+    classes << 'muted' if customer? && for_customer != customer || for_user != user
+    classes
   end
 
   def to_s

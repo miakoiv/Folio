@@ -1,12 +1,6 @@
 .hpanel.filter-item[event]
-  = link_to [:edit, event], remote: true do
-    .panel-body
-      %span.label.pull-right{class: "label-#{event.event_type.appearance}"}
-        = event.event_type
-      %h4
-        = event.title
-      %small
-        .pull-right
-          = icon('clock-o')
-          = duration_in_hours_minutes event.duration
-        = l(event.starts_at, format: :short)
+  - if event.editable?(current_user)
+    = link_to [:edit, event], remote: true do
+      = render partial: 'events/item_content', object: event, as: :event
+  - else
+    = render partial: 'events/item_content', object: event, as: :event

@@ -1,8 +1,3 @@
-event_type_0:
-  id: 0
-  name_fi: Oma toiminta
-  appearance: default
-
 event_type_1:
   id: 1
   name_fi: Pajakäynti
@@ -77,3 +72,15 @@ event_type_15:
   id: 15
   name_fi: Ohjaus-, tuki- ja neuvontakontakti
   appearance: violet
+
+event_type_16:
+  id: 16
+  name_fi: Oma toiminta
+  appearance: personal
+  context: 1
+
+event_type_17:
+  id: 17
+  name_fi: Yhteinen tapahtuma
+  appearance: shared
+  context: 2

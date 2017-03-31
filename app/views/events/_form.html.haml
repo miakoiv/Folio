@@ -2,14 +2,11 @@
     html: {novalidate: true} do |f|
   .modal-body
     %fieldset
-      - if @event.context.is_a?(Customer)
-        .row
-          .col-md-12
-            = f.select :event_type_id, event_type_options, {},
-                data: {provide: 'select2', language: I18n.locale,
-                  'minimum-results-for-search': 'Infinity'}
-      - else
-        = f.hidden_field :event_type_id, value: 0
+      .row
+        .col-md-12
+          = f.select :event_type_id, event_type_options, {},
+              data: {provide: 'select2', language: I18n.locale,
+                'minimum-results-for-search': 'Infinity'}
       .row
         = f.fields_for :compound_starts_at do |ff|
           .col-md-6
