@@ -153,17 +153,26 @@
 
 // Neater popovers
 .popover {
+  background-color: $color-navy-blue;
+  color: #fff;
   font-family: 'Open Sans';
 
   h3.popover-title {
     @extend .font-bold, .small;
     padding: 5px 10px;
+    background-color: transparent;
+    border-bottom-color: darken($color-navy-blue, 5%);
   }
   .popover-content {
     @extend .small;
     padding: 5px 10px;
+    small, .small { font-size: 10px; }
   }
 }
+.popover.top > .arrow:after { border-top-color: $color-navy-blue; }
+.popover.right > .arrow:after { border-right-color: $color-navy-blue; }
+.popover.bottom > .arrow:after { border-bottom-color: $color-navy-blue; }
+.popover.left > .arrow:after { border-left-color: $color-navy-blue; }
 
 // Smaller labels, form field help, and table headers
 label.control-label { @extend .small; }
