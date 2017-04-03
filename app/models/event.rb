@@ -49,6 +49,15 @@ class Event < ApplicationRecord
   end
 
 
+  # Events associated with customers always select from customer event types.
+  # Otherwise, new events can be personal or shared, existing events are
+  # locked to their existing type.
+  def available_event_types
+    return EventType.customer if customer.present?
+    return EventType.personal_or_shared if new_record?
+    [event_type]
+  end
+
   # Event context for activity tracking.
   def context
     return customer if customer?

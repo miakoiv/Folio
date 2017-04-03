@@ -4,7 +4,7 @@
     %fieldset
       .row
         .col-md-12
-          = f.select :event_type_id, event_type_options, {},
+          = f.select :event_type_id, event_type_options(@event), {},
               data: {provide: 'select2', language: I18n.locale,
                 'minimum-results-for-search': 'Infinity'}
       .row

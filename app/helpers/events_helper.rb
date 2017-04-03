@@ -1,7 +1,7 @@
 module EventsHelper
 
-  def event_type_options
-    EventType.all.map { |t| [t.to_s, t.id, data: {label: t.appearance}] }
+  def event_type_options(event)
+    event.available_event_types.map { |t| [t.to_s, t.id, data: {label: t.appearance}] }
   end
 
   def duration_options
