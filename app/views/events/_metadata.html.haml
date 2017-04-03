@@ -1,0 +1,24 @@
+.social-talk
+  .media.social-profile
+    .pull-left
+      .label.label-violet= event.unit
+    .media-body
+      = l(event.starts_at, format: :short)
+      - unless event.new_record?
+        = icon('clock-o')
+        = duration_in_hours_minutes event.duration
+
+  - if event.customer.present?
+    .media.social-profile
+      .pull-left
+        = profile_image event.customer.person
+      .media-body
+        .font-bold= event.customer.person
+        = event.customer
+
+  - if !event.new_record? && (event.customer? || event.personal?)
+    .media.social-profile
+      .pull-left
+        = profile_image event.user
+      .media-body
+        .font-bold= event.user
