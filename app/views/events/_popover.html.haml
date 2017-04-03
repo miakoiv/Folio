@@ -1,0 +1,10 @@
+%p
+  = l(event.starts_at, format: :short)
+  = icon('clock-o')
+  = duration_in_hours_minutes event.duration
+  %br
+  = icon('user-circle', event.user)
+  - if event.customer.present?
+    %br
+    = icon('address-book', event.customer.person)
+%small= event.description

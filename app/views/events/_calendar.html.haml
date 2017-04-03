@@ -36,9 +36,9 @@
         element.popover
           container: 'body'
           html: true
-          title: event.person or event.user
-          content: event.html_description
-          placement: 'left'
+          title: event.title
+          content: event.popover
+          placement: 'left auto'
           trigger: 'focus hover'
           delay: 500
       dayClick: (date, jsEvent, view) ->

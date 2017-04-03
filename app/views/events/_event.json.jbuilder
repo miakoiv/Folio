@@ -7,4 +7,4 @@ json.start event.starts_at
 json.end event.ends_at
 json.className event.rendering(current_user, @customer)
 json.editable event.editable?(current_user)
-json.html_description html_description(event)
+json.popover ApplicationController.render(partial: 'events/popover', object: event, as: :event)

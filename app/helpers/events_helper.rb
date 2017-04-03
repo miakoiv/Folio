@@ -19,9 +19,4 @@ module EventsHelper
     return "#{h}\u2008h" if m == 0
     "#{h}\u2008h\u2008#{m}\u2008min"
   end
-
-  def html_description(event)
-    content_tag(:p, event.user) +
-    content_tag(:p, event.description, class: 'small')
-  end
 end
