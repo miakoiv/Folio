@@ -137,9 +137,20 @@
       .fc-left, .fc-right { display: none; }
       .fc-center h2 { font-size: 14pt; }
     }
+    .fc-time-grid .fc-event-container { margin-left: -1px; }
+    .fc-event.customer {
+      padding: 0 0 0 6px;
+      background-color: #fff !important;
+      border-color: #000;
+      border-width: 0 0 0 2px;
+      border-radius: 0;
+    }
     .fc-event.personal, .fc-list-item.personal,
     .fc-event.shared, .fc-list-item.shared,
     .fc-event.other-customer, .fc-list-item.other-customer { display: none; }
+    .fc-event.other-user { opacity: 1; }
+
+    .fc-event .fc-content { white-space: normal; }
   }
 
   #toast-container { display: none; }
