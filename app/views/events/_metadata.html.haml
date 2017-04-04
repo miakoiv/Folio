@@ -3,7 +3,8 @@
     .pull-left
       .label.label-violet= event.unit
     .media-body
-      = l(event.starts_at, format: :short)
+      - if event.starts_at.present?
+        = l(event.starts_at, format: :short)
       - unless event.new_record?
         = icon('clock-o')
         = duration_in_hours_minutes event.duration
