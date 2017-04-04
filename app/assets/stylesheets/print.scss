@@ -121,37 +121,30 @@
     font-size: inherit;
   }
 
-  // FullCalendar overrides for printing:
-  //   setting scroller height to auto will display the whole calendar,
-  //   while widget header is adjusted not to have room for a scrollbar
-  .fc {
-    .fc-row.fc-widget-header {
-      margin-right: 0 !important;
-      border-right-width: 0 !important;
-    }
-    .fc-scroller {
-      height: auto !important;
-      overflow-y: hidden !important;
-    }
-    .fc-toolbar {
-      .fc-left, .fc-right { display: none; }
-      .fc-center h2 { font-size: 14pt; }
-    }
-    .fc-time-grid .fc-event-container { margin-left: -1px; }
-    .fc-event.customer {
-      padding: 0 0 0 6px;
-      background-color: #fff !important;
-      border-color: #000;
-      border-width: 0 0 0 2px;
-      border-radius: 0;
-    }
-    .fc-event.personal, .fc-list-item.personal,
-    .fc-event.shared, .fc-list-item.shared,
-    .fc-event.other-customer, .fc-list-item.other-customer { display: none; }
-    .fc-event.other-user { opacity: 1; }
+  // FullCalendar overrides for printing
+  @import 'fullcalendar.print.min';
 
-    .fc-event .fc-content { white-space: normal; }
+  .fc-toolbar .fc-center h2 { font-size: 14pt; }
+  .fc-event .fc-content { white-space: normal; }
+  .fc-event .fc-content .fc-time {
+    display: block;
+
+    &:before {
+      display: inline-block;
+      margin-right: 2pt;
+      font-family: 'FontAwesome';
+      font-weight: normal;
+      content: '\f017';
+    }
   }
+  .fc-event.customer {
+    border-width: 1px;
+    border-color: #000;
+  }
+  .fc-event.personal, .fc-list-item.personal,
+  .fc-event.shared, .fc-list-item.shared,
+  .fc-event.other-customer, .fc-list-item.other-customer { display: none; }
+  .fc-event.other-user { opacity: 1; }
 
   #toast-container { display: none; }
 }
