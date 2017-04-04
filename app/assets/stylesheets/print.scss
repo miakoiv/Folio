@@ -137,7 +137,9 @@
       .fc-left, .fc-right { display: none; }
       .fc-center h2 { font-size: 14pt; }
     }
-    .fc-event.external, .fc-list-item.external { display: none; }
+    .fc-event.personal, .fc-list-item.personal,
+    .fc-event.shared, .fc-list-item.shared,
+    .fc-event.other-customer, .fc-list-item.other-customer { display: none; }
   }
 
   #toast-container { display: none; }

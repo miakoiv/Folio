@@ -72,7 +72,8 @@ class Event < ApplicationRecord
   def rendering(for_user, for_customer)
     classes = [event_scope]
     classes << appearance if customer?
-    classes << 'muted' if customer? && for_customer != customer || for_user != user
+    classes << 'other-customer' if customer? && for_customer != customer
+    classes << 'other-user' if for_user != user
     classes
   end
 

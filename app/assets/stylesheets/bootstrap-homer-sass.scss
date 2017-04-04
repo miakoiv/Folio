@@ -103,9 +103,11 @@
   color: $text-muted;
   border-style: dotted;
 }
+.fc-list-item.personal .fc-event-dot { background-color: $text-color; }
+.fc-list-item.shared .fc-event-dot { background-color: $text-muted; }
 
 // Apply the UI colors to calendar events of customer type
-.fc-event.customer {
+.fc-event {
   &.navy-blue { background-color: $color-navy-blue; border-color: $color-navy-blue; }
   &.violet { background-color: $color-violet; border-color: $color-violet; }
   &.blue { background-color: $color-blue; border-color: $color-blue; }
@@ -115,9 +117,21 @@
   &.red { background-color: $color-red; border-color: $color-red; }
   &.red-deep { background-color: $color-red-deep; border-color: $color-red-deep; }
 }
+.fc-list-item {
+  &.navy-blue .fc-event-dot { background-color: $color-navy-blue; border-color: $color-navy-blue; }
+  &.violet .fc-event-dot { background-color: $color-violet; border-color: $color-violet; }
+  &.blue .fc-event-dot { background-color: $color-blue; border-color: $color-blue; }
+  &.green .fc-event-dot { background-color: $color-green; border-color: $color-green; }
+  &.yellow .fc-event-dot { background-color: $color-yellow; border-color: $color-yellow; }
+  &.orange .fc-event-dot { background-color: $color-orange; border-color: $color-orange; }
+  &.red .fc-event-dot { background-color: $color-red; border-color: $color-red; }
+  &.red-deep .fc-event-dot { background-color: $color-red-deep; border-color: $color-red-deep; }
+}
 
-// Muted events
-.fc-event.muted { opacity: 0.333; }
+// Events for other customer or user are muted, in list view other customers are hidden
+.fc-event.other-customer, .fc-event.other-user { opacity: 0.333; }
+.fc-list-item.other-customer { display: none; }
+
 
 // Nested panels
 .nested-panel {
