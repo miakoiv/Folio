@@ -94,6 +94,9 @@
 .label-red-deep { background-color: $color-red-deep; }
 .label-personal, .label-shared { background-color: #fff; color: $text-color; }
 
+// Calendar header
+.fc-header-toolbar h2 { font-size: $font-size-h3; }
+
 // Calendar events of different types
 .fc-event.personal {
   background-color: #fff;
