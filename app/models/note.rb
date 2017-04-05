@@ -12,7 +12,7 @@ class Note < ApplicationRecord
   validates :title, :content, presence: true
 
   def fresh?
-    created_at > 2.hours.ago
+    created_at > 12.hours.ago
   end
 
   def to_s
