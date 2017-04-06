@@ -40,6 +40,11 @@
           content: event.popover
           placement: 'left auto'
           trigger: 'focus hover'
+          template: '<div class="popover fc-popover" role="tooltip">
+            <div class="arrow"></div>
+            <h3 class="popover-title"></h3>
+            <div class="popover-content"></div>
+            </div>'
           delay: 500
       dayClick: (date, jsEvent, view) ->
         $.get '#{url_for([:new, context, :event])}',
