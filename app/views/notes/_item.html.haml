@@ -1,5 +1,5 @@
 .note[note]
-  - if note.editable?(current_user)
+  - if note.updatable_by?(current_user)
     .pull-right.m-l
       = link_to icon('pencil', t('actions.edit')), [:edit, note], remote: true,
           class: 'btn btn-xs btn-primary'

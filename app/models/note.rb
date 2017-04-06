@@ -1,5 +1,8 @@
 class Note < ApplicationRecord
 
+  # Adds `creatable_by?(user)`, etc
+  include Authority::Abilities
+
   include Trackable
 
   belongs_to :user
@@ -10,10 +13,6 @@ class Note < ApplicationRecord
   scope :by, -> (user) { where(user: user) }
 
   validates :title, :content, presence: true
-
-  def editable?(for_user)
-    fresh? && user == for_user
-  end
 
   def fresh?
     created_at > 12.hours.ago
