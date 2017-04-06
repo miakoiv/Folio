@@ -34,6 +34,13 @@ en:
       notice: "Person %{person} updated."
     destroy:
       notice: "Person %{person} deleted."
+  reviews:
+    create:
+      notice: "Review %{review} created."
+    update:
+      notice: "Review %{review} updated."
+    destroy:
+      notice: "Review %{review} deleted."
   users:
     create:
       notice: "User account %{user} created."

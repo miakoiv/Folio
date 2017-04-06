@@ -34,6 +34,7 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :notes, dependent: :destroy
   has_many :posts, foreign_key: :author_id
+  has_many :reviews, dependent: :destroy
 
   default_scope { order(:last_name, :first_names) }
 

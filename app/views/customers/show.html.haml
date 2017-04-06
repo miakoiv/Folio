@@ -34,6 +34,7 @@
           = nav_tab 'notes-panel', icon('book', t('notes.panel.header')),
               class: 'active'
           = nav_tab 'calendar-panel', icon('calendar', t('calendar.panel.header'))
+          = nav_tab 'reviews-panel', icon('certificate', t('reviews.panel.header'))
         .tab-content
           #notes-panel.tab-pane.fade.in.active
             .panel-body
@@ -41,6 +42,9 @@
           #calendar-panel.tab-pane.fade
             .panel-body
               = render partial: 'events/calendar', object: @customer, as: :context
+          #reviews-panel.tab-pane.fade
+            .panel-body
+              = render partial: 'reviews'
 :coffee
   $('#new_event').on 'click', (e) ->
     $('a[href="#calendar-panel"]').tab 'show'

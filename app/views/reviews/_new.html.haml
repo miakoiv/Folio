@@ -1,0 +1,5 @@
+= bootstrap_form_for [@customer, Review.new],
+    remote: true, html: {novalidate: true} do |f|
+  %fieldset
+    = f.text_field :title, skip_label: true, autofocus: true,
+        placeholder: t('.title'), append: f.submit(class: 'btn btn-primary')

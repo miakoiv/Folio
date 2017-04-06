@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170331111436) do
+ActiveRecord::Schema.define(version: 20170405121358) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "unit_id",                     null: false
@@ -235,6 +235,18 @@ ActiveRecord::Schema.define(version: 20170331111436) do
     t.index ["parent_id"], name: "index_relationships_on_parent_id", using: :btree
     t.index ["person_id"], name: "index_relationships_on_person_id", using: :btree
     t.index ["relation_id"], name: "index_relationships_on_relation_id", using: :btree
+  end
+
+  create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.integer  "user_id",                    null: false
+    t.integer  "customer_id",                null: false
+    t.string   "title"
+    t.text     "content",      limit: 65535
+    t.date     "published_at"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["customer_id"], name: "index_reviews_on_customer_id", using: :btree
+    t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|

@@ -1,0 +1,16 @@
+.review[review]
+  .pull-right.m-l
+    - if review.updatable_by?(current_user)
+      = link_to icon('pencil', t('actions.edit')), [:edit, review], remote: true,
+          class: 'btn btn-xs btn-primary'
+  .pull-right.text-right
+    - if review.published?
+      = l(review.published_at, format: :long)
+    - else
+      = t('reviews.unpublished')
+    .small.font-bold= review.user
+  %h3.m-b-lg= review.title
+  .review-content
+    - if review.content.present?
+      = review.content.html_safe
+  .hr-line-dashed

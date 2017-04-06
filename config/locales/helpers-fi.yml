@@ -1,0 +1,5 @@
+fi:
+  helpers:
+    submit:
+      review:
+        update: Tallenna ja sulje

@@ -40,6 +40,9 @@ fi:
       relationship:
         one: suhde
         other: suhteet
+      review:
+        one: arvio
+        other: arviot
       step:
         one: askel
         other: askeleet
@@ -115,6 +118,10 @@ fi:
         legal_guardian: Huoltaja
         parent_id: Toinen osapuoli
         relation_id: Suhteen laatu
+      review:
+        title: Otsikko
+        content: Sisältö
+        published_at: Julkaisupäivä
       step:
         milestone_id: Tapahtuma
         notes: Lisätietoja

@@ -34,6 +34,13 @@ fi:
       notice: "Henkilö %{person} päivitetty."
     destroy:
       notice: "Henkilö %{person} poistettu."
+  reviews:
+    create:
+      notice: "Arvio %{review} luotu."
+    update:
+      notice: "Arvio %{review} päivitetty."
+    destroy:
+      notice: "Arvio %{review} poistettu."
   users:
     create:
       notice: "Käyttäjätili %{user} luotu."

@@ -1,0 +1,25 @@
+= bootstrap_form_for @review, remote: true, html: {novalidate: true} do |f|
+  %fieldset
+    .row
+      .col-md-9
+        = f.text_field :title, skip_label: true, autofocus: true
+      .col-md-3
+        = f.text_field :published_at, skip_label: true, autocomplete: 'off',
+            placeholder: Review.human_attribute_name(:published_at),
+            data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd',
+              'date-language': I18n.locale}
+    = f.text_area :content, skip_label: true
+    .form-group.actions
+      = f.submit class: 'btn btn-primary'
+
+  :coffee
+    $('#review_content').summernote
+      lang: '#{t("i18n.culture")}'
+      dialogsFade: true
+      disableDragAndDrop: true
+      toolbar: [
+        ['para', ['ul', 'ol', 'paragraph']]
+        ['style', ['bold', 'italic', 'clear']]
+        ['color', ['color']]
+        ['insert', ['hr', 'link']]
+      ]

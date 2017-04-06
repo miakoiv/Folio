@@ -1,0 +1,3 @@
+$("##{dom_id @review}").replaceWith("#{j render partial: 'reviews/item', object: @review, as: :review}");
+$("##{dom_id @review}").addClass('animated-panel zoomIn');
+$('#review-form').html("#{j render partial: 'reviews/new'}");

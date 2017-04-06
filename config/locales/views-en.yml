@@ -165,6 +165,12 @@ en:
       latest: latest record
       by_age: People by age
       by_gender: People by gender
+  reviews:
+    panel:
+      header: Reviews
+    new:
+      title: Title for a new review
+    unpublished: "[Not published]"
   roles:
     panel:
       header: Privileges

@@ -165,6 +165,12 @@ fi:
       latest: viimeisin kirjaus
       by_age: Ikäjakauma
       by_gender: Sukupuolijakauma
+  reviews:
+    panel:
+      header: Arviot
+    new:
+      title: Uuden arvion otsikko
+    unpublished: "[Ei julkaistu]"
   roles:
     panel:
       header: Valtuudet

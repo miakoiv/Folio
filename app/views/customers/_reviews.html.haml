@@ -1,0 +1,6 @@
+.hpanel.nested-panel.editing-panel.hidden-print
+  .panel-body
+    #review-form
+      = render partial: 'reviews/new'
+#review-list
+  = render partial: 'reviews/item', collection: @customer.reviews, as: :review
