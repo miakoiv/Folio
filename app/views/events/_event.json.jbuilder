@@ -6,5 +6,5 @@ json.update_url event_path(event, format: :js)
 json.start event.starts_at
 json.end event.ends_at
 json.className event.rendering(current_user, @customer)
-json.editable event.editable?(current_user)
+json.editable event.updatable_by?(current_user)
 json.popover ApplicationController.render(partial: 'events/popover', object: event, as: :event)

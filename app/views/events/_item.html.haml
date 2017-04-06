@@ -1,5 +1,5 @@
 .hpanel.filter-item[event]
-  - if event.editable?(current_user)
+  - if event.updatable_by?(current_user)
     = link_to [:edit, event], remote: true do
       = render partial: 'events/item_content', object: event, as: :event
   - else

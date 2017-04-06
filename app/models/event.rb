@@ -1,5 +1,8 @@
 class Event < ApplicationRecord
 
+  # Adds `creatable_by?(user)`, etc
+  include Authority::Abilities
+
   include SoftDeletable
   include Trackable
 
@@ -63,10 +66,6 @@ class Event < ApplicationRecord
     return customer if customer?
     return user if personal?
     unit
-  end
-
-  def editable?(for_user)
-    user == for_user || customer.contacts.include?(for_user)
   end
 
   def rendering(for_user, for_customer)
