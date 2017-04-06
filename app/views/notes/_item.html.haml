@@ -1,12 +1,10 @@
 .note[note]
-  - if note.user == current_user
-    - if note.fresh?
-      .pull-right.m-l
-        = link_to icon('pencil', t('actions.edit')), [:edit, note], remote: true,
-            class: 'btn btn-xs btn-primary'
-  - else
+  - if note.editable?(current_user)
     .pull-right.m-l
-      %span.label.label-default= note.user
+      = link_to icon('pencil', t('actions.edit')), [:edit, note], remote: true,
+          class: 'btn btn-xs btn-primary'
+  .pull-right.m-l-xs
+    = icon('user-circle', note.user)
   .pull-right.text-muted.m-l-lg= l(note.created_at, format: :long)
   %h3= note.title
   .note-content

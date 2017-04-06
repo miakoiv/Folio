@@ -11,6 +11,10 @@ class Note < ApplicationRecord
 
   validates :title, :content, presence: true
 
+  def editable?(for_user)
+    fresh? && user == for_user
+  end
+
   def fresh?
     created_at > 12.hours.ago
   end
