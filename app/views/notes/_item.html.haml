@@ -1,12 +1,12 @@
 .note[note]
-  - if note.updatable_by?(current_user)
-    .pull-right.m-l
+  .pull-right.m-l
+    - if note.updatable_by?(current_user)
       = link_to icon('pencil', t('actions.edit')), [:edit, note], remote: true,
           class: 'btn btn-xs btn-primary'
-  .pull-right.m-l-xs
-    = icon('user-circle', note.user)
-  .pull-right.text-muted.m-l-lg= l(note.created_at, format: :long)
-  %h3= note.title
+  .pull-right.text-right
+    .text-muted= l(note.created_at, format: :long)
+    .small.font-bold= note.user
+  %h3.m-b-lg= note.title
   .note-content
     = note.content.html_safe
   .hr-line-dashed
