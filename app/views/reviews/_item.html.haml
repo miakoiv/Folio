@@ -10,7 +10,7 @@
       = t('reviews.unpublished')
     .small.font-bold= review.user
   %h3.m-b-lg= review.title
-  .review-content
+  .review-content.read-more
     - if review.content.present?
       = review.content.html_safe
   .hr-line-dashed

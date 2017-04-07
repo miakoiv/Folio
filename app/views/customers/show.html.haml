@@ -50,3 +50,5 @@
     $('a[href="#calendar-panel"]').tab 'show'
   $('a[href="#calendar-panel"]').on 'shown.bs.tab', (e) ->
     $('#calendar').fullCalendar 'render'
+  $('a[href="#reviews-panel"]').on 'shown.bs.tab', (e) ->
+    $('#reviews-panel').readmore_handler()

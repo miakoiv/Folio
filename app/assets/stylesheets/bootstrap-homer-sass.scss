@@ -348,3 +348,16 @@ textarea.form-control {
 
   .dz-message { margin: 10px 0; }
 }
+
+// Readmore styling
+.read-more { max-height: $line-height-base * 4 * 13px; }
+.read-more-toggle {
+  margin-top: 5px;
+  border-top: 1px solid $table-border-color;
+
+  a {
+    @extend .btn, .btn-default, .btn-block;
+    border: 0;
+    border-radius: 0;
+  }
+}

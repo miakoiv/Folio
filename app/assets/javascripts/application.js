@@ -36,6 +36,7 @@
 //= require metisMenu.min
 //= require toastr.min
 //= require sweetalert2.min
+//= require readmore.min
 //= require homer
 //
 // Mind the load order
