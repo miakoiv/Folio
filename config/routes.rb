@@ -32,7 +32,9 @@ Rails.application.routes.draw do
         get :search, on: :collection
       end
       resources :notes
-      resources :reviews
+      resources :reviews do
+        patch :save, on: :member
+      end
       resources :steps, except: :index
     end
     resources :images, shallow: true

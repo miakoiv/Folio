@@ -1,1 +1,3 @@
 $('#review-form').html("#{j render partial: 'reviews/edit'}");
+$("##{dom_id @review}").addClass('animated-panel fadeOut')
+$.scrollTo($('#review-form'), {offset: -125});

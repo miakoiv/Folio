@@ -13,6 +13,13 @@
       = f.submit class: 'btn btn-primary'
 
   :coffee
+    autosave = debounce ->
+      $.ajax
+        type: 'PATCH'
+        url: '#{save_review_path(@review)}'
+        data: $('#review-form > form').serialize()
+    , 5000
+
     $('#review_content').summernote
       lang: '#{t("i18n.culture")}'
       dialogsFade: true
@@ -23,3 +30,5 @@
         ['color', ['color']]
         ['insert', ['hr', 'link']]
       ]
+      callbacks:
+        onChange: autosave

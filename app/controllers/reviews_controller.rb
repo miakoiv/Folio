@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
   before_action :set_customer, only: :create
-  before_action :set_review, only: [:edit, :update, :destroy]
+  before_action :set_review, only: [:edit, :update, :save, :destroy]
 
   # GET /reviews/1/edit.js
   def edit
@@ -29,6 +29,17 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.update(review_params)
         track @review, @review.customer
+        format.js
+      else
+        format.js { render json: @review.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /reviews/1/save.js
+  def save
+    respond_to do |format|
+      if @review.update(review_params)
         format.js
       else
         format.js { render json: @review.errors, status: :unprocessable_entity }
