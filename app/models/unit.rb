@@ -9,7 +9,12 @@ class Unit < ApplicationRecord
   has_many :notes, through: :customers
   has_many :posts
   has_many :activities
-  has_one :template
+
+  has_many :templates
+  has_one :header_template, -> { merge(Template.header) }, class_name: 'Template'
+  has_one :footer_template, -> { merge(Template.footer) }, class_name: 'Template'
+  has_one :review_template, -> { merge(Template.review) }, class_name: 'Template'
+
 
   scope :accessible_by, -> (user) { joins(roles: :users).where(users: {id: user}) }
 

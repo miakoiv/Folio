@@ -277,10 +277,11 @@ ActiveRecord::Schema.define(version: 20170410071942) do
   end
 
   create_table "templates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
-    t.integer  "unit_id",                  null: false
+    t.integer  "purpose",                  default: 0, null: false
+    t.integer  "unit_id",                              null: false
     t.text     "content",    limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.index ["unit_id"], name: "index_templates_on_unit_id", using: :btree
   end
 
