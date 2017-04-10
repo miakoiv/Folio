@@ -10,10 +10,14 @@
               'date-language': I18n.locale}
     = f.text_area :content, skip_label: true
     .form-group.actions
+      .pull-left
+        #autosave-icon{style: 'display: none'}
+          %i.pe-7s-cloud-upload.pe-2x
       = f.submit class: 'btn btn-primary'
 
   :coffee
     autosave = debounce ->
+      $('#autosave-icon').show()
       $.ajax
         type: 'PATCH'
         url: '#{save_review_path(@review)}'
