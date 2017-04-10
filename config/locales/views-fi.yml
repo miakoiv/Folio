@@ -170,6 +170,7 @@ fi:
       header: Arviot
     new:
       title: Uuden arvion otsikko
+    preview: Näytä
     unpublished: "[Ei julkaistu]"
   roles:
     panel:

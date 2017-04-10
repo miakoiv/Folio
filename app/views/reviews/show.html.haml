@@ -1,0 +1,25 @@
+- content_for :header do
+  %h2= @review
+  %small= @customer
+- content_for :breadcrumb do
+  %li= link_to title(Person, count: 2), people_path
+  %li= link_to @customer.person, @customer.person
+  %li= link_to @customer, @customer
+  %li.active= @review
+
+- content_for :sidebar do
+  = render partial: 'activities/sidebar', object: @review, as: :resource
+
+.content.content-boxed
+  .row
+    .col-lg-12
+      .hpanel.blog-article-box
+        - if current_unit.header_template.present?
+          .panel-heading
+            = current_unit.header_template.content
+        .panel-body
+          - if @review.content.present?
+            = @review.content.html_safe
+        - if current_unit.footer_template.present?
+          .panel-footer
+            = current_unit.footer_template.content

@@ -1,7 +1,13 @@
 class ReviewsController < ApplicationController
 
   before_action :set_customer, only: :create
-  before_action :set_review, only: [:edit, :update, :save, :destroy]
+  before_action :set_review, only: [:show, :edit, :update, :save, :destroy]
+
+  # GET /reviews/1
+  def show
+    authorize_action_for @review
+    @customer = @review.customer
+  end
 
   # GET /reviews/1/edit.js
   def edit
@@ -25,6 +31,7 @@ class ReviewsController < ApplicationController
 
   # PATCH/PUT /reviews/1.js
   def update
+    authorize_action_for @review
     @customer = @review.customer
 
     respond_to do |format|

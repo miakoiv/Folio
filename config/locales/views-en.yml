@@ -170,6 +170,7 @@ en:
       header: Reviews
     new:
       title: Title for a new review
+    preview: Preview
     unpublished: "[Not published]"
   roles:
     panel:

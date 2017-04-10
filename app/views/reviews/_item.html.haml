@@ -1,5 +1,7 @@
 .review[review]
   .pull-right.m-l
+    - if review.published?
+      = link_to icon('file-text-o', t('reviews.preview')), review, class: 'btn btn-xs btn-default'
     - if review.updatable_by?(current_user)
       = link_to icon('pencil', t('actions.edit')), [:edit, review], remote: true,
           class: 'btn btn-xs btn-primary'
