@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
   # POST /customers/2/reviews.js
   def create
     @review = @customer.reviews.by(current_user).build(review_params)
+    @review.content = current_unit.template.content if current_unit.template.present?
 
     respond_to do |format|
       if @review.save

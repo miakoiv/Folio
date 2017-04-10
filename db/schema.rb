@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405121358) do
+ActiveRecord::Schema.define(version: 20170410071942) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
     t.integer  "unit_id",                     null: false
@@ -274,6 +274,14 @@ ActiveRecord::Schema.define(version: 20170405121358) do
     t.datetime "updated_at",                 null: false
     t.index ["customer_id"], name: "index_steps_on_customer_id", using: :btree
     t.index ["milestone_id"], name: "index_steps_on_milestone_id", using: :btree
+  end
+
+  create_table "templates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
+    t.integer  "unit_id",                  null: false
+    t.text     "content",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["unit_id"], name: "index_templates_on_unit_id", using: :btree
   end
 
   create_table "units", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci" do |t|
