@@ -1,3 +1,3 @@
 $('#modal').modal('hide');
 $("#{j render partial: 'steps/item', object: @step, as: :step}").prependTo('#step-list');
-$("##{dom_id @step}").addClass('opacity-0 animated-panel fadeIn');
+$("##{dom_id @step}").animateCss('fadeIn');

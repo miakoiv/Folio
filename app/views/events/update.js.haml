@@ -1,4 +1,4 @@
 $('#modal').modal('hide');
 $("##{dom_id @event}").replaceWith("#{j render partial: 'events/item', object: @event, as: :event}");
-$("##{dom_id @event}").addClass('animated-panel zoomIn');
+$("##{dom_id @event}").animateCss('fadeIn');
 $('#calendar').fullCalendar('refetchEvents');
