@@ -8,8 +8,13 @@
     font-size: 9pt;
   }
 
-  #header, #menu, footer, #right-sidebar, #hbreadcrumb {
+  #header, #menu, footer, #right-sidebar, .normalheader {
     display: none;
+  }
+
+  #print-logo .img-responsive {
+    float: right;
+    width: 15mm;
   }
 
   #wrapper {
@@ -19,8 +24,6 @@
     margin-left: 0;
     border: 0;
   }
-
-  .normalheader > .hpanel > .panel-body { padding-top: 0; }
 
   .content {
     min-width: 100%;
@@ -36,15 +39,14 @@
     }
   }
 
+  .avoid-break { page-break-inside: avoid; }
+
   .btn { display: none; }
 
   a[href]::after { content: none; }
 
-  img { max-width: none !important; }
-
   .hpanel {
     margin-bottom: 15px;
-    page-break-inside: avoid;
 
     .panel-body {
       padding-top: 10px;

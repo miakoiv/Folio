@@ -13,6 +13,9 @@
     #header
       = render partial: 'shared/header'
 
+    #print-logo.visible-print
+      = image_tag 'folio-logo.svg', class: 'img-responsive'
+
     %aside#menu
       #navigation
         = render partial: 'shared/profile_picture'
