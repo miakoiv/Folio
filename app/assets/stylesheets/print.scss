@@ -1,25 +1,25 @@
 @media print {
   @page {
     size: A4 portrait;
-    margin: 1.4cm 1.4cm 2.1cm 2.1cm;
+    margin: 1cm 1.4cm 1.4cm 2.1cm;
   }
 
-  body {
-    font-size: 9pt;
-  }
+  body { font-size: 9pt; }
 
-  #header, #menu, footer, #right-sidebar, .normalheader {
+  #header, #menu, .footer, #right-sidebar, .normalheader {
     display: none;
   }
 
-  #print-logo .img-responsive {
-    float: right;
-    width: 15mm;
+  .print-header { display: table-header-group !important; }
+  .print-footer {
+    display: table-footer-group !important;
   }
 
   #wrapper {
+    display: table; /* to render .print-header and .print-footer correctly */
     position: static;
     top: auto !important;
+    min-width: 100%;
     min-height: 0 !important;
     margin-left: 0;
     border: 0;
@@ -27,6 +27,7 @@
 
   .content {
     min-width: 100%;
+    margin-bottom: 29cm; /* push the last page footer to the bottom */
     padding: 0;
 
     > .row {

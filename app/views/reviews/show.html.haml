@@ -10,10 +10,14 @@
 - content_for :sidebar do
   = render partial: 'activities/sidebar', object: @review, as: :resource
 
+%header.print-header.visible-print
+  = current_unit.header_template
+
 .content.content-boxed
-  .row
-    .col-lg-12
-      .hpanel.blog-article-box
-        .panel-body
-          - if @review.content.present?
-            = @review.content.html_safe
+  .hpanel.blog-article-box
+    .panel-body
+      - if @review.content.present?
+        = @review.content.html_safe
+
+%footer.print-footer.visible-print
+  = current_unit.footer_template
