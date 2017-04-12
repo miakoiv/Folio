@@ -11,9 +11,7 @@
   }
 
   .print-header { display: table-header-group !important; }
-  .print-footer {
-    display: table-footer-group !important;
-  }
+  .print-footer { display: table-footer-group !important; }
 
   #wrapper {
     display: table; /* to render .print-header and .print-footer correctly */
