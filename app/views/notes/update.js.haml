@@ -1,3 +1,4 @@
 $("##{dom_id @note}").replaceWith("#{j render partial: 'notes/item', object: @note, as: :note}");
-$("##{dom_id @note}").animateCss('fadeIn');
+$("##{dom_id @note}").show().animateCss('fadeIn');
+$('#note_content').summernote('destroy');
 $('#note-form').html("#{j render partial: 'notes/new'}");

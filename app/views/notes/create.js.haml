@@ -1,3 +1,4 @@
 $("#{j render partial: 'notes/item', object: @note, as: :note}").prependTo('#note-list');
 $("##{dom_id @note}").animateCss('fadeIn');
+$('#note_content').summernote('destroy');
 $('#note-form').html("#{j render partial: 'notes/new'}");

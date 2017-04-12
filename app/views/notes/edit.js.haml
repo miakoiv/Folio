@@ -1,1 +1,3 @@
 $('#note-form').html("#{j render partial: 'notes/edit'}");
+$("##{dom_id @note}").animateCss('fadeOut', function (e) { $(e).hide() });
+$.scrollTo($('#note-form'), {offset: -125});
