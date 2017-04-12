@@ -4,16 +4,12 @@ $.fn.extend
       delay: 100
       embedCSS: false
       heightMargin: 48
-      moreLink: '<div class="read-more-toggle"><a href="#">
-        <i class="pe-7s-angle-down pe-lg"></i>
-        <i class="pe-7s-angle-down pe-lg"></i>
-        <i class="pe-7s-angle-down pe-lg"></i>
-        </a></div>'
-      lessLink: '<div class="read-more-toggle"><a href="#">
-        <i class="pe-7s-angle-up pe-lg"></i>
-        <i class="pe-7s-angle-up pe-lg"></i>
-        <i class="pe-7s-angle-up pe-lg"></i>
-        </a></div>'
+      moreLink: '<div class="read-more-toggle">
+        <a href="#"><i class="fa fa-chevron-down"></i></a>
+        </div>'
+      lessLink: '<div class="read-more-toggle">
+        <a href="#"><i class="fa fa-chevron-up"></i></a>
+        </div>'
 
 $(document).on 'shown.bs.modal', '.modal', ->
   $(this).readmore_handler()
