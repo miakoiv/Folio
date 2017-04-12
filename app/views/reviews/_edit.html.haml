@@ -15,24 +15,26 @@
           %i.pe-7s-cloud-upload.pe-2x
       = f.submit class: 'btn btn-primary'
 
-  :coffee
-    autosave = debounce ->
+:coffee
+  autosave = debounce ->
+    $form = $('##{dom_id @review, :edit}')
+    if $form.length
       $('#autosave-icon').show()
       $.ajax
         type: 'PATCH'
         url: '#{save_review_path(@review)}'
-        data: $('#review-form > form').serialize()
-    , 5000
+        data: $form.serialize()
+  , 5000
 
-    $('#review_content').summernote
-      lang: '#{t("i18n.culture")}'
-      dialogsFade: true
-      disableDragAndDrop: true
-      toolbar: [
-        ['para', ['ul', 'ol', 'paragraph']]
-        ['style', ['bold', 'italic', 'clear']]
-        ['color', ['color']]
-        ['insert', ['hr', 'link']]
-      ]
-      callbacks:
-        onChange: autosave
+  $('#review_content').summernote
+    lang: '#{t("i18n.culture")}'
+    dialogsFade: true
+    disableDragAndDrop: true
+    toolbar: [
+      ['para', ['ul', 'ol', 'paragraph']]
+      ['style', ['bold', 'italic', 'clear']]
+      ['color', ['color']]
+      ['insert', ['hr', 'link']]
+    ]
+    callbacks:
+      onChange: autosave

@@ -1,3 +1,4 @@
 $("##{dom_id @review}").replaceWith("#{j render partial: 'reviews/item', object: @review, as: :review}");
 $("##{dom_id @review}").show().animateCss('fadeIn').readmore_handler();
+$('#review_content').summernote('destroy');
 $('#review-form').html("#{j render partial: 'reviews/new'}");
