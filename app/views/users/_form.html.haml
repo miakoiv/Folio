@@ -25,14 +25,6 @@
             data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd',
               'date-language': I18n.locale}
     .hr-line-dashed
-    - unless editing_disabled?
-      .row
-        .col-md-6
-          = f.password_field :password, required: @user.new_record?,
-              help: t('.password_change')
-        .col-md-6
-          = f.password_field :password_confirmation
-      .hr-line-dashed
     - unless @user.new_record?
       .row
         .col-md-6

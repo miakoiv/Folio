@@ -17,6 +17,8 @@
       .hpanel
         .panel-heading.hbuilt
           .pull-right
+            = link_to icon('key', t('users.edit_password.header')), [:edit_password, @user],
+                class: 'btn btn-xs btn-default'
             = link_to icon('pencil', t('actions.edit')), [:edit, @user],
                 class: 'btn btn-xs btn-primary'
           = icon('id-card', t('users.panel.header'))

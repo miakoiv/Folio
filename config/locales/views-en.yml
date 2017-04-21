@@ -186,8 +186,9 @@ en:
     new:
       last_name: New
       first_names: user account
-    form:
-      password_change: Fill in these fields to change your password.
+    edit_password:
+      header: Change the password
+      submit: Change password
     two_factor:
       title: Two-factor authentication
       confirm: Confirm two-factor authentication

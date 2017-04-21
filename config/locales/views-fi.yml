@@ -186,8 +186,9 @@ fi:
     new:
       last_name: Uusi
       first_names: käyttäjätili
-    form:
-      password_change: Täytä nämä kentät jos haluat vaihtaa salasanasi.
+    edit_password:
+      header: Vaihda salasanaa
+      submit: Vaihda salasana
     two_factor:
       title: Kaksivaiheinen tunnistautuminen
       confirm: Vahvista kaksivaiheinen tunnistautuminen

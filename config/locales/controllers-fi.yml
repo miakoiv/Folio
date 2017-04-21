@@ -48,6 +48,8 @@ fi:
       notice: "Käyttäjätili %{user} päivitetty."
     destroy:
       notice: "Käyttäjätili %{user} poistettu."
+    update_password:
+      notice: "Käyttäjätilin %{user} salasana vaihdettu."
     confirm_two_factor_update:
       notice: "Kaksivaiheinen autentikaatio aktivoitu."
       error: "Vahvistus epäonnistui, tarkista koodi."

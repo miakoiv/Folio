@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update, :destroy,
+    :edit_password, :update_password,
     :confirm_two_factor, :confirm_two_factor_update]
 
   # GET /users
@@ -53,14 +54,8 @@ class UsersController < ApplicationController
   def update
     authorize_action_for @user
 
-    if params[:user][:password].blank?
-      params[:user].delete(:password)
-      params[:user].delete(:password_confirmation)
-    end
-
     respond_to do |format|
       if @user.update(user_params)
-        bypass_sign_in(@user) if @user == current_user
         track @user
         format.html {
           if @user.unconfirmed_two_factor?
@@ -89,6 +84,35 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # GET /users/1/edit_password
+  def edit_password
+    authorize_action_for @user
+    track @user
+
+    if @user.unconfirmed_two_factor?
+      redirect_to confirm_two_factor_path(@user)
+    end
+  end
+  authority_actions edit_password: :update
+
+  # PATCH /users/1/update_password
+  def update_password
+    authorize_action_for @user
+
+    respond_to do |format|
+      if @user.update(user_params)
+        bypass_sign_in(@user) if @user == current_user
+        track @user
+        format.html { redirect_to @user, notice: t('.notice', user: @user) }
+        format.json { render :show, status: :created, location: @user }
+      else
+        format.html { render :edit_password }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  authority_actions update_password: :update
 
   # GET /users/1/two_factor/confirm
   def confirm_two_factor

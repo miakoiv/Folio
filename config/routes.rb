@@ -47,6 +47,10 @@ Rails.application.routes.draw do
       get :search, on: :collection
     end
     resources :images, shallow: true
+    member do
+      get :edit_password
+      patch :update_password
+    end
   end
 
   resources :memos do

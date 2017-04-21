@@ -23,7 +23,9 @@ class Activity < ApplicationRecord
        edit: {icon: 'pencil-square', appearance: 'info'},
      create: {icon: 'plus-circle', appearance: 'success'},
      update: {icon: 'pencil-square', appearance: 'success'},
-    destroy: {icon: 'minus-circle', appearance: 'warning'}
+    destroy: {icon: 'minus-circle', appearance: 'warning'},
+      edit_password: {icon: 'key', appearance: 'info'},
+    update_password: {icon: 'key', appearance: 'success'}
   }.freeze
 
   def icon
