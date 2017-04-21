@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
   # The newly created activity is also rendered and broadcast to current unit.
   def track(resource, context = nil)
     differences = resource.previous_changes
-      .except('created_at', 'updated_at')
+      .except('encrypted_password', 'created_at', 'updated_at')
       .reject { |attribute, value| value.reject(&:blank?).empty? }
 
     activity = Activity.create(
