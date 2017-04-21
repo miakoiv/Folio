@@ -1,6 +1,5 @@
 - content_for :header do
-  %h2= title(User, count: 2)
-  %small= @user.full_name
+  %h2= @user.full_name
 - content_for :breadcrumb do
   %li= link_to title(User, count: 2), users_path
   %li.active= @user.full_name
