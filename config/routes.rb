@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   devise_for :users, path_prefix: 'local'
 
+  get '/users/:id/two_factor',
+    to: 'users#two_factor', as: :two_factor
   get '/users/:id/two_factor/confirm',
     to: 'users#confirm_two_factor', as: :confirm_two_factor
   put '/users/:id/two_factor',

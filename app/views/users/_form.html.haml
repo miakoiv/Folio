@@ -24,20 +24,6 @@
         = f.text_field :expires_at, autocomplete: 'off',
             data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd',
               'date-language': I18n.locale}
-    .hr-line-dashed
-    - unless @user.new_record?
-      .row
-        .col-md-6
-          = f.form_group :two_factor_enabled do
-            %label.control-label
-              = User.human_attribute_name(:two_factor_enabled)
-              = link_to page_path('two_factor_auth') do
-                = icon('question-circle', class: 'fa-lg')
-            .btn-group{data: {toggle: 'buttons'}}
-              - two_factor_options.each do |label, value|
-                %label.btn.btn-default{class: value == @user.two_factor_enabled && 'active'}
-                  = f.radio_button_without_bootstrap :two_factor_enabled, value
-                  = label
   - unless editing_disabled?
     .form-group.actions
       = f.submit class: 'btn btn-primary'

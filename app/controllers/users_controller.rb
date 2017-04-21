@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update, :destroy,
     :edit_password, :update_password,
-    :confirm_two_factor, :confirm_two_factor_update]
+    :two_factor, :confirm_two_factor, :confirm_two_factor_update]
 
   # GET /users
   # GET /users.json
@@ -113,6 +113,10 @@ class UsersController < ApplicationController
     end
   end
   authority_actions update_password: :update
+
+  # GET /users/1/two_factor
+  def two_factor
+  end
 
   # GET /users/1/two_factor/confirm
   def confirm_two_factor

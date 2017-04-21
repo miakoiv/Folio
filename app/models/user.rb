@@ -81,6 +81,10 @@ class User < ApplicationRecord
     )
   end
 
+  def two_factor_icon
+    two_factor_enabled? ? 'lock' : 'unlock'
+  end
+
   def full_name
     return last_name if first_names.empty?
     [last_name, first_names].join ', '

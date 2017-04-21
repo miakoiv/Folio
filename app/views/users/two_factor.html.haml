@@ -1,0 +1,37 @@
+- content_for :header do
+  %h2= @user.full_name
+  %small= t('.title')
+- content_for :breadcrumb do
+  %li= link_to title(User, count: 2), users_path
+  %li= link_to @user, @user
+  %li.active= t('.title')
+
+.content
+  .row
+    .col-md-3
+      = render @user
+    .col-md-6
+      .hpanel.editing-panel
+        .panel-heading.hbuilt
+          .pull-right
+            = link_to icon('close', t('actions.cancel')), @user,
+                class: 'btn btn-xs btn-default'
+          = icon(@user.two_factor_icon, t('users.two_factor.title'))
+        .panel-body
+          = bootstrap_form_for @user,
+              html: {novalidate: true} do |f|
+            %fieldset
+              .row
+                .col-md-6
+                  = f.form_group :two_factor_enabled do
+                    %label.control-label
+                      = User.human_attribute_name(:two_factor_enabled)
+                      = link_to page_path('two_factor_auth') do
+                        = icon('question-circle', class: 'fa-lg')
+                    .btn-group{data: {toggle: 'buttons'}}
+                      - two_factor_options.each do |label, value|
+                        %label.btn.btn-default{class: value == @user.two_factor_enabled && 'active'}
+                          = f.radio_button_without_bootstrap :two_factor_enabled, value
+                          = label
+              .form-group.actions
+                = f.submit t('.confirm'), class: 'btn btn-primary'
