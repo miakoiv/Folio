@@ -243,6 +243,13 @@ textarea.form-control {
 }
 .panel-footer.actions { text-align: right; }
 
+// Hover-only actions in media elements
+.media .hover-actions {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+.media:hover .hover-actions { opacity: 1; }
+
 // More visibility to active buttons in button groups
 .btn-group {
   .btn-default.active { @extend .btn-info; }
