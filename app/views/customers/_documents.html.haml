@@ -3,6 +3,5 @@
     = icon('envelope-open-o', t('documents.panel.header'))
   .panel-body
     = render partial: 'documents/list', object: @customer, as: :documentable
-    - unless editing_disabled?
-      .hr-line-dashed
-      = render partial: 'documents/new', object: @customer, as: :documentable
+    .hr-line-dashed
+    = render partial: 'documents/new', object: @customer, as: :documentable
