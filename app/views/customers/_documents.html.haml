@@ -6,7 +6,8 @@
           data: {toggle: 'collapse'}
     = icon('envelope-open-o', t('documents.panel.header'))
   .panel-body
-    = render partial: 'documents/list', object: @customer, as: :documentable
     #document-upload.collapse
-      .hr-line-dashed
       = render partial: 'documents/new', object: @customer, as: :documentable
+      .hr-line-dashed
+    .slim-scroll{style: 'max-height: 200px; padding-right: 20px;'}
+      = render partial: 'documents/list', object: @customer, as: :documentable

@@ -6,7 +6,8 @@
           data: {toggle: 'collapse'}
     = icon('film', t('images.panel.header'))
   .panel-body
-    = render partial: 'images/list', object: @person, as: :imageable
     #image-upload.collapse
-      .hr-line-dashed
       = render partial: 'images/new', object: @person, as: :imageable
+      .hr-line-dashed
+    .slim-scroll{style: 'max-height: 200px; padding-right: 20px;'}
+      = render partial: 'images/list', object: @person, as: :imageable
