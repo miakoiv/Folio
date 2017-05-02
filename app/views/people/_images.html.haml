@@ -1,7 +1,12 @@
 .hpanel.hidden-print
   .panel-heading.hbuilt
+    .pull-right
+      = link_to icon('plus', t('images.panel.upload')), '#image-upload',
+          class: 'btn btn-xs btn-success',
+          data: {toggle: 'collapse'}
     = icon('film', t('images.panel.header'))
   .panel-body
     = render partial: 'images/list', object: @person, as: :imageable
-    .hr-line-dashed
-    = render partial: 'images/new', object: @person, as: :imageable
+    #image-upload.collapse
+      .hr-line-dashed
+      = render partial: 'images/new', object: @person, as: :imageable

@@ -53,6 +53,7 @@ fi:
   documents:
     panel:
       header: Liitteet
+      upload: Lisää liitteitä
   education_level:
     none: "[Ei tietoa]"
   events:
@@ -68,6 +69,7 @@ fi:
   images:
     panel:
       header: Kuvat
+      upload: Lisää kuvia
   customers:
     panel:
       header: Asiakkuuden tiedot

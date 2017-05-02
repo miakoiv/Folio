@@ -1,7 +1,12 @@
 .hpanel.hidden-print
   .panel-heading.hbuilt
+    .pull-right
+      = link_to icon('plus', t('documents.panel.upload')), '#document-upload',
+          class: 'btn btn-xs btn-success',
+          data: {toggle: 'collapse'}
     = icon('envelope-open-o', t('documents.panel.header'))
   .panel-body
     = render partial: 'documents/list', object: @customer, as: :documentable
-    .hr-line-dashed
-    = render partial: 'documents/new', object: @customer, as: :documentable
+    #document-upload.collapse
+      .hr-line-dashed
+      = render partial: 'documents/new', object: @customer, as: :documentable

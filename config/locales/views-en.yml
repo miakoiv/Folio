@@ -53,6 +53,7 @@ en:
   documents:
     panel:
       header: Attachments
+      upload: Add attachments
   education_level:
     none: "[No information provided]"
   events:
@@ -68,6 +69,7 @@ en:
   images:
     panel:
       header: Photos
+      upload: Add photos
   customers:
     panel:
       header: Customer information
