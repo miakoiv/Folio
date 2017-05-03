@@ -30,11 +30,14 @@
     lang: '#{t("i18n.culture")}'
     dialogsFade: true
     disableDragAndDrop: true
+    minHeight: 200
+    maxHeight: 600
     toolbar: [
       ['para', ['ul', 'ol', 'paragraph']]
       ['style', ['bold', 'italic', 'clear']]
       ['color', ['color']]
       ['insert', ['hr', 'link']]
     ]
+    cleaner: cleaner_options
     callbacks:
       onChange: autosave

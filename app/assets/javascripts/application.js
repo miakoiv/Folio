@@ -35,6 +35,7 @@
 //= require jquery.slimscroll.min
 //= require metisMenu.min
 //= require toastr.min
+//= require summernote-cleaner
 //= require sweetalert2.min
 //= require readmore.min
 //= require homer
