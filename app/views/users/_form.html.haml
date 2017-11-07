@@ -24,6 +24,13 @@
         = f.text_field :expires_at, autocomplete: 'off',
             data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd',
               'date-language': I18n.locale}
+  - if @user.new_record?
+    %hr.hr-line-dashed
+    .row
+      .col-md-6
+        = f.password_field :password, required: true
+      .col-md-6
+        = f.password_field :password_confirmation, required: true
   - unless editing_disabled?
     .form-group.actions
       = f.submit class: 'btn btn-primary'
