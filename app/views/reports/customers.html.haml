@@ -21,70 +21,85 @@
             .panel-body
               %canvas#customers-by-gender
 
+#chart-data{data: {source: customers_reports_path(params: {customer_search: params[:customer_search]}, format: :json)}}
+
 :coffee
-  new Chart $('#customers-by-age'),
-    type: 'bar'
-    data:
-      labels: #{@by_age.labels.to_json}
-      datasets: [
-        data: #{@by_age.data.to_json}
-      ]
-    options:
-      scales:
-        xAxes: [{
-          gridLines:
-            display: false
-        }]
-        yAxes: [{
-          ticks:
-            beginAtZero: true
-        }]
+  moment.locale '#{I18n.locale}'
+  $data = $('#chart-data')
+  $.ajax
+    url: $data.data 'source'
+    dataType: 'json'
+  .done (data) =>
+    new Chart $('#customers-by-age'),
+      type: 'bar'
+      data:
+        labels: data.age_labels
+        datasets: [
+          data: data.by_age
+        ]
+      options:
+        scales:
+          xAxes: [{
+            gridLines:
+              display: false
+          }]
+          yAxes: [{
+            ticks:
+              beginAtZero: true
+          }]
 
-  new Chart $('#customers-by-gender'),
-    type: 'pie'
-    data:
-      labels: #{@by_gender.labels.to_json}
-      datasets: [
-        $.extend {
-          data: #{@by_gender.data.to_json}
-        }, Chart.defaults.colors.qualitative
-      ]
-    options:
-      legend:
-        display: true
-        position: 'bottom'
-      cutoutPercentage: 50
+    new Chart $('#customers-by-gender'),
+      type: 'pie'
+      data:
+        labels: data.gender_labels
+        datasets: [
+          $.extend {
+            data: data.by_gender
+          }, Chart.defaults.colors.qualitative
+        ]
+      options:
+        legend:
+          display: true
+          position: 'bottom'
+        cutoutPercentage: 50
 
-  new Chart $('#customers-by-month'),
-    type: 'bar'
-    data:
-      labels: #{@by_month.labels.to_json}
-      datasets: [
-        {
-          type: 'bar'
-          label: "#{t('.created')}"
-          data: #{@by_month.data.to_json}
-          backgroundColor: Palette.pick 'qualitative', 0, 0.5
-          borderWidth: 0
-        }
-        {
-          type: 'line'
-          label: "#{t('.total')}"
-          data: #{@by_month.data.accumulate(@starting_count).to_json}
-          borderColor: Palette.pick 'qualitative', 1, 0.5
-          backgroundColor: 'transparent'
-          fill: false
-        }
-      ]
-    options:
-      legend:
-        display: true
-      scales:
-        xAxes: [{
-          gridLines:
-            display: false
-        }]
-        yAxes: [{
-          ticks:
-            beginAtZero: true
-        }]
+    new Chart $('#customers-by-month'),
+      type: 'bar'
+      data:
+        labels: data.month_labels
+        datasets: [
+          {
+            type: 'bar'
+            label: "#{t('.created')}"
+            data: data.by_month
+            backgroundColor: Palette.pick 'qualitative', 0, 0.5
+            borderWidth: 0
+          }
+          {
+            type: 'line'
+            label: "#{t('.total')}"
+            data: data.by_month_accumulated
+            borderColor: Palette.pick 'qualitative', 1, 0.5
+            backgroundColor: 'transparent'
+            fill: false
+          }
+        ]
+      options:
+        legend:
+          display: true
+        scales:
+          xAxes: [{
+            type: 'time'
+            distribution: 'series'
+            time:
+              unit: 'month'
+              isoWeekday: true
+            gridLines:
+              display: false
+            ticks:
+              source: 'labels'
+          }]
+          yAxes: [{
+            ticks:
+              beginAtZero: true
+          }]

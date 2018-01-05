@@ -25,36 +25,44 @@
         .panel-body
           %canvas#people-by-gender
 
-:coffee
-  new Chart $('#people-by-age'),
-    type: 'bar'
-    data:
-      labels: #{@by_age.labels.to_json}
-      datasets: [
-        data: #{@by_age.data.to_json}
-      ]
-    options:
-      scales:
-        xAxes: [{
-          gridLines:
-            display: false
-        }]
-        yAxes: [{
-          ticks:
-            beginAtZero: true
-        }]
+#chart-data{data: {source: people_reports_path(format: :json)}}
 
-  new Chart $('#people-by-gender'),
-    type: 'pie'
-    data:
-      labels: #{@by_gender.labels.to_json}
-      datasets: [
-        $.extend {
-          data: #{@by_gender.data.to_json}
-        }, Chart.defaults.colors.qualitative
-      ]
-    options:
-      legend:
-        display: true
-        position: 'bottom'
-      cutoutPercentage: 50
+:coffee
+  moment.locale '#{I18n.locale}'
+  $data = $('#chart-data')
+  $.ajax
+    url: $data.data 'source'
+    dataType: 'json'
+  .done (data) =>
+    new Chart $('#people-by-age'),
+      type: 'bar'
+      data:
+        labels: data.age_labels
+        datasets: [
+          data: data.by_age
+        ]
+      options:
+        scales:
+          xAxes: [{
+            gridLines:
+              display: false
+          }]
+          yAxes: [{
+            ticks:
+              beginAtZero: true
+          }]
+
+    new Chart $('#people-by-gender'),
+      type: 'pie'
+      data:
+        labels: data.gender_labels
+        datasets: [
+          $.extend {
+            data: data.by_gender
+          }, Chart.defaults.colors.qualitative
+        ]
+      options:
+        legend:
+          display: true
+          position: 'bottom'
+        cutoutPercentage: 50

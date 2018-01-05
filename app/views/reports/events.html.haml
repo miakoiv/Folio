@@ -10,55 +10,67 @@
             .panel-body
               %canvas#events-by-week
 
+#chart-data{data: {source: events_reports_path(params: {event_search: params[:event_search]}, format: :json)}}
+
 :coffee
-  new Chart $('#events-by-week'),
-    type: 'bar'
-    data:
-      labels: #{@by_week.labels.to_json}
-      datasets: [
-        {
-          type: 'bar'
-          label: "#{t('.count')}"
-          data: #{@by_week.data.to_json}
-          yAxisID: 'count'
-          backgroundColor: Palette.pick 'qualitative', 0, 0.5
-          borderWidth: 0
-        }
-        {
-          type: 'line'
-          label: "#{t('.total_hours')}"
-          data: #{@total_hours_by_week.data.to_json}
-          yAxisID: 'hours'
-          borderColor: Palette.pick 'qualitative', 1, 0.5
-          backgroundColor: 'transparent'
-          fill: false
-        }
-      ]
-    options:
-      legend:
-        display: true
-      scales:
-        xAxes: [{
-          gridLines:
-            display: false
-          ticks:
-            callback: (value) ->
-              moment(value, 'YYYYWW').format('YYYY/WW')
-        }]
-        yAxes: [
+  moment.locale '#{I18n.locale}'
+  $data = $('#chart-data')
+  $.ajax
+    url: $data.data 'source'
+    dataType: 'json'
+  .done (data) =>
+    $chart = new Chart $('#events-by-week'),
+      type: 'bar'
+      data:
+        labels: data.week_labels
+        datasets: [
           {
-            id: 'count'
-            ticks:
-              beginAtZero: true
+            type: 'bar'
+            label: "#{t('.count')}"
+            data: data.by_week
+            yAxisID: 'count'
+            backgroundColor: Palette.pick 'qualitative', 0, 0.5
+            borderWidth: 0
           }
           {
-            id: 'hours'
-            position: 'right'
-            gridLines:
-              borderDash: [5,8]
-            ticks:
-              beginAtZero: true
-              callback: (value) ->
-                value + ' h'
+            type: 'line'
+            label: "#{t('.total_hours')}"
+            data: data.total_hours_by_week
+            yAxisID: 'hours'
+            borderColor: Palette.pick 'qualitative', 1, 0.5
+            backgroundColor: 'transparent'
+            fill: false
           }
         ]
+      options:
+        legend:
+          display: true
+        scales:
+          xAxes: [{
+            type: 'time'
+            distribution: 'series'
+            time:
+              unit: 'week'
+              isoWeekday: true
+            gridLines:
+              display: false
+            ticks:
+              source: 'labels'
+          }]
+          yAxes: [
+            {
+              id: 'count'
+              ticks:
+                beginAtZero: true
+            }
+            {
+              id: 'hours'
+              position: 'right'
+              gridLines:
+                borderDash: [5,8]
+              ticks:
+                beginAtZero: true
+                callback: (value) ->
+                  value + ' h'
+            }
+          ]

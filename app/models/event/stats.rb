@@ -12,8 +12,8 @@ class Event < ApplicationRecord
   end
 
   def self.start_week_function
-    Arel::Nodes::NamedFunction.new('YEARWEEK', [
-      table[:starts_at], 3
+    Arel::Nodes::NamedFunction.new('DATE_FORMAT', [
+      table[:starts_at], Arel::Nodes::Quoted.new('%xW%v')
     ])
   end
 

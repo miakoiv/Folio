@@ -7,28 +7,46 @@ class ReportsController < ApplicationController
   # GET /reports/people
   def people
     @people = Person.all
-    @by_age    = ChartData.new(@people, :count_by_age)
-    @by_gender = ChartData.new(@people, :count_by_gender)
+
+    respond_to do |format|
+      format.html
+      format.json {
+        @by_age    = ChartData.new(@people, :count_by_age)
+        @by_gender = ChartData.new(@people, :count_by_gender)
+      }
+    end
   end
 
   # GET /reports/customers
   def customers
     @customer_search_params = customer_search_params
     @search = CustomerSearch.new(@customer_search_params)
-    @customers = @search.results
-    @by_age    = ChartData.new(@customers, :count_by_age)
-    @by_gender = ChartData.new(@customers, :count_by_gender)
-    @by_month  = ChartData.new(@customers, :count_by_month)
-    @starting_count = @customers.starting_count
+
+    respond_to do |format|
+      format.html
+      format.json {
+        @customers = @search.results
+        @by_age    = ChartData.new(@customers, :count_by_age)
+        @by_gender = ChartData.new(@customers, :count_by_gender)
+        @by_month  = ChartData.new(@customers, :count_by_month)
+        @starting_count = @customers.starting_count
+      }
+    end
   end
 
   # GET /reports/events
   def events
     @event_search_params = event_search_params
     @search = EventSearch.new(@event_search_params)
-    @events = @search.results
-    @by_week             = ChartData.new(@events, :count_by_week)
-    @total_hours_by_week = ChartData.new(@events, :total_hours_by_week)
+
+    respond_to do |format|
+      format.html
+      format.json {
+        @events = @search.results
+        @by_week             = ChartData.new(@events, :count_by_week)
+        @total_hours_by_week = ChartData.new(@events, :total_hours_by_week)
+      }
+    end
   end
 
   protected
