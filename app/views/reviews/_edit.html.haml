@@ -8,7 +8,7 @@
             placeholder: Review.human_attribute_name(:published_at),
             data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd',
               'date-language': I18n.locale}
-    = f.text_area :content, skip_label: true
+    ~ f.text_area :content, skip_label: true
     .form-group.actions
       .pull-left
         #autosave-icon{style: 'display: none'}

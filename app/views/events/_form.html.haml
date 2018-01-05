@@ -32,7 +32,7 @@
           = f.text_field :title, autofocus: true
       .row
         .col-md-12
-          = f.text_area :description
+          ~ f.text_area :description
   .modal-footer
     - unless @event.new_record?
       .pull-left

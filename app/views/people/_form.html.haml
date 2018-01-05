@@ -74,7 +74,7 @@
         = f.text_field :disabilities
     .row
       .col-md-12
-        = f.text_area :notes
+        ~ f.text_area :notes
   - unless editing_disabled?
     .form-group.actions
       = f.submit class: 'btn btn-primary'
