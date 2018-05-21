@@ -39,7 +39,7 @@ fi:
       prompt: Etsi mitä tahansa…
   shared:
     footer:
-      copyright_html: LeasIT Oy <i class="fa fa-copyright"></i> 2016–2017
+      copyright_html: LeasIT Oy <i class="fa fa-copyright"></i> 2016–2018
       slogan_html: Tehty suurella sydämellä <i class="fa fa-heart"></i> Suomessa.
   calendar:
     panel:
