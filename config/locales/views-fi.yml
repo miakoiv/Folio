@@ -4,6 +4,7 @@ fi:
     cancel: Kumoa
     edit: Muokkaa
     back: Takaisin
+    delete: Poista
   activities:
     panel:
       header: Aktiviteetin yksityiskohdat
@@ -110,6 +111,10 @@ fi:
     new:
       last_name: Uusi
       first_names: henkilö
+    delete:
+      header: Henkilön poistaminen
+      proceed: Poista henkilö pysyvästi
+      warning_html: <h4><i class="fa fa-warning"></i> Varoitus</h4><p>Henkilön poistaminen tuhoaa lopullisesti kaikki tiedot ylläolevista asiakkuuksista.</p>
   posts:
     title: Ilmoitustaulu
     latest:

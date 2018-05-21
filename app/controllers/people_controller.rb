@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
 
-  before_action :set_person, only: [:show, :edit, :update, :destroy]
+  before_action :set_person, only: [:show, :edit, :update, :delete, :destroy]
   before_action :set_customers, only: :show
   before_action :set_relationships, only: :show
 
@@ -77,6 +77,13 @@ class PeopleController < ApplicationController
         format.html { render :edit }
         format.json { render json: @person.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # GET /people/1/delete.js
+  def delete
+    respond_to do |format|
+      format.js
     end
   end
 

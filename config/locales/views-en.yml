@@ -4,6 +4,7 @@ en:
     cancel: Cancel
     edit: Edit
     back: Back
+    delete: Delete
   activities:
     panel:
       header: Activity details
@@ -110,6 +111,10 @@ en:
     new:
       last_name: New
       first_names: person
+    delete:
+      header: Deleting person
+      proceed: Delete person permanently
+      warning_html: <h4><i class="fa fa-warning"></i> Warning</h4><p>Deleting a person will permanently delete all data pertaining to the customer records above.</p>
   posts:
     title: Notice board
     latest:

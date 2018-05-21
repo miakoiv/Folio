@@ -16,6 +16,8 @@
       .hpanel
         .panel-heading.hbuilt
           .pull-right
+            = link_to icon('trash', t('actions.delete')), [:delete, @person],
+                remote: true, class: 'btn btn-xs btn-danger'
             = link_to icon('pencil', t('actions.edit')), [:edit, @person],
                 class: 'btn btn-xs btn-primary'
           = icon('id-card', t('people.panel.header'))

@@ -1,0 +1,24 @@
+.color-line
+.modal-header
+  .pull-right= modal_close_button
+  %h4.modal-title= t('.header')
+  %small.font-bold= @person
+
+.modal-body.no-padding
+  %ul.list-group
+    - @person.customers.each do |customer|
+      %li.list-group-item
+        %span.label.pull-right{class: "label-#{customer.appearance}"}
+          = customer.status
+        .font-bold
+          = l(customer.started_at)
+        %small
+          .pull-right= customer.unit
+          = customer.contacts_to_s
+
+.modal-body
+  .alert.alert-danger= t('.warning_html')
+
+.modal-footer
+  = link_to icon('trash', t('.proceed')), @person, method: :delete,
+      class: 'btn btn-danger'
