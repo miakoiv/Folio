@@ -45,4 +45,12 @@ class PersonSearch < Searchlight::Search
       .eq(year_of_birth)
     )
   end
+
+  def search_expired
+    if checked?(expired)
+      query.where(Person.arel_table[:updated_at].lt(1.year.ago))
+    else
+      query
+    end
+  end
 end

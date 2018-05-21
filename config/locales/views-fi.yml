@@ -105,6 +105,7 @@ fi:
       phone: Puhelinnumero
       postcode: Postiosoite
       year_of_birth: Syntymävuosi
+      expired: Vanhentuneet tietueet
       submit: Hae
     new:
       last_name: Uusi

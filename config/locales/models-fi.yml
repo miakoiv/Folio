@@ -100,6 +100,7 @@ fi:
         education_level_id: Koulutustausta
         education_info: Tarkenna koulutustausta…
         email: Sähköpostiosoite
+        expired: Vanhentunut tietue
         first_names: Etunimet
         gender: Sukupuoli
         identification: Henkilötunnus
@@ -110,6 +111,7 @@ fi:
         notes: Muistiinpanoja
         phone: Puhelinnumero
         postcode_id: Postiosoite
+        updated_at: Viimeksi muutettu
       post:
         author_id: Kirjoittaja
         title: Otsikko

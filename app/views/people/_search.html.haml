@@ -8,6 +8,9 @@
         .checkbox
           = f.check_box_without_bootstrap :parental
           = f.label :parental, t('.parental')
+        .checkbox
+          = f.check_box_without_bootstrap :expired
+          = f.label :expired, t('.expired')
       %hr.hr-line-dashed
       %p.small= t('.help')
       %fieldset

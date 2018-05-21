@@ -52,7 +52,12 @@ class Person < ApplicationRecord
     current_customer(unit).try(:status)
   end
 
+  def expired?
+    updated_at < 1.year.ago
+  end
+
   def appearance(unit)
+    return 'expired' if expired?
     current_customer(unit).try(:appearance) || 'default'
   end
 

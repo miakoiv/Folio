@@ -4,7 +4,7 @@ class Customer < ApplicationRecord
   include Trackable
 
   belongs_to :unit
-  belongs_to :person
+  belongs_to :person, touch: true
   has_and_belongs_to_many :contacts, class_name: 'User'
 
   has_many :events, dependent: :destroy

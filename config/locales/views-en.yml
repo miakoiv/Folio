@@ -105,6 +105,7 @@ en:
       phone: Phone number
       postcode: Postal address
       year_of_birth: Year of birth
+      expired: Expired records
       submit: Search
     new:
       last_name: New

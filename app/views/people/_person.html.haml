@@ -11,3 +11,9 @@
       %h3= person.last_name
       .text-muted.font-bold.m-b-xs
         = person.first_names
+  - if person.expired?
+    .alert.alert-danger
+      = icon('warning', Person.human_attribute_name(:expired))
+      .small
+        = Person.human_attribute_name(:updated_at)
+        = l(person.updated_at.to_date)
