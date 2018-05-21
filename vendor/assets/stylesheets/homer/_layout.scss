@@ -111,19 +111,19 @@ body {
   position: fixed;
   overflow-x: hidden;
   overflow-y: scroll;
-  width: 197px;
+  width: $menu-width + 17px;
   padding-right: 17px;
 }
 
 .fixed-sidebar.show-sidebar #menu {
-  width: 180px;
+  width: $menu-width;
 }
 
 .fixed-footer .footer {
   position: fixed;
   z-index: 1001;
   bottom: 0;
-  left: 181px;
+  left: $menu-width + 1px;
   right: 0;
 }
 
@@ -138,7 +138,7 @@ body {
   }
 
   .fixed-footer.show-sidebar .footer {
-    left: 181px;
+    left: $menu-width + 1px;
   }
 
 }
@@ -167,7 +167,7 @@ body {
   top: 62px;
   left: 0;
   right: 0;
-  margin-left: 181px;
+  margin-left: $menu-width + 1px;
   z-index: 100;
 }
 
@@ -188,7 +188,7 @@ body {
 }
 
 .fixed-small-header.page-small.show-sidebar .small-header {
-  margin-left: 181px;
+  margin-left: $menu-width + 1px;
   overflow: hidden;
 }
 
