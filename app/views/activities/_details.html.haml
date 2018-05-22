@@ -11,7 +11,7 @@
   .col-md-6
     .form-group
       %label.control-label= Activity.human_attribute_name(:resource)
-      %p.form-control-static= @activity.resource
+      %p.form-control-static= resource_name(@activity)
   - if @activity.context != @activity.resource
     .col-md-6
       .form-group
@@ -28,6 +28,6 @@
       %tbody
         - @activity.differences.each do |attribute, values|
           %tr
-            %td= @activity.resource.class.human_attribute_name(attribute)
+            %td= resource_class(@activity).human_attribute_name(attribute)
             - values.each do |value|
               %td= value

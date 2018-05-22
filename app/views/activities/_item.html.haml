@@ -9,9 +9,9 @@
             %div
               %span.small.font-bold= activity.whodunnit
               %span{class: "text-#{activity.appearance}"}
-                = icon(activity.icon, activity.resource_type.constantize.model_name.human, class: 'fa-lg')
+                = icon(activity.icon, resource_ident(activity), class: 'fa-lg')
             %small.stat-label
               %span.font-normal= l(activity.created_at, format: :short)
-          %h4= activity.resource
+          %h4= resource_name(activity)
           - if activity.context != activity.resource
             %small= activity.context

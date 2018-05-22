@@ -14,6 +14,10 @@ en:
       submit: Search
       upto_date: Latest date
       whodunnit: Agent
+    item:
+      deleted: Deleted
+    details:
+      deleted: Deleted
   authority:
     forbidden: You are not authorized to complete that action.
   dashboard:
