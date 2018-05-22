@@ -43,7 +43,7 @@ fi:
       default: "%-d.%-m.%Y"
       long: "%A %e. %Bta %Y"
       short: "%d. %b"
-      iso: "%Y-%m-%d"
+      iso: "%F"
     month_names:
     -
     - tammikuu
@@ -199,5 +199,5 @@ fi:
     formats:
       default: "%A %e. %Bta %Y %H:%M:%S %z"
       long: "%e. %Bta %Y %H.%M"
-      short: "%e.%m. %H.%M"
+      short: "%e.%-m.%Y %H.%M"
     pm: iltapäivä
