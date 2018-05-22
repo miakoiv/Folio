@@ -1,0 +1,12 @@
+.color-line
+.modal-header
+  .pull-right= modal_close_button
+  %h4.modal-title= t('.header')
+  %small.font-bold= @user
+
+.modal-body
+  = t('.confirmation_html')
+
+.modal-footer
+  = link_to icon('trash', t('.proceed')), @user, method: :delete,
+      class: 'btn btn-danger'

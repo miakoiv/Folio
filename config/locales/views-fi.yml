@@ -201,6 +201,10 @@ fi:
     edit_password:
       header: Vaihda salasanaa
       submit: Vaihda salasana
+    delete:
+      confirmation_html: <p>Haluatko varmasti poistaa käyttäjän?</p><p>Poistaminen on mahdollista perua myöhemmin, eikä käyttäjän syöttämiä tietueita poisteta.</p>
+      header: Käyttäjän poistaminen
+      proceed: Poista käyttäjä
     two_factor:
       title: Kaksivaiheinen tunnistautuminen
       confirm: Vahvista kaksivaiheinen tunnistautuminen

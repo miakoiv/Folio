@@ -201,6 +201,10 @@ en:
     edit_password:
       header: Change the password
       submit: Change password
+    delete:
+      confirmation_html: <p>Are you sure you want to delete this user?</p><p>Deletion can be undone at any time, and any records created by the user are not removed.</p>
+      header: Deleting user
+      proceed: Delete user
     two_factor:
       title: Two-factor authentication
       confirm: Confirm two-factor authentication

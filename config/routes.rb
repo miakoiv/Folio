@@ -53,6 +53,7 @@ Rails.application.routes.draw do
     member do
       get :edit_password
       patch :update_password
+      get :delete
     end
   end
 

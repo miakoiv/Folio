@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit, :update, :destroy,
+  before_action :set_user, only: [:show, :edit, :update, :delete, :destroy,
     :edit_password, :update_password,
     :two_factor, :confirm_two_factor, :confirm_two_factor_update]
 
@@ -69,6 +69,13 @@ class UsersController < ApplicationController
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # GET /users/1/delete.js
+  def delete
+    respond_to do |format|
+      format.js
     end
   end
 
