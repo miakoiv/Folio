@@ -33,6 +33,9 @@ class Person < ApplicationRecord
 
   validates :last_name, :first_names, presence: true
 
+  before_destroy :scrub_activity!
+
+
   def self.assigned_municipalities
     ids = unscope(:order).pluck(:municipality_id).reject(&:blank?).uniq
     ids.any? ? Municipality.find(ids) : Municipality.none
@@ -74,6 +77,15 @@ class Person < ApplicationRecord
   def to_s
     full_name
   end
+
+  private
+    # Before deleting a person, their activity records are scrubbed
+    # to erase any personally identifiable information.
+    def scrub_activity!
+      activities.each do |activity|
+        activity.scrub!
+      end
+    end
 end
 
 require_dependency 'person/stats'

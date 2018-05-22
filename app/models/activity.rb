@@ -28,6 +28,11 @@ class Activity < ApplicationRecord
     update_password: {icon: 'key', appearance: 'success'}
   }.freeze
 
+
+  def scrub!
+    update!(differences: differences.slice('id'))
+  end
+
   def icon
     Activity::ACTIONS[action.to_sym][:icon]
   end
