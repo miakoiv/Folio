@@ -32,10 +32,10 @@ class User < ApplicationRecord
   has_many :collections
   has_many :read_memos, through: :collections, source: :memo
 
-  has_many :events, dependent: :destroy
-  has_many :notes, dependent: :destroy
+  has_many :events
+  has_many :notes
   has_many :posts, foreign_key: :author_id
-  has_many :reviews, dependent: :destroy
+  has_many :reviews
 
   default_scope { order(:last_name, :first_names) }
 
