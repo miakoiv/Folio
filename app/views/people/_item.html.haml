@@ -1,6 +1,6 @@
-.hpanel.filter-item{class: person.expired? && 'attention'}
+.hpanel.filter-item
   = link_to person do
-    .panel-body.social-board
+    .panel-body.social-board{class: person.expired? && 'attention'}
       .media.social-profile.clearfix
         .media-left
           = profile_image person
