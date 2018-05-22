@@ -169,6 +169,9 @@
   }
 }
 
+// Fade out deleted items
+.deleted { opacity: 0.333; }
+
 // Attention seeker badge
 .attention:after {
   @extend .fa;
