@@ -33,6 +33,10 @@ class Activity < ApplicationRecord
     update!(differences: differences.slice('id'))
   end
 
+  def show_differences?
+    ['create', 'update'].include?(action)
+  end
+
   def icon
     Activity::ACTIONS[action.to_sym][:icon]
   end
