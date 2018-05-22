@@ -132,6 +132,8 @@ fi:
         activates_at: Aktivointipäivä
         current_password: Nykyinen salasana
         current_sign_in_at: Viimeisin
+        deleted: Poistettu käyttäjä
+        deleted_at: Poistettu
         email: Sähköpostiosoite
         expires_at: Vanhenemispäivä
         first_names: Etunimet

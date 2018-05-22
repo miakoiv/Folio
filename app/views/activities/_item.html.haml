@@ -7,7 +7,8 @@
         .media-body
           .pull-right.text-right
             %div
-              %span.small.font-bold= activity.whodunnit
+              %span.small.font-bold{class: activity.whodunnit.deleted? && 'deleted'}
+                = activity.whodunnit
               %span{class: "text-#{activity.appearance}"}
                 = icon(activity.icon, resource_ident(activity), class: 'fa-lg')
             %small.stat-label

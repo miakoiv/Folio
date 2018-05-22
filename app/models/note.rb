@@ -5,7 +5,7 @@ class Note < ApplicationRecord
 
   include Trackable
 
-  belongs_to :user
+  belongs_to :user, -> { merge(User.including_deleted) }
   belongs_to :customer, optional: true
   after_create :touch_customer
 

@@ -8,7 +8,8 @@ class Activity < ApplicationRecord
   include Authority::Abilities
 
   belongs_to :unit
-  belongs_to :whodunnit, class_name: 'User'
+  belongs_to :whodunnit, -> { merge(User.including_deleted) },
+    class_name: 'User'
   belongs_to :resource, -> { unscope(where: :deleted_at) }, polymorphic: true
   belongs_to :context, polymorphic: true
 

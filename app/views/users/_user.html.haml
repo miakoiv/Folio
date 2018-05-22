@@ -22,3 +22,9 @@
               = l(user.current_sign_in_at, format: :short)
             - else
               –
+  - if user.deleted?
+    .alert.alert-danger
+      = icon('warning', User.human_attribute_name(:deleted))
+      .small
+        = User.human_attribute_name(:deleted_at)
+        = l(user.deleted_at.to_date)

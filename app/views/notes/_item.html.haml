@@ -5,7 +5,8 @@
           class: 'btn btn-xs btn-primary'
   .pull-right.text-right
     .text-muted= l(note.created_at, format: :long)
-    .small.font-bold= note.user
+    .small.font-bold{class: note.user.deleted? && 'deleted'}
+      = note.user
   %h3.m-b-lg= note.title
   .note-content
     = note.content.html_safe

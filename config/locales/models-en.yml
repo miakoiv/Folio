@@ -132,6 +132,8 @@ en:
         activates_at: Activation date
         current_password: Current password
         current_sign_in_at: Latest visit
+        deleted: Deleted user
+        deleted_at: Deleted
         email: E-mail address
         expires_at: Expiration date
         first_names: First names

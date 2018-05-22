@@ -2,7 +2,7 @@ class Memo < ApplicationRecord
 
   include Trackable
 
-  belongs_to :sender, class_name: 'User'
+  belongs_to :sender, -> { merge(User.including_deleted) }, class_name: 'User'
   has_many :deliveries, dependent: :destroy
   has_many :collections, dependent: :destroy
 

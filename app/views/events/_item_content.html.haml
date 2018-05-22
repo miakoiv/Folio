@@ -4,7 +4,7 @@
   %h4
     = event.title
   %small
-    .pull-right
+    .pull-right{class: event.user.deleted? && 'deleted'}
       = event.user
       = icon('clock-o')
       = duration_in_hours_minutes event.duration

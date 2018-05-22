@@ -7,7 +7,7 @@ class Event < ApplicationRecord
   include Trackable
 
   belongs_to :unit
-  belongs_to :user
+  belongs_to :user, -> { merge(User.including_deleted) }
   belongs_to :customer, optional: true
 
   # Event type specifies the event scope, or how to interpret event associations.
