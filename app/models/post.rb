@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   paginates_per 10
 
   belongs_to :unit
-  belongs_to :author, class_name: 'User'
+  belongs_to :author, -> { merge(User.including_deleted) }, class_name: 'User'
   has_many :comments, dependent: :destroy
 
   default_scope { order(created_at: :desc) }

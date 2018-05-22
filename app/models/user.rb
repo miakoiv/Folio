@@ -38,6 +38,7 @@ class User < ApplicationRecord
   has_many :reviews
 
   default_scope { order(:last_name, :first_names) }
+  scope :including_deleted, -> { unscope(where: :deleted_at) }
 
   scope :active, -> { where(
     (arel_table[:activates_at].eq(nil).or(arel_table[:activates_at].lteq(Date.current)))

@@ -1,5 +1,5 @@
 .panel-body[post]
-  .media
+  .media{class: post.author.deleted? && 'attention'}
     .media-image.col-md-2
       = profile_image(post.author)
       .author-info
