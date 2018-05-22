@@ -18,4 +18,8 @@ module SoftDeletable
     end
     callbacks_result ? self : false
   end
+
+  def deleted?
+    has_attribute?(:deleted_at) && deleted_at.present?
+  end
 end
