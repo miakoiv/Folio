@@ -75,9 +75,9 @@ class ApplicationController < ActionController::Base
     # Sets the current unit from user specified id, which is saved into session,
     # falling back to the primary unit if the specified unit is not accessible.
     def set_unit
-      session[:unit_id] = params[:unit_id] if params[:unit_id].present?
-      @current_unit = session[:unit_id].present? &&
-        accessible_units.find(session[:unit_id]) ||
+      user_session['unit_id'] = params[:unit_id] if params[:unit_id].present?
+      @current_unit = user_session['unit_id'].present? &&
+        accessible_units.find(user_session['unit_id']) ||
         current_user.unit
     end
 
