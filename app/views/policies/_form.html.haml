@@ -8,11 +8,9 @@
     .panel-heading.hbuilt
       %fieldset.p-xs{disabled: editing_disabled?}
         = f.text_field :title
-        .form-group
-          %label
-          .checkbox.checkbox-primary
-            = f.check_box_without_bootstrap :mandatory
-            = f.label :mandatory
+        .checkbox.checkbox-primary
+          = f.check_box_without_bootstrap :mandatory
+          = f.label :mandatory
     .panel-body.no-padding
       ~ f.text_area :content, skip_label: true, wrapper_class: 'm-b-none'
     .panel-footer.actions
