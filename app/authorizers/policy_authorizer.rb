@@ -17,6 +17,11 @@ class PolicyAuthorizer < ApplicationAuthorizer
     !resource.mandatory? || !resource.accepted?
   end
 
+  # Admins are generally able to accept policies.
+  def self.acceptable_by?(user)
+    user.has_role?(:admin, user.unit)
+  end
+
   # Admins may accept policies if pending.
   def acceptable_by?(user)
     return false unless user.has_role?(:admin, user.unit)

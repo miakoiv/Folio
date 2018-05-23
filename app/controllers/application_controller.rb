@@ -65,6 +65,15 @@ class ApplicationController < ActionController::Base
       ApplicationController.render(partial: 'activities/item', object: activity, as: :activity)
   end
 
+  protected
+    def after_sign_in_path_for(resource)
+      if current_user.can_accept?(Policy) && Policy.pending.any?
+        policies_path
+      else
+        root_path
+      end
+    end
+
   private
     def set_locale
       I18n.locale = params[:locale] ||
