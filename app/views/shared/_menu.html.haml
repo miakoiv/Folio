@@ -28,6 +28,10 @@
     = active_link_to events_reports_path, wrap_tag: :li do
       = title(Event, count: 2)
 
+- if current_user.can_read?(Policy)
+  = active_link_to policies_path, wrap_tag: :li do
+    %span.nav-label= icon('briefcase', title(Policy, count: 2), class: 'fa-fw')
+
 - if current_user.can_read?(Activity, unit: current_unit)
   = active_link_to activities_path, wrap_tag: :li do
     %span.nav-label= icon('heartbeat', title(Activity, count: 2), class: 'fa-fw')

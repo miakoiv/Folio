@@ -6,8 +6,11 @@
 
 .content
   .row
-    .col-md-3.col-sticky.hidden-print
-      = link_to new_policy_path, class: 'm-b' do
-        = render partial: 'new'
+    .col-md-3.col-sticky
+      - if current_user.can_create?(Policy)
+        = link_to new_policy_path, class: 'm-b' do
+          = render partial: 'new'
+      - else
+        = render partial: 'help'
     .col-md-9
       = render partial: 'item', collection: @policies, as: :policy

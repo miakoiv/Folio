@@ -130,6 +130,9 @@ fi:
     new:
       new: Uusi
       policy: sopimus
+    help:
+      header: Tärkeää
+      text_html: <p>Tutustu ohessa lueteltuihin käyttöehtoihin ennen kuin käytät Foliota.</p><p>Jos käyttöehdot sisältävät palvelusopimuksen, siihen pyydetään hyväksyntä ensimmäisellä käyttökerralla, tai kun uusi sopimus julkaistaan.</p>
   posts:
     title: Ilmoitustaulu
     latest:

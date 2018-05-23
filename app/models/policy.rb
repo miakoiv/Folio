@@ -15,7 +15,7 @@ class Policy < ApplicationRecord
 
 
   def pending?
-    mandatory? && accepted_at.nil?
+    mandatory? && !accepted?
   end
 
   def accepted?

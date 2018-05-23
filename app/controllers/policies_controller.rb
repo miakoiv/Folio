@@ -5,27 +5,32 @@ class PoliciesController < ApplicationController
   # GET /policies
   # GET /policies.json
   def index
+    authorize_action_for Policy
     @policies = Policy.all
   end
 
   # GET /policies/1
   # GET /policies/1.json
   def show
+    authorize_action_for Policy
     disable_editing!
   end
 
   # GET /policies/new
   def new
+    authorize_action_for Policy
     @policy = Policy.new
   end
 
   # GET /policies/1/edit
   def edit
+    authorize_action_for @policy
   end
 
   # POST /policies
   # POST /policies.json
   def create
+    authorize_action_for Policy
     @policy = Policy.new(policy_params)
 
     respond_to do |format|
@@ -43,6 +48,8 @@ class PoliciesController < ApplicationController
   # PATCH/PUT /policy/1
   # PATCH/PUT /policy/1.json
   def update
+    authorize_action_for Policy
+
     respond_to do |format|
       if @policy.update(policy_params)
         track @policy
