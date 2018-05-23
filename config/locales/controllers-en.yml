@@ -39,6 +39,8 @@ en:
       notice: "Policy %{policy} created."
     update:
       notice: "Policy %{policy} updated."
+    accept:
+      notice: "Acceptance of agreement %{policy} received."
     destroy:
       notice: "Policy %{policy} deleted."
   reviews:

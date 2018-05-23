@@ -10,7 +10,8 @@
 .content
   .row
     .col-md-3.col-sticky
-
+      - if current_user.can_accept?(@policy)
+        = render partial: 'accept'
     .col-md-9
       .hpanel.email-compose
         .panel-heading.hbuilt

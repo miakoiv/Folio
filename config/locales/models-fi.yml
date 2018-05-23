@@ -116,6 +116,7 @@ fi:
         postcode_id: Postiosoite
         updated_at: Viimeksi muutettu
       policy:
+        accept: Hyväksyn ehdot
         content: Sisältö
         mandatory: Pakollinen suostumus
         title: Otsikko

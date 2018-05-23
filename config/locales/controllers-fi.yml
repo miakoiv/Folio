@@ -39,6 +39,8 @@ fi:
       notice: "Sopimus %{policy} luotu."
     update:
       notice: "Sopimus %{policy} päivitetty."
+    accept:
+      notice: "Suostumus sopimukseen %{policy} vastaanotettu."
     destroy:
       notice: "Sopimus %{policy} poistettu."
   reviews:

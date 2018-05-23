@@ -62,6 +62,22 @@ class PoliciesController < ApplicationController
     end
   end
 
+  # PATCH/PUT /policy/1/accept
+  def accept
+    authorize_action_for @policy
+
+    respond_to do |format|
+      if params[:policy][:accepted] == '1'
+        @policy.update!(accepted_at: Time.current, accepted_by: current_user)
+        track @policy
+        format.html { redirect_to @policy, notice: t('.notice', policy: @policy) }
+      else
+        format.html { render :show }
+      end
+    end
+  end
+  authority_actions accept: :accept
+
   # DELETE /policy/1
   # DELETE /policy/1.json
   def destroy

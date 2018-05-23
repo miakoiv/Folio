@@ -1,0 +1,13 @@
+= bootstrap_form_for [:accept, @policy] do |f|
+  .hpanel
+    .panel-body
+      %h4= t('.header')
+      %p.help-block= t('.help')
+    .panel-body.no-padding
+      .bg-light.p-m
+        %fieldset
+          .checkbox.checkbox-success.checkbox-circle
+            = f.check_box_without_bootstrap :accepted
+            = f.label Policy.human_attribute_name(:accept)
+        .form-group.actions
+          = f.submit t('.submit'), class: 'btn btn-block btn-primary'

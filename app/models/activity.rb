@@ -25,6 +25,7 @@ class Activity < ApplicationRecord
      create: {icon: 'plus-circle', appearance: 'success'},
      update: {icon: 'pencil-square', appearance: 'success'},
     destroy: {icon: 'minus-circle', appearance: 'warning'},
+     accept: {icon: 'check-circle', appearance: 'success'},
       edit_password: {icon: 'key', appearance: 'info'},
     update_password: {icon: 'key', appearance: 'success'}
   }.freeze

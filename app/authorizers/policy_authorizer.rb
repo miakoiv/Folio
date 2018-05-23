@@ -16,4 +16,10 @@ class PolicyAuthorizer < ApplicationAuthorizer
     return false unless user.has_role?(:wizard, user.unit)
     !resource.mandatory? || !resource.accepted?
   end
+
+  # Admins may accept policies if pending.
+  def acceptable_by?(user)
+    return false unless user.has_role?(:admin, user.unit)
+    resource.pending?
+  end
 end

@@ -130,6 +130,10 @@ en:
     new:
       new: New
       policy: agreement
+    accept:
+      header: Acceptance of agreement
+      help: I have read the terms of service and agree to them.
+      submit: Confirm acceptance
     help:
       header: Important
       text_html: <p>Make sure to read the enclosed terms of service documents before using Folio.</p><p>In case the terms of service include a service agreement, it must be accepted at the first Folio session, or whenever a new agreement is published.</p>

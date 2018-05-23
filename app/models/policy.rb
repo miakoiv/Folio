@@ -18,6 +18,8 @@ class Policy < ApplicationRecord
     mandatory? && !accepted?
   end
 
+  attr_accessor :accepted
+
   def accepted?
     accepted_at.present?
   end

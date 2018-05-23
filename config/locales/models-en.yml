@@ -116,6 +116,7 @@ en:
         postcode_id: Postal address
         updated_at: Last changed
       policy:
+        accept: I accept
         content: Content
         mandatory: Mandatory agreement
         title: Title
