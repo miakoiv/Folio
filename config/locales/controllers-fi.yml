@@ -34,6 +34,13 @@ fi:
       notice: "Henkilö %{person} päivitetty."
     destroy:
       notice: "Henkilö %{person} poistettu."
+  policies:
+    create:
+      notice: "Sopimus %{policy} luotu."
+    update:
+      notice: "Sopimus %{policy} päivitetty."
+    destroy:
+      notice: "Sopimus %{policy} poistettu."
   reviews:
     create:
       notice: "Arvio %{review} luotu."

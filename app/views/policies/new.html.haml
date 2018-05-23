@@ -1,0 +1,16 @@
+- content_for :header do
+  %h2
+    = t('policies.new.new')
+    = t('policies.new.policy')
+- content_for :breadcrumb do
+  %li= link_to t('policies.title'), policies_path
+  %li.active
+    = t('policies.new.new')
+    = t('policies.new.policy')
+
+.content
+  .row
+    .col-md-3
+      = render 'policies/new'
+    .col-md-9
+      = render partial: 'form'

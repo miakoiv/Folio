@@ -119,6 +119,17 @@ fi:
       header: Henkilön poistaminen
       proceed: Poista henkilö pysyvästi
       warning_html: <h4><i class="fa fa-warning"></i> Varoitus</h4><p>Henkilön poistaminen tuhoaa lopullisesti kaikki tiedot ylläolevista asiakkuuksista.</p>
+  policies:
+    title: Palvelusopimukset
+    panel:
+      header: Sopimustiedot
+    headers:
+      accepted_at: Suostumus annettu
+      accepted_by: Suostumuksen antanut
+      published: Julkaistu
+    new:
+      new: Uusi
+      policy: sopimus
   posts:
     title: Ilmoitustaulu
     latest:

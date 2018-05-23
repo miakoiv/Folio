@@ -34,6 +34,9 @@ fi:
       person:
         one: henkilö
         other: henkilöt
+      policy:
+        one: sopimus
+        other: sopimukset
       post:
         one: merkintä
         other: merkinnät
@@ -112,6 +115,10 @@ fi:
         phone: Puhelinnumero
         postcode_id: Postiosoite
         updated_at: Viimeksi muutettu
+      policy:
+        content: Sisältö
+        mandatory: Pakollinen suostumus
+        title: Otsikko
       post:
         author_id: Kirjoittaja
         title: Otsikko

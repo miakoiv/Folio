@@ -1,0 +1,15 @@
+.hpanel.filter-item
+  = link_to policy do
+    .panel-body.social-board{class: policy.pending? && 'attention'}
+      .media.social-profile.clearfix
+        .media-left
+          = profile_image policy.accepted_by
+        .media-body
+          .pull-right.text-right
+            - if policy.mandatory?
+              %div
+                %span.label.label-primary
+                  = Policy.human_attribute_name(:mandatory)
+            %small.stat-label
+              = l(policy.created_at.to_date)
+          %h4= policy.title

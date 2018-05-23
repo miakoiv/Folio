@@ -1,0 +1,34 @@
+= bootstrap_form_for @policy,
+    html: {novalidate: true} do |f|
+  .hpanel.email-compose
+    .panel-heading.hbuilt
+      .pull-right
+        = link_to icon('close', t('actions.cancel')), @policy.new_record? ? policies_path : @policy, class: 'btn btn-xs btn-default'
+      = t('policies.panel.header')
+    .panel-heading.hbuilt
+      %fieldset.p-xs{disabled: editing_disabled?}
+        = f.text_field :title
+        .form-group
+          %label
+          .checkbox.checkbox-primary
+            = f.check_box_without_bootstrap :mandatory
+            = f.label :mandatory
+    .panel-body.no-padding
+      ~ f.text_area :content, skip_label: true, wrapper_class: 'm-b-none'
+    .panel-footer.actions
+      = f.submit class: 'btn btn-primary'
+
+:coffee
+  $('#policy_content').summernote
+    lang: '#{t("i18n.culture")}'
+    dialogsFade: true
+    disableDragAndDrop: true
+    minHeight: 200
+    maxHeight: 600
+    toolbar: [
+      ['para', ['ul', 'ol', 'paragraph']]
+      ['style', ['bold', 'italic', 'clear']]
+      ['color', ['color']]
+      ['insert', ['hr', 'link']]
+    ]
+    cleaner: cleaner_options

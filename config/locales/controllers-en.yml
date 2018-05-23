@@ -34,6 +34,13 @@ en:
       notice: "Person %{person} updated."
     destroy:
       notice: "Person %{person} deleted."
+  policies:
+    create:
+      notice: "Policy %{policy} created."
+    update:
+      notice: "Policy %{policy} updated."
+    destroy:
+      notice: "Policy %{policy} deleted."
   reviews:
     create:
       notice: "Review %{review} created."

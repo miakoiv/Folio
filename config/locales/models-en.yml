@@ -34,6 +34,9 @@ en:
       person:
         one: person
         other: people
+      policy:
+        one: agreement
+        other: agreements
       post:
         one: entry
         other: entries
@@ -112,6 +115,10 @@ en:
         phone: Phone number
         postcode_id: Postal address
         updated_at: Last changed
+      policy:
+        content: Content
+        mandatory: Mandatory agreement
+        title: Title
       post:
         author_id: Author
         title: Title

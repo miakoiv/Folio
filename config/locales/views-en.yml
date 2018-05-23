@@ -119,6 +119,17 @@ en:
       header: Deleting person
       proceed: Delete person permanently
       warning_html: <h4><i class="fa fa-warning"></i> Warning</h4><p>Deleting a person will permanently delete all data pertaining to the customer records above.</p>
+  policies:
+    title: Service agreements
+    panel:
+      header: Agreement details
+    headers:
+      accepted_at: Agreement accepted
+      accepted_by: Accepting party
+      published: Published
+    new:
+      new: New
+      policy: agreement
   posts:
     title: Notice board
     latest:

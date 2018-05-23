@@ -1,0 +1,13 @@
+.border-top.border-left.border-right.bg-light
+  .p-m
+    %dl.dl-horizontal.m-n
+      - if @policy.mandatory?
+        %dd.m-b
+          .label.label-primary= Policy.human_attribute_name(:mandatory)
+      %dt= t('.published')
+      %dd= l(@policy.created_at.to_date)
+      - if @policy.accepted?
+        %dt= t('.accepted_at')
+        %dd= l(@policy.accepted_at.to_date)
+        %dt= t('.accepted_by')
+        %dd= @policy.accepted_by

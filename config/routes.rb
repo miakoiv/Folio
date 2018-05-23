@@ -66,6 +66,10 @@ Rails.application.routes.draw do
     resources :comments, shallow: true, only: :create
   end
 
+  resources :policies do
+    patch :accept, on: :member
+  end
+
   post 'search', to: 'search#index', as: :search
 
   get 'reports', to: 'reports#index', as: :reports
