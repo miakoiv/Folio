@@ -33,6 +33,7 @@ class PeopleController < ApplicationController
 
   # GET /people/1
   # GET /people/1.json
+  # GET /people/1.xml
   def show
     disable_editing!
     track @person

@@ -69,6 +69,11 @@ class Person < ApplicationRecord
     [last_name, first_names].join ', '
   end
 
+  def education_to_s
+    return nil unless education_level.present?
+    education_level.needs_info? ? education_info : education_level.to_s
+  end
+
   # Text method for JSON responses to select2
   def text
     to_s

@@ -34,6 +34,11 @@ class Customer < ApplicationRecord
     contacts.map { |c| "#{c.first_names} #{c.last_name}" }.to_sentence
   end
 
+  def referrer_to_s
+    return nil unless referrer.present?
+    referrer.needs_info? ? referrer_info : referrer.to_s
+  end
+
   def to_s
     "#{model_name.human.capitalize} #{started_at}"
   end
