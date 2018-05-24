@@ -59,7 +59,7 @@ gem 'redis', '~> 3.0'
 
 # User authentication and authorization
 gem 'devise'
-gem 'two_factor_authentication', git: 'https://github.com/Houdini/two_factor_authentication.git'
+gem 'two_factor_authentication'
 gem 'rolify'
 gem 'authority'
 
