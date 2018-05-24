@@ -10,6 +10,7 @@
               %div
                 %span.label.label-primary
                   = Policy.human_attribute_name(:mandatory)
-            %small.stat-label
-              = l(policy.created_at.to_date)
+              - if policy.accepted?
+                %small.stat-label= l(policy.accepted_at.to_date)
           %h4= policy.title
+          %small= l(policy.created_at.to_date)
