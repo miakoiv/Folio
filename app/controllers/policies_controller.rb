@@ -76,7 +76,6 @@ class PoliciesController < ApplicationController
       end
     end
   end
-  authority_actions accept: :accept
 
   # DELETE /policy/1
   # DELETE /policy/1.json
