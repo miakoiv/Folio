@@ -42,7 +42,10 @@ Rails.application.routes.draw do
     resources :images, shallow: true
     resources :relationships, shallow: true, except: [:index, :show]
     get :parents, on: :collection
-    get :delete, on: :member
+    member do
+      get :download
+      get :delete
+    end
   end
 
   resources :users do

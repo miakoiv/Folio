@@ -5,6 +5,7 @@ fi:
     edit: Muokkaa
     back: Takaisin
     delete: Poista
+    download: Lataa
   activities:
     panel:
       header: Aktiviteetin yksityiskohdat

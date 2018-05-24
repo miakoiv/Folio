@@ -83,6 +83,10 @@ class Person < ApplicationRecord
     full_name
   end
 
+  def xml_filename
+    full_name.parameterize + '.xml'
+  end
+
   private
     # Before deleting a person, their activity records are scrubbed
     # to erase any personally identifiable information.

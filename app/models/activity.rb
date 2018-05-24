@@ -26,6 +26,7 @@ class Activity < ApplicationRecord
      update: {icon: 'pencil-square', appearance: 'success'},
     destroy: {icon: 'minus-circle', appearance: 'warning'},
      accept: {icon: 'check-circle', appearance: 'success'},
+   download: {icon: 'cloud-download', appearance: 'primary'},
       edit_password: {icon: 'key', appearance: 'info'},
     update_password: {icon: 'key', appearance: 'success'}
   }.freeze

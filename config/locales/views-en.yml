@@ -5,6 +5,7 @@ en:
     edit: Edit
     back: Back
     delete: Delete
+    download: Download
   activities:
     panel:
       header: Activity details

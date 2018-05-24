@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
 
-  before_action :set_person, only: [:show, :edit, :update, :delete, :destroy]
+  before_action :set_person, only: [:show, :edit, :update, :download, :delete, :destroy]
   before_action :set_customers, only: :show
   before_action :set_relationships, only: :show
 
@@ -78,6 +78,18 @@ class PeopleController < ApplicationController
         format.html { render :edit }
         format.json { render json: @person.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # GET /people/1/download.xml
+  def download
+    track @person
+
+    respond_to do |format|
+      format.xml {
+        stream = render_to_string template: 'people/download'
+        send_data stream, type: 'text/xml', filename: @person.xml_filename
+      }
     end
   end
 

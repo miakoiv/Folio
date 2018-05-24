@@ -18,6 +18,7 @@
           .pull-right
             = link_to icon('trash', t('actions.delete')), [:delete, @person],
                 remote: true, class: 'btn btn-xs btn-danger'
+            = link_to icon('cloud-download', t('actions.download')), download_person_path(@person, format: :xml), class: 'btn btn-xs btn-default'
             = link_to icon('pencil', t('actions.edit')), [:edit, @person],
                 class: 'btn btn-xs btn-primary'
           = icon('id-card', t('people.panel.header'))
