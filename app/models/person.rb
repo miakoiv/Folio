@@ -1,5 +1,8 @@
 class Person < ApplicationRecord
 
+  # Adds `creatable_by?(user)`, etc
+  include Authority::Abilities
+
   include Imageable
   include Trackable
 

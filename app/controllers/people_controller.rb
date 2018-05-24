@@ -83,6 +83,7 @@ class PeopleController < ApplicationController
 
   # GET /people/1/download.xml
   def download
+    authorize_action_for @person
     track @person
 
     respond_to do |format|

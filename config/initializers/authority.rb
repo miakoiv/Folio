@@ -20,15 +20,17 @@ Authority.configure do |config|
   #
   # Defaults are as follows:
   #
-  # config.controller_action_map = {
-  #   :index   => 'read',
-  #   :show    => 'read',
-  #   :new     => 'create',
-  #   :create  => 'create',
-  #   :edit    => 'update',
-  #   :update  => 'update',
-  #   :destroy => 'delete'
-  # }
+  config.controller_action_map = {
+    :index    => 'read',
+    :show     => 'read',
+    :new      => 'create',
+    :create   => 'create',
+    :edit     => 'update',
+    :update   => 'update',
+    :destroy  => 'delete',
+    :accept   => 'accept',
+    :download => 'download'
+  }
 
   # ABILITIES
   # =========
@@ -43,7 +45,8 @@ Authority.configure do |config|
     :read   => 'readable',
     :update => 'updatable',
     :delete => 'deletable',
-    :accept => 'acceptable'
+    :accept => 'acceptable',
+    :download => 'downloadable'
   }
 
   # LOGGER
