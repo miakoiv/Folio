@@ -81,6 +81,10 @@ fi:
       header: Asiakkuuden tiedot
     new:
       title: Uusi asiakkuus
+    delete:
+      header: Asiakkuuden poistaminen
+      proceed: Poista asiakkuus pysyvästi
+      warning_html: <h4><i class="fa fa-warning"></i> Varoitus</h4><p>Asiakkuuden poistaminen tuhoaa lopullisesti kaikki allaolevat muistiinpanot, tapahtumat ja arviot.</p>
   memos:
     panel:
       header: Viestit

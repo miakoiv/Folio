@@ -17,6 +17,10 @@
       .hpanel
         .panel-heading.hbuilt
           .pull-right
+            - if current_user.can_delete?(@customer)
+              = link_to icon('trash', t('actions.delete')),
+                  [:delete, @customer], remote: true,
+                  class: 'btn btn-xs btn-danger'
             = link_to icon('pencil', t('actions.edit')), [:edit, @customer],
                 class: 'btn btn-xs btn-primary'
           = icon('handshake-o', t('customers.panel.header'))

@@ -1,5 +1,8 @@
 class Customer < ApplicationRecord
 
+  # Adds `creatable_by?(user)`, etc
+  include Authority::Abilities
+
   include Documentable
   include Trackable
 

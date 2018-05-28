@@ -38,6 +38,7 @@ Rails.application.routes.draw do
         patch :save, on: :member
       end
       resources :steps, except: :index
+      get :delete, on: :member
     end
     resources :images, shallow: true
     resources :relationships, shallow: true, except: [:index, :show]

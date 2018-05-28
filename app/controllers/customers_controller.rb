@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
 
   before_action :set_person, only: [:new, :create]
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:show, :edit, :update, :delete, :destroy]
 
   # GET /customers/1
   # GET /customers/1.json
@@ -55,9 +55,17 @@ class CustomersController < ApplicationController
     end
   end
 
+  # GET /customers/1/delete.js
+  def delete
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # DELETE /customers/1
   # DELETE /customers/1.json
   def destroy
+    authorize_action_for @customer
     @person = @customer.person
     track @customer
     @customer.destroy

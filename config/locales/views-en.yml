@@ -81,6 +81,10 @@ en:
       header: Customer information
     new:
       title: New customer
+    delete:
+      header: Deleting customer
+      proceed: Delete customer permanently
+      warning_html: <h4><i class="fa fa-warning"></i> Warning</h4><p>Deleting a customer will permanently delete all data shown below, including notes, events, and reviews.</p>
   memos:
     panel:
       header: Messages
