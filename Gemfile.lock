@@ -157,7 +157,7 @@ GEM
     method_source (0.9.0)
     mini_magick (4.8.0)
     mini_mime (1.0.0)
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.4.0)
     minitest (5.11.1)
     momentjs-rails (2.17.1)
       railties (>= 3.1)
@@ -167,8 +167,8 @@ GEM
     multi_xml (0.6.0)
     mysql2 (0.4.10)
     nio4r (2.2.0)
-    nokogiri (1.8.1)
-      mini_portile2 (~> 2.3.0)
+    nokogiri (1.10.4)
+      mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     public_suffix (3.0.1)
     rack (2.0.3)
@@ -316,6 +316,7 @@ DEPENDENCIES
   mini_magick (>= 4.3.5)
   momentjs-rails
   mysql2 (>= 0.3.18, < 0.5)
+  nokogiri (>= 1.10.4)
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-erd
   redis (~> 3.0)
@@ -337,4 +338,4 @@ DEPENDENCIES
   yaml_db
 
 BUNDLED WITH
-   1.14.3
+   1.16.5

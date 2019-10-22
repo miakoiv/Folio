@@ -72,6 +72,7 @@ gem 'iso-639'
 
 # Gems to import records from zip files
 gem 'rubyzip'
+gem 'nokogiri', '>= 1.10.4'
 gem 'activerecord-import'
 
 # HTTP abstraction for seeding the database
