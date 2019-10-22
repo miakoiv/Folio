@@ -58,7 +58,7 @@ gem 'redis', '~> 3.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 # User authentication and authorization
-gem 'devise'
+gem 'devise', '~> 4.7.1'
 gem 'two_factor_authentication'
 gem 'rolify'
 gem 'authority'
