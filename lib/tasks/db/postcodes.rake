@@ -1,52 +1,41 @@
-require 'net/ftp'
-require 'zip'
 require 'activerecord-import/base'
 ActiveRecord::Import.require_adapter 'mysql2'
 
 namespace :db do
-  desc 'Import Finnish postcodes from posti.fi via FTP'
+  desc 'Import Finnish postcodes from posti.fi via HTTPS'
 
   task postcodes: :environment do
 
-    tempfile = Tempfile.new 'postcodes'
-
     # Downloads the contents of the latest PCF file at
-    # ftp://webpcode:webpcode@ftp2.itella.com/
-    Net::FTP.open 'ftp2.itella.com' do |ftp|
-      ftp.login 'webpcode', 'webpcode'
-      file = ftp.nlst.find { |f| f.start_with? 'PCF' }
-      puts "[postcodes] downloading file #{file}"
-      ftp.getbinaryfile file, tempfile.path
-      ftp.close
-    end
+    # https://www.posti.fi/webpcode/
+    idx = HTTParty.get('https://www.posti.fi/webpcode/unzip/').parsed_response
+    html = Nokogiri::HTML idx
+    url = html.xpath('//a').find { |a| /PCF_\d+\.dat/.match(a['href']) }['href']
+    puts "[postcodes] downloading file at #{url}"
+    file = HTTParty.get(url).parsed_response
 
-    puts "[postcodes] unzipping and parsing"
-    tempfile.rewind
     postcodes = []
     municipalities = []
     line_format = '@13A5A30A30@176A3A20A20'
 
-    # Extracts the file from the zip package and parses
-    # its lines for postal code, postal code name, and
+    # Parses the file for postal code, postal code name, and
     # municipality in two languages
-    Zip::File.open tempfile do |zipfile|
-      zipfile.first.get_input_stream.each_line do |line|
-        fields = line.unpack line_format
-        fields.each { |f| f.encode! 'utf-8', 'iso-8859-1' }
-        pcode, pname_fi, pname_sv, mcode, mname_fi, mname_sv = fields
-        mid = mcode.to_i
-        postcodes << Postcode.new(
-          code: pcode,
-          name_fi: pname_fi,
-          name_sv: pname_sv,
-          municipality_id: mid
-        )
-        municipalities[mid] ||= Municipality.new(
-          id: mid,
-          name_fi: mname_fi,
-          name_sv: mname_sv
-        )
-      end
+    file.each_line do |line|
+      fields = line.unpack line_format
+      fields.each { |f| f.encode! 'utf-8', 'iso-8859-1' }
+      pcode, pname_fi, pname_sv, mcode, mname_fi, mname_sv = fields
+      mid = mcode.to_i
+      postcodes << Postcode.new(
+        code: pcode,
+        name_fi: pname_fi,
+        name_sv: pname_sv,
+        municipality_id: mid
+      )
+      municipalities[mid] ||= Municipality.new(
+        id: mid,
+        name_fi: mname_fi,
+        name_sv: mname_sv
+      )
     end
 
     if postcodes.any?
@@ -59,8 +48,5 @@ namespace :db do
       Postcode.import postcodes
       Municipality.import municipalities
     end
-
-    tempfile.close
-    tempfile.unlink
   end
 end
