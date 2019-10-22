@@ -12,16 +12,16 @@ namespace :db do
     referrers = Referrer.all
 
     records.each do |r|
-      creation = Date.parse(r['registered'])
+      creation = Date.parse(r['registered']['date'])
       postcode = postcodes.sample
 
       person = Person.create(
         identification: r['id']['value'],
-        date_of_birth: r['dob'],
+        date_of_birth: r['dob']['date'],
         gender: r['gender'].first,
         last_name: r['name']['last'].capitalize,
         first_names: r['name']['first'].capitalize,
-        address: r['location']['street'].titleize,
+        address: r['location']['street']['name'].titleize,
         postcode: postcode,
         municipality: postcode.municipality,
         email: r['email'],
