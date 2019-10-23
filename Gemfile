@@ -16,7 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'sprockets', '~> 3.7.2'
+gem 'sprockets', '~> 4.0.0'
 
 # Just the right amount of eager loading
 gem 'goldiloader'
