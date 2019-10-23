@@ -9,13 +9,14 @@ gem 'yaml_db'
 # Use Puma as the app server
 # gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sassc-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'sprockets', '~> 3.7.2'
 
 # Just the right amount of eager loading
 gem 'goldiloader'
@@ -45,7 +46,7 @@ gem 'searchlight'
 # Image uploads
 gem 'shrine'
 gem 'image_processing'
-gem 'mini_magick', '>= 4.3.5'
+gem 'mini_magick', '>= 4.9.5'
 gem 'dropzonejs-rails'
 
 # Use jquery as the JavaScript library
