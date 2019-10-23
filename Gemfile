@@ -70,8 +70,7 @@ gem 'rqrcode'
 gem 'country_select'
 gem 'iso-639'
 
-# Gems to import records from zip files
-gem 'rubyzip'
+# Record importing
 gem 'nokogiri', '>= 1.10.4'
 gem 'activerecord-import'
 
